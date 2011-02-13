@@ -1,0 +1,14 @@
+plugin.tx_theaterinfo {
+	view {
+		 # cat=plugin.tx_theaterinfo/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:theaterinfo/Resources/Private/Templates/
+		 # cat=plugin.tx_theaterinfo/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:theaterinfo/Resources/Private/Partials/
+		 # cat=plugin.tx_theaterinfo/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:theaterinfo/Resources/Private/Layouts/
+	}
+	persistence {
+		 # cat=plugin.tx_theaterinfo//a; type=int+; label=Default storage PID
+		storagePid =
+	}
+}

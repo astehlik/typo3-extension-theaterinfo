@@ -1,0 +1,22 @@
+ # Plugin configuration
+plugin.tx_theaterinfo {
+	settings {
+		 # maximum number of posts to display at once
+		maxPlays = 10
+
+		 # This is an example how to modify the translation
+		_LOCAL_LANG {
+			default {
+				show_details = Show details 
+			}
+		}
+	}
+	persistence {
+		storagePid = {$plugin.tx_theaterinfo.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$plugin.tx_theaterinfo.view.templateRootPath}
+		partialRootPath = {$plugin.tx_theaterinfo.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_theaterinfo.view.layoutRootPath}
+	}
+}

@@ -1,0 +1,60 @@
+<f:layout name="default" />
+
+<f:section name="content">
+	<div class="innercontent floatbox">
+	<h1>{play.title}</h1>	
+	<p><b>von: </b><br/><f:format.nl2br>{play.author}</f:format.nl2br></p>
+	</div>
+	
+	<div class="innercontent floatbox">
+	<h1>Besetzung</h1>
+	<table>
+		<f:for each="{play.roles}" as="role">
+		<tr>
+			<td>
+				{role.name}
+			</td>
+			<td>
+				<f:for each="{role.actors}" as="actor">
+					<f:if condition="{actor.type}">
+						<f:then>							
+							{actor.company}
+						</f:then>
+						<f:else>
+							{actor.firstname} {actor.lastname}
+						</f:else>
+					</f:if>
+					 <br />
+				</f:for>
+			</td>
+		</tr>
+		</f:for>							
+	</table>
+	</div>
+	
+	<div class="innercontent floatbox">
+	<h1>Hinter den Kulissen</h1>
+	<table>
+		<f:for each="{play.helpers}" as="helper">
+		<tr>
+			<td>
+				{helper.helpertype.jobtitle}
+			</td>
+			<td>
+				<f:for each="{helper.actors}" as="actor">
+					<f:if condition="{actor.type}">
+						<f:then>							
+							{actor.company}
+						</f:then>
+						<f:else>
+							{actor.firstname} {actor.lastname}
+						</f:else>
+					</f:if>
+					 <br />
+				</f:for>
+			</td>
+		</tr>
+		</f:for>							
+	</table>
+	</div>
+</f:section>
