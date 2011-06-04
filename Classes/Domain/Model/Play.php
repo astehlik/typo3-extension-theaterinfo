@@ -131,9 +131,13 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string
 	 */
 	public function getLogo() {
-		t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
-		$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
-		return $folder . $this->logo;
+		if (strlen(trim($this->logo))) {
+			t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
+			$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
+			return $folder . $this->logo;
+		} else {
+			return '';
+		}
 	}
 
 	/**
@@ -148,8 +152,10 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 		$pictures = t3lib_div::trimExplode(',', $this->pictures);
 
 		$picturesWithPath = array();
-		foreach ($pictures as $picture) {
-			$picturesWithPath[] = $folder . $picture;
+		if (strlen($pictures)) {
+			foreach ($pictures as $picture) {
+				$picturesWithPath[] = $folder . $picture;
+			}
 		}
 
 		return $picturesWithPath;
