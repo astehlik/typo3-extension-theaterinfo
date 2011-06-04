@@ -7,88 +7,88 @@ include_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterin
 
 $TCA['tx_theaterinfo_domain_model_play'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_play',		
-		'label'     => 'title',	
+		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_play',
+		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'default_sortby' => 'ORDER BY time_sort',	
-		'delete' => 'deleted',	
-		'enablecolumns' => array (		
+		'default_sortby' => 'ORDER BY time_sort',
+		'delete' => 'deleted',
+		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
 		'dividers2tabs' => 1,
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
 	),
 );
 
 $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_actor',		
+		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_actor',
 		'label'     => 'lastname',
 		'label_userFunc' => 'tx_theaterinfo_hooks_titles->getActorTitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'default_sortby' => 'ORDER BY lastname, firstname',	
-		'delete' => 'deleted',	
+		'default_sortby' => 'ORDER BY lastname, firstname',
+		'delete' => 'deleted',
 		'type' => 'type',
-		'enablecolumns' => array (		
+		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
 	),
 );
 
 $TCA['tx_theaterinfo_domain_model_helpertype'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helpertype',		
-		'label'     => 'jobtitle',	
+		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helpertype',
+		'label'     => 'jobtitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'default_sortby' => 'ORDER BY jobtitle',	
-		'delete' => 'deleted',	
-		'enablecolumns' => array (		
+		'default_sortby' => 'ORDER BY jobtitle',
+		'delete' => 'deleted',
+		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
 	),
 );
 
 $TCA['tx_theaterinfo_domain_model_role'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_role',		
-		'label'     => 'name',	
+		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_role',
+		'label'     => 'name',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'sortby' => 'sorting',	
-		'delete' => 'deleted',	
-		'enablecolumns' => array (		
+		'sortby' => 'sorting',
+		'delete' => 'deleted',
+		'enablecolumns' => array (
 			'disabled' => 'hidden',
-		),		
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca.php',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_role.gif',
 	),
 );
 
 $TCA['tx_theaterinfo_domain_model_helper'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helper',		
-		'label'     => 'helpertype',	
+		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helper',
+		'label'     => 'helpertype',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'sortby' => 'sorting',	
-		'delete' => 'deleted',	
-		'enablecolumns' => array (		
+		'sortby' => 'sorting',
+		'delete' => 'deleted',
+		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
 	),
 );
@@ -98,13 +98,10 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Theater info'
 $extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY);
 $pluginSignature = strtolower($extensionName) . '_pi1';
 
-/**
- * Registers a Plugin to be listed in the Backend. You also have to configure the Dispatcher in ext_localconf.php.
- */
 Tx_Extbase_Utility_Extension::registerPlugin(
-	$_EXTKEY,// The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-	'Pi1',				// A unique name of the plugin in UpperCamelCase
-	'Theater info'	// A title shown in the backend dropdown field
+	$_EXTKEY,
+	'Pi1',
+	'Theater info'
 );
 
 

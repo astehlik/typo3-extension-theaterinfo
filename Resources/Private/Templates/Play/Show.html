@@ -4,32 +4,39 @@
 
 <div class="theaterinfo-play-show">
 
-	<div class="innercontent csc-default csc-textpic csc-textpic-intext-right">
+	<div class="innercontent csc-default">
 	
-		<h1>{play.title}</h1>
+		<div class="floatbox">
 		
-		<div class="csc-textpic-imagewrap csc-textpic-single-image">
-			<a href="{f:uri.image(src:'{play.logo}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
-				<f:image src="{play.logo}" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
-			</a>
+			<div class=" csc-textpic csc-textpic-intext-right">
+	
+				<h1>{play.title}</h1>
+				
+				<div class="csc-textpic-imagewrap csc-textpic-single-image">
+					<a href="{f:uri.image(src:'{play.logo}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
+						<f:image src="{play.logo}" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
+					</a>
+				</div>
+				
+				<div class="csc-textpic-text">	
+				
+					<h3>Autoren</h3>
+					<p><f:format.nl2br>{play.author}</f:format.nl2br></p>
+					
+					<h3>Status</h3>
+					<p><f:translate key="play_state_{play.state}">Status {play.state}</f:translate></p>
+					
+					<h3>Aufführungszeit</h3>
+					<p>{play.timeDisplay}</p>
+					
+					<p><f:link.action action="list" class="backlink">zurück zur Übersicht</f:link.action></p>
+					
+				</div>
+				
+				<div class="csc-textpic-clear"></div>
+				
+			</div>
 		</div>
-		
-		<div class="csc-textpic-text">	
-		
-			<h3>Autoren</h3>
-			<p><f:format.nl2br>{play.author}</f:format.nl2br></p>
-			
-			<h3>Status</h3>
-			<p><f:translate key="play_state_{play.state}">Status {play.state}</f:translate></p>
-			
-			<h3>Aufführungszeit</h3>
-			<p>{play.timeDisplay}</p>
-			
-			<p><f:link.action action="list" class="backlink">zurück zur Übersicht</f:link.action></p>
-			
-		</div>
-		
-		<div class="csc-textpic-clear"></div>
 	</div>
 	
 	<div class="innercontent csc-default">
