@@ -152,7 +152,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 		$pictures = t3lib_div::trimExplode(',', $this->pictures);
 
 		$picturesWithPath = array();
-		if (strlen($pictures)) {
+		if (strlen($pictures[0])) {
 			foreach ($pictures as $picture) {
 				$picturesWithPath[] = $folder . $picture;
 			}
