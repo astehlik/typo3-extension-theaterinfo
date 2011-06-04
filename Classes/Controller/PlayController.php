@@ -50,7 +50,7 @@ class Tx_Theaterinfo_Controller_PlayController extends Tx_Extbase_MVC_Controller
 	 *
 	 * @return string
 	 */
-	public function indexAction() {		
+	public function listAction() {
 		$this->view->assign('plays', $this->playRepository->findAll());
 	}
 

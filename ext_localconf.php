@@ -2,6 +2,7 @@
 if (!defined ('TYPO3_MODE')) {
  	die ('Access denied.');
 }
+
 if (!defined ('THEATERINFO_EXTkey')) {
 	define('THEATERINFO_EXTkey',$_EXTKEY);
 }
@@ -23,19 +24,17 @@ RTE.config.tx_theaterinfo_domain_model_play.action {
 }
 ');
 
-t3lib_extMgm::addUserTSConfig('mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_helper,tx_theaterinfo_domain_model_role)');
 t3lib_extMgm::addUserTSConfig('
+	mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_helper,tx_theaterinfo_domain_model_role)
 	options.saveDocNew.tx_theaterinfo_domain_model_helper=1
-');
-t3lib_extMgm::addUserTSConfig('
 	options.saveDocNew.tx_theaterinfo_domain_model_actor=1
 ');
 
-if (TYPO3_MODE=='BE')    {    
+if (TYPO3_MODE=='BE')    {
     require_once(PATH_t3lib . 'interfaces/interface.t3lib_localrecordlistgettablehook.php');
-    
+
     require_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
-    $TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 
+    $TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] =
     	'tx_theaterinfo_hooks_dblist';
 }
 
@@ -45,12 +44,11 @@ if (TYPO3_MODE=='BE')    {
  * the user input (default settings, FlexForm, URL etc.)
  */
 Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,																		// The extension name (in UpperCamelCase) or the extension key (in lower_underscore)
-	'Pi1',																			// A unique name of the plugin in UpperCamelCase
-	array(																			// An array holding the controller-action-combinations that are accessible 
-		'Play' => 'index,show',
-		),
-	array(																			// An array of non-cachable controller-action-combinations (they must already be enabled)
-		)
+	$_EXTKEY,
+	'Pi1',
+	array(
+		'Play' => 'list, show',
+	),
+	array()
 );
 ?>

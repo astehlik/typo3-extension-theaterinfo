@@ -32,67 +32,67 @@
 
 
 class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractEntity {
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $title;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $author;
-	
+
 	/**
-	 * 
+	 *
 	 * @var DateTime
 	 */
 	protected $time_sort;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
-	protected $time_display;
-	
+	protected $timeDisplay;
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $logo;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $pictures;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $action;
-	
+
 	/**
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $state;
-	
+
 	/**
-	 * 
+	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Helper>
 	 */
 	protected $helpers;
-	
+
 	/**
-	 * 
+	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Role>
 	 */
 	protected $roles;
-	
+
 
 	/**
 	 * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
@@ -101,17 +101,17 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 		$this->roles = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->helpers = new Tx_Extbase_Persistence_ObjectStorage();
 	}
-	
+
 	public function getTitle() {
 		return $this->title;
 	}
 	public function getAction() {
-		return $this->action; 
+		return $this->action;
 	}
 	public function getAuthor() {
 		return $this->author;
 	}
-	
+
 	/**
 	 * Returns all roles in this play
 	 *
@@ -120,9 +120,57 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	public function getRoles() {
 		return $this->roles;
 	}
-	
+
 	public function getHelpers() {
 		return $this->helpers;
+	}
+
+	/**
+	 * Getter for the logo file
+	 *
+	 * @return string
+	 */
+	public function getLogo() {
+		t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
+		$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
+		return $folder . $this->logo;
+	}
+
+	/**
+	 * Getter for the pictures of this play
+	 *
+	 * @return array
+	 */
+	public function getPictures() {
+
+		t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
+		$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['pictures']['config']['uploadfolder'];
+		$pictures = t3lib_div::trimExplode(',', $this->pictures);
+
+		$picturesWithPath = array();
+		foreach ($pictures as $picture) {
+			$picturesWithPath[] = $folder . $picture;
+		}
+
+		return $picturesWithPath;
+	}
+
+	/**
+	 * Getter for the state of the play
+	 *
+	 * @return string
+	 */
+	public function getState() {
+	 	return $this->state;
+	}
+
+	/**
+	 * Getter for the time
+	 *
+	 * @return string
+	 */
+	public function getTimeDisplay() {
+		return $this->timeDisplay;
 	}
 }
 ?>
