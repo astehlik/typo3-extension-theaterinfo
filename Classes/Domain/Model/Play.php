@@ -49,7 +49,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 *
 	 * @var DateTime
 	 */
-	protected $time_sort;
+	protected $timeSort;
 
 	/**
 	 *
@@ -171,6 +171,15 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getTimeDisplay() {
 		return $this->timeDisplay;
+	}
+
+	/**
+	 * Getter for the sort time
+	 *
+	 * @return string
+	 */
+	public function getTimeSort() {
+		return $this->timeSort;
 	}
 }
 ?>

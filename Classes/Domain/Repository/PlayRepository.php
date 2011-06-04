@@ -30,5 +30,15 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_Theaterinfo_Domain_Repository_PlayRepository extends Tx_Extbase_Persistence_Repository {
+
+	/**
+	 * Constructs a new Repository
+	 *
+	 * @param Tx_Extbase_Object_ObjectManagerInterface $objectManager
+	 */
+	public function __construct(Tx_Extbase_Object_ObjectManagerInterface $objectManager = NULL) {
+		parent::__construct($objectManager);
+		$this->setDefaultOrderings(array('timeSort' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING));
+	}
 }
 ?>
