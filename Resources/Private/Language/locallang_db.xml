@@ -12,7 +12,7 @@
 			<label index="tx_theaterinfo_domain_model_actor.type.I.1">Company</label>
 			<label index="tx_theaterinfo_domain_model_actor.gender">Gender</label>
 			<label index="tx_theaterinfo_domain_model_actor.gender.I.0">Male</label>
-			<label index="tx_theaterinfo_domain_model_actor.gender.I.1">Female</label>			
+			<label index="tx_theaterinfo_domain_model_actor.gender.I.1">Female</label>
 			<label index="tx_theaterinfo_domain_model_actor.firstname">First name</label>
 			<label index="tx_theaterinfo_domain_model_actor.lastname">Last name</label>
 			<label index="tx_theaterinfo_domain_model_actor.company">Company name</label>
@@ -30,6 +30,7 @@
 			<label index="tx_theaterinfo_domain_model_play.author">Author(s)</label>
 			<label index="tx_theaterinfo_domain_model_play.time_sort">Sort time</label>
 			<label index="tx_theaterinfo_domain_model_play.time_display">Display time</label>
+			<label index="tx_theaterinfo_domain_model_play.teaser">Teaser</label>
 			<label index="tx_theaterinfo_domain_model_play.action">Action</label>
 			<label index="tx_theaterinfo_domain_model_play.logo">Logo</label>
 			<label index="tx_theaterinfo_domain_model_play.pictures">Pictures</label>
@@ -39,7 +40,9 @@
 			<label index="tx_theaterinfo_domain_model_play.state.I.3">Completed</label>
 			<label index="tx_theaterinfo_domain_model_play.state">State</label>
 			<label index="tx_theaterinfo_domain_model_play.roles">Roles</label>
+			<label index="tx_theaterinfo_domain_model_play.hide_roles">Hide roles</label>
 			<label index="tx_theaterinfo_domain_model_play.helpers">Helpers</label>
+			<label index="tx_theaterinfo_domain_model_play.hide_helpers">Hide helpers</label>
 			<label index="tx_theaterinfo_domain_model_play.advance_sale">Advance Sale / Further information</label>
 			<label index="tx_theaterinfo_domain_model_helper">Helper</label>
 			<label index="tx_theaterinfo_domain_model_helper.helpertype">Helpertype</label>
@@ -53,7 +56,7 @@
 			<label index="tx_theaterinfo_domain_model_actor.type.I.1">Firma</label>
 			<label index="tx_theaterinfo_domain_model_actor.gender">Geschlecht</label>
 			<label index="tx_theaterinfo_domain_model_actor.gender.I.0">Männlich</label>
-			<label index="tx_theaterinfo_domain_model_actor.gender.I.1">Weiblich</label>			
+			<label index="tx_theaterinfo_domain_model_actor.gender.I.1">Weiblich</label>
 			<label index="tx_theaterinfo_domain_model_actor.firstname">Vorname</label>
 			<label index="tx_theaterinfo_domain_model_actor.lastname">Nachname</label>
 			<label index="tx_theaterinfo_domain_model_actor.company">Firmenname</label>
@@ -71,6 +74,7 @@
 			<label index="tx_theaterinfo_domain_model_play.author">Autor(en)</label>
 			<label index="tx_theaterinfo_domain_model_play.time_sort">Zeit (zum Sortieren)</label>
 			<label index="tx_theaterinfo_domain_model_play.time_display">Zeit (zum Anzeigen)</label>
+			<label index="tx_theaterinfo_domain_model_play.teaser">Kurzbeschreibung</label>
 			<label index="tx_theaterinfo_domain_model_play.action">Handlung</label>
 			<label index="tx_theaterinfo_domain_model_play.logo">Logo</label>
 			<label index="tx_theaterinfo_domain_model_play.pictures">Photos</label>
@@ -79,8 +83,10 @@
 			<label index="tx_theaterinfo_domain_model_play.state.I.2">Aufführungen laufen</label>
 			<label index="tx_theaterinfo_domain_model_play.state.I.3">Aufgeführt</label>
 			<label index="tx_theaterinfo_domain_model_play.state">Status</label>
-			<label index="tx_theaterinfo_domain_model_play.roles">Rollen</label>			
+			<label index="tx_theaterinfo_domain_model_play.roles">Rollen</label>
+			<label index="tx_theaterinfo_domain_model_play.hide_roles">Rollen verbergen</label>
 			<label index="tx_theaterinfo_domain_model_play.helpers">Helfer</label>
+			<label index="tx_theaterinfo_domain_model_play.hide_helpers">Helfer verbergen</label>
 			<label index="tx_theaterinfo_domain_model_play.advance_sale">Vorverkauf / Weitere Informationen</label>
 			<label index="tx_theaterinfo_domain_model_helper">Helfer</label>
 			<label index="tx_theaterinfo_domain_model_helper.helpertype">Helfertyp</label>

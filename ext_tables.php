@@ -7,7 +7,7 @@ include_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterin
 
 $TCA['tx_theaterinfo_domain_model_play'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_play',
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play',
 		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -25,7 +25,7 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 
 $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_actor',
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor',
 		'label'     => 'lastname',
 		'label_userFunc' => 'tx_theaterinfo_hooks_titles->getActorTitle',
 		'tstamp'    => 'tstamp',
@@ -44,7 +44,7 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 
 $TCA['tx_theaterinfo_domain_model_helpertype'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helpertype',
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helpertype',
 		'label'     => 'jobtitle',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -61,7 +61,7 @@ $TCA['tx_theaterinfo_domain_model_helpertype'] = array (
 
 $TCA['tx_theaterinfo_domain_model_role'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_role',
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_role',
 		'label'     => 'name',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -78,7 +78,7 @@ $TCA['tx_theaterinfo_domain_model_role'] = array (
 
 $TCA['tx_theaterinfo_domain_model_helper'] = array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:theaterinfo/locallang_db.xml:tx_theaterinfo_domain_model_helper',
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helper',
 		'label'     => 'helpertype',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',

@@ -9,19 +9,28 @@ if (!defined ('THEATERINFO_EXTkey')) {
 
 t3lib_extMgm::addPageTSConfig('
 
+
+mod.tx_linkhandler.tx_theaterinfo_play {
+	label = Stück
+	listTables = tx_theaterinfo_domain_model_play
+}
+
+RTE.default.tx_linkhandler.tx_theaterinfo_play < mod.tx_linkhandler.tx_theaterinfo_play
+
 	# ***************************************************************************************
 	# CONFIGURATION of RTE in table "tx_theaterinfo_domain_model_play", field "action"
 	# ***************************************************************************************
 RTE.config.tx_theaterinfo_domain_model_play.action {
-  hidePStyleItems = H1, H4, H5, H6
-  proc.exitHTMLparser_db=1
-  proc.exitHTMLparser_db {
-    keepNonMatchedTags=1
-    tags.font.allowedAttribs= color
-    tags.font.rmTagIfNoAttrib = 1
-    tags.font.nesting = global
-  }
+	hidePStyleItems = H1, H4, H5, H6
+	proc.exitHTMLparser_db=1
+	proc.exitHTMLparser_db {
+		keepNonMatchedTags=1
+		tags.font.allowedAttribs= color
+		tags.font.rmTagIfNoAttrib = 1
+		tags.font.nesting = global
+	}
 }
+
 ');
 
 t3lib_extMgm::addUserTSConfig('

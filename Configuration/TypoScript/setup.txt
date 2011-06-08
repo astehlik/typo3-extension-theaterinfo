@@ -1,22 +1,26 @@
- # Plugin configuration
+
+
 plugin.tx_theaterinfo {
+
 	settings {
-		 # maximum number of posts to display at once
+
+			// maximum number of posts to display at once
 		maxPlays = 10
 
-		 # This is an example how to modify the translation
-		_LOCAL_LANG {
-			default {
-				show_details = Show details 
-			}
-		}
 	}
-	persistence {
-		storagePid = {$plugin.tx_theaterinfo.persistence.storagePid}
+
+}
+
+
+plugin.tx_linkhandler {
+
+	tx_theaterinfo_domain_model_play {
+		
+		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
+		additionalParams = &tx_theaterinfo_pi1[controller]=Play&tx_theaterinfo_pi1[action]=show&tx_theaterinfo_pi1[play]={field:uid}
+		additionalParams.insertData = 1 
+		useCacheHash = 1
+	
 	}
-	view {
-		templateRootPath = {$plugin.tx_theaterinfo.view.templateRootPath}
-		partialRootPath = {$plugin.tx_theaterinfo.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_theaterinfo.view.layoutRootPath}
-	}
+
 }

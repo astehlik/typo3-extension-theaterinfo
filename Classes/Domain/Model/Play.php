@@ -37,7 +37,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 *
 	 * @var string
 	 */
-	protected $title;
+	protected $action;
 
 	/**
 	 *
@@ -47,15 +47,19 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var DateTime
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Helper>
 	 */
-	protected $timeSort;
+	protected $helpers;
 
 	/**
-	 *
-	 * @var string
+	 * @var boolean TRUE if helpers should not be shown
 	 */
-	protected $timeDisplay;
+	protected $hideHelpers;
+
+	/**
+	 * @var boolean TRUE if helpers should not be shown
+	 */
+	protected $hideRoles;
 
 	/**
 	 *
@@ -71,9 +75,9 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var string
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Role>
 	 */
-	protected $action;
+	protected $roles;
 
 	/**
 	 *
@@ -83,15 +87,21 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Helper>
+	 * @var string
 	 */
-	protected $helpers;
+	protected $timeDisplay;
 
 	/**
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Role>
+	 * @var DateTime
 	 */
-	protected $roles;
+	protected $timeSort;
+
+	/**
+	 *
+	 * @var string
+	 */
+	protected $title;
 
 
 	/**
@@ -105,9 +115,11 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	public function getTitle() {
 		return $this->title;
 	}
+
 	public function getAction() {
 		return $this->action;
 	}
+
 	public function getAuthor() {
 		return $this->author;
 	}
@@ -118,11 +130,26 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getRoles() {
-		return $this->roles;
+
+		if (!isset($this->roles)) {
+			return new Tx_Extbase_Persistence_ObjectStorage();
+		} else {
+			return $this->roles;
+		}
 	}
 
+	/**
+	 * Returns all helpers of this play
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
 	public function getHelpers() {
-		return $this->helpers;
+
+		if (!isset($this->helpers)) {
+			return new Tx_Extbase_Persistence_ObjectStorage();
+		} else {
+			return $this->helpers;
+		}
 	}
 
 	/**
@@ -159,6 +186,43 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 		}
 
 		return $picturesWithPath;
+	}
+
+	/**
+	 * Returns TRUE if the helpers should be displayed
+	 *
+	 * @return boolean
+	 */
+	public function getShowHelpers() {
+
+		if ($this->hideHelpers) {
+			return FALSE;
+		}
+
+		$helpers = $this->getHelpers();
+		if ($helpers->count()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/**
+	 * Returns TRUE if the roles should be displayed
+	 *
+	 * @return boolean
+	 */
+	public function getShowRoles() {
+		if ($this->hideRoles) {
+			return FALSE;
+		}
+
+		$roles = $this->getRoles();
+		if ($roles->count()) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 
 	/**

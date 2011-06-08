@@ -56,11 +56,11 @@
 						<li><a href="#theaterinfo-play-show-pictures">Bilder</a></li>
 					</f:if>
 					
-					<f:if condition="{play.roles}">
+					<f:if condition="{play.showRoles}">
 						<li><a href="#theaterinfo-play-show-roles">Besetzung</a></li>
 					</f:if>
 					
-					<f:if condition="{play.helpers}">
+					<f:if condition="{play.showHelpers}">
 						<li><a href="#theaterinfo-play-show-helpers">Hinter den Kulissen</a></li>
 					</f:if>
 				</ul>
@@ -89,7 +89,7 @@
 					</div>
 				</f:if>
 			
-				<f:if condition="{play.roles}">
+				<f:if condition="{play.showRoles}">
 					<div id="theaterinfo-play-show-roles">
 						<h2>Besetzung</h2>
 						<table class="full">
@@ -117,7 +117,7 @@
 					</div>
 				</f:if>
 			
-				<f:if condition="{play.helpers}">
+				<f:if condition="{play.showHelpers}">
 					<div id="theaterinfo-play-show-helpers">
 						<h2>Hinter den Kulissen</h2>
 						<table class="full">
