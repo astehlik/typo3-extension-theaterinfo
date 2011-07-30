@@ -20,7 +20,7 @@
 			<label index="tx_theaterinfo_domain_model_actor.management_positions">Management positions</label>
 			<label index="tx_theaterinfo_domain_model_actor.management_reasons">Reasons for management</label>
 			<label index="tx_theaterinfo_domain_model_actor.favorite_role">Favorite role</label>
-			<label index="tx_theaterinfo_domain_model_actor.favourite_role.I.none">None</label>
+			<label index="tx_theaterinfo_domain_model_actor.favorite_role.I.none">None</label>
 			<label index="tx_theaterinfo_domain_model_actor.birthday">Birthday</label>
 			<label index="tx_theaterinfo_domain_model_actor.hobbys">Hobbys (one per line)</label>
 			<label index="tx_theaterinfo_domain_model_actor.job">Job</label>
@@ -72,7 +72,7 @@
 			<label index="tx_theaterinfo_domain_model_actor.management_positions">Vorstandsposten</label>
 			<label index="tx_theaterinfo_domain_model_actor.management_reasons">Gründe für die Vorstandsarbeit</label>
 			<label index="tx_theaterinfo_domain_model_actor.favorite_role">Lieblingsrolle</label>
-			<label index="tx_theaterinfo_domain_model_actor.favourite_role.I.none">Keine</label>
+			<label index="tx_theaterinfo_domain_model_actor.favorite_role.I.none">Keine</label>
 			<label index="tx_theaterinfo_domain_model_actor.birthday">Geburtstag</label>
 			<label index="tx_theaterinfo_domain_model_actor.hobbys">Hobbys (eins pro Zeile)</label>
 			<label index="tx_theaterinfo_domain_model_actor.job">Beruf</label>

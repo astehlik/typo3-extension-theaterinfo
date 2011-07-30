@@ -12,7 +12,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 
 	birthday int(11) unsigned DEFAULT '0' NOT NULL,
 	company varchar(150) DEFAULT '',
-	favourite_role int(11) DEFAULT '0' NOT NULL,
+	favorite_role int(11) DEFAULT '0' NOT NULL,
 	firstname varchar(150) DEFAULT '',
 	gender int(11) DEFAULT '0' NOT NULL,
 	hobbys text,

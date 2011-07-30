@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	'ctrl' => $TCA['tx_theaterinfo_domain_model_actor']['ctrl'],
 	'interface' => array (
-		'showRecordFieldList' => 'hidden,firstname,lastname,picture,management_position,management_reasons,favourite_role,birthday,hobbys,job,member_since'
+		'showRecordFieldList' => 'hidden,firstname,lastname,picture,management_position,management_reasons,favorite_role,birthday,hobbys,job,member_since'
 	),
 	'feInterface' => $TCA['tx_theaterinfo_domain_model_actor']['feInterface'],
 	'columns' => array (
@@ -99,17 +99,17 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 				'rows' => '5',
 			)
 		),
-		'favourite_role' => array (
+		'favorite_role' => array (
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favourite_role',
+            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role',
             'config' => array (
                 'type' => 'select',
                 'foreign_table' => 'tx_theaterinfo_domain_model_role',
 				'foreign_table_where' => 'AND FIND_IN_SET(\'###THIS_UID###\', tx_theaterinfo_domain_model_role.actors) ORDER BY name',
 				'items' => array (
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favourite_role.I.none', '0'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role.I.none', '0'),
 				),
-                'size' => 10,
+                'size' => 5,
                 'minitems' => 0,
                 'maxitems' => 1,
 			),
@@ -149,7 +149,7 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 		),
 	),
 	'types' => array (
-		'0' => array('showitem' => 'type, firstname;;1;;1-1-1, lastname, management_position, management_reasons, favourite_role, birthday, hobbys, job, member_since, picture'),
+		'0' => array('showitem' => 'type, firstname;;1;;1-1-1, lastname, management_position, management_reasons, favorite_role, birthday, hobbys, job, member_since, picture'),
 		'1' => array('showitem' => 'type, company;;1;;1-1-1, picture')
 	),
 	'palettes' => array (
