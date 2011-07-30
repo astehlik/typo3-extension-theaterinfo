@@ -18,12 +18,34 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 	hobbys text,
 	job varchar(255) DEFAULT '' NOT NULL,
 	lastname varchar(150) DEFAULT '',
-	management_positions int(11) unsigned DEFAULT '0' NOT NULL,
+	management_memberships int(11) unsigned DEFAULT '0' NOT NULL,
 	management_reasons text,
 	member_since int(11) unsigned DEFAULT '0' NOT NULL,
 	picture text,
 	type int(11) DEFAULT '0' NOT NULL,
 	
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+);
+
+
+
+#
+# Table structure for table 'tx_theaterinfo_domain_model_management_membership'
+#
+CREATE TABLE tx_theaterinfo_domain_model_management_membership (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+
+	actor int(11) unsigned DEFAULT '0' NOT NULL,
+	enddate int(11) unsigned DEFAULT '0' NOT NULL,
+	startdate int(11) unsigned DEFAULT '0' NOT NULL,
+	type varchar(255) DEFAULT '' NOT NULL,
+
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 );

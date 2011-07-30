@@ -37,8 +37,27 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 		'enablecolumns' => array (
 			'disabled' => 'hidden',
 		),
+		'dividers2tabs' => 1,
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
+	),
+);
+
+$TCA['tx_theaterinfo_domain_model_management_membership'] = array (
+	'ctrl' => array (
+		'title'     => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership',
+		'label'     => 'type',
+		'tstamp'    => 'tstamp',
+		'crdate'    => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'default_sortby' => 'ORDER BY startdate',
+		'delete' => 'deleted',
+		'enablecolumns' => array (
+			'starttime' => 'startdate',
+			'endtime' => 'enddate',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_management_membership.gif',
 	),
 );
 
