@@ -30,40 +30,163 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_Theaterinfo_Domain_Model_Actor extends Tx_Extbase_DomainObject_AbstractEntity {
-	
+
 	/**
-	 * 
+	 * @var DateTime
+	 */
+	protected $birthday;
+
+	/**
+	 * @var Tx_Theaterinfo_Domain_Model_Role
+	 */
+	protected $favoriteRole;
+
+	/**
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $firstname;
-	
+
 	/**
-	 * 
 	 * @var string
-	 * @validate NotEmpty
+	 */
+	protected $hobbys;
+
+	/**
+	 * @var string
+	 */
+	protected $job;
+
+	/**
+	 * @var string
 	 */
 	protected $lastname;
-	
+
 	/**
-	 * 
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_ManagementMembership>
+	 */
+	protected $managementPositions;
+
+	/**
+	 * @var string
+	 */
+	protected $managementReasons;
+
+	/**
 	 * @var DateTime
-	 * @validate NotEmpty
+	 */
+	protected $memberSince;
+
+	/**
+	 * @var string
 	 */
 	protected $picture;
 
 	/**
-	 * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
+	 * Getter for birthday
+	 *
+	 * @return DateTime
 	 */
-	public function __construct() {
-		
+	public function getBirthday() {
+		return $this->birthday;
 	}
-	
+
+	/**
+	 * Getter for favoriteRole
+	 *
+	 * @return Tx_Theaterinfo_Domain_Model_Role
+	 */
+	public function getFavoriteRole() {
+		return $this->favoriteRole;
+	}
+
+	/**
+	 * Getter for firstname
+	 *
+	 * @return string
+	 */
 	public function getFirstname() {
 		return $this->firstname;
 	}
+
+	/**
+	 * Builds the full name for the actor
+	 *
+	 * @return string
+	 */
+	public function getFullName() {
+		return $this->firstname . ' ' . $this->lastname;
+	}
+
+	/**
+	 * Getter for hobbys
+	 *
+	 * @return string
+	 */
+	public function getHobbys() {
+		return $this->hobbys;
+	}
+
+	/**
+	 * Returns the hobbys as an array
+	 *
+	 * @return array
+	 */
+	public function getHobbysAsArray() {
+		return explode(LF, $this->hobbys);
+	}
+
+	/**
+	 * Getter for job
+	 *
+	 * @return string
+	 */
+	public function getJob() {
+		return $this->job;
+	}
+
+	/**
+	 * Getter for lastname
+	 *
+	 * @return string
+	 */
 	public function getLastname() {
 		return $this->lastname;
+	}
+
+	/**
+	 * Getter for managementPositions
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getManagementPositions() {
+		return $this->managementPositions;
+	}
+
+	/**
+	 * Getter for managementReasons
+	 *
+	 * @return string
+	 */
+	public function getManagementReasons() {
+		return $this->managementReasons;
+	}
+
+	/**
+	 * Getter for memberSince
+	 *
+	 * @return string
+	 */
+	public function getMemberSince() {
+		return $this->memberSince;
+	}
+
+	/**
+	 * Getter for picture
+	 *
+	 * @return string
+	 */
+	public function getPicture() {
+		return $this->picture;
 	}
 }
 ?>

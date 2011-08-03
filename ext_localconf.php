@@ -60,4 +60,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	array()
 );
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'ShowManagement',
+	array(
+		'Management' => 'list',
+	),
+	array()
+);
 ?>

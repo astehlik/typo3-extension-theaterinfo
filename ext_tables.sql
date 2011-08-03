@@ -33,7 +33,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 #
 # Table structure for table 'tx_theaterinfo_domain_model_management_membership'
 #
-CREATE TABLE tx_theaterinfo_domain_model_management_membership (
+CREATE TABLE tx_theaterinfo_domain_model_managementmembership (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 	tstamp int(11) DEFAULT '0' NOT NULL,

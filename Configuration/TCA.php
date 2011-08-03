@@ -86,7 +86,7 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management_memberships',
 			'config' => array (
 				'type' => 'inline',
-				'foreign_table' => 'tx_theaterinfo_domain_model_management_membership',
+				'foreign_table' => 'tx_theaterinfo_domain_model_managementmembership',
 				'foreign_field' => 'actor',
 				'maxitems' => 100,
 				'appearance' => Array(
@@ -165,26 +165,26 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	)
 );
 
-$TCA['tx_theaterinfo_domain_model_management_membership'] = array (
-	'ctrl' => $TCA['tx_theaterinfo_domain_model_management_membership']['ctrl'],
+$TCA['tx_theaterinfo_domain_model_managementmembership'] = array (
+	'ctrl' => $TCA['tx_theaterinfo_domain_model_managementmembership']['ctrl'],
 	'interface' => array (
 		'showRecordFieldList' => 'type,startdate,enddate'
 	),
 	'columns' => array (
 		'type' => array (
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type',
 			'config' => array (
 				'type' => 'select',
 				'items' => array (
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.first_leader', 'first_leader'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.second_leader', 'second_leader'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.treasurer', 'treasurer'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.reporter', 'reporter'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.technical_leader', 'technical_leader'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.backstage_leader', 'backstage_leader'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.public_relations', 'public_relations'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.type.I.accounts_auditor', 'accounts_auditor'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.first_leader', 'first_leader'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.second_leader', 'second_leader'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.treasurer', 'treasurer'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.reporter', 'reporter'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.technical_leader', 'technical_leader'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.backstage_leader', 'backstage_leader'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.public_relations', 'public_relations'),
+					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.accounts_auditor', 'accounts_auditor'),
 				),
 				'size' => 1,
 				'maxitems' => 1,
@@ -192,7 +192,7 @@ $TCA['tx_theaterinfo_domain_model_management_membership'] = array (
 		),
 		'startdate' => array (
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.startdate',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.startdate',
 			'config' => array (
 				'type' => 'input',
 				'eval' => 'date',
@@ -200,7 +200,7 @@ $TCA['tx_theaterinfo_domain_model_management_membership'] = array (
 		),
 		'enddate' => array (
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_management_membership.enddate',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.enddate',
 			'config' => array (
 				'type' => 'input',
 				'eval' => 'date',

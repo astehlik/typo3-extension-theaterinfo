@@ -10,12 +10,43 @@
 			<label index="play_state_1">Rehearsals started</label>
 			<label index="play_state_2">Currently performed</label>
 			<label index="play_state_3">Completed</label>
+			<label index="managementmembership_type_first_leader">First leader</label>
+			<label index="managementmembership_type_second_leader">Second leader</label>
+			<label index="managementmembership_type_treasurer">Treasurer</label>
+			<label index="managementmembership_type_reporter">Reporter</label>
+			<label index="managementmembership_type_technical_leader">Technical leader</label>
+			<label index="managementmembership_type_backstage_leader">Backstage leader</label>
+			<label index="managementmembership_type_public_relations">Public relations</label>
+			<label index="managementmembership_type_accounts_auditor">Accounts auditor</label>
+			<label index="actor_name">Name</label>
+			<label index="actor_management_reasons">Gründe für die Vorstandsarbeit</label>
+			<label index="actor_favorite_role">Favorite role</label>
+			<label index="actor_favorite_role_none">None</label>
+			<label index="actor_birthday">Birthday</label>
+			<label index="actor_hobbys">Hobbys</label>
+			<label index="actor_job">Job</label>
+			<label index="actor_member_since">Member since</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="play_state_0">In Planung</label>
 			<label index="play_state_1">Proben laufen</label>
 			<label index="play_state_2">Aufführungen laufen</label>
 			<label index="play_state_3">Aufgeführt</label>
+			<label index="managementmembership_type_first_leader">Erster Vorsitzender</label>
+			<label index="managementmembership_type_second_leader">Zweiter Vorsitzender</label>
+			<label index="managementmembership_type_treasurer">Kassier</label>
+			<label index="managementmembership_type_reporter">Schriftführer</label>
+			<label index="managementmembership_type_technical_leader">Technischer Leiter</label>
+			<label index="managementmembership_type_backstage_leader">Backstage Leiter</label>
+			<label index="managementmembership_type_public_relations">Presse- und Öffentlichkeit</label>
+			<label index="managementmembership_type_accounts_auditor">Kassenprüfer</label>
+			<label index="actor_name">Name</label>
+			<label index="actor_favorite_role">Lieblingsrolle</label>
+			<label index="actor_favorite_role_none">Keine</label>
+			<label index="actor_birthday">Geburtstag</label>
+			<label index="actor_hobbys">Hobbys</label>
+			<label index="actor_job">Beruf</label>
+			<label index="actor_member_since">Mitglied seit</label>
 		</languageKey>
 	</data>
 </T3locallang>

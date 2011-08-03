@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Theater info',
-	'description' => '',
+	'description' => 'Displays information about theater plays, actors and their roles and tasks',
 	'category' => 'plugin',
 	'author' => 'Alexander Stehlik',
 	'author_email' => 'alexander.stehlik.deleteme@googlemail.com',
