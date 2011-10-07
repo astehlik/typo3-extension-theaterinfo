@@ -9,6 +9,19 @@ plugin.tx_theaterinfo {
 
 	}
 
+	_CSS_DEFAULT_STYLE (
+
+		dl.tx-theaterinfo-actor-properties dt {
+			text-align: right;
+		}
+
+		dl.tx-theaterinfo-actor-properties dt,
+		dl.tx-theaterinfo-actor-properties dd {
+			float: left;
+   			 width: 175px;
+		}
+	)
+
 }
 
 
