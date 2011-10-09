@@ -2,18 +2,18 @@
 
 <f:section name="content">
 	<div class="tx-theaterinfo-managementlist-container">
-	
+
 		<div class="innercontent csc-default tx-theaterinfo-managementlist-header">
 			<h1>
 				Unser Vorstand
 			</h1>
 		</div>
-	
+
 		<f:if condition="{managementMemberships}">
 			<f:then>
 				<f:for each="{managementMemberships}" as="managementMembership">
 					<div class="innercontent csc-default tx-theaterinfo-managementlist-member">
-						
+
 						<div class="csc-header">
 							<h2>
 								<f:translate key="managementmembership_type_{managementMembership.type}" />
@@ -21,7 +21,7 @@
 						</div>
 
 						<div class="floatbox">
-						
+
 							<div class="csc-textpic csc-textpic-intext-left">
 
 								<div class="csc-textpic-imagewrap csc-textpic-single-image">
@@ -34,22 +34,22 @@
 										</f:else>
 									</f:if>
 								</div>
-								
+
 								<div style="margin-left: 180px;">
 									<div class="csc-textpic-text>
 										<dl class="tx-theaterinfo-actor-properties">
 											<dt><f:translate key="actor_name" /></dt>
 											<dd>{managementMembership.actor.fullName}</dd>
-											
+
 											<dt><f:translate key="actor_management_reasons" /></dt>
 											<dd>{managementMembership.actor.managementReasons}</dd>
-											
+
 											<dt><f:translate key="actor_favorite_role" /></dt>
 											<dd>{managementMembership.actor.favoriteRole.name}</dd>
-											
+
 											<dt><f:translate key="actor_birthday" /></dt>
 											<dd><f:format.date>{managementMembership.actor.birthday}</f:format.date></dd>
-																			
+
 											<dt><f:translate key="actor_hobbys" /></dt>
 											<dd>
 												<ul>
@@ -58,16 +58,16 @@
 												</f:for>
 												</ul>
 											</dd>
-											
+
 											<dt><f:translate key="actor_job" /></dt>
 											<dd>{managementMembership.actor.job}</dd>
-											
+
 											<dt><f:translate key="actor_member_since" /></dt>
 											<dd><f:format.date>{managementMembership.actor.memberSince}</f:format.date></dd>
 										</dl>
 									</div>
 								</div>
-								
+
 								<div class="csc-textpic-clear"></div>
 
 							</div><!-- csc-textpic -->
@@ -76,7 +76,9 @@
 				</f:for>
 			</f:then>
 			<f:else>
-				<p>Zur Zeit sind keine Vorstandsmitglieder bekannt.</p>
+                <div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
+				    <p class="important">Zur Zeit sind keine Vorstandsmitglieder bekannt.</p>
+                </div>
 			</f:else>
 		</f:if>
 	</div><!-- tx-theaterinfo-managementlist-container -->
