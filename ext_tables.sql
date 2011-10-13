@@ -23,7 +23,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 	member_since int(11) unsigned DEFAULT '0' NOT NULL,
 	picture text,
 	type int(11) DEFAULT '0' NOT NULL,
-	
+
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 );
@@ -65,8 +65,8 @@ CREATE TABLE tx_theaterinfo_domain_model_helpertype (
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
 	jobtitle tinytext,
 	icon text,
-	
-	PRIMARY KEY (uid),	
+
+	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
 
@@ -88,8 +88,8 @@ CREATE TABLE tx_theaterinfo_domain_model_role (
 	picture text,
 	insert_spacer tinyint(3) DEFAULT '0' NOT NULL,
 	playuid int(11) DEFAULT '0' NOT NULL,
-	actors text,	
-	
+	actors text,
+
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
@@ -121,7 +121,7 @@ CREATE TABLE tx_theaterinfo_domain_model_play (
 	helpers text,
 	hide_helpers tinyint(4) DEFAULT '0' NOT NULL,
 	advance_sale text,
-	
+
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
@@ -144,7 +144,7 @@ CREATE TABLE tx_theaterinfo_domain_model_helper (
 	actors text,
 	insert_spacer tinyint(3) DEFAULT '0' NOT NULL,
 	playuid int(11) DEFAULT '0' NOT NULL,
-	
+
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
