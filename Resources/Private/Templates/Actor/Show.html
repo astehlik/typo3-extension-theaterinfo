@@ -1,0 +1,69 @@
+<f:layout name="default" />
+
+<f:section name="content">
+
+	<div class="innercontent csc-default tx-theaterinfo-actor-show">
+
+        <div class="csc-header">
+            <h1>
+                {actor.fullName}
+            </h1>
+        </div>
+
+        <div class="floatbox">
+
+            <div class="csc-textpic csc-textpic-intext-left">
+
+                <div class="csc-textpic-imagewrap csc-textpic-single-image">
+                    <f:if condition="{actor.image}">
+                        <f:then>
+                            <f:image src="{actor.image}" alt="Bild von {actor.fullName}" width="160"/>
+                        </f:then>
+                        <f:else>
+                            <f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {actor.fullName} vorhanden" width="160"/>
+                        </f:else>
+                    </f:if>
+                </div>
+
+                <div style="margin-left: 180px;">
+                    <div class="csc-textpic-text>
+                        <dl class="tx-theaterinfo-actor-properties">
+                            <dt><f:translate key="actor_name" /></dt>
+                            <dd>{managementMembership.actor.fullName}</dd>
+
+                            <dt><f:translate key="actor_management_reasons" /></dt>
+                            <dd>{managementMembership.actor.managementReasons}</dd>
+
+                            <dt><f:translate key="actor_favorite_role" /></dt>
+                            <dd>{managementMembership.actor.favoriteRole.name}</dd>
+
+                            <dt><f:translate key="actor_birthday" /></dt>
+                            <dd><f:format.date>{managementMembership.actor.birthday}</f:format.date></dd>
+
+                            <dt><f:translate key="actor_hobbys" /></dt>
+                            <dd>
+                                <ul>
+                                <f:for each="{managementMembership.actor.hobbysAsArray}" as="hobby">
+                                    <li>{hobby}</li>
+                                </f:for>
+                                </ul>
+                            </dd>
+
+                            <dt><f:translate key="actor_job" /></dt>
+                            <dd>{managementMembership.actor.job}</dd>
+
+                            <dt><f:translate key="actor_member_since" /></dt>
+                            <dd><f:format.date>{managementMembership.actor.memberSince}</f:format.date></dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="csc-textpic-clear"></div>
+
+            </div><!-- csc-textpic -->
+
+        </div><!-- floatbox -->
+
+    </div><!-- csc-default -->
+
+</f:section>
