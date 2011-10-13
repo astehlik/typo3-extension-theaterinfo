@@ -7,6 +7,9 @@
 			<h1>
 				Unser Vorstand
 			</h1>
+			<p>
+				Hier findet Ihre kurze Steckbriefe zu unseren Vorstands-Mitgliedern.
+			</p>
 		</div>
 
 		<f:if condition="{managementMemberships}">
@@ -16,8 +19,9 @@
 
 						<div class="csc-header">
 							<h2>
-								<f:translate key="managementmembership_type_{managementMembership.type}" />
+								<f:translate key="managementmembership_type_{managementMembership.type}_{managementMembership.actor.gender}" />
 							</h2>
+							<h3>{managementMembership.actor.fullName}</h3>
 						</div>
 
 						<div class="floatbox">
@@ -37,33 +41,24 @@
 
 								<div style="margin-left: 180px;">
 									<div class="csc-textpic-text>
+
 										<dl class="tx-theaterinfo-actor-properties">
-											<dt><f:translate key="actor_name" /></dt>
-											<dd>{managementMembership.actor.fullName}</dd>
 
-											<dt><f:translate key="actor_management_reasons" /></dt>
-											<dd>{managementMembership.actor.managementReasons}</dd>
-
-											<dt><f:translate key="actor_favorite_role" /></dt>
-											<dd>{managementMembership.actor.favoriteRole.name}</dd>
-
-											<dt><f:translate key="actor_birthday" /></dt>
-											<dd><f:format.date>{managementMembership.actor.birthday}</f:format.date></dd>
-
-											<dt><f:translate key="actor_hobbys" /></dt>
-											<dd>
-												<ul>
-												<f:for each="{managementMembership.actor.hobbysAsArray}" as="hobby">
-													<li>{hobby}</li>
-												</f:for>
-												</ul>
-											</dd>
+											<dt><f:translate key="actor_age" /></dt>
+											<dd>{managementMembership.actor.age} Jahre</dd>
 
 											<dt><f:translate key="actor_job" /></dt>
 											<dd>{managementMembership.actor.job}</dd>
 
-											<dt><f:translate key="actor_member_since" /></dt>
-											<dd><f:format.date>{managementMembership.actor.memberSince}</f:format.date></dd>
+											<dt><f:translate key="actor_management_reasons" /></dt>
+											<dd>{managementMembership.actor.managementReasons}</dd>
+
+											<dt><f:translate key="actor_more_information" /></dt>
+											<dd>
+												<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
+													Hier erfährst du noch mehr über {managementMembership.actor.fullName}
+												</f:link.action>
+											</dd>
 										</dl>
 									</div>
 								</div>
@@ -76,9 +71,9 @@
 				</f:for>
 			</f:then>
 			<f:else>
-                <div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
-				    <p class="important">Zur Zeit sind keine Vorstandsmitglieder bekannt.</p>
-                </div>
+				<div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
+					<p class="important">Zur Zeit sind keine Vorstandsmitglieder bekannt.</p>
+				</div>
 			</f:else>
 		</f:if>
 	</div><!-- tx-theaterinfo-managementlist-container -->
