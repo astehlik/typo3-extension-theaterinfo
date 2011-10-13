@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	'ctrl' => $TCA['tx_theaterinfo_domain_model_actor']['ctrl'],
 	'interface' => array (
-		'showRecordFieldList' => 'hidden,firstname,lastname,picture,management_positions,management_reasons,favorite_role,birthday,hobbys,job,member_since'
+		'showRecordFieldList' => 'hidden,gender,firstname,lastname,picture,management_positions,management_reasons,favorite_role,birthday,hobbys,job,member_since'
 	),
 	'feInterface' => $TCA['tx_theaterinfo_domain_model_actor']['feInterface'],
 	'columns' => array (
@@ -12,7 +12,7 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -90,9 +90,9 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 				'foreign_field' => 'actor',
 				'maxitems' => 100,
 				'appearance' => Array(
-		          'collapseAll' => 1,
-		          'expandSingle' => 1,
-		        ),
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
 			),
 		),
 		'management_reasons' => array (
@@ -105,18 +105,18 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 			)
 		),
 		'favorite_role' => array (
-            'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role',
-            'config' => array (
-                'type' => 'select',
-                'foreign_table' => 'tx_theaterinfo_domain_model_role',
+			'exclude' => 0,
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role',
+			'config' => array (
+				'type' => 'select',
+				'foreign_table' => 'tx_theaterinfo_domain_model_role',
 				'foreign_table_where' => 'AND FIND_IN_SET(\'###THIS_UID###\', tx_theaterinfo_domain_model_role.actors) ORDER BY name',
 				'items' => array (
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role.I.none', '0'),
 				),
-                'size' => 5,
-                'minitems' => 0,
-                'maxitems' => 1,
+				'size' => 5,
+				'minitems' => 0,
+				'maxitems' => 1,
 			),
 		),
 		'birthday' => array (
@@ -155,7 +155,7 @@ $TCA['tx_theaterinfo_domain_model_actor'] = array (
 	),
 	'types' => array (
 		'0' => array('showitem' => '
-			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.properties,type, firstname;;1;;1-1-1, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
+			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.properties,type;;1;;1-1-1, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
 			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management,management_memberships, management_reasons
 		'),
 		'1' => array('showitem' => 'type, company;;1;;1-1-1, picture')
@@ -229,7 +229,7 @@ $TCA['tx_theaterinfo_domain_model_helpertype'] = array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -277,7 +277,7 @@ $TCA['tx_theaterinfo_domain_model_role'] = array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -317,52 +317,52 @@ $TCA['tx_theaterinfo_domain_model_role'] = array (
 			)
 		),
 		'actors' => array (
-            'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_role.actors',
-            'config' => array (
-                'type' => 'select',
-                'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-                'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
+			'exclude' => 0,
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_role.actors',
+			'config' => array (
+				'type' => 'select',
+				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
+				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
-                'size' => 10,
-                'minitems' => 0,
-                'maxitems' => 100,
+				'size' => 10,
+				'minitems' => 0,
+				'maxitems' => 100,
 				'wizards' => array(
-                    '_PADDING'  => 2,
-                    '_VERTICAL' => 1,
-                    'add' => array(
-                        'type'   => 'script',
-                        'title'  => 'Create new record',
-                        'icon'   => 'add.gif',
-                        'params' => array(
-                            'table'    => 'tx_theaterinfo_domain_model_actor',
-                            'pid'      => '###CURRENT_PID###',
-                            'setValue' => 'prepend'
-                        ),
-                        'script' => 'wizard_add.php',
-                    ),
-                    'list' => array(
-                        'type'   => 'script',
-                        'title'  => 'List',
-                        'icon'   => 'list.gif',
-                        'params' => array(
-                            'table' => 'tx_theaterinfo_domain_model_actor',
-                            'pid'   => '###CURRENT_PID###',
-                        ),
-                        'script' => 'wizard_list.php',
-                    ),
-                    'edit' => array(
-                        'type'                     => 'popup',
-                        'title'                    => 'Edit',
-                        'script'                   => 'wizard_edit.php',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon'                     => 'edit2.gif',
-                        'JSopenParams'             => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                   	),
+					'_PADDING'  => 2,
+					'_VERTICAL' => 1,
+					'add' => array(
+						'type' => 'script',
+						'title' => 'Create new record',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_actor',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
+					'list' => array(
+						'type' => 'script',
+						'title' => 'List',
+						'icon' => 'list.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_actor',
+							'pid' => '###CURRENT_PID###',
+						),
+						'script' => 'wizard_list.php',
+					),
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'popup_onlyOpenIfSelected' => 1,
+						'icon' => 'edit2.gif',
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+				   	),
 				),
 
-            )
-        ),
+			)
+		),
 	),
 	'types' => array (
 		'0' => array('showitem' => 'name;;1;;1-1-1, actors, picture, insert_spacer, playuid')
@@ -385,7 +385,7 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -401,19 +401,19 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.author',
 			'config' => array (
-                'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
-            )
+				'type' => 'text',
+				'cols' => '30',
+				'rows' => '5',
+			)
 		),
 		'time_sort' => array (
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.time_sort',
 			'config' => array (
-				'type'     => 'input',
-				'size'     => '12',
-				'max'      => '20',
-				'eval'     => 'datetime',
+				'type' => 'input',
+				'size' => '12',
+				'max' => '20',
+				'eval' => 'datetime',
 				'checkbox' => '0',
 				'default'  => '0'
 			)
@@ -446,11 +446,11 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 					'_PADDING' => 2,
 					'RTE' => array(
 						'notNewRecords' => 1,
-						'RTEonly'       => 1,
-						'type'          => 'script',
-						'title'         => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-						'icon'          => 'wizard_rte2.gif',
-						'script'        => 'wizard_rte.php',
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
 					),
 				),
 			)
@@ -510,16 +510,16 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Role',
 				'maxitems' => 100,
 				'appearance' => Array(
-		          'collapseAll' => 1,
-		          'expandSingle' => 1,
-		        ),
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
 			)
 		),
 		'hide_roles' => array (
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.hide_roles',
-			'config'  => array (
-				'type'    => 'check',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.hide_roles',
+			'config' => array (
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -533,16 +533,16 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helper',
 				'maxitems' => 100,
 				'appearance' => Array(
-		          'collapseAll' => 1,
-		          'expandSingle' => 1,
-		        ),
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
 			)
 		),
 		'hide_helpers' => array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.hide_helpers',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -557,11 +557,11 @@ $TCA['tx_theaterinfo_domain_model_play'] = array (
 					'_PADDING' => 2,
 					'RTE' => array(
 						'notNewRecords' => 1,
-						'RTEonly'       => 1,
-						'type'          => 'script',
-						'title'         => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-						'icon'          => 'wizard_rte2.gif',
-						'script'        => 'wizard_rte.php',
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
 					),
 				),
 			)
@@ -593,7 +593,7 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array (
 			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array (
-				'type'    => 'check',
+				'type' => 'check',
 				'default' => '0'
 			)
 		),
@@ -602,92 +602,92 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array (
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helper.helpertype',
 			'config' => array (
 				'type' => 'select',
-                'foreign_table' => 'tx_theaterinfo_domain_model_helpertype',
-                'foreign_table_where' => 'AND tx_theaterinfo_domain_model_helpertype.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
+				'foreign_table' => 'tx_theaterinfo_domain_model_helpertype',
+				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_helpertype.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helpertype',
-                'size' => 1,
-                'minitems' => 0,
-                'maxitems' => 1,
+				'size' => 1,
+				'minitems' => 0,
+				'maxitems' => 1,
 				'wizards' => array(
-                    '_PADDING'  => 2,
-                    '_HORIZONTAL' => 1,
-                    'add' => array(
-                        'type'   => 'script',
-                        'title'  => 'Create new record',
-                        'icon'   => 'add.gif',
-                        'params' => array(
-                            'table'    => 'tx_theaterinfo_domain_model_helpertype',
-                            'pid'      => '###CURRENT_PID###',
-                            'setValue' => 'prepend'
-                        ),
-                        'script' => 'wizard_add.php',
-                    ),
-                    'list' => array(
-                        'type'   => 'script',
-                        'title'  => 'List',
-                        'icon'   => 'list.gif',
-                        'params' => array(
-                            'table' => 'tx_theaterinfo_domain_model_helpertype',
-                            'pid'   => '###CURRENT_PID###',
-                        ),
-                        'script' => 'wizard_list.php',
-                    ),
-                    'edit' => array(
-                        'type'                     => 'popup',
-                        'title'                    => 'Edit',
-                        'script'                   => 'wizard_edit.php',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon'                     => 'edit2.gif',
-                        'JSopenParams'             => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                   	),
+					'_PADDING'  => 2,
+					'_HORIZONTAL' => 1,
+					'add' => array(
+						'type' => 'script',
+						'title' => 'Create new record',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_helpertype',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
+					'list' => array(
+						'type' => 'script',
+						'title' => 'List',
+						'icon' => 'list.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_helpertype',
+							'pid' => '###CURRENT_PID###',
+						),
+						'script' => 'wizard_list.php',
+					),
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'popup_onlyOpenIfSelected' => 1,
+						'icon' => 'edit2.gif',
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+				   	),
 				),
 			)
 		),
 		'actors' => array (
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helper.actors',
-            'config' => array (
-                'type' => 'select',
-                'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-                'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
+			'config' => array (
+				'type' => 'select',
+				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
+				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
-                'size' => 10,
-                'minitems' => 0,
-                'maxitems' => 100,
+				'size' => 10,
+				'minitems' => 0,
+				'maxitems' => 100,
 				'wizards' => array(
-                    '_PADDING'  => 2,
-                    '_VERTICAL' => 1,
-                    'add' => array(
-                        'type'   => 'script',
-                        'title'  => 'Create new record',
-                        'icon'   => 'add.gif',
-                        'params' => array(
-                            'table'    => 'tx_theaterinfo_domain_model_actor',
-                            'pid'      => '###CURRENT_PID###',
-                            'setValue' => 'prepend'
-                        ),
-                        'script' => 'wizard_add.php',
-                    ),
-                    'list' => array(
-                        'type'   => 'script',
-                        'title'  => 'List',
-                        'icon'   => 'list.gif',
-                        'params' => array(
-                            'table' => 'tx_theaterinfo_domain_model_actor',
-                            'pid'   => '###CURRENT_PID###',
-                        ),
-                        'script' => 'wizard_list.php',
-                    ),
-                    'edit' => array(
-                        'type'                     => 'popup',
-                        'title'                    => 'Edit',
-                        'script'                   => 'wizard_edit.php',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon'                     => 'edit2.gif',
-                        'JSopenParams'             => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                   	),
+					'_PADDING'  => 2,
+					'_VERTICAL' => 1,
+					'add' => array(
+						'type' => 'script',
+						'title' => 'Create new record',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_actor',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
+					'list' => array(
+						'type' => 'script',
+						'title' => 'List',
+						'icon' => 'list.gif',
+						'params' => array(
+							'table' => 'tx_theaterinfo_domain_model_actor',
+							'pid' => '###CURRENT_PID###',
+						),
+						'script' => 'wizard_list.php',
+					),
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'popup_onlyOpenIfSelected' => 1,
+						'icon' => 'edit2.gif',
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+				   	),
 				),
-            )
+			)
 		),
 		'insert_spacer' => array (
 			'exclude' => 0,
