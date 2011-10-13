@@ -35,16 +35,14 @@ RTE.config.tx_theaterinfo_domain_model_play.action {
 
 t3lib_extMgm::addUserTSConfig('
 	mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_helper,tx_theaterinfo_domain_model_role)
-	options.saveDocNew.tx_theaterinfo_domain_model_helper=1
-	options.saveDocNew.tx_theaterinfo_domain_model_actor=1
+	mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_management_membership)
 ');
 
-if (TYPO3_MODE=='BE')    {
-    require_once(PATH_t3lib . 'interfaces/interface.t3lib_localrecordlistgettablehook.php');
+if (TYPO3_MODE == 'BE') {
+	require_once(PATH_t3lib . 'interfaces/interface.t3lib_localrecordlistgettablehook.php');
 
-    require_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
-    $TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] =
-    	'tx_theaterinfo_hooks_dblist';
+	require_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
+	$TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 'tx_theaterinfo_hooks_dblist';
 }
 
 /**
@@ -65,6 +63,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'ShowManagement',
 	array(
 		'Management' => 'list',
+		'Actor' => 'show',
 	),
 	array()
 );
