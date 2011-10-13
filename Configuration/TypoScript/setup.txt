@@ -11,15 +11,7 @@ plugin.tx_theaterinfo {
 
 	_CSS_DEFAULT_STYLE (
 
-		dl.tx-theaterinfo-actor-properties dt {
-			text-align: right;
-		}
 
-		dl.tx-theaterinfo-actor-properties dt,
-		dl.tx-theaterinfo-actor-properties dd {
-			float: left;
-   			 width: 175px;
-		}
 	)
 
 }
@@ -28,12 +20,12 @@ plugin.tx_theaterinfo {
 plugin.tx_linkhandler {
 
 	tx_theaterinfo_domain_model_play {
-		
+
 		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
 		additionalParams = &tx_theaterinfo_pi1[controller]=Play&tx_theaterinfo_pi1[action]=show&tx_theaterinfo_pi1[play]={field:uid}
-		additionalParams.insertData = 1 
+		additionalParams.insertData = 1
 		useCacheHash = 1
-	
+
 	}
 
 }
