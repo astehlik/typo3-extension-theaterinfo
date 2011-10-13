@@ -27,9 +27,23 @@
 class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * @var Tx_Theaterinfo_Domain_Repository_ActorRepository
+	 */
+	protected $actorRepository;
+
+	/**
 	 * @var Tx_Theaterinfo_Domain_Repository_ManagementMembershipRepository
 	 */
 	protected $managementMembershipRepository;
+
+	/**
+	 * Injects the actor repository
+	 *
+	 * @param Tx_Theaterinfo_Domain_Repository_ActorRepository $actorRepository
+	 */
+	public function injectActorRepository(Tx_Theaterinfo_Domain_Repository_ActorRepository $actorRepository) {
+		$this->actorRepository = $actorRepository;
+	}
 
 	/**
 	 * Injects the management membership repository
@@ -47,6 +61,72 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 	 */
 	public function listAction() {
 		$this->view->assign('managementMemberships', $this->managementMembershipRepository->findAll());
+	}
+
+	/**
+	 * Returns a string that will be appended to the breadcrumb menu
+	 *
+	 * @return string
+	 */
+	public function breadcrumbMenuAction() {
+
+		$breadcrumbMenu = '';
+
+		if (!$this->requestIsActorDetailView()) {
+			return $breadcrumbMenu;
+		}
+
+		if (!$this->request->hasArgument('actor')) {
+			return $breadcrumbMenu;
+		}
+
+		$actorUid = $this->request->getArgument('actor');
+		$actor = $this->actorRepository->findByUid($actorUid);
+
+		if (isset($actor)) {
+			$breadcrumbMenu =  ' > ' . $actor->getFullName();
+		}
+
+		return $breadcrumbMenu;
+	}
+
+	/**
+	 * Returns an updated version for the breadcrumb Menu array
+	 *
+	 * @return string
+	 */
+	public function breadcrumbMenuArrayAction() {
+		$frameworkConfig = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		$parentMenuObject = $frameworkConfig['parentMenuObject'];
+
+		if ($this->requestIsActorDetailView()) {
+			unset($parentMenuObject->mconf['CUR']);
+		}
+
+		return '';
+	}
+
+	/**
+	 * Returns true if the current action is an actor detail view
+	 *
+	 * @return boolean
+	 */
+	protected function requestIsActorDetailView() {
+		$action == '';
+		$controller = '';
+
+		if ($this->request->hasArgument('action')) {
+			$action = $this->request->getArgument('action');
+		}
+		if ($this->request->hasArgument('controller')) {
+			$controller = $this->request->getArgument('controller');
+		}
+
+		if (($controller == 'Actor') && ($action == 'show')) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 }
 
