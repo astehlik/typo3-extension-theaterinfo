@@ -1,26 +1,24 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c)  TODO - INSERT COPYRIGHT
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+
+/*                                                                        *
+ * This script belongs to the TYPO3 extension "theaterinfo".              *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU General Public License as published by the Free   *
+ * Software Foundation, either version 3 of the License, or (at your      *
+ * option) any later version.                                             *
+ *                                                                        *
+ * This script is distributed in the hope that it will be useful, but     *
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHAN-    *
+ * TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General      *
+ * Public License for more details.                                       *
+ *                                                                        *
+ * You should have received a copy of the GNU General Public License      *
+ * along with the script.                                                 *
+ * If not, see http://www.gnu.org/licenses/gpl.html                       *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
 /**
  * An actor / helper / sponsor
@@ -81,6 +79,30 @@ class Tx_Theaterinfo_Domain_Model_Actor extends Tx_Extbase_DomainObject_Abstract
 	 */
 	protected $picture;
 
+    /**
+     * The gender of the actor, can me 0 (male) or 1 (female)
+     *
+     * @var string
+     */
+    protected $gender;
+
+    /**
+     * Returns the current age in years of the actor
+     *
+     * @return int
+     */
+    public function getAge() {
+        $birthday = $this->getBirthday();
+
+		if (!isset($birthday)) {
+			return null;
+		}
+
+		$now = new DateTime();
+        $age = $birthday->diff($now);
+        return $age->y;
+    }
+
 	/**
 	 * Getter for birthday
 	 *
@@ -116,6 +138,15 @@ class Tx_Theaterinfo_Domain_Model_Actor extends Tx_Extbase_DomainObject_Abstract
 	public function getFullName() {
 		return $this->firstname . ' ' . $this->lastname;
 	}
+
+    /**
+     * Returns the gender of this actor, can me 0 (male) or 1 (female)
+     *
+     * @return int
+     */
+    public function getGender() {
+        return $this->gender;
+    }
 
 	/**
 	 * Getter for hobbys
