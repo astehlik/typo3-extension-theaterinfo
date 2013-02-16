@@ -51,6 +51,11 @@ class Tx_Theaterinfo_Controller_PlayController extends Tx_Extbase_MVC_Controller
 	 * @return string
 	 */
 	public function listAction() {
+
+		$contentObject = $this->configurationManager->getContentObject();
+		$header = $contentObject->data['header'];
+
+		$this->view->assign('header', $header);
 		$this->view->assign('plays', $this->playRepository->findAll());
 	}
 
