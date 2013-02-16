@@ -459,7 +459,7 @@ $TCA['tx_theaterinfo_domain_model_play'] = array(
 				'show_thumbs' => 1,
 				'size' => 5,
 				'minitems' => 0,
-				'maxitems' => 10,
+				'maxitems' => 20,
 			)
 		),
 		'state' => array(
