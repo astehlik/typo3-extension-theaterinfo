@@ -33,6 +33,20 @@ class ManagementPosition extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity 
 	protected $name;
 
 	/**
+	 * The name of the position for female members
+	 *
+	 * @var string
+	 */
+	protected $nameFemale;
+
+	/**
+	 * The sorting for this position
+	 *
+	 * @var int
+	 */
+	protected $sorting;
+
+	/**
 	 * All memberships of this posision
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>

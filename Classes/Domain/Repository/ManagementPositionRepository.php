@@ -25,6 +25,12 @@ namespace Sto\Theaterinfo\Domain\Repository;
  */
 class ManagementPositionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+	public function initializeObject() {
+		$this->setDefaultOrderings(array(
+			'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+		));
+	}
+
 	public function findForList() {
 		return $this->findByShowInOverview(TRUE);
 	}
