@@ -321,7 +321,7 @@ $TCA['tx_theaterinfo_domain_model_role'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
+				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
 				'size' => 10,
 				'minitems' => 0,
@@ -329,27 +329,6 @@ $TCA['tx_theaterinfo_domain_model_role'] = array(
 				'wizards' => array(
 					'_PADDING' => 2,
 					'_VERTICAL' => 1,
-					'add' => array(
-						'type' => 'script',
-						'title' => 'Create new record',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_actor',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-					'list' => array(
-						'type' => 'script',
-						'title' => 'List',
-						'icon' => 'list.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_actor',
-							'pid' => '###CURRENT_PID###',
-						),
-						'script' => 'wizard_list.php',
-					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
@@ -600,7 +579,7 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_theaterinfo_domain_model_helpertype',
-				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_helpertype.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
+				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helpertype',
 				'size' => 1,
 				'minitems' => 0,
@@ -608,27 +587,6 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array(
 				'wizards' => array(
 					'_PADDING' => 2,
 					'_HORIZONTAL' => 1,
-					'add' => array(
-						'type' => 'script',
-						'title' => 'Create new record',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_helpertype',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-					'list' => array(
-						'type' => 'script',
-						'title' => 'List',
-						'icon' => 'list.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_helpertype',
-							'pid' => '###CURRENT_PID###',
-						),
-						'script' => 'wizard_list.php',
-					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
@@ -646,7 +604,7 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-				'foreign_table_where' => 'AND tx_theaterinfo_domain_model_actor.pid=###CURRENT_PID### ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
+				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
 				'size' => 10,
 				'minitems' => 0,
@@ -654,27 +612,6 @@ $TCA['tx_theaterinfo_domain_model_helper'] = array(
 				'wizards' => array(
 					'_PADDING' => 2,
 					'_VERTICAL' => 1,
-					'add' => array(
-						'type' => 'script',
-						'title' => 'Create new record',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_actor',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-					'list' => array(
-						'type' => 'script',
-						'title' => 'List',
-						'icon' => 'list.gif',
-						'params' => array(
-							'table' => 'tx_theaterinfo_domain_model_actor',
-							'pid' => '###CURRENT_PID###',
-						),
-						'script' => 'wizard_list.php',
-					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
