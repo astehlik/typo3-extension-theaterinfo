@@ -1,0 +1,53 @@
+
+<div class="innercontent tx-theaterinfo-actor-overview {f:if(condition: '{hideBorder}', then: '', else: 'csc-default')}">
+
+	<f:if condition="{useSubHeadingForName}">
+		<f:then><h3>{actor.fullName}</h3></f:then>
+		<f:else><h2>{actor.fullName}</h2></f:else>
+	</f:if>
+
+	<div class="floatbox">
+
+		<div class="csc-textpic csc-textpic-intext-left">
+
+			<div class="csc-textpic-imagewrap csc-textpic-single-image">
+				<f:if condition="{actor.picture}">
+					<f:then>
+						<f:image src="uploads/tx_theaterinfo/{actor.picture}" alt="Bild von {actor.fullName}" width="160"/>
+					</f:then>
+					<f:else>
+						<f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {actor.fullName} vorhanden" width="160"/>
+					</f:else>
+				</f:if>
+			</div>
+
+			<div style="margin-left: 180px;">
+				<div class="csc-textpic-text">
+
+				<dl class="tx-theaterinfo-actor-properties">
+					<dt><f:translate key="actor_age" /></dt>
+					<dd>{actor.age} Jahre</dd>
+
+					<dt><f:translate key="actor_job" /></dt>
+					<dd>{actor.job}</dd>
+
+					<dt><f:translate key="actor_management_reasons" /></dt>
+					<dd>{actor.managementReasons}</dd>
+
+					<f:if condition="0">
+					<dt><f:translate key="actor_more_information" /></dt>
+					<dd>
+						<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
+							Hier erfährst du noch mehr über {actor.fullName}
+						</f:link.action>
+					</dd>
+					</f:if>
+				</dl>
+			</div>
+		</div>
+
+		<div class="csc-textpic-clear"></div>
+
+	</div><!-- csc-textpic -->
+</div><!-- floatbox -->
+</div><!-- csc-default -->

@@ -1,5 +1,4 @@
 <?php
-
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -27,7 +26,7 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Tx_Theaterinfo_Domain_Model_Actor extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Theaterinfo_Domain_Model_Actor extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * @var DateTime

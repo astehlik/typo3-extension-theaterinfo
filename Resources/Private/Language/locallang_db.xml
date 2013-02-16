@@ -37,8 +37,14 @@
 			<label index="tx_theaterinfo_domain_model_managementmembership.type.I.backstage_leader">Backstage leader</label>
 			<label index="tx_theaterinfo_domain_model_managementmembership.type.I.public_relations">Public relations</label>
 			<label index="tx_theaterinfo_domain_model_managementmembership.type.I.accounts_auditor">Accounts auditor</label>
+			<label index="tx_theaterinfo_domain_model_managementmembership.position">Position</label>
+			<label index="tx_theaterinfo_domain_model_managementmembership.actor">Actor</label>
 			<label index="tx_theaterinfo_domain_model_managementmembership.startdate">Member since</label>
 			<label index="tx_theaterinfo_domain_model_managementmembership.enddate">Member until</label>
+			<label index="tx_theaterinfo_domain_model_managementposition">Management position</label>
+			<label index="tx_theaterinfo_domain_model_managementposition.name">Name</label>
+			<label index="tx_theaterinfo_domain_model_managementposition.show_in_overview">Show in overview</label>
+			<label index="tx_theaterinfo_domain_model_managementposition.memberships">Memberships</label>
 			<label index="tx_theaterinfo_domain_model_helpertype">Helpertype</label>
 			<label index="tx_theaterinfo_domain_model_helpertype.jobtitle">Job title</label>
 			<label index="tx_theaterinfo_domain_model_helpertype.icon">Icon</label>

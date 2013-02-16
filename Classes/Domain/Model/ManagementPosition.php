@@ -1,5 +1,5 @@
 <?php
-namespace Sto\Theaterinfo\Domain\Repository;
+namespace Sto\Theaterinfo\Domain\Model;
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -21,8 +21,58 @@ namespace Sto\Theaterinfo\Domain\Repository;
  *                                                                        */
 
 /**
- * Repository for management memberships
+ * A management position
  */
-class ManagementMembershipRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ManagementPosition extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+
+	/**
+	 * The name of the position
+	 *
+	 * @var string
+	 */
+	protected $name;
+
+	/**
+	 * All memberships of this posision
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
+	 */
+	protected $memberships;
+
+	public function getCurrentMembership() {
+		$memberships = $this->getMemberships();
+		if ($memberships->count()) {
+			$memberships->rewind();
+			return $memberships->current();
+		}
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getMemberships() {
+		return $this->memberships;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $memberships
+	 */
+	public function setMemberships($memberships) {
+		$this->memberships = $memberships;
+	}
+
+	/**
+	 * @param string $name
+	 */
+	public function setName($name) {
+		$this->name = $name;
+	}
 }
 ?>

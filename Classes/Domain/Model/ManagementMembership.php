@@ -1,4 +1,5 @@
 <?php
+namespace Sto\Theaterinfo\Domain\Model;
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -21,12 +22,8 @@
 
 /**
  * Membership in the management
- *
- * @package Theaterinfo
- * @subpackage Domain\Model
- * @version $Id:$
  */
-class Tx_Theaterinfo_Domain_Model_ManagementMembership extends Tx_Extbase_DomainObject_AbstractEntity {
+class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * @var Tx_Theaterinfo_Domain_Model_Actor

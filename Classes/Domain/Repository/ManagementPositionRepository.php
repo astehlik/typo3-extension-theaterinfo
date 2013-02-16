@@ -21,8 +21,12 @@ namespace Sto\Theaterinfo\Domain\Repository;
  *                                                                        */
 
 /**
- * Repository for management memberships
+ * Repository for management positions
  */
-class ManagementMembershipRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ManagementPositionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+
+	public function findForList() {
+		return $this->findByShowInOverview(TRUE);
+	}
 }
 ?>

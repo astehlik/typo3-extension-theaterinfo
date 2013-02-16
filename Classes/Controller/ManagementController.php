@@ -28,31 +28,15 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 
 	/**
 	 * @var Tx_Theaterinfo_Domain_Repository_ActorRepository
+	 * @inject
 	 */
 	protected $actorRepository;
 
 	/**
-	 * @var Tx_Theaterinfo_Domain_Repository_ManagementMembershipRepository
+	 * @var \Sto\Theaterinfo\Domain\Repository\ManagementPositionRepository
+	 * @inject
 	 */
-	protected $managementMembershipRepository;
-
-	/**
-	 * Injects the actor repository
-	 *
-	 * @param Tx_Theaterinfo_Domain_Repository_ActorRepository $actorRepository
-	 */
-	public function injectActorRepository(Tx_Theaterinfo_Domain_Repository_ActorRepository $actorRepository) {
-		$this->actorRepository = $actorRepository;
-	}
-
-	/**
-	 * Injects the management membership repository
-	 *
-	 * @param Tx_Theaterinfo_Domain_Repository_ManagementMembershipRepository $managementMembershipRepository
-	 */
-	public function injectManagementMembershipRepository(Tx_Theaterinfo_Domain_Repository_ManagementMembershipRepository $managementMembershipRepository) {
-		$this->managementMembershipRepository = $managementMembershipRepository;
-	}
+	protected $managementPositionRepository;
 
 	/**
 	 * List action for this controller. Displays all plays
@@ -60,7 +44,7 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 	 * @return string
 	 */
 	public function listAction() {
-		$this->view->assign('managementMemberships', $this->managementMembershipRepository->findAll());
+		$this->view->assign('managementPositions', $this->managementPositionRepository->findForList());
 	}
 
 	/**
@@ -112,7 +96,7 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 	 * @return boolean
 	 */
 	protected function requestIsActorDetailView() {
-		$action == '';
+		$action = '';
 		$controller = '';
 
 		if ($this->request->hasArgument('action')) {

@@ -1,78 +1,33 @@
 <f:layout name="default" />
 
+
 <f:section name="content">
 	<div class="tx-theaterinfo-managementlist-container">
-
-		<div class="innercontent csc-default tx-theaterinfo-managementlist-header">
-			<h1>
-				Unser Vorstand
-			</h1>
-			<p>
-				Hier findet Ihre kurze Steckbriefe zu unseren Vorstands-Mitgliedern.
-			</p>
-		</div>
-
-		<f:if condition="{managementMemberships}">
+		<f:if condition="{managementPositions}">
 			<f:then>
-				<f:for each="{managementMemberships}" as="managementMembership">
-					<div class="innercontent csc-default tx-theaterinfo-managementlist-member">
+				<f:for each="{managementPositions}" as="managementPosition">
+
+					<div class="csc-default">
 
 						<div class="csc-header">
-							<h2>
-								<f:translate key="managementmembership_type_{managementMembership.type}_{managementMembership.actor.gender}" />
-							</h2>
-							<h3>{managementMembership.actor.fullName}</h3>
+							<h2>{managementPosition.name}</h2>
 						</div>
 
-						<div class="floatbox">
+						<f:if condition="{managementPosition.currentMembership}">
+							<f:then>
+								<f:render partial="Actor/Overview.html" arguments="{actor: managementPosition.currentMembership.actor, useSubHeadingForName: 'true', hideBorder: 'ture'}"/>
+							</f:then>
+							<f:else>
+								<p>Dieser Vorstandsposten ist zur Zeit nicht besetzt.</p>
+							</f:else>
+						</f:if>
+					</div>
 
-							<div class="csc-textpic csc-textpic-intext-left">
-
-								<div class="csc-textpic-imagewrap csc-textpic-single-image">
-									<f:if condition="{managementMembership.actor.image}">
-										<f:then>
-											<f:image src="{managementMembership.actor.image}" alt="Bild von {managementMembership.actor.fullName}" width="160"/>
-										</f:then>
-										<f:else>
-											<f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {managementMembership.actor.fullName} vorhanden" width="160"/>
-										</f:else>
-									</f:if>
-								</div>
-
-								<div style="margin-left: 180px;">
-									<div class="csc-textpic-text>
-
-										<dl class="tx-theaterinfo-actor-properties">
-
-											<dt><f:translate key="actor_age" /></dt>
-											<dd>{managementMembership.actor.age} Jahre</dd>
-
-											<dt><f:translate key="actor_job" /></dt>
-											<dd>{managementMembership.actor.job}</dd>
-
-											<dt><f:translate key="actor_management_reasons" /></dt>
-											<dd>{managementMembership.actor.managementReasons}</dd>
-
-											<dt><f:translate key="actor_more_information" /></dt>
-											<dd>
-												<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
-													Hier erfährst du noch mehr über {managementMembership.actor.fullName}
-												</f:link.action>
-											</dd>
-										</dl>
-									</div>
-								</div>
-
-								<div class="csc-textpic-clear"></div>
-
-							</div><!-- csc-textpic -->
-						</div><!-- floatbox -->
-					</div><!-- csc-default -->
 				</f:for>
 			</f:then>
 			<f:else>
 				<div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
-					<p class="important">Zur Zeit sind keine Vorstandsmitglieder bekannt.</p>
+					<p class="important">Es sind keine Vorstandsposten vorhanden.</p>
 				</div>
 			</f:else>
 		</f:if>
