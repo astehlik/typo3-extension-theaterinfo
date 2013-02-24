@@ -31,11 +31,18 @@ RTE.config.tx_theaterinfo_domain_model_play.action {
 	}
 }
 
-');
+mod.web_list {
 
-t3lib_extMgm::addUserTSConfig('
-	mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_helper,tx_theaterinfo_domain_model_role)
-	mod.web_list.hideTables := addToList(tx_theaterinfo_domain_model_management_membership)
+	hideTables := addToList(tx_theaterinfo_domain_model_helper)
+	deniedNewTables := addToList(tx_theaterinfo_domain_model_helper)
+
+	hideTables := addToList(tx_theaterinfo_domain_model_role)
+	deniedNewTables := addToList(tx_theaterinfo_domain_model_role)
+
+	hideTables := addToList(tx_theaterinfo_domain_model_managementmembership)
+	deniedNewTables := addToList(tx_theaterinfo_domain_model_managementmembership)
+}
+
 ');
 
 if (TYPO3_MODE == 'BE') {
