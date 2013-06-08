@@ -7,7 +7,7 @@ if (!defined ('THEATERINFO_EXTkey')) {
 	define('THEATERINFO_EXTkey',$_EXTKEY);
 }
 
-t3lib_extMgm::addPageTSConfig('
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 
 
 mod.tx_linkhandler.tx_theaterinfo_play {
@@ -46,9 +46,7 @@ mod.web_list {
 ');
 
 if (TYPO3_MODE == 'BE') {
-	require_once(PATH_t3lib . 'interfaces/interface.t3lib_localrecordlistgettablehook.php');
-
-	require_once(t3lib_extMgm::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
+	require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
 	$TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 'tx_theaterinfo_hooks_dblist';
 }
 
@@ -57,7 +55,7 @@ if (TYPO3_MODE == 'BE') {
  * right combination of Controller and Action according to
  * the user input (default settings, FlexForm, URL etc.)
  */
-Tx_Extbase_Utility_Extension::configurePlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array(
@@ -65,7 +63,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	array()
 );
-Tx_Extbase_Utility_Extension::configurePlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	$_EXTKEY,
 	'ShowManagement',
 	array(
