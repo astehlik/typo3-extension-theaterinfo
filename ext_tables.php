@@ -133,12 +133,12 @@ t3lib_div::loadTCA('tt_content');
 	// These dividers are a little trick to group these items in the plugin selector
 $TCA['tt_content']['columns']['list_type']['config']['items'][] = array('Theater info', '--div--', t3lib_extMgm::extRelPath($_EXTKEY) . 'ext_icon.gif');
 
-Tx_Extbase_Utility_Extension::registerPlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'Pi1',
 	'Show plays (Theater info)'
 );
-Tx_Extbase_Utility_Extension::registerPlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'ShowManagement',
 	'Show management (Theater info)'
