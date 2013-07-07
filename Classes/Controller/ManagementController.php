@@ -68,7 +68,7 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 		$actor = $this->actorRepository->findByUid($actorUid);
 
 		if (isset($actor)) {
-			$breadcrumbMenu =  ' > ' . $actor->getFullName();
+			$breadcrumbMenu =  '<li><strong>' . $actor->getFullName() . '</strong></li>';
 		}
 
 		return $breadcrumbMenu;
