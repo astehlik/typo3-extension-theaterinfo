@@ -1,10 +1,6 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
- 	die ('Access denied.');
-}
-
-if (!defined ('THEATERINFO_EXTkey')) {
-	define('THEATERINFO_EXTkey',$_EXTKEY);
+if (!defined('TYPO3_MODE')) {
+	die ('Access denied.');
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
@@ -46,8 +42,7 @@ mod.web_list {
 ');
 
 if (TYPO3_MODE == 'BE') {
-	require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(THEATERINFO_EXTkey).'hooks/class.tx_theaterinfo_hooks_dblist.php');
-	$TYPO3_CONF_VARS['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 'tx_theaterinfo_hooks_dblist';
+	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 'Sto\\Theaterinfo\\Hooks\\RecordListHooks';
 }
 
 /**
@@ -56,15 +51,15 @@ if (TYPO3_MODE == 'BE') {
  * the user input (default settings, FlexForm, URL etc.)
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	$_EXTKEY,
-	'Pi1',
+	'Sto.' . $_EXTKEY,
+	'PlaysList',
 	array(
 		'Play' => 'list, show',
 	),
 	array()
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	$_EXTKEY,
+	'Sto.' . $_EXTKEY,
 	'ShowManagement',
 	array(
 		'Management' => 'list',

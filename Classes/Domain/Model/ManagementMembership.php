@@ -4,18 +4,8 @@ namespace Sto\Theaterinfo\Domain\Model;
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU General Public License as published by the Free   *
- * Software Foundation, either version 3 of the License, or (at your      *
- * option) any later version.                                             *
- *                                                                        *
- * This script is distributed in the hope that it will be useful, but     *
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHAN-    *
- * TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General      *
- * Public License for more details.                                       *
- *                                                                        *
- * You should have received a copy of the GNU General Public License      *
- * along with the script.                                                 *
- * If not, see http://www.gnu.org/licenses/gpl.html                       *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
@@ -26,17 +16,17 @@ namespace Sto\Theaterinfo\Domain\Model;
 class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * @var Tx_Theaterinfo_Domain_Model_Actor
+	 * @var \Sto\Theaterinfo\Domain\Model\Actor
 	 */
 	protected $actor;
 
 	/**
-	 * @var DateTime
+	 * @var \DateTime
 	 */
 	protected $enddate;
 
 	/**
-	 * @var DateTime
+	 * @var \DateTime
 	 */
 	protected $startdate;
 
@@ -48,7 +38,7 @@ class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntit
 	/**
 	 * Getter for actor
 	 *
-	 * @return Tx_Theaterinfo_Domain_Model_Actor
+	 * @return \Sto\Theaterinfo\Domain\Model\Actor
 	 */
 	public function getActor() {
 		return $this->actor;
@@ -57,7 +47,7 @@ class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntit
 	/**
 	 * Getter for enddate
 	 *
-	 * @return DateTime
+	 * @return \DateTime
 	 */
 	public function getEnddate() {
 		return $this->enddate;
@@ -66,7 +56,7 @@ class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntit
 	/**
 	 * Getter for startdate
 	 *
-	 * @return DateTime
+	 * @return \DateTime
 	 */
 	public function getStartdate() {
 		return $this->startdate;
@@ -81,4 +71,5 @@ class ManagementMembership extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntit
 		return $this->type;
 	}
 }
+
 ?>

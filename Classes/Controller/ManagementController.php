@@ -1,33 +1,22 @@
 <?php
+namespace Sto\Theaterinfo\Controller;
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU General Public License as published by the Free   *
- * Software Foundation, either version 3 of the License, or (at your      *
- * option) any later version.                                             *
- *                                                                        *
- * This script is distributed in the hope that it will be useful, but     *
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHAN-    *
- * TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General      *
- * Public License for more details.                                       *
- *                                                                        *
- * You should have received a copy of the GNU General Public License      *
- * along with the script.                                                 *
- * If not, see http://www.gnu.org/licenses/gpl.html                       *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
 /**
- * @package Theaterinfo
- * @subpackage Controller
- * @version $Id:$
+ * Controller for displaying information about the management
  */
-class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Controller_ActionController {
+class ManagementController extends \TYPO3\CMS\Extensionmanager\Controller\ActionController {
 
 	/**
-	 * @var Tx_Theaterinfo_Domain_Repository_ActorRepository
+	 * @var \Sto\Theaterinfo\Domain\Repository\ActorRepository
 	 * @inject
 	 */
 	protected $actorRepository;
@@ -68,7 +57,7 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 		$actor = $this->actorRepository->findByUid($actorUid);
 
 		if (isset($actor)) {
-			$breadcrumbMenu =  '<li><strong>' . $actor->getFullName() . '</strong></li>';
+			$breadcrumbMenu = '<li><strong>' . $actor->getFullName() . '</strong></li>';
 		}
 
 		return $breadcrumbMenu;
@@ -80,7 +69,7 @@ class Tx_Theaterinfo_Controller_ManagementController extends Tx_Extbase_MVC_Cont
 	 * @return string
 	 */
 	public function breadcrumbMenuArrayAction() {
-		$frameworkConfig = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		$frameworkConfig = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 		$parentMenuObject = $frameworkConfig['parentMenuObject'];
 
 		if ($this->requestIsActorDetailView()) {

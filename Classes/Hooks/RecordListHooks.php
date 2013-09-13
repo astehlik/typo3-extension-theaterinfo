@@ -1,6 +1,19 @@
 <?php
+namespace Sto\Theaterinfo\Hooks;
+/*                                                                        *
+ * This script belongs to the TYPO3 extension "theaterinfo".              *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
-class tx_theaterinfo_hooks_dblist implements t3lib_localRecordListGetTableHook {
+/**
+ * Hooks for the record list in the Backend
+ */
+class RecordListHooks implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface {
 
 	var $fieldArray = null;
 	
@@ -49,7 +62,4 @@ class tx_theaterinfo_hooks_dblist implements t3lib_localRecordListGetTableHook {
 	
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/theaterinfo/hooks/class.tx_theaterinfo_hooks_dblist.php']) {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/theaterinfo/hooks/class.tx_theaterinfo_hooks_dblist.php']);
-}
 ?>

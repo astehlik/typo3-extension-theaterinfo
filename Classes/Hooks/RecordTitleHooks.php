@@ -1,5 +1,5 @@
 <?php
-namespace Sto\Theaterinfo\Controller;
+namespace Sto\Theaterinfo\Hooks;
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -11,19 +11,24 @@ namespace Sto\Theaterinfo\Controller;
  *                                                                        */
 
 /**
- * Controller for displaying actor information
+ * Hooks for record title display in the Backend
  */
-class ActorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class RecordTitleHooks {
 
-	/**
-	 * Shows the details of a single actor
-	 *
-	 * @param \Sto\Theaterinfo\Domain\Model\Actor $actor
-	 * @return string
-	 */
-	public function showAction($actor) {
-		$this->view->assign('actor', $actor);
+	function getActorTitle(&$params, $pObj) {
+
+		$data = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($params['table'], $params['row']['uid']);
+
+			// Person
+		if($data['type'] == '0') {
+			$params['title'] = $data['lastname'] . ', ' . $data['firstname'];
+		}
+			// Company
+		else {
+			$params['title'] = $data['company'];
+		}
 	}
+
 }
 
 ?>

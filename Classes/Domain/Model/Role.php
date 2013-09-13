@@ -1,63 +1,45 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c)  TODO - INSERT COPYRIGHT
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+namespace Sto\Theaterinfo\Domain\Model;
+/*                                                                        *
+ * This script belongs to the TYPO3 extension "theaterinfo".              *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
 /**
- * 
- *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * A role in a play
  */
+class Role extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
-
-class Tx_Theaterinfo_Domain_Model_Role extends Tx_Extbase_DomainObject_AbstractEntity {
-	
 	/**
-	 * 
+	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $name;
-	
+
 	/**
-	 * 
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Actor>
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Actor>
 	 */
 	protected $actors;
-	
+
 
 	/**
 	 * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
 	 */
 	public function __construct() {
-		$this->actors = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->actors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
-	
+
 	/**
 	 * Getter for name
 	 *
-	 * @return string 
+	 * @return string
 	 */
 	public function getName() {
 		return $this->name;
@@ -66,7 +48,8 @@ class Tx_Theaterinfo_Domain_Model_Role extends Tx_Extbase_DomainObject_AbstractE
 	public function getActors() {
 		return $this->actors;
 	}
-	
+
 
 }
+
 ?>

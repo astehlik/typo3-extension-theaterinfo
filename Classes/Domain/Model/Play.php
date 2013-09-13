@@ -1,37 +1,19 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c)  TODO - INSERT COPYRIGHT
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+namespace Sto\Theaterinfo\Domain\Model;
+/*                                                                        *
+ * This script belongs to the TYPO3 extension "theaterinfo".              *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU General Public License, either version 3 of the   *
+ * License, or (at your option) any later version.                        *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
 
 /**
  * A play performed by the theater group
- *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-
-
-class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractEntity {
+class Play extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 *
@@ -47,7 +29,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Helper>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Helper>
 	 */
 	protected $helpers;
 
@@ -75,7 +57,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Theaterinfo_Domain_Model_Role>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Role>
 	 */
 	protected $roles;
 
@@ -93,7 +75,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 
 	/**
 	 *
-	 * @var DateTime
+	 * @var \DateTime
 	 */
 	protected $timeSort;
 
@@ -108,8 +90,8 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
 	 */
 	public function __construct() {
-		$this->roles = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->helpers = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->roles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->helpers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	public function getTitle() {
@@ -127,12 +109,12 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Returns all roles in this play
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getRoles() {
 
 		if (!isset($this->roles)) {
-			return new Tx_Extbase_Persistence_ObjectStorage();
+			return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		} else {
 			return $this->roles;
 		}
@@ -141,12 +123,12 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Returns all helpers of this play
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getHelpers() {
 
 		if (!isset($this->helpers)) {
-			return new Tx_Extbase_Persistence_ObjectStorage();
+			return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		} else {
 			return $this->helpers;
 		}
@@ -159,7 +141,6 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getLogo() {
 		if (strlen(trim($this->logo))) {
-			t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
 			$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
 			return $folder . $this->logo;
 		} else {
@@ -174,9 +155,8 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getPictures() {
 
-		t3lib_div::loadTCA('tx_theaterinfo_domain_model_play');
 		$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['pictures']['config']['uploadfolder'];
-		$pictures = t3lib_div::trimExplode(',', $this->pictures);
+		$pictures = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $this->pictures);
 
 		$picturesWithPath = array();
 		if (strlen($pictures[0])) {
@@ -231,7 +211,7 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string
 	 */
 	public function getState() {
-	 	return $this->state;
+		return $this->state;
 	}
 
 	/**
@@ -252,4 +232,5 @@ class Tx_Theaterinfo_Domain_Model_Play extends Tx_Extbase_DomainObject_AbstractE
 		return $this->timeSort;
 	}
 }
+
 ?>
