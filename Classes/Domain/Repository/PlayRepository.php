@@ -1,5 +1,6 @@
 <?php
 namespace Sto\Theaterinfo\Domain\Repository;
+
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
