@@ -16,51 +16,48 @@ namespace Sto\Theaterinfo\Hooks;
  */
 class RecordListHooks implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface {
 
-	var $fieldArray = null;
-	
-	var $table = null;
-	
-	var $nameQuery = 'CONCAT(lastname, ", ", firstname)';
-	
-	var $updateFieldList = false;
-	
-	function getDBlistQuery($_table, $_pageId, &$_addWhere, &$_selFieldList, &$_callerClass) {		
-		switch ($_table) {			
+	var $fieldArray = NULL;
 
-			case 'tx_theaterinfo_domain_model_helper':				
+	var $table = NULL;
+
+	var $nameQuery = 'CONCAT(lastname, ", ", firstname)';
+
+	var $updateFieldList = FALSE;
+
+	function getDBlistQuery($_table, $_pageId, &$_addWhere, &$_selFieldList, &$_callerClass) {
+		switch ($_table) {
+
+			case 'tx_theaterinfo_domain_model_helper':
 				$this->init($_table, $_selFieldList);
 				$this->replaceWithSubselect('helpertype', 'tx_theaterinfo_domain_model_helpertype', 'jobtitle');
 				break;
 		}
-				
-		if($this->updateFieldList)
-		{
+
+		if ($this->updateFieldList) {
 			$_selFieldList = implode(',', $this->fieldArray);
 		}
 	}
-	
-	function init($_table, $_selFieldList) {		
+
+	function init($_table, $_selFieldList) {
 		$this->fieldArray = split(',', $_selFieldList);
 		$this->table = $_table;
 	}
-			
-	
+
 	function replaceWithSubselect($_field, $_subTable, $_query) {
 		$xSelectString = '(SELECT %s from %s WHERE %s.%s = %s.uid) as %s';
 		$xSubQuery = sprintf($xSelectString, $_query, $_subTable, $this->table, $_field, $_subTable, $_field);
 		$this->replaceField($_field, $xSubQuery);
 	}
-	
+
 	function replaceField($_field, $_newQuery) {
-		$xKey = array_search($_field, $this->fieldArray);		
-		if($xKey===false)
-		{			
+		$xKey = array_search($_field, $this->fieldArray);
+		if ($xKey === FALSE) {
 			return;
 		}
 		$this->fieldArray[$xKey] = $_newQuery;
-		$this->updateFieldList = true;
+		$this->updateFieldList = TRUE;
 	}
-	
+
 }
 
 ?>
