@@ -5,12 +5,9 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 
+<INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.txt">
 
-mod.tx_linkhandler.tx_theaterinfo_play {
-	label = Stück
-	listTables = tx_theaterinfo_domain_model_play
-}
-
+mod.tx_linkhandler.tx_theaterinfo_play < plugin.tx_linkhandler.tx_theaterinfo_play
 RTE.default.tx_linkhandler.tx_theaterinfo_play < mod.tx_linkhandler.tx_theaterinfo_play
 
 	# ***************************************************************************************

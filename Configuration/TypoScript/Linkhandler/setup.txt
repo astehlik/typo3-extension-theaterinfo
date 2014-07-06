@@ -1,0 +1,13 @@
+
+plugin.tx_linkhandler.tx_theaterinfo_play {
+
+	label = Stück
+	listTables = tx_theaterinfo_domain_model_play
+
+	typolink {
+		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
+		additionalParams = &tx_theaterinfo_pi1[controller]=Play&tx_theaterinfo_pi1[action]=show&tx_theaterinfo_pi1[play]={field:uid}
+		additionalParams.insertData = 1
+		useCacheHash = 1
+	}
+}

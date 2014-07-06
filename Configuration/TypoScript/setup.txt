@@ -10,22 +10,7 @@ plugin.tx_theaterinfo {
 	}
 
 	_CSS_DEFAULT_STYLE (
-
-
 	)
-
 }
 
-
-plugin.tx_linkhandler {
-
-	tx_theaterinfo_domain_model_play {
-
-		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
-		additionalParams = &tx_theaterinfo_pi1[controller]=Play&tx_theaterinfo_pi1[action]=show&tx_theaterinfo_pi1[play]={field:uid}
-		additionalParams.insertData = 1
-		useCacheHash = 1
-
-	}
-
-}
+<INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.txt">
