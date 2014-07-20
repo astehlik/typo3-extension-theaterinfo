@@ -21,7 +21,7 @@ class PlayRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 *
 	 * @param \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
 	 */
-	public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager = NULL) {
+	public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
 		parent::__construct($objectManager);
 		$this->setDefaultOrderings(array('timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING));
 	}
