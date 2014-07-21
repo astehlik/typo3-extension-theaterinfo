@@ -6,7 +6,7 @@ plugin.tx_linkhandler.tx_theaterinfo_play {
 
 	typolink {
 		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
-		additionalParams = &tx_theaterinfo_pi1[controller]=Play&tx_theaterinfo_pi1[action]=show&tx_theaterinfo_pi1[play]={field:uid}
+		additionalParams = &tx_theaterinfo_playslist[controller]=Play&tx_theaterinfo_playslist[action]=show&tx_theaterinfo_playslist[play]={field:uid}
 		additionalParams.insertData = 1
 		useCacheHash = 1
 	}
