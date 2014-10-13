@@ -11,10 +11,12 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * A play performed by the theater group
  */
-class Play extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Play extends AbstractEntity {
 
 	/**
 	 *
@@ -67,6 +69,11 @@ class Play extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $state;
+
+	/**
+	 * @var string
+	 */
+	protected $teaser;
 
 	/**
 	 *
@@ -207,6 +214,13 @@ class Play extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getTeaser() {
+		return $this->teaser;
+	}
+
+	/**
 	 * Getter for the state of the play
 	 *
 	 * @return string
@@ -233,5 +247,3 @@ class Play extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		return $this->timeSort;
 	}
 }
-
-?>
