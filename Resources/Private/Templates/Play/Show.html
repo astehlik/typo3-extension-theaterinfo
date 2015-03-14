@@ -1,17 +1,19 @@
 <f:layout name="default" />
 
+<f:section name="hasinfostext">{play.action}{f:if(condition: '{play.pictures}', then: '1')}{f:if(condition: '{play.showRoles}', then: '1')}{f:if(condition: '{play.showHelpers}', then: '1')}</f:section>
+
 <f:section name="content">
 
 <div class="theaterinfo-play-show">
 
 	<div class="innercontent csc-default">
-	
+
 		<div class="floatbox">
-		
+
 			<div class=" csc-textpic csc-textpic-intext-right">
-	
+
 				<h1>{play.title}</h1>
-				
+
 				<div class="csc-textpic-imagewrap csc-textpic-single-image">
 					<f:if condition="{play.logo}">
 						<a href="{f:uri.image(src:'{play.logo}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
@@ -19,137 +21,139 @@
 						</a>
 					</f:if>
 				</div>
-				
-				<div class="csc-textpic-text">	
-				
+
+				<div class="csc-textpic-text">
+
 					<h3>Autoren</h3>
 					<p><f:format.nl2br>{play.author}</f:format.nl2br></p>
-					
+
 					<h3>Status</h3>
 					<p><f:translate key="play_state_{play.state}">Status {play.state}</f:translate></p>
-					
+
 					<h3>Aufführungszeit</h3>
 					<p>{play.timeDisplay}</p>
-					
+
 					<p><f:link.action action="list" class="backlink">zurück zur Übersicht</f:link.action></p>
-					
+
 				</div>
-				
+
 				<div class="csc-textpic-clear"></div>
-				
-			</div>
-		</div>
-	</div>
-	
-	<div class="innercontent csc-default">
-	
-		<div class="floatbox">
-	
-			<div id="theaterinfo-play-show-infos">
-		
-				<ul>
-					<f:if condition="{play.action}">
-						<li><a href="#theaterinfo-play-show-action">Handlung</a></li>
-					</f:if>
-					
-					<f:if condition="{play.pictures}">
-						<li><a href="#theaterinfo-play-show-pictures">Bilder</a></li>
-					</f:if>
-					
-					<f:if condition="{play.showRoles}">
-						<li><a href="#theaterinfo-play-show-roles">Besetzung</a></li>
-					</f:if>
-					
-					<f:if condition="{play.showHelpers}">
-						<li><a href="#theaterinfo-play-show-helpers">Hinter den Kulissen</a></li>
-					</f:if>
-				</ul>
-			
-				<f:if condition="{play.action}">
-					<div id="theaterinfo-play-show-action">
-						<h2>Handlung</h2>
-						<f:format.html>{play.action}</f:format.html>
-					</div>
-				</f:if>
-				
-				<f:if condition="{play.pictures}">
-					<div id="theaterinfo-play-show-pictures">
-						<h2>Bilder</h2>
-						<div class="csc-textpic csc-textpic-center csc-textpic-above">
-							<div class="csc-textpic-imagewrap">
-								<f:for each="{play.pictures}" as="picture" iteration="iteration">
-									<div class="csc-textpic-image">
-										<a href="{f:uri.image(src:'{picture}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
-											<f:image src="{picture}" alt="Bild {iteration.cycle} von {play.title}" height="150" class="theaterinfo-play-show-logo"/>
-										</a>
-									</div>
-								</f:for>
-							</div>
-						</div>
-					</div>
-				</f:if>
-			
-				<f:if condition="{play.showRoles}">
-					<div id="theaterinfo-play-show-roles">
-						<h2>Besetzung</h2>
-						<table class="full">
-							<f:for each="{play.roles}" as="role">
-							<tr>
-								<td style="width: 70%;">
-									{role.name}
-								</td>
-								<td>
-									<f:for each="{role.actors}" as="actor">
-										<f:if condition="{actor.type}">
-											<f:then>							
-												{actor.company}
-											</f:then>
-											<f:else>
-												{actor.firstname} {actor.lastname}
-											</f:else>
-										</f:if>
-										 <br />
-									</f:for>
-								</td>
-							</tr>
-							</f:for>							
-						</table>
-					</div>
-				</f:if>
-			
-				<f:if condition="{play.showHelpers}">
-					<div id="theaterinfo-play-show-helpers">
-						<h2>Hinter den Kulissen</h2>
-						<table class="full">
-							<f:for each="{play.helpers}" as="helper">
-							<tr>
-								<td style="width: 70%;">
-									{helper.helpertype.jobtitle}
-								</td>
-								<td>
-									<f:for each="{helper.actors}" as="actor">
-										<f:if condition="{actor.type}">
-											<f:then>							
-												{actor.company}
-											</f:then>
-											<f:else>
-												{actor.firstname} {actor.lastname}
-											</f:else>
-										</f:if>
-										 <br />
-									</f:for>
-								</td>
-							</tr>
-							</f:for>							
-						</table>
-					</div>
-				</f:if>
 
 			</div>
 		</div>
 	</div>
-	<div class="innercontent csc-default">
-		<f:link.action action="list" class="backlink">zurück zur Übersicht</f:link.action>
-	</div>
+
+	<f:if condition="{f:render(section: 'hasinfostext', arguments: '{_all}')}">
+		<div class="innercontent csc-default">
+
+			<div class="floatbox">
+
+				<div id="theaterinfo-play-show-infos">
+
+					<ul>
+						<f:if condition="{play.action}">
+							<li><a href="#theaterinfo-play-show-action">Handlung</a></li>
+						</f:if>
+
+						<f:if condition="{play.pictures}">
+							<li><a href="#theaterinfo-play-show-pictures">Bilder</a></li>
+						</f:if>
+
+						<f:if condition="{play.showRoles}">
+							<li><a href="#theaterinfo-play-show-roles">Besetzung</a></li>
+						</f:if>
+
+						<f:if condition="{play.showHelpers}">
+							<li><a href="#theaterinfo-play-show-helpers">Hinter den Kulissen</a></li>
+						</f:if>
+					</ul>
+
+					<f:if condition="{play.action}">
+						<div id="theaterinfo-play-show-action">
+							<h2>Handlung</h2>
+							<f:format.html>{play.action}</f:format.html>
+						</div>
+					</f:if>
+
+					<f:if condition="{play.pictures}">
+						<div id="theaterinfo-play-show-pictures">
+							<h2>Bilder</h2>
+							<div class="csc-textpic csc-textpic-center csc-textpic-above">
+								<div class="csc-textpic-imagewrap">
+									<f:for each="{play.pictures}" as="picture" iteration="iteration">
+										<div class="csc-textpic-image">
+											<a href="{f:uri.image(src:'{picture}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
+												<f:image src="{picture}" alt="Bild {iteration.cycle} von {play.title}" height="150" class="theaterinfo-play-show-logo"/>
+											</a>
+										</div>
+									</f:for>
+								</div>
+							</div>
+						</div>
+					</f:if>
+
+					<f:if condition="{play.showRoles}">
+						<div id="theaterinfo-play-show-roles">
+							<h2>Besetzung</h2>
+							<table class="full">
+								<f:for each="{play.roles}" as="role">
+								<tr>
+									<td style="width: 70%;">
+										{role.name}
+									</td>
+									<td>
+										<f:for each="{role.actors}" as="actor">
+											<f:if condition="{actor.type}">
+												<f:then>
+													{actor.company}
+												</f:then>
+												<f:else>
+													{actor.firstname} {actor.lastname}
+												</f:else>
+											</f:if>
+											 <br />
+										</f:for>
+									</td>
+								</tr>
+								</f:for>
+							</table>
+						</div>
+					</f:if>
+
+					<f:if condition="{play.showHelpers}">
+						<div id="theaterinfo-play-show-helpers">
+							<h2>Hinter den Kulissen</h2>
+							<table class="full">
+								<f:for each="{play.helpers}" as="helper">
+								<tr>
+									<td style="width: 70%;">
+										{helper.helpertype.jobtitle}
+									</td>
+									<td>
+										<f:for each="{helper.actors}" as="actor">
+											<f:if condition="{actor.type}">
+												<f:then>
+													{actor.company}
+												</f:then>
+												<f:else>
+													{actor.firstname} {actor.lastname}
+												</f:else>
+											</f:if>
+											 <br />
+										</f:for>
+									</td>
+								</tr>
+								</f:for>
+							</table>
+						</div>
+					</f:if>
+
+				</div>
+			</div>
+		</div>
+		<div class="innercontent csc-default">
+			<f:link.action action="list" class="backlink">zurück zur Übersicht</f:link.action>
+		</div>
+	</f:if>
 </div>
 </f:section>
