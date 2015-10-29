@@ -48,7 +48,7 @@ if (TYPO3_MODE == 'BE') {
  * the user input (default settings, FlexForm, URL etc.)
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Sto.' . $_EXTKEY,
+	'Sto.Theaterinfo',
 	'PlaysList',
 	array(
 		'Play' => 'list, show',
@@ -56,7 +56,7 @@ if (TYPO3_MODE == 'BE') {
 	array()
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Sto.' . $_EXTKEY,
+	'Sto.Theaterinfo',
 	'ShowManagement',
 	array(
 		'Management' => 'list',

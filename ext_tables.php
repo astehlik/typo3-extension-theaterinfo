@@ -9,13 +9,13 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = array('Theater info', '--div--', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	$_EXTKEY,
+	'Sto.Theaterinfo',
 	'PlaysList',
 	'Show plays (Theater info)'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	$_EXTKEY,
+	'Sto.Theaterinfo',
 	'ShowManagement',
 	'Show management (Theater info)'
 );
