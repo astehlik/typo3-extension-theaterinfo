@@ -12,7 +12,7 @@ return array(
 			'starttime' => 'startdate',
 			'endtime' => 'enddate',
 		),
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'type,position,actor,startdate,enddate'
@@ -23,6 +23,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => array(
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.first_leader', 'first_leader'),
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.second_leader', 'second_leader'),
@@ -42,6 +43,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.position',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_theaterinfo_domain_model_managementposition',
 				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_managementposition.name',
 				'size' => 1,
@@ -68,6 +70,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.actor',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
 				'size' => 1,
 				'maxitems' => 1,
@@ -76,8 +79,6 @@ return array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'type,position,actor,startdate,enddate'),
+		'0' => array('showitem' => 'type, position, actor, startdate, enddate'),
 	),
-	'palettes' => array()
 );
-?>

@@ -12,7 +12,7 @@ return array(
 			'disabled' => 'hidden',
 		),
 		'dividers2tabs' => 1,
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,title,author,time_sort,time_display,teaser,action,logo,pictures,state,roles,hide_roles,helpers,hide_helpers,advance_sale',
@@ -79,17 +79,6 @@ return array(
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-				'wizards' => array(
-					'_PADDING' => 2,
-					'RTE' => array(
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php',
-					),
-				),
 			)
 		),
 		'logo' => array(
@@ -127,6 +116,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => array(
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.0', '0'),
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.1', '1'),
@@ -190,30 +180,27 @@ return array(
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-				'wizards' => array(
-					'_PADDING' => 2,
-					'RTE' => array(
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'Full screen Rich Text Editing|Formatteret redigering i hele vinduet',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php',
-					),
-				),
 			)
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => '--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.properties, title;;1;;1-1-1, author;;;;3-3-3, time_sort, time_display, state, teaser,
-									--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.action, action;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_theaterinfo/rte/],
-									--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.pictures, logo, pictures,
-									--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.roles, hide_roles, roles,
-									--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.helpers, hide_helpers, helpers,
-									--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.advance_sale, advance_sale;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_theaterinfo/rte/]'),
+		'0' => array(
+			'showitem' => '
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.properties, title, hidden, author, time_sort, time_display, state, teaser,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.action, action,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.pictures, logo, pictures,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.roles, hide_roles, roles,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.helpers, hide_helpers, helpers,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.advance_sale, advance_sale
+			',
+			'columnsOverrides' => [
+				'action' => [
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				],
+				'advance_sale' => [
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				],
+			]
+		),
 	),
-	'palettes' => array(
-		'1' => array('showitem' => 'hidden')
-	)
 );
-?>

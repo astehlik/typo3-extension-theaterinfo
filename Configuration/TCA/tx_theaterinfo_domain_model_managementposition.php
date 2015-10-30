@@ -8,7 +8,7 @@ return array(
 		'cruser_id' => 'cruser_id',
 		'sortby' => 'sorting',
 		'delete' => 'deleted',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'name,showInOverview,memberships'
@@ -39,8 +39,6 @@ return array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'name,showInOverview,memberships'),
+		'0' => array('showitem' => 'name, showInOverview, memberships'),
 	),
-	'palettes' => array()
 );
-?>

@@ -11,7 +11,7 @@ return array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,jobtitle,icon'
@@ -49,10 +49,6 @@ return array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'jobtitle;;1;;1-1-1, icon')
+		'0' => array('showitem' => 'jobtitle, hidden, icon')
 	),
-	'palettes' => array(
-		'1' => array('showitem' => 'hidden')
-	)
 );
-?>

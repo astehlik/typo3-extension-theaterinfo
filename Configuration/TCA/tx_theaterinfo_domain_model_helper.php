@@ -11,7 +11,7 @@ return array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
 		),
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,helpertype,actors,insert_spacer,playuid'
@@ -30,6 +30,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helper.helpertype',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_theaterinfo_domain_model_helpertype',
 				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helpertype',
@@ -37,15 +38,15 @@ return array(
 				'minitems' => 0,
 				'maxitems' => 1,
 				'wizards' => array(
-					'_PADDING' => 2,
-					'_HORIZONTAL' => 1,
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
+						'module' => array(
+							'name' => 'wizard_edit',
+						),
 						'popup_onlyOpenIfSelected' => 1,
-						'icon' => 'edit2.gif',
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
+						'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
 					),
 				),
 			)
@@ -55,6 +56,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helper.actors',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectMultipleSideBySide',
 				'foreign_table' => 'tx_theaterinfo_domain_model_actor',
 				'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
@@ -62,15 +64,15 @@ return array(
 				'minitems' => 0,
 				'maxitems' => 100,
 				'wizards' => array(
-					'_PADDING' => 2,
-					'_VERTICAL' => 1,
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
+						'module' => array(
+							'name' => 'wizard_edit',
+						),
 						'popup_onlyOpenIfSelected' => 1,
-						'icon' => 'edit2.gif',
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
+						'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
 					),
 				),
 			)
@@ -89,10 +91,6 @@ return array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'helpertype;;1;;1-1-1, actors, insert_spacer, playuid')
+		'0' => array('showitem' => 'helpertype, hidden, actors, insert_spacer, playuid')
 	),
-	'palettes' => array(
-		'1' => array('showitem' => 'hidden')
-	)
 );
-?>

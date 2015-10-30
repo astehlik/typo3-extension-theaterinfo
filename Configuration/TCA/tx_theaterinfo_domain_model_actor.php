@@ -14,7 +14,7 @@ return array(
 			'disabled' => 'hidden',
 		),
 		'dividers2tabs' => 1,
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('theaterinfo') . 'Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
+		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,gender,firstname,lastname,picture,management_positions,management_reasons,favorite_role,birthday,hobbys,job,member_since'
@@ -33,6 +33,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => array(
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type.I.0', '0'),
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type.I.1', '1'),
@@ -46,6 +47,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => array(
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender.I.0', '0'),
 					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender.I.1', '1'),
@@ -121,6 +123,7 @@ return array(
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_theaterinfo_domain_model_role',
 				'foreign_table_where' => 'AND FIND_IN_SET(\'###THIS_UID###\', tx_theaterinfo_domain_model_role.actors) ORDER BY name',
 				'items' => array(
@@ -167,13 +170,9 @@ return array(
 	),
 	'types' => array(
 		'0' => array('showitem' => '
-			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.properties,type;;1;;1-1-1, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
+			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.properties,type, hidden, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
 			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management,management_memberships, management_reasons
 		'),
-		'1' => array('showitem' => 'type, company;;1;;1-1-1, picture')
+		'1' => array('showitem' => 'type, hidden, company, picture')
 	),
-	'palettes' => array(
-		'1' => array('showitem' => 'hidden')
-	)
 );
-?>
