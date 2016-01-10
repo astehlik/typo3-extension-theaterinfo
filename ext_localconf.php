@@ -64,4 +64,5 @@ if (TYPO3_MODE == 'BE') {
 	),
 	array()
 );
-?>
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txTheaterinfoFal'] = \Sto\Theaterinfo\Install\FalUpdateWizard::class;

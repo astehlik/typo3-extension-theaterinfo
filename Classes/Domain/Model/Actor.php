@@ -72,7 +72,7 @@ class Actor extends AbstractEntity
     protected $memberSince;
 
     /**
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $picture;
 
@@ -217,7 +217,7 @@ class Actor extends AbstractEntity
     /**
      * Getter for picture
      *
-     * @return string
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     public function getPicture()
     {

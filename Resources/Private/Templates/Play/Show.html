@@ -17,7 +17,7 @@
 				<div class="csc-textpic-imagewrap csc-textpic-single-image">
 					<f:if condition="{play.logo}">
 						<a href="{f:uri.image(src:'{play.logo}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
-							<f:image src="{play.logo}" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
+							<f:image image="{play.logo}" treatIdAsReference="1" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
 						</a>
 					</f:if>
 				</div>
@@ -82,8 +82,8 @@
 								<div class="csc-textpic-imagewrap">
 									<f:for each="{play.pictures}" as="picture" iteration="iteration">
 										<div class="csc-textpic-image">
-											<a href="{f:uri.image(src:'{picture}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
-												<f:image src="{picture}" alt="Bild {iteration.cycle} von {play.title}" height="150" class="theaterinfo-play-show-logo"/>
+											<a href="{f:uri.image(image: '{picture}', treatIdAsReference: '1', maxWidth: '500', maxHeight: '600')}" class="lightbox">
+												<f:image image="{picture}" treatIdAsReference="1" alt="Bild {iteration.cycle} von {play.title}" height="150" class="theaterinfo-play-show-logo"/>
 											</a>
 										</div>
 									</f:for>

@@ -20,8 +20,7 @@ class Helpertype extends AbstractEntity
 {
 
     /**
-     *
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $icon;
 

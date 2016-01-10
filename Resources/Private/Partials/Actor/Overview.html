@@ -12,7 +12,7 @@
 			<div class="tx-theaterinfo-actor-overview-image">
 				<f:if condition="{actor.picture}">
 					<f:then>
-						<f:image src="uploads/tx_theaterinfo/{actor.picture}" alt="Bild von {actor.fullName}" width="160"/>
+						<f:image image="{actor.picture}" treatIdAsReference="1" alt="Bild von {actor.fullName}" width="160"/>
 					</f:then>
 					<f:else>
 						<f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {actor.fullName} vorhanden" width="160"/>

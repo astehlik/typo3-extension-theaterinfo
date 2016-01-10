@@ -17,7 +17,7 @@
                 <div class="csc-textpic-imagewrap csc-textpic-single-image">
                     <f:if condition="{actor.image}">
                         <f:then>
-                            <f:image src="{actor.image}" alt="Bild von {actor.fullName}" width="160"/>
+                            <f:image image="{actor.image}" treatIdAsReference="1" alt="Bild von {actor.fullName}" width="160"/>
                         </f:then>
                         <f:else>
                             <f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {actor.fullName} vorhanden" width="160"/>

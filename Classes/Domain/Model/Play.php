@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Play extends AbstractEntity
 {
-
     /**
      *
      * @var string
@@ -48,14 +47,12 @@ class Play extends AbstractEntity
     protected $hideRoles;
 
     /**
-     *
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $logo;
 
     /**
-     *
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
     protected $pictures;
 
@@ -132,37 +129,22 @@ class Play extends AbstractEntity
     /**
      * Getter for the logo file
      *
-     * @return string
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     public function getLogo()
     {
-        if (strlen(trim($this->logo))) {
-            $folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
-            return $folder . $this->logo;
-        } else {
-            return '';
-        }
+        return $this->logo;
     }
 
     /**
      * Getter for the pictures of this play
      *
-     * @return array
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference[]
      */
     public function getPictures()
     {
 
-        $folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['pictures']['config']['uploadfolder'];
-        $pictures = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $this->pictures);
-
-        $picturesWithPath = [];
-        if (strlen($pictures[0])) {
-            foreach ($pictures as $picture) {
-                $picturesWithPath[] = $folder . $picture;
-            }
-        }
-
-        return $picturesWithPath;
+        return $this->pictures;
     }
 
     /**
