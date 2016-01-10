@@ -11,53 +11,58 @@ namespace Sto\Theaterinfo\Hooks;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface;
+
 /**
  * Hooks for the record list in the Backend
  */
-class RecordListHooks implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface {
+class RecordListHooks implements RecordListGetTableHookInterface
+{
 
-	var $fieldArray = NULL;
+    var $fieldArray = null;
 
-	var $table = NULL;
+    var $nameQuery = 'CONCAT(lastname, ", ", firstname)';
 
-	var $nameQuery = 'CONCAT(lastname, ", ", firstname)';
+    var $table = null;
 
-	var $updateFieldList = FALSE;
+    var $updateFieldList = false;
 
-	function getDBlistQuery($_table, $_pageId, &$_addWhere, &$_selFieldList, &$_callerClass) {
-		switch ($_table) {
+    function getDBlistQuery($_table, $_pageId, &$_addWhere, &$_selFieldList, &$_callerClass)
+    {
+        switch ($_table) {
 
-			case 'tx_theaterinfo_domain_model_helper':
-				$this->init($_table, $_selFieldList);
-				$this->replaceWithSubselect('helpertype', 'tx_theaterinfo_domain_model_helpertype', 'jobtitle');
-				break;
-		}
+            case 'tx_theaterinfo_domain_model_helper':
+                $this->init($_table, $_selFieldList);
+                $this->replaceWithSubselect('helpertype', 'tx_theaterinfo_domain_model_helpertype', 'jobtitle');
+                break;
+        }
 
-		if ($this->updateFieldList) {
-			$_selFieldList = implode(',', $this->fieldArray);
-		}
-	}
+        if ($this->updateFieldList) {
+            $_selFieldList = implode(',', $this->fieldArray);
+        }
+    }
 
-	function init($_table, $_selFieldList) {
-		$this->fieldArray = split(',', $_selFieldList);
-		$this->table = $_table;
-	}
+    function init($_table, $_selFieldList)
+    {
+        $this->fieldArray = split(',', $_selFieldList);
+        $this->table = $_table;
+    }
 
-	function replaceWithSubselect($_field, $_subTable, $_query) {
-		$xSelectString = '(SELECT %s from %s WHERE %s.%s = %s.uid) as %s';
-		$xSubQuery = sprintf($xSelectString, $_query, $_subTable, $this->table, $_field, $_subTable, $_field);
-		$this->replaceField($_field, $xSubQuery);
-	}
+    function replaceField($_field, $_newQuery)
+    {
+        $xKey = array_search($_field, $this->fieldArray);
+        if ($xKey === false) {
+            return;
+        }
+        $this->fieldArray[$xKey] = $_newQuery;
+        $this->updateFieldList = true;
+    }
 
-	function replaceField($_field, $_newQuery) {
-		$xKey = array_search($_field, $this->fieldArray);
-		if ($xKey === FALSE) {
-			return;
-		}
-		$this->fieldArray[$xKey] = $_newQuery;
-		$this->updateFieldList = TRUE;
-	}
+    function replaceWithSubselect($_field, $_subTable, $_query)
+    {
+        $xSelectString = '(SELECT %s from %s WHERE %s.%s = %s.uid) as %s';
+        $xSubQuery = sprintf($xSelectString, $_query, $_subTable, $this->table, $_field, $_subTable, $_field);
+        $this->replaceField($_field, $xSubQuery);
+    }
 
 }
-
-?>

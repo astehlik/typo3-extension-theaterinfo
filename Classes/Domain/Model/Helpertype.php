@@ -1,5 +1,6 @@
 <?php
 namespace Sto\Theaterinfo\Domain\Model;
+
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -10,29 +11,31 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * A job an actor / sponsor can do for a play
  */
-class Helpertype extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Helpertype extends AbstractEntity
+{
 
-	/**
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $jobtitle;
+    /**
+     *
+     * @var string
+     */
+    protected $icon;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $icon;
+    /**
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $jobtitle;
 
-	/**
-	 * @return string
-	 */
-	public function getJobtitle() {
-		return $this->jobtitle;
-	}
+    /**
+     * @return string
+     */
+    public function getJobtitle()
+    {
+        return $this->jobtitle;
+    }
 }
-
-?>

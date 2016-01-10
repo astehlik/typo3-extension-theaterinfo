@@ -11,64 +11,75 @@ namespace Sto\Theaterinfo\Hooks;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Core\Bootstrap;
+
 /**
  * Class containing methods for menu related hooks
  */
-class MenuHooks {
+class MenuHooks
+{
 
-	public function getBreadcrumbMenuManagement($configuration) {
-		$configuration = array(
-			'extensionName' => 'Theaterinfo',
-			'pluginName' => 'ShowManagement',
-		);
-
-		$currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
-
-		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = array(
-			'Management' => array(
-				'actions' => array(
-					'breadcrumbMenu'
-				),
-			),
-		);
-
-		/** @var $extbaseBootrap  Tx_Extbase_Core_Bootstrap*/
-		$extbaseBootrap = t3lib_div::makeInstance('tx_extbase_core_bootstrap');
-		$result = $extbaseBootrap->run('', $configuration);
-
-		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
-
-		return $result;
-	}
-
-	public function getBreadcrumbMenuArrayManagement($currentMenuArray, $additionalParameters) {
+	/**
+	 * @param array $currentMenuArray
+	 * @param array $additionalParameters
+	 * @return array
+	 */
+	public function getBreadcrumbMenuArrayManagement($currentMenuArray, $additionalParameters)
+	{
 
 		$parentMenuObject = $additionalParameters['parentObj'];
 
-		$configuration = array(
+		$configuration = [
 			'extensionName' => 'Theaterinfo',
 			'pluginName' => 'ShowManagement',
 			'parentMenuObject' => $parentMenuObject,
-		);
+		];
 
 		$currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
 
-		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = array(
-			'Management' => array(
-				'actions' => array(
+		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
+			'Management' => [
+				'actions' => [
 					'breadcrumbMenuArray'
-				),
-			),
-		);
+				],
+			],
+		];
 
-		/** @var $extbaseBootrap  Tx_Extbase_Core_Bootstrap*/
-		$extbaseBootrap = t3lib_div::makeInstance('tx_extbase_core_bootstrap');
+		$extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
 		$result = $extbaseBootrap->run('', $configuration);
 
 		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 
 		return $currentMenuArray;
 	}
-}
 
-?>
+	/**
+	 * @param array $configuration
+	 * @return string
+	 */
+	public function getBreadcrumbMenuManagement($configuration)
+	{
+		$configuration = [
+			'extensionName' => 'Theaterinfo',
+			'pluginName' => 'ShowManagement',
+		];
+
+		$currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
+
+		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
+			'Management' => [
+				'actions' => [
+					'breadcrumbMenu'
+				],
+			],
+		];
+
+		$extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
+		$result = $extbaseBootrap->run('', $configuration);
+
+		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
+
+		return $result;
+	}
+}

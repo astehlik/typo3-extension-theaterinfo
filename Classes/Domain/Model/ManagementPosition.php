@@ -11,83 +11,89 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * A management position
  */
-class ManagementPosition extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class ManagementPosition extends AbstractEntity
+{
 
-	/**
-	 * The name of the position
-	 *
-	 * @var string
-	 */
-	protected $name;
+    /**
+     * All memberships of this posision
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
+     */
+    protected $memberships;
 
-	/**
-	 * The name of the position for female members
-	 *
-	 * @var string
-	 */
-	protected $nameFemale;
+    /**
+     * The name of the position
+     *
+     * @var string
+     */
+    protected $name;
 
-	/**
-	 * The sorting for this position
-	 *
-	 * @var int
-	 */
-	protected $sorting;
+    /**
+     * The name of the position for female members
+     *
+     * @var string
+     */
+    protected $nameFemale;
 
-	/**
-	 * All memberships of this posision
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
-	 */
-	protected $memberships;
+    /**
+     * The sorting for this position
+     *
+     * @var int
+     */
+    protected $sorting;
 
-	/**
-	 * @return \Sto\Theaterinfo\Domain\Model\ManagementMembership
-	 */
-	public function getCurrentMembership() {
+    /**
+     * @return \Sto\Theaterinfo\Domain\Model\ManagementMembership
+     */
+    public function getCurrentMembership()
+    {
 
-		$currentMembership = NULL;
+        $currentMembership = null;
 
-		$memberships = $this->getMemberships();
+        $memberships = $this->getMemberships();
 
-		if ($memberships->count()) {
-			$memberships->rewind();
-			$currentMembership = $memberships->current();
-		}
+        if ($memberships->count()) {
+            $memberships->rewind();
+            $currentMembership = $memberships->current();
+        }
 
-		return $currentMembership;
-	}
+        return $currentMembership;
+    }
 
-	/**
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getMemberships() {
-		return $this->memberships;
-	}
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getMemberships()
+    {
+        return $this->memberships;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getName() {
-		return $this->name;
-	}
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $memberships
-	 */
-	public function setMemberships($memberships) {
-		$this->memberships = $memberships;
-	}
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $memberships
+     */
+    public function setMemberships($memberships)
+    {
+        $this->memberships = $memberships;
+    }
 
-	/**
-	 * @param string $name
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
-
-?>

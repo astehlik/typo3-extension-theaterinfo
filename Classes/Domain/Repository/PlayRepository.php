@@ -11,19 +11,20 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * Repository for plays
  */
-class PlayRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-
-	/**
-	 * Constructs a new Repository
-	 *
-	 * @param \TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager
-	 */
-	public function __construct(\TYPO3\CMS\Extbase\Object\ObjectManagerInterface $objectManager) {
-		parent::__construct($objectManager);
-		$this->setDefaultOrderings(array('timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING));
-	}
+class PlayRepository extends Repository
+{
+    /**
+     * Initializes the default orderings.
+     */
+    public function initializeObject()
+    {
+        $this->setDefaultOrderings([
+            'timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+        ]);
+    }
 }
-?>

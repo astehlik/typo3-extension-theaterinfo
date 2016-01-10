@@ -10,26 +10,30 @@ namespace Sto\Theaterinfo\Hooks;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
  * Hooks for record title display in the Backend
  */
-class RecordTitleHooks {
+class RecordTitleHooks
+{
 
-	function getActorTitle(&$params, $pObj) {
+    /**
+     * @param array $params
+     * @param object $pObj
+     */
+    function getActorTitle(&$params, $pObj)
+    {
 
-		$data = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord($params['table'], $params['row']['uid']);
+        $data = BackendUtility::getRecord($params['table'], $params['row']['uid']);
 
-			// Person
-		if($data['type'] == '0') {
-			$params['title'] = $data['lastname'] . ', ' . $data['firstname'];
-		}
-			// Company
-		else {
-			$params['title'] = $data['company'];
-		}
-	}
+        // Person
+        if ($data['type'] == '0') {
+            $params['title'] = $data['lastname'] . ', ' . $data['firstname'];
+        } // Company
+        else {
+            $params['title'] = $data['company'];
+        }
+    }
 
 }
-
-?>

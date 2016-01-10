@@ -16,234 +16,249 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 /**
  * A play performed by the theater group
  */
-class Play extends AbstractEntity {
+class Play extends AbstractEntity
+{
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $action;
+    /**
+     *
+     * @var string
+     */
+    protected $action;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $author;
+    /**
+     *
+     * @var string
+     */
+    protected $author;
 
-	/**
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Helper>
-	 */
-	protected $helpers;
+    /**
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Helper>
+     */
+    protected $helpers;
 
-	/**
-	 * @var boolean TRUE if helpers should not be shown
-	 */
-	protected $hideHelpers;
+    /**
+     * @var boolean TRUE if helpers should not be shown
+     */
+    protected $hideHelpers;
 
-	/**
-	 * @var boolean TRUE if helpers should not be shown
-	 */
-	protected $hideRoles;
+    /**
+     * @var boolean TRUE if helpers should not be shown
+     */
+    protected $hideRoles;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $logo;
+    /**
+     *
+     * @var string
+     */
+    protected $logo;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $pictures;
+    /**
+     *
+     * @var string
+     */
+    protected $pictures;
 
-	/**
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Role>
-	 */
-	protected $roles;
+    /**
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Role>
+     */
+    protected $roles;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $state;
+    /**
+     *
+     * @var string
+     */
+    protected $state;
 
-	/**
-	 * @var string
-	 */
-	protected $teaser;
+    /**
+     * @var string
+     */
+    protected $teaser;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $timeDisplay;
+    /**
+     *
+     * @var string
+     */
+    protected $timeDisplay;
 
-	/**
-	 *
-	 * @var \DateTime
-	 */
-	protected $timeSort;
+    /**
+     *
+     * @var \DateTime
+     */
+    protected $timeSort;
 
-	/**
-	 *
-	 * @var string
-	 */
-	protected $title;
+    /**
+     *
+     * @var string
+     */
+    protected $title;
 
 
-	/**
-	 * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
-	 */
-	public function __construct() {
-		$this->roles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->helpers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-	}
+    /**
+     * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
+     */
+    public function __construct()
+    {
+        $this->roles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->helpers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
-	public function getTitle() {
-		return $this->title;
-	}
+    public function getAction()
+    {
+        return $this->action;
+    }
 
-	public function getAction() {
-		return $this->action;
-	}
+    public function getAuthor()
+    {
+        return $this->author;
+    }
 
-	public function getAuthor() {
-		return $this->author;
-	}
+    /**
+     * Returns all helpers of this play
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getHelpers()
+    {
 
-	/**
-	 * Returns all roles in this play
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getRoles() {
+        if (!isset($this->helpers)) {
+            return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        } else {
+            return $this->helpers;
+        }
+    }
 
-		if (!isset($this->roles)) {
-			return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		} else {
-			return $this->roles;
-		}
-	}
+    /**
+     * Getter for the logo file
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        if (strlen(trim($this->logo))) {
+            $folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
+            return $folder . $this->logo;
+        } else {
+            return '';
+        }
+    }
 
-	/**
-	 * Returns all helpers of this play
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getHelpers() {
+    /**
+     * Getter for the pictures of this play
+     *
+     * @return array
+     */
+    public function getPictures()
+    {
 
-		if (!isset($this->helpers)) {
-			return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		} else {
-			return $this->helpers;
-		}
-	}
+        $folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['pictures']['config']['uploadfolder'];
+        $pictures = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $this->pictures);
 
-	/**
-	 * Getter for the logo file
-	 *
-	 * @return string
-	 */
-	public function getLogo() {
-		if (strlen(trim($this->logo))) {
-			$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['logo']['config']['uploadfolder'];
-			return $folder . $this->logo;
-		} else {
-			return '';
-		}
-	}
+        $picturesWithPath = [];
+        if (strlen($pictures[0])) {
+            foreach ($pictures as $picture) {
+                $picturesWithPath[] = $folder . $picture;
+            }
+        }
 
-	/**
-	 * Getter for the pictures of this play
-	 *
-	 * @return array
-	 */
-	public function getPictures() {
+        return $picturesWithPath;
+    }
 
-		$folder = $GLOBALS['TCA']['tx_theaterinfo_domain_model_play']['columns']['pictures']['config']['uploadfolder'];
-		$pictures = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $this->pictures);
+    /**
+     * Returns all roles in this play
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getRoles()
+    {
 
-		$picturesWithPath = array();
-		if (strlen($pictures[0])) {
-			foreach ($pictures as $picture) {
-				$picturesWithPath[] = $folder . $picture;
-			}
-		}
+        if (!isset($this->roles)) {
+            return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        } else {
+            return $this->roles;
+        }
+    }
 
-		return $picturesWithPath;
-	}
+    /**
+     * Returns TRUE if the helpers should be displayed
+     *
+     * @return boolean
+     */
+    public function getShowHelpers()
+    {
 
-	/**
-	 * Returns TRUE if the helpers should be displayed
-	 *
-	 * @return boolean
-	 */
-	public function getShowHelpers() {
+        if ($this->hideHelpers) {
+            return false;
+        }
 
-		if ($this->hideHelpers) {
-			return FALSE;
-		}
+        $helpers = $this->getHelpers();
+        if ($helpers->count()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		$helpers = $this->getHelpers();
-		if ($helpers->count()) {
-			return TRUE;
-		} else {
-			return FALSE;
-		}
-	}
+    /**
+     * Returns TRUE if the roles should be displayed
+     *
+     * @return boolean
+     */
+    public function getShowRoles()
+    {
+        if ($this->hideRoles) {
+            return false;
+        }
 
-	/**
-	 * Returns TRUE if the roles should be displayed
-	 *
-	 * @return boolean
-	 */
-	public function getShowRoles() {
-		if ($this->hideRoles) {
-			return FALSE;
-		}
+        $roles = $this->getRoles();
+        if ($roles->count()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		$roles = $this->getRoles();
-		if ($roles->count()) {
-			return TRUE;
-		} else {
-			return FALSE;
-		}
-	}
+    /**
+     * Getter for the state of the play
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getTeaser() {
-		return $this->teaser;
-	}
+    /**
+     * @return string
+     */
+    public function getTeaser()
+    {
+        return $this->teaser;
+    }
 
-	/**
-	 * Getter for the state of the play
-	 *
-	 * @return string
-	 */
-	public function getState() {
-		return $this->state;
-	}
+    /**
+     * Getter for the time
+     *
+     * @return string
+     */
+    public function getTimeDisplay()
+    {
+        return $this->timeDisplay;
+    }
 
-	/**
-	 * Getter for the time
-	 *
-	 * @return string
-	 */
-	public function getTimeDisplay() {
-		return $this->timeDisplay;
-	}
+    /**
+     * Getter for the sort time
+     *
+     * @return string
+     */
+    public function getTimeSort()
+    {
+        return $this->timeSort;
+    }
 
-	/**
-	 * Getter for the sort time
-	 *
-	 * @return string
-	 */
-	public function getTimeSort() {
-		return $this->timeSort;
-	}
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }

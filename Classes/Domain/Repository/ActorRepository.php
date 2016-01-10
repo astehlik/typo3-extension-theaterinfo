@@ -11,9 +11,13 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * Repository for actors
+ *
+ * @method \Sto\Theaterinfo\Domain\Model\Actor findByUid($uid)
  */
-class ActorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ActorRepository extends Repository
+{
 }
-?>

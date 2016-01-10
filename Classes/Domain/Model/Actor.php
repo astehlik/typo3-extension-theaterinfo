@@ -1,5 +1,6 @@
 <?php
 namespace Sto\Theaterinfo\Domain\Model;
+
 /*                                                                        *
  * This script belongs to the TYPO3 extension "theaterinfo".              *
  *                                                                        *
@@ -10,201 +11,216 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * An actor / helper / sponsor
  */
-class Actor extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
+class Actor extends AbstractEntity
+{
 
-	/**
-	 * @var \DateTime
-	 */
-	protected $birthday;
+    /**
+     * @var \DateTime
+     */
+    protected $birthday;
 
-	/**
-	 * @var \Sto\Theaterinfo\Domain\Model\Role
-	 */
-	protected $favoriteRole;
+    /**
+     * @var \Sto\Theaterinfo\Domain\Model\Role
+     */
+    protected $favoriteRole;
 
-	/**
-	 * @var string
-	 */
-	protected $firstname;
+    /**
+     * @var string
+     */
+    protected $firstname;
 
-	/**
-	 * @var string
-	 */
-	protected $hobbys;
+    /**
+     * The gender of the actor, can me 0 (male) or 1 (female)
+     *
+     * @var string
+     */
+    protected $gender;
 
-	/**
-	 * @var string
-	 */
-	protected $job;
+    /**
+     * @var string
+     */
+    protected $hobbys;
 
-	/**
-	 * @var string
-	 */
-	protected $lastname;
+    /**
+     * @var string
+     */
+    protected $job;
 
-	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
-	 */
-	protected $managementPositions;
+    /**
+     * @var string
+     */
+    protected $lastname;
 
-	/**
-	 * @var string
-	 */
-	protected $managementReasons;
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
+     */
+    protected $managementPositions;
 
-	/**
-	 * @var \DateTime
-	 */
-	protected $memberSince;
+    /**
+     * @var string
+     */
+    protected $managementReasons;
 
-	/**
-	 * @var string
-	 */
-	protected $picture;
+    /**
+     * @var \DateTime
+     */
+    protected $memberSince;
 
-	/**
-	 * The gender of the actor, can me 0 (male) or 1 (female)
-	 *
-	 * @var string
-	 */
-	protected $gender;
+    /**
+     * @var string
+     */
+    protected $picture;
 
-	/**
-	 * Returns the current age in years of the actor
-	 *
-	 * @return int
-	 */
-	public function getAge() {
-		$birthday = $this->getBirthday();
+    /**
+     * Returns the current age in years of the actor
+     *
+     * @return int
+     */
+    public function getAge()
+    {
+        $birthday = $this->getBirthday();
 
-		if (!isset($birthday)) {
-			return NULL;
-		}
+        if (!isset($birthday)) {
+            return null;
+        }
 
-		$now = new \DateTime();
-		$age = $birthday->diff($now);
-		return $age->y;
-	}
+        $now = new \DateTime();
+        $age = $birthday->diff($now);
+        return $age->y;
+    }
 
-	/**
-	 * Getter for birthday
-	 *
-	 * @return \DateTime
-	 */
-	public function getBirthday() {
-		return $this->birthday;
-	}
+    /**
+     * Getter for birthday
+     *
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
 
-	/**
-	 * Getter for favoriteRole
-	 *
-	 * @return \Sto\Theaterinfo\Domain\Model\Role
-	 */
-	public function getFavoriteRole() {
-		return $this->favoriteRole;
-	}
+    /**
+     * Getter for favoriteRole
+     *
+     * @return \Sto\Theaterinfo\Domain\Model\Role
+     */
+    public function getFavoriteRole()
+    {
+        return $this->favoriteRole;
+    }
 
-	/**
-	 * Getter for firstname
-	 *
-	 * @return string
-	 */
-	public function getFirstname() {
-		return $this->firstname;
-	}
+    /**
+     * Getter for firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
 
-	/**
-	 * Builds the full name for the actor
-	 *
-	 * @return string
-	 */
-	public function getFullName() {
-		return $this->firstname . ' ' . $this->lastname;
-	}
+    /**
+     * Builds the full name for the actor
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
 
-	/**
-	 * Returns the gender of this actor, can me 0 (male) or 1 (female)
-	 *
-	 * @return int
-	 */
-	public function getGender() {
-		return $this->gender;
-	}
+    /**
+     * Returns the gender of this actor, can me 0 (male) or 1 (female)
+     *
+     * @return int
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
 
-	/**
-	 * Getter for hobbys
-	 *
-	 * @return string
-	 */
-	public function getHobbys() {
-		return $this->hobbys;
-	}
+    /**
+     * Getter for hobbys
+     *
+     * @return string
+     */
+    public function getHobbys()
+    {
+        return $this->hobbys;
+    }
 
-	/**
-	 * Returns the hobbys as an array
-	 *
-	 * @return array
-	 */
-	public function getHobbysAsArray() {
-		return explode(LF, $this->hobbys);
-	}
+    /**
+     * Returns the hobbys as an array
+     *
+     * @return array
+     */
+    public function getHobbysAsArray()
+    {
+        return explode(LF, $this->hobbys);
+    }
 
-	/**
-	 * Getter for job
-	 *
-	 * @return string
-	 */
-	public function getJob() {
-		return $this->job;
-	}
+    /**
+     * Getter for job
+     *
+     * @return string
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
 
-	/**
-	 * Getter for lastname
-	 *
-	 * @return string
-	 */
-	public function getLastname() {
-		return $this->lastname;
-	}
+    /**
+     * Getter for lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
 
-	/**
-	 * Getter for managementPositions
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getManagementPositions() {
-		return $this->managementPositions;
-	}
+    /**
+     * Getter for managementPositions
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getManagementPositions()
+    {
+        return $this->managementPositions;
+    }
 
-	/**
-	 * Getter for managementReasons
-	 *
-	 * @return string
-	 */
-	public function getManagementReasons() {
-		return $this->managementReasons;
-	}
+    /**
+     * Getter for managementReasons
+     *
+     * @return string
+     */
+    public function getManagementReasons()
+    {
+        return $this->managementReasons;
+    }
 
-	/**
-	 * Getter for memberSince
-	 *
-	 * @return string
-	 */
-	public function getMemberSince() {
-		return $this->memberSince;
-	}
+    /**
+     * Getter for memberSince
+     *
+     * @return string
+     */
+    public function getMemberSince()
+    {
+        return $this->memberSince;
+    }
 
-	/**
-	 * Getter for picture
-	 *
-	 * @return string
-	 */
-	public function getPicture() {
-		return $this->picture;
-	}
+    /**
+     * Getter for picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }
-
-?>

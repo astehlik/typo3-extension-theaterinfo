@@ -11,38 +11,43 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
  * Controller for displaying play information
  */
-class PlayController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class PlayController extends ActionController
+{
 
-	/**
-	 * @var \Sto\Theaterinfo\Domain\Repository\PlayRepository
-	 * @inject
-	 */
-	protected $playRepository;
+    /**
+     * @var \Sto\Theaterinfo\Domain\Repository\PlayRepository
+     * @inject
+     */
+    protected $playRepository;
 
-	/**
-	 * List action for this controller. Displays all plays
-	 *
-	 * @return string
-	 */
-	public function listAction() {
+    /**
+     * List action for this controller. Displays all plays
+     *
+     * @return string
+     */
+    public function listAction()
+    {
 
-		$contentObject = $this->configurationManager->getContentObject();
-		$header = $contentObject->data['header'];
+        $contentObject = $this->configurationManager->getContentObject();
+        $header = $contentObject->data['header'];
 
-		$this->view->assign('header', $header);
-		$this->view->assign('plays', $this->playRepository->findAll());
-	}
+        $this->view->assign('header', $header);
+        $this->view->assign('plays', $this->playRepository->findAll());
+    }
 
-	/**
-	 * Action that displays one single play
-	 *
-	 * @param \Sto\Theaterinfo\Domain\Model\Play $play The play to display
-	 * @return string The rendered view
-	 */
-	public function showAction(\Sto\Theaterinfo\Domain\Model\Play $play) {
-		$this->view->assign('play', $play);
-	}
+    /**
+     * Action that displays one single play
+     *
+     * @param \Sto\Theaterinfo\Domain\Model\Play $play The play to display
+     * @return string The rendered view
+     */
+    public function showAction(\Sto\Theaterinfo\Domain\Model\Play $play)
+    {
+        $this->view->assign('play', $play);
+    }
 }

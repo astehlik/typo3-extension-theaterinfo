@@ -11,20 +11,22 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
  * Controller for displaying actor information
  */
-class ActorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class ActorController extends ActionController
+{
 
-	/**
-	 * Shows the details of a single actor
-	 *
-	 * @param \Sto\Theaterinfo\Domain\Model\Actor $actor
-	 * @return string
-	 */
-	public function showAction($actor) {
-		$this->view->assign('actor', $actor);
-	}
+    /**
+     * Shows the details of a single actor
+     *
+     * @param \Sto\Theaterinfo\Domain\Model\Actor $actor
+     * @return string
+     */
+    public function showAction($actor)
+    {
+        $this->view->assign('actor', $actor);
+    }
 }
-
-?>

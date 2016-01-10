@@ -11,19 +11,32 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * Repository for management positions
+ *
+ * @method \TYPO3\CMS\Extbase\Persistence\QueryResultInterface findByShowInOverview($showInOverview) Returns all positions where showInOverview is true.
  */
-class ManagementPositionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ManagementPositionRepository extends Repository
+{
+    /**
+     * Initializes the default orderings.
+     */
+    public function initializeObject()
+    {
+        $this->setDefaultOrderings([
+            'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+        ]);
+    }
 
-	public function initializeObject() {
-		$this->setDefaultOrderings(array(
-			'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
-		));
-	}
-
-	public function findForList() {
-		return $this->findByShowInOverview(TRUE);
-	}
+    /**
+     * Finds all management positions that should be displayed in the list.
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findForList()
+    {
+        return $this->findByShowInOverview(true);
+    }
 }
-?>
