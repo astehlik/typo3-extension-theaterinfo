@@ -16,7 +16,7 @@
 
 				<div class="csc-textpic-imagewrap csc-textpic-single-image">
 					<f:if condition="{play.logo}">
-						<a href="{f:uri.image(src:'{play.logo}', maxWidth:'500', maxHeight:'600')}" class="lightbox">
+						<a href="{f:uri.image(image: '{play.logo}', maxWidth: '500', maxHeight: '600')}" class="lightbox">
 							<f:image image="{play.logo}" treatIdAsReference="1" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
 						</a>
 					</f:if>
