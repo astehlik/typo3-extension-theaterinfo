@@ -12,6 +12,7 @@ return array(
 			'disabled' => 'hidden',
 		),
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_role.gif',
+		'searchFields' => 'name',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,name,actors,picture,insert_spacer,playuid'

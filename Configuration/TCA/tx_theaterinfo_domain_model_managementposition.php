@@ -9,6 +9,7 @@ return array(
 		'sortby' => 'sorting',
 		'delete' => 'deleted',
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
+		'searchFields' => 'name',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'name,showInOverview,memberships'

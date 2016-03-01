@@ -13,6 +13,7 @@ return array(
 		),
 		'dividers2tabs' => 1,
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
+		'searchFields' => 'title',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,title,author,time_sort,time_display,teaser,action,logo,pictures,state,roles,hide_roles,helpers,hide_helpers,advance_sale',

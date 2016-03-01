@@ -15,6 +15,7 @@ return array(
 		),
 		'dividers2tabs' => 1,
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
+		'searchFields' => 'firstname,lastname,company',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,gender,firstname,lastname,picture,management_positions,management_reasons,favorite_role,birthday,hobbys,job,member_since'

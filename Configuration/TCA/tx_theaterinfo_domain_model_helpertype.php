@@ -12,6 +12,7 @@ return array(
 			'disabled' => 'hidden',
 		),
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
+		'searchFields' => 'jobtitle',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'hidden,jobtitle,icon'
