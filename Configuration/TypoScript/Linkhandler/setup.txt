@@ -1,8 +1,8 @@
 
 plugin.tx_linkhandler.tx_theaterinfo_play {
 
-	label = Stück
-	listTables = tx_theaterinfo_domain_model_play
+	// Do not force link generation when the news records are hidden or deleted.
+	forceLink = 0
 
 	typolink {
 		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
