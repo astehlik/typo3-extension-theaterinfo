@@ -26,7 +26,6 @@ use TYPO3\CMS\Extbase\Domain\Model\File;
  */
 class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
 {
-
     /**
      * Number of records fetched per database query
      * Used to prevent memory overflows for huge databases
@@ -371,7 +370,8 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
                     );
 
                     $format = 'File \'%s\' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.';
-                    $message = sprintf($format, $fieldConfiguration['sourcePath'] . $item, $table, $row['uid'], $fieldname);
+                    $message = sprintf($format, $fieldConfiguration['sourcePath'] . $item, $table, $row['uid'],
+                        $fieldname);
                     $customMessages .= PHP_EOL . $message;
 
                     continue;

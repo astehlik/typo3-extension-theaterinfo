@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class ManagementPosition extends AbstractEntity
 {
-
     /**
      * All memberships of this posision
      *
@@ -52,7 +51,6 @@ class ManagementPosition extends AbstractEntity
      */
     public function getCurrentMembership()
     {
-
         $currentMembership = null;
 
         $memberships = $this->getMemberships();

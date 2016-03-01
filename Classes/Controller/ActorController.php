@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ActorController extends ActionController
 {
-
     /**
      * Shows the details of a single actor
      *

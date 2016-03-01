@@ -19,7 +19,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ManagementController extends ActionController
 {
-
     /**
      * @var \Sto\Theaterinfo\Domain\Repository\ActorRepository
      * @inject
@@ -39,7 +38,6 @@ class ManagementController extends ActionController
      */
     public function breadcrumbMenuAction()
     {
-
         $breadcrumbMenu = '';
 
         if (!$this->requestIsActorDetailView()) {

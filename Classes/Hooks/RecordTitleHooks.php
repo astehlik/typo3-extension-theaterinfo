@@ -17,7 +17,6 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
  */
 class RecordTitleHooks
 {
-
     /**
      * @param array $params
      * @param object $pObj

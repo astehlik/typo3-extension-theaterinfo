@@ -91,7 +91,6 @@ class Play extends AbstractEntity
      */
     protected $title;
 
-
     /**
      * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
      */
@@ -118,7 +117,6 @@ class Play extends AbstractEntity
      */
     public function getHelpers()
     {
-
         if (!isset($this->helpers)) {
             return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         } else {
@@ -154,7 +152,6 @@ class Play extends AbstractEntity
      */
     public function getRoles()
     {
-
         if (!isset($this->roles)) {
             return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         } else {
@@ -169,7 +166,6 @@ class Play extends AbstractEntity
      */
     public function getShowHelpers()
     {
-
         if ($this->hideHelpers) {
             return false;
         }

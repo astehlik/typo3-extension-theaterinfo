@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class ManagementMembership extends AbstractEntity
 {
-
     /**
      * @var \Sto\Theaterinfo\Domain\Model\Actor
      */

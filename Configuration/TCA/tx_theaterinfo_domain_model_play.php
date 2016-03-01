@@ -1,6 +1,6 @@
 <?php
-return array(
-	'ctrl' => array(
+return [
+	'ctrl' => [
 		'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
@@ -8,200 +8,212 @@ return array(
 		'cruser_id' => 'cruser_id',
 		'default_sortby' => 'ORDER BY time_sort',
 		'delete' => 'deleted',
-		'enablecolumns' => array(
+		'enablecolumns' => [
 			'disabled' => 'hidden',
-		),
+		],
 		'dividers2tabs' => 1,
 		'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
 		'searchFields' => 'title',
-	),
-	'interface' => array(
+	],
+	'interface' => [
 		'showRecordFieldList' => 'hidden,title,author,time_sort,time_display,teaser,action,logo,pictures,state,roles,hide_roles,helpers,hide_helpers,advance_sale',
-	),
-	'columns' => array(
-		'hidden' => array(
+	],
+	'columns' => [
+		'hidden' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
-			'config' => array(
+			'config' => [
 				'type' => 'check',
 				'default' => '0'
-			)
-		),
-		'title' => array(
+			]
+		],
+		'title' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.title',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => '30',
-			)
-		),
-		'author' => array(
+			]
+		],
+		'author' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.author',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-			)
-		),
-		'time_sort' => array(
+			]
+		],
+		'time_sort' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.time_sort',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => '12',
 				'max' => '20',
 				'eval' => 'datetime',
 				'checkbox' => '0',
 				'default' => '0'
-			)
-		),
-		'time_display' => array(
+			]
+		],
+		'time_display' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.time_display',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => '30',
-			)
-		),
-		'teaser' => array(
+			]
+		],
+		'teaser' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.teaser',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-			)
-		),
-		'action' => array(
+			]
+		],
+		'action' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.action',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-			)
-		),
-		'logo' => array(
+			]
+		],
+		'logo' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.logo',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'logo',
-				array(
+				[
 					'maxitems' => 1,
-					'foreign_types' => array(
-						'0' => array(
+					'foreign_types' => [
+						'0' => [
 							'showitem' => '
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
 								--palette--;;filePalette'
-						),
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+						],
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
 							'showitem' => '
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
 								--palette--;;filePalette'
-						),
-					),
-				),
+						],
+					],
+				],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
-		),
-		'pictures' => array(
+		],
+		'pictures' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.pictures',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'pictures',
-				array(
+				[
 					'maxitems' => 20,
-					'foreign_types' => array(
-						'0' => array(
+					'foreign_types' => [
+						'0' => [
 							'showitem' => '
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_playpicture,
 								--palette--;;filePalette'
-						),
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+						],
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
 							'showitem' => '
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_playpicture,
 								--palette--;;filePalette'
-						),
-					),
-				),
+						],
+					],
+				],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
-		),
-		'state' => array(
+		],
+		'state' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state',
-			'config' => array(
+			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
-				'items' => array(
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.0', '0'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.1', '1'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.2', '2'),
-					array('LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.3', '3'),
-				),
+				'items' => [
+					[
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.0',
+						'0'
+					],
+					[
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.1',
+						'1'
+					],
+					[
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.2',
+						'2'
+					],
+					[
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.state.I.3',
+						'3'
+					],
+				],
 				'size' => 1,
 				'maxitems' => 1,
-			)
-		),
-		'roles' => array(
+			]
+		],
+		'roles' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.roles',
-			'config' => array(
+			'config' => [
 				'type' => 'inline',
 				'foreign_table' => 'tx_theaterinfo_domain_model_role',
 				'foreign_field' => 'playuid',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Role',
 				'maxitems' => 100,
-				'appearance' => Array(
+				'appearance' => [
 					'collapseAll' => 1,
 					'expandSingle' => 1,
-				),
-			)
-		),
-		'hide_roles' => array(
+				],
+			]
+		],
+		'hide_roles' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.hide_roles',
-			'config' => array(
+			'config' => [
 				'type' => 'check',
 				'default' => '0'
-			)
-		),
-		'helpers' => array(
+			]
+		],
+		'helpers' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.helpers',
-			'config' => array(
+			'config' => [
 				'type' => 'inline',
 				'foreign_table' => 'tx_theaterinfo_domain_model_helper',
 				'foreign_field' => 'playuid',
 				'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helper',
 				'maxitems' => 100,
-				'appearance' => Array(
+				'appearance' => [
 					'collapseAll' => 1,
 					'expandSingle' => 1,
-				),
-			)
-		),
-		'hide_helpers' => array(
+				],
+			]
+		],
+		'hide_helpers' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.hide_helpers',
-			'config' => array(
+			'config' => [
 				'type' => 'check',
 				'default' => '0'
-			)
-		),
-		'advance_sale' => array(
+			]
+		],
+		'advance_sale' => [
 			'exclude' => 0,
 			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.advance_sale',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => '30',
 				'rows' => '5',
-			)
-		),
-	),
-	'types' => array(
-		'0' => array(
+			]
+		],
+	],
+	'types' => [
+		'0' => [
 			'showitem' => '
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.properties, title, hidden, author, time_sort, time_display, state, teaser,
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_play.action, action,
@@ -218,6 +230,6 @@ return array(
 					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
 				],
 			]
-		),
-	),
-);
+		],
+	],
+];

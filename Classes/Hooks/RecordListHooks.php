@@ -18,7 +18,6 @@ use TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface;
  */
 class RecordListHooks implements RecordListGetTableHookInterface
 {
-
     var $fieldArray = null;
 
     var $nameQuery = 'CONCAT(lastname, ", ", firstname)';

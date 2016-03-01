@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Role extends AbstractEntity
 {
-
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Actor>
      */

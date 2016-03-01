@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class PlayController extends ActionController
 {
-
     /**
      * @var \Sto\Theaterinfo\Domain\Repository\PlayRepository
      * @inject
@@ -32,7 +31,6 @@ class PlayController extends ActionController
      */
     public function listAction()
     {
-
         $contentObject = $this->configurationManager->getContentObject();
         $header = $contentObject->data['header'];
 

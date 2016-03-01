@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Helpertype extends AbstractEntity
 {
-
     /**
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
