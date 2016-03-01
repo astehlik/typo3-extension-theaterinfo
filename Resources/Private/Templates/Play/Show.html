@@ -78,16 +78,14 @@
 					<f:if condition="{play.pictures}">
 						<div id="theaterinfo-play-show-pictures">
 							<h2>Bilder</h2>
-							<div class="csc-textpic csc-textpic-center csc-textpic-above">
-								<div class="csc-textpic-imagewrap">
-									<f:for each="{play.pictures}" as="picture" iteration="iteration">
-										<div class="csc-textpic-image">
-											<a href="{f:uri.image(image: '{picture}', treatIdAsReference: '1', maxWidth: '500', maxHeight: '600')}" class="lightbox">
-												<f:image image="{picture}" treatIdAsReference="1" alt="Bild {iteration.cycle} von {play.title}" height="150" class="theaterinfo-play-show-logo"/>
-											</a>
-										</div>
-									</f:for>
-								</div>
+							<div class="row">
+								<f:for each="{play.pictures}" as="picture" iteration="iteration">
+									<div class="col-xs-6 col-md-3">
+										<a href="{f:uri.image(image: '{picture}', treatIdAsReference: '1', maxWidth: '1024', maxHeight: '786')}" class="lightbox thumbnail">
+											<f:image image="{picture}" treatIdAsReference="1" alt="Bild {iteration.cycle} von {play.title}" width="225c" height="150" class="img-responsive" />
+										</a>
+									</div>
+								</f:for>
 							</div>
 						</div>
 					</f:if>
