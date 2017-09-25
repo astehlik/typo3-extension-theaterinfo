@@ -81,6 +81,7 @@ return [
 				'size' => 10,
 				'minitems' => 0,
 				'maxitems' => 100,
+				'enableMultiSelectFilterTextfield' => true,
 				'wizards' => [
 					'edit' => [
 						'type' => 'popup',
