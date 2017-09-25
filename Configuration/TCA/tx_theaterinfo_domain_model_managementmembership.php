@@ -2,7 +2,7 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership',
-        'label' => 'type',
+        'label' => 'position',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -15,53 +15,9 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
     ],
     'interface' => [
-        'showRecordFieldList' => 'type,position,actor,startdate,enddate'
+        'showRecordFieldList' => 'position,actor,startdate,enddate'
     ],
     'columns' => [
-        'type' => [
-            'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.first_leader',
-                        'first_leader'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.second_leader',
-                        'second_leader'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.treasurer',
-                        'treasurer'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.reporter',
-                        'reporter'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.technical_leader',
-                        'technical_leader'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.backstage_leader',
-                        'backstage_leader'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.public_relations',
-                        'public_relations'
-                    ],
-                    [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.type.I.accounts_auditor',
-                        'accounts_auditor'
-                    ],
-                ],
-                'size' => 1,
-                'maxitems' => 1,
-            ],
-        ],
         'position' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_managementmembership.position',
@@ -103,6 +59,6 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'type, position, actor, startdate, enddate'],
+        '0' => ['showitem' => 'position, actor, startdate, enddate'],
     ],
 ];

@@ -34,11 +34,6 @@ class ManagementMembership extends AbstractEntity
     protected $startdate;
 
     /**
-     * @var string
-     */
-    protected $type;
-
-    /**
      * Getter for actor
      *
      * @return \Sto\Theaterinfo\Domain\Model\Actor
@@ -66,15 +61,5 @@ class ManagementMembership extends AbstractEntity
     public function getStartdate()
     {
         return $this->startdate;
-    }
-
-    /**
-     * Getter for type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 }
