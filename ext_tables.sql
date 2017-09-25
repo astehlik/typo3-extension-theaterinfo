@@ -25,7 +25,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 	type int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid)
 );
 
 
@@ -47,7 +47,7 @@ CREATE TABLE tx_theaterinfo_domain_model_managementmembership (
 	type varchar(255) DEFAULT '' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid)
 );
 
 
@@ -67,7 +67,7 @@ CREATE TABLE tx_theaterinfo_domain_model_managementposition (
 	memberships int(11) unsigned DEFAULT '0' NOT NULL,
 	show_in_overview tinyint(3) DEFAULT '0' NOT NULL,
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid)
 );
 
 
