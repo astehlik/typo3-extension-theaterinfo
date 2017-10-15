@@ -1,4 +1,53 @@
 #
+# Table structure for table 'tx_theaterinfo_card_order_date'
+#
+CREATE TABLE tx_theaterinfo_card_order_date (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+	hidden tinyint(4) DEFAULT '0' NOT NULL,
+
+	date_and_time datetime NOT NULL,
+	description text,
+	location varchar(255) DEFAULT '' NOT NULL,
+	parent_play int(11) unsigned DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY parent_play (parent_play)
+);
+
+#
+# Table structure for table 'tx_theaterinfo_card_order_play'
+#
+CREATE TABLE tx_theaterinfo_card_order_play (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+	enable_hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	enable_starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	enable_endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	dates int(11) unsigned DEFAULT '0' NOT NULL,
+	description mediumtext,
+	description_mail mediumtext,
+	label varchar(255) DEFAULT '' NOT NULL,
+	price_normal DOUBLE DEFAULT '0.0' NOT NULL,
+	price_normal_description mediumtext,
+	price_reduced DOUBLE DEFAULT '0.0' NOT NULL,
+	price_reduced_description mediumtext,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
+);
+
+#
 # Table structure for table 'tx_theaterinfo_domain_model_actor'
 #
 CREATE TABLE tx_theaterinfo_domain_model_actor (
