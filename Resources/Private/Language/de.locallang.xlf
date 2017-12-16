@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-12-16T14:48:33Z"
+		  product-name="theaterinfo">
+		<header/>
+		<body>
+			<trans-unit id="actor_age" xml:space="preserve" approved="yes">
+				<source>Age</source>
+				<target>Alter</target>
+			</trans-unit>
+			<trans-unit id="actor_birthday" xml:space="preserve" approved="yes">
+				<source>Birthday</source>
+				<target>Geburtstag</target>
+			</trans-unit>
+			<trans-unit id="actor_favorite_role" xml:space="preserve" approved="yes">
+				<source>Favorite role</source>
+				<target>Lieblingsrolle</target>
+			</trans-unit>
+			<trans-unit id="actor_favorite_role_none" xml:space="preserve" approved="yes">
+				<source>None</source>
+				<target>Keine</target>
+			</trans-unit>
+			<trans-unit id="actor_hobbys" xml:space="preserve" approved="yes">
+				<source>Hobbys</source>
+				<target>Hobbys</target>
+			</trans-unit>
+			<trans-unit id="actor_job" xml:space="preserve" approved="yes">
+				<source>Job</source>
+				<target>Beruf</target>
+			</trans-unit>
+			<trans-unit id="actor_management_reasons" xml:space="preserve" approved="yes">
+				<source>Reasons for by board membership</source>
+				<target>Gründe für die Vorstandsarbeit</target>
+			</trans-unit>
+			<trans-unit id="actor_member_since" xml:space="preserve" approved="yes">
+				<source>Member since</source>
+				<target>Mitglied seit</target>
+			</trans-unit>
+			<trans-unit id="actor_more_information" xml:space="preserve" approved="yes">
+				<source>More information</source>
+				<target>Weitere Informationen</target>
+			</trans-unit>
+			<trans-unit id="actor_name" xml:space="preserve" approved="yes">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="play_state_0" xml:space="preserve" approved="yes">
+				<source>Planned</source>
+				<target>In Planung</target>
+			</trans-unit>
+			<trans-unit id="play_state_1" xml:space="preserve" approved="yes">
+				<source>Rehearsals started</source>
+				<target>Proben laufen</target>
+			</trans-unit>
+			<trans-unit id="play_state_2" xml:space="preserve" approved="yes">
+				<source>Currently performed</source>
+				<target>Aufführungen laufen</target>
+			</trans-unit>
+			<trans-unit id="play_state_3" xml:space="preserve" approved="yes">
+				<source>Completed</source>
+				<target>Aufgeführt</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

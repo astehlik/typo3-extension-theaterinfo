@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-12-16T14:49:27Z"
+		  product-name="theaterinfo">
+		<header/>
+		<body>
+			<trans-unit id="tx_theaterinfo_domain_model_actor" xml:space="preserve" approved="yes">
+				<source>Actor</source>
+				<target>Schauspieler</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.birthday" xml:space="preserve" approved="yes">
+				<source>Birthday</source>
+				<target>Geburtstag</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.company" xml:space="preserve" approved="yes">
+				<source>Company name</source>
+				<target>Firmenname</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.favorite_role" xml:space="preserve" approved="yes">
+				<source>Favorite role</source>
+				<target>Lieblingsrolle</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.favorite_role.I.none" xml:space="preserve" approved="yes">
+				<source>None</source>
+				<target>Keine</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.firstname" xml:space="preserve" approved="yes">
+				<source>First name</source>
+				<target>Vorname</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender" xml:space="preserve" approved="yes">
+				<source>Gender</source>
+				<target>Geschlecht</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.0" xml:space="preserve" approved="yes">
+				<source>Male</source>
+				<target>Männlich</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.1" xml:space="preserve" approved="yes">
+				<source>Female</source>
+				<target>Weiblich</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.hobbys" xml:space="preserve" approved="yes">
+				<source>Hobbys (one per line)</source>
+				<target>Hobbys (eins pro Zeile)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.job" xml:space="preserve" approved="yes">
+				<source>Job</source>
+				<target>Beruf</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.lastname" xml:space="preserve" approved="yes">
+				<source>Last name</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.management" xml:space="preserve" approved="yes">
+				<source>Management</source>
+				<target>Vorstand</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.management_memberships" xml:space="preserve" approved="yes">
+				<source>Management positions</source>
+				<target>Vorstandsposten</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.management_reasons" xml:space="preserve" approved="yes">
+				<source>Reasons for management</source>
+				<target>Gründe für die Vorstandsarbeit</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.member_since" xml:space="preserve" approved="yes">
+				<source>Member since</source>
+				<target>Mitglied seit</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.picture" xml:space="preserve" approved="yes">
+				<source>Picture</source>
+				<target>Photo</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.properties" xml:space="preserve" approved="yes">
+				<source>Properties</source>
+				<target>Eigenschaften</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.type" xml:space="preserve" approved="yes">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.type.I.0" xml:space="preserve" approved="yes">
+				<source>Person</source>
+				<target>Person</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.type.I.1" xml:space="preserve" approved="yes">
+				<source>Company</source>
+				<target>Firma</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helper" xml:space="preserve" approved="yes">
+				<source>Helper</source>
+				<target>Helfer</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helper.actors" xml:space="preserve" approved="yes">
+				<source>Actors</source>
+				<target>Schauspieler</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helper.helpertype" xml:space="preserve" approved="yes">
+				<source>Helpertype</source>
+				<target>Helfertyp</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helper.insert_spacer" xml:space="preserve" approved="yes">
+				<source>Insert spacer (afterwards)</source>
+				<target>Trenner einfügen (danach)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helpertype" xml:space="preserve" approved="yes">
+				<source>Helpertype</source>
+				<target>Helfertyp</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helpertype.icon" xml:space="preserve" approved="yes">
+				<source>Icon</source>
+				<target>Symbol</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_helpertype.jobtitle" xml:space="preserve" approved="yes">
+				<source>Job title</source>
+				<target>Helfertyp</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership" xml:space="preserve" approved="yes">
+				<source>Management membership</source>
+				<target>Vorstandsmitgliedschaft</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor" xml:space="preserve" approved="yes">
+				<source>Actor</source>
+				<target>Schauspieler</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.enddate" xml:space="preserve" approved="yes">
+				<source>Member until</source>
+				<target>Vorstandsmitglied auf diesem Posten bis</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.position" xml:space="preserve" approved="yes">
+				<source>Position</source>
+				<target>Posten</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.startdate" xml:space="preserve" approved="yes">
+				<source>Member since</source>
+				<target>Vorstandsmitglied auf diesem Posten seit</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementposition" xml:space="preserve" approved="yes">
+				<source>Management position</source>
+				<target>Vorstandsposten</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementposition.memberships" xml:space="preserve" approved="yes">
+				<source>Memberships</source>
+				<target>Vorstandsmitgliedschaften</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementposition.name" xml:space="preserve" approved="yes">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementposition.show_in_overview" xml:space="preserve" approved="yes">
+				<source>Show in overview</source>
+				<target>In Übersicht anzeigen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play" xml:space="preserve" approved="yes">
+				<source>Play</source>
+				<target>Stück</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.action" xml:space="preserve" approved="yes">
+				<source>Action</source>
+				<target>Handlung</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.advance_sale" xml:space="preserve" approved="yes">
+				<source>Advance Sale / Further information</source>
+				<target>Vorverkauf / Weitere Informationen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.author" xml:space="preserve" approved="yes">
+				<source>Author(s)</source>
+				<target>Autor(en)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.helpers" xml:space="preserve" approved="yes">
+				<source>Helpers</source>
+				<target>Helfer</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.hide_helpers" xml:space="preserve" approved="yes">
+				<source>Hide helpers</source>
+				<target>Helfer verbergen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.hide_roles" xml:space="preserve" approved="yes">
+				<source>Hide roles</source>
+				<target>Rollen verbergen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.logo" xml:space="preserve" approved="yes">
+				<source>Logo</source>
+				<target>Logo</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.pictures" xml:space="preserve" approved="yes">
+				<source>Pictures</source>
+				<target>Photos</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.properties" xml:space="preserve" approved="yes">
+				<source>Properties</source>
+				<target>Eigenschaften</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.roles" xml:space="preserve" approved="yes">
+				<source>Roles</source>
+				<target>Rollen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.state" xml:space="preserve" approved="yes">
+				<source>State</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.state.I.0" xml:space="preserve" approved="yes">
+				<source>Planned</source>
+				<target>In Planung</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.state.I.1" xml:space="preserve" approved="yes">
+				<source>Rehearsals started</source>
+				<target>Proben laufen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.state.I.2" xml:space="preserve" approved="yes">
+				<source>Currently performed</source>
+				<target>Aufführungen laufen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.state.I.3" xml:space="preserve" approved="yes">
+				<source>Completed</source>
+				<target>Aufgeführt</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.teaser" xml:space="preserve" approved="yes">
+				<source>Teaser</source>
+				<target>Kurzbeschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.time_display" xml:space="preserve" approved="yes">
+				<source>Display time</source>
+				<target>Zeit (zum Anzeigen)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.time_sort" xml:space="preserve" approved="yes">
+				<source>Sort time</source>
+				<target>Zeit (zum Sortieren)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_play.title" xml:space="preserve" approved="yes">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role" xml:space="preserve" approved="yes">
+				<source>Role</source>
+				<target>Rolle</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role.insert_spacer" xml:space="preserve" approved="yes">
+				<source>Insert spacer (afterwards)</source>
+				<target>Trenner einfügen (danach)</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role.name" xml:space="preserve" approved="yes">
+				<source>Name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role.picture" xml:space="preserve" approved="yes">
+				<source>Picture</source>
+				<target>Photo</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

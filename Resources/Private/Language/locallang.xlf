@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-12-16T14:48:33Z"
+		  product-name="theaterinfo">
+		<header/>
+		<body>
+			<trans-unit id="actor_age" xml:space="preserve">
+				<source>Age</source>
+			</trans-unit>
+			<trans-unit id="actor_birthday" xml:space="preserve">
+				<source>Birthday</source>
+			</trans-unit>
+			<trans-unit id="actor_favorite_role" xml:space="preserve">
+				<source>Favorite role</source>
+			</trans-unit>
+			<trans-unit id="actor_favorite_role_none" xml:space="preserve">
+				<source>None</source>
+			</trans-unit>
+			<trans-unit id="actor_hobbys" xml:space="preserve">
+				<source>Hobbys</source>
+			</trans-unit>
+			<trans-unit id="actor_job" xml:space="preserve">
+				<source>Job</source>
+			</trans-unit>
+			<trans-unit id="actor_management_reasons" xml:space="preserve">
+				<source>Reasons for by board membership</source>
+			</trans-unit>
+			<trans-unit id="actor_member_since" xml:space="preserve">
+				<source>Member since</source>
+			</trans-unit>
+			<trans-unit id="actor_more_information" xml:space="preserve">
+				<source>More information</source>
+			</trans-unit>
+			<trans-unit id="actor_name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="play_state_0" xml:space="preserve">
+				<source>Planned</source>
+			</trans-unit>
+			<trans-unit id="play_state_1" xml:space="preserve">
+				<source>Rehearsals started</source>
+			</trans-unit>
+			<trans-unit id="play_state_2" xml:space="preserve">
+				<source>Currently performed</source>
+			</trans-unit>
+			<trans-unit id="play_state_3" xml:space="preserve">
+				<source>Completed</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
