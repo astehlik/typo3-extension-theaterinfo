@@ -1,7 +1,7 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helpertype',
+		'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helpertype',
 		'label' => 'jobtitle',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -28,7 +28,7 @@ return [
 		],
 		'jobtitle' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helpertype.jobtitle',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helpertype.jobtitle',
 			'config' => [
 				'type' => 'input',
 				'size' => '30',
@@ -36,7 +36,7 @@ return [
 		],
 		'icon' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_helpertype.icon',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helpertype.icon',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'icon',
 				[

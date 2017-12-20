@@ -1,7 +1,7 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor',
+		'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor',
 		'label' => 'lastname',
 		'label_userFunc' => 'Sto\\Theaterinfo\\Hooks\\RecordTitleHooks->getActorTitle',
 		'tstamp' => 'tstamp',
@@ -31,17 +31,17 @@ return [
 		],
 		'type' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.type',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'items' => [
 					[
-						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type.I.0',
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.type.I.0',
 						'0'
 					],
 					[
-						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.type.I.1',
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.type.I.1',
 						'1'
 					],
 				],
@@ -51,17 +51,17 @@ return [
 		],
 		'gender' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.gender',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'items' => [
 					[
-						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender.I.0',
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.gender.I.0',
 						'0'
 					],
 					[
-						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.gender.I.1',
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.gender.I.1',
 						'1'
 					],
 				],
@@ -71,7 +71,7 @@ return [
 		],
 		'firstname' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.firstname',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.firstname',
 			'config' => [
 				'type' => 'input',
 				'size' => '30',
@@ -79,7 +79,7 @@ return [
 		],
 		'lastname' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.lastname',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.lastname',
 			'config' => [
 				'type' => 'input',
 				'size' => '30',
@@ -87,7 +87,7 @@ return [
 		],
 		'company' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.company',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.company',
 			'config' => [
 				'type' => 'input',
 				'size' => '30',
@@ -95,7 +95,7 @@ return [
 		],
 		'picture' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.picture',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.picture',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'picture',
 				[
@@ -118,7 +118,7 @@ return [
 		],
 		'management_memberships' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management_memberships',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.management_memberships',
 			'config' => [
 				'type' => 'inline',
 				'foreign_table' => 'tx_theaterinfo_domain_model_managementmembership',
@@ -132,7 +132,7 @@ return [
 		],
 		'management_reasons' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management_reasons',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.management_reasons',
 			'config' => [
 				'type' => 'text',
 				'cols' => '30',
@@ -141,7 +141,7 @@ return [
 		],
 		'favorite_role' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.favorite_role',
 			'config' => [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
@@ -149,7 +149,7 @@ return [
 				'foreign_table_where' => 'AND FIND_IN_SET(\'###THIS_UID###\', tx_theaterinfo_domain_model_role.actors) ORDER BY name',
 				'items' => [
 					[
-						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.favorite_role.I.none',
+						'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.favorite_role.I.none',
 						'0'
 					],
 				],
@@ -160,7 +160,7 @@ return [
 		],
 		'birthday' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.birthday',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.birthday',
 			'config' => [
 				'type' => 'input',
 				'eval' => 'date',
@@ -168,7 +168,7 @@ return [
 		],
 		'hobbys' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.hobbys',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.hobbys',
 			'config' => [
 				'type' => 'text',
 				'cols' => '30',
@@ -177,7 +177,7 @@ return [
 		],
 		'job' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.job',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.job',
 			'config' => [
 				'type' => 'input',
 				'eval' => 'trim',
@@ -185,7 +185,7 @@ return [
 		],
 		'member_since' => [
 			'exclude' => 0,
-			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.member_since',
+			'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.member_since',
 			'config' => [
 				'type' => 'input',
 				'eval' => 'date',
@@ -195,8 +195,8 @@ return [
 	'types' => [
 		'0' => [
 			'showitem' => '
-			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.properties,type, hidden, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
-			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:tx_theaterinfo_domain_model_actor.management,management_memberships, management_reasons
+			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.properties,type, hidden, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
+			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.management,management_memberships, management_reasons
 		'
 		],
 		'1' => ['showitem' => 'type, hidden, company, picture']
