@@ -33,6 +33,7 @@ CREATE TABLE tx_theaterinfo_card_order_play (
 	enable_hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	enable_starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	enable_endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
 
 	dates int(11) unsigned DEFAULT '0' NOT NULL,
 	description mediumtext,
