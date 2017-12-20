@@ -1,5 +1,5 @@
 <?php
-$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_card_order_play.';
 
 return [
@@ -9,7 +9,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'title' => $languagePrefix . 'tx_theaterinfo_card_order_row',
+        'title' => $languagePrefix . 'tx_theaterinfo_card_order_play',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'enable_hidden',
@@ -148,7 +148,7 @@ return [
             'showitem' => '
 			    --div--,label, description, description_mail, enable_endtime, enable_starttime, enable_hidden,
 			    price_normal, price_normal_description, price_reduced, price_reduced_description,
-			    --div--;Daten,dates
+			    --div--;' . $languagePrefixColumn . 'tab.dates,dates
 		    ',
         ],
     ],

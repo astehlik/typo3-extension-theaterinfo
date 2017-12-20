@@ -1,5 +1,5 @@
 <?php
-$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xml:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_card_order_date.';
 
 return [
@@ -23,6 +23,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
                 'eval' => 'datetime,required',
             ],
         ],
