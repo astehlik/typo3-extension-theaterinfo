@@ -1,9 +1,10 @@
 <?php
 if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
+    die ('Access denied.');
 }
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    '
 
 <INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.txt">
 
@@ -36,10 +37,12 @@ mod.web_list {
 	deniedNewTables := addToList(tx_theaterinfo_domain_model_managementmembership)
 }
 
-');
+'
+);
 
 if (TYPO3_MODE == 'BE') {
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] = 'Sto\\Theaterinfo\\Hooks\\RecordListHooks';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] =
+        \Sto\Theaterinfo\Hooks\RecordListHooks::class;
 }
 
 /**
@@ -48,21 +51,26 @@ if (TYPO3_MODE == 'BE') {
  * the user input (default settings, FlexForm, URL etc.)
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Sto.Theaterinfo',
-	'PlaysList',
-	array(
-		'Play' => 'list, show',
-	),
-	array()
+    'Sto.Theaterinfo',
+    'PlaysList',
+    ['Play' => 'list, show',],
+    []
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Sto.Theaterinfo',
-	'ShowManagement',
-	array(
-		'Management' => 'list',
-		'Actor' => 'show',
-	),
-	array()
+    'Sto.Theaterinfo',
+    'ShowManagement',
+    [
+        'Management' => 'list',
+        'Actor' => 'show',
+    ],
+    []
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Sto.Theaterinfo',
+    'OrderForm',
+    ['PlayDates' => 'orderForm'],
+    []
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txTheaterinfoFal'] = \Sto\Theaterinfo\Install\FalUpdateWizard::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txTheaterinfoFal'] =
+    \Sto\Theaterinfo\Install\FalUpdateWizard::class;
