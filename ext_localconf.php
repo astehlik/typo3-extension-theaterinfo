@@ -67,8 +67,8 @@ if (TYPO3_MODE == 'BE') {
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Theaterinfo',
-    'OrderForm',
-    ['PlayDates' => 'orderForm'],
+    'CardOrderForm',
+    ['CardOrder' => 'orderForm'],
     []
 );
 

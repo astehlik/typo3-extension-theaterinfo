@@ -20,6 +20,12 @@ $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = arr
 	'Show management (Theater info)'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Sto.Theaterinfo',
+    'CardOrderForm',
+    'Card order (Theater info)'
+);
+
 $TCA['tt_content']['columns']['list_type']['config']['items'][] = array('', '--div--');
 
 //$extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY);

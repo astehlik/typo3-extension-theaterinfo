@@ -13,14 +13,26 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Controller for displaying play information
  */
-class PlayDatesController extends ActionController
+class CardOrderController extends ActionController
 {
-   public function orderFormAction() {
+    /**
+     * @var \Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository
+     * */
+    private $cardOrderPlayRepository;
 
-   }
+    public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository)
+    {
+        $this->cardOrderPlayRepository = $cardOrderPlayRepository;
+    }
+
+    public function orderFormAction()
+    {
+        $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
+    }
 }
