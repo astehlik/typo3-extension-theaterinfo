@@ -1,6 +1,4 @@
-
 plugin.tx_theaterinfo {
-	
-		// cat=plugin.tx_theaterinfo//a; type=int+; label=PID that contains the plugin for dislaying a single play
-	singlePlayPid = 
+  // cat=plugin.tx_theaterinfo//a; type=int+; label=PID that contains the plugin for dislaying a single play
+  singlePlayPid =
 }

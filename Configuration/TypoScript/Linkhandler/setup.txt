@@ -1,13 +1,11 @@
-
 plugin.tx_linkhandler.tx_theaterinfo_play {
+  // Do not force link generation when the news records are hidden or deleted.
+  forceLink = 0
 
-	// Do not force link generation when the news records are hidden or deleted.
-	forceLink = 0
-
-	typolink {
-		parameter = {$plugin.tx_theaterinfo.singlePlayPid}
-		additionalParams = &tx_theaterinfo_playslist[controller]=Play&tx_theaterinfo_playslist[action]=show&tx_theaterinfo_playslist[play]={field:uid}
-		additionalParams.insertData = 1
-		useCacheHash = 1
-	}
+  typolink {
+    parameter = {$plugin.tx_theaterinfo.singlePlayPid}
+    additionalParams = &tx_theaterinfo_playslist[controller]=Play&tx_theaterinfo_playslist[action]=show&tx_theaterinfo_playslist[play]={field:uid}
+    additionalParams.insertData = 1
+    useCacheHash = 1
+  }
 }
