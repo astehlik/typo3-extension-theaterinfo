@@ -13,6 +13,7 @@ CREATE TABLE tx_theaterinfo_domain_model_cardorder (
 	city varchar(255) DEFAULT '' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,
 	firstname varchar(255) DEFAULT '' NOT NULL,
+	lastname varchar(255) DEFAULT '' NOT NULL,
 	notes text NOT NULL,
 	rows int(11) unsigned DEFAULT '0' NOT NULL,
 	zip varchar(255) DEFAULT '' NOT NULL,

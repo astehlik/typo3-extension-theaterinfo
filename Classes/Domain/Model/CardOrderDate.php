@@ -22,6 +22,11 @@ class CardOrderDate extends AbstractEntity
      */
     protected $location;
 
+    /**
+     * @var \Sto\Theaterinfo\Domain\Model\CardOrderPlay
+     */
+    protected $parentPlay;
+
     public function getDateAndTime(): \DateTime
     {
         return $this->dateAndTime;
@@ -35,5 +40,21 @@ class CardOrderDate extends AbstractEntity
     public function getLocation(): string
     {
         return $this->location;
+    }
+
+    public function getPlayDescriptionForEmail(): string
+    {
+        return $this->parentPlay->getDescriptionMail();
+    }
+
+    public function getPriceNormal(): float
+    {
+        return $this->parentPlay->getPriceNormal();
+    }
+
+    #
+    public function getPriceReduced(): float
+    {
+        return $this->parentPlay->getPriceReduced();
     }
 }

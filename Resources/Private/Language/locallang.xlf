@@ -34,6 +34,9 @@
 			<trans-unit id="actor_name" xml:space="preserve">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="error.controller.cardOrder.action.takeOrderAction" xml:space="preserve">
+				<source>An error occured while processing your order. Please check your form input.</source>
+			</trans-unit>
 			<trans-unit id="error.property.cardOrder.address.1221560718" xml:space="preserve">
 				<source>Please provide your street address.</source>
 			</trans-unit>
@@ -51,6 +54,9 @@
 			</trans-unit>
 			<trans-unit id="error.property.cardOrder.lastname.1221560718" xml:space="preserve">
 				<source>Please provide your lastname.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.rows.1520190410" xml:space="preserve">
+				<source>Please order at least one card.</source>
 			</trans-unit>
 			<trans-unit id="error.property.cardOrder.zip.1221560718" xml:space="preserve">
 				<source>Please provide your zip code.</source>

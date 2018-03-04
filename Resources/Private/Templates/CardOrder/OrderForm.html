@@ -2,6 +2,8 @@
 	xmlns:sl="http://typo3.org/ns/Tx/Swhlib/ViewHelpers"
 	data-namespace-typo3-fluid="true">
 
+<f:layout name="default"/>
+
 <f:section name="price">
 <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="."
 	prependCurrency="false" separateCurrency="true" decimals="2">
@@ -16,9 +18,21 @@
 </f:if>
 </f:section>
 
+<f:section name="content">
+
 <f:form name="cardOrder" object="{cardOrder}" class="form-horizontal" action="takeOrder">
 
 	<h2>Ihre Kartenbestellung</h2>
+
+	<f:form.validationResults as="rowResults" for="cardOrder.rows">
+		<f:if condition="{rowResults.errors}">
+			<div class="alert alert-danger">
+				<f:for each="{rowResults.errors}" as="error">
+					<f:translate key="error.property.cardOrder.rows.{error.code}"/><br/>
+				</f:for>
+			</div>
+		</f:if>
+	</f:form.validationResults>
 
 	<div class="tx-theaterinfo-card-order-table" data-card-order-shipping-costs="{settings.cardOrder.shippingCosts}">
 
@@ -102,7 +116,8 @@
 				<p class="form-control-static">Lieferung und Bearbeitung</p>
 			</div>
 			<div class="col-sm-2 col-xs-4">
-				<p class="form-control-static"><f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></p>
+				<p class="form-control-static">
+					<f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></p>
 			</div>
 		</div>
 
@@ -111,7 +126,8 @@
 				<p class="form-control-static"><strong>Gesamtpreis</strong></p>
 			</div>
 			<div class="col-sm-2 col-xs-4">
-				<p class="form-control-static card-order-table-total"><f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></strong></p>
+				<p class="form-control-static card-order-table-total">
+					<f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></strong></p>
 			</div>
 		</div>
 
@@ -198,5 +214,7 @@
 	</div>
 
 </f:form>
+
+</f:section>
 
 </html>

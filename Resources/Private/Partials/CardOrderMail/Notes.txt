@@ -1,0 +1,2 @@
+Bemerkungen:
+{f:if(condition: cardOrder.notes, then: cardOrder.notes, else: 'Keine')}

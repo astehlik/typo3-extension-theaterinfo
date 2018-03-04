@@ -3,19 +3,19 @@ Hallo Online-Vorverkaufsteam,
 
 soeben ist eine neue Bestellung eingetroffen:
 
-###value_order_processed###
+{f:render(partial: 'CardOrderMail/OrderInformation', section: 'content', arguments: '{_all}') -> f:spaceless()}
 
 Der Benutzer hat folgende Adressdaten angegeben:
-{user.firstname} {user.lastname}
-{user.street}
-{user.zip} {user.city}
-E-Mail: {user.email}
 
-Bemerkungen:
-{order.notices}
+{cardOrder.firstname} {cardOrder.lastname}
+{cardOrder.address}
+{cardOrder.zip} {cardOrder.city}
+E-Mail: {cardOrder.email}
 
-Bitte die Karten erst nach dem Geldeingang auf dem feel-X Konto versenden
+{f:render(partial: 'CardOrderMail/Notes', arguments: '{_all}') -> f:spaceless()}
+
+Bitte die Karten erst nach dem Geldeingang versenden
 bzw. für die Abendkasse zurücklegen.
 
 Viele Grüße,
-Das www.ensemble-feelx.de Bestellformular
+Das Bestellformular

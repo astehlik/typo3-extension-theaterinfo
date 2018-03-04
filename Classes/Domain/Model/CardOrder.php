@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-class CardOrder
+class CardOrder extends AbstractEntity
 {
     /**
      * @var string
@@ -74,6 +75,11 @@ class CardOrder
         return $this->firstname;
     }
 
+    public function getFullName()
+    {
+        return $this->getFirstname() . ' ' . $this->getLastname();
+    }
+
     public function getLastname(): string
     {
         return $this->lastname;
@@ -92,9 +98,44 @@ class CardOrder
         return $this->rows;
     }
 
+    /**
+     * @return CardOrderRow[]|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getRowsWithOrderedCards(): ObjectStorage
+    {
+        $rowsWithOrderedCards = new ObjectStorage();
+        foreach ($this->getRows() as $row) {
+            if (!$row->hasOrderedCards()) {
+                continue;
+            }
+            $rowsWithOrderedCards->attach($row);
+        }
+        return $rowsWithOrderedCards;
+    }
+
+    public function getTotalPrice(): float
+    {
+        $totalPrice = 0.0;
+        foreach ($this->getRows() as $row) {
+            $totalPrice += $row->getTotalPrice();
+        }
+        return $totalPrice;
+    }
+
     public function getZip(): string
     {
         return $this->zip;
+    }
+
+    public function hasOrderedCards(): bool
+    {
+        foreach ($this->getRows() as $cardOrderRow) {
+            if ($cardOrderRow->hasOrderedCards()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

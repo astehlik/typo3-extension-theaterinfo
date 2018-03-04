@@ -16,9 +16,12 @@ namespace Sto\Theaterinfo\Controller;
 use Sto\Theaterinfo\Domain\Model\CardOrder;
 use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
+use Sto\Theaterinfo\Domain\Repository\CardOrderRepository;
+use Sto\Theaterinfo\Domain\Service\CardOrderMailService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * Controller for displaying play information
@@ -26,9 +29,19 @@ use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
 class CardOrderController extends ActionController
 {
     /**
+     * @var \Sto\Theaterinfo\Domain\Service\CardOrderMailService
+     */
+    private $cardOrderMailService;
+
+    /**
      * @var \Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository
-     * */
+     */
     private $cardOrderPlayRepository;
+
+    /**
+     * @var \Sto\Theaterinfo\Domain\Repository\CardOrderRepository
+     * */
+    private $cardOrderRepository;
 
     public function initializeAction()
     {
@@ -41,9 +54,19 @@ class CardOrderController extends ActionController
         );
     }
 
+    public function injectCardOrderMailService(CardOrderMailService $cardOrderMailService)
+    {
+        $this->cardOrderMailService = $cardOrderMailService;
+    }
+
     public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository)
     {
         $this->cardOrderPlayRepository = $cardOrderPlayRepository;
+    }
+
+    public function injectCardOrderRepository(CardOrderRepository $cardOrderRepository)
+    {
+        $this->cardOrderRepository = $cardOrderRepository;
     }
 
     /**
@@ -58,11 +81,33 @@ class CardOrderController extends ActionController
 
     public function takeOrderAction(CardOrder $cardOrder)
     {
-        $this->redirect('takeOrderConfirmation');
+        $this->cardOrderRepository->addAndPersist($cardOrder);
+        $this->cardOrderMailService->sendCardOrderMails($cardOrder);
+        $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
     }
 
-    public function takeOrderConfirmation()
+    /**
+     * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
+     * @ignorevalidation $cardOrder
+     */
+    public function takeOrderConfirmationAction(CardOrder $cardOrder)
     {
+        $this->view->assign('cardOrder', $cardOrder);
+    }
 
+    /**
+     * Returns a translated error message for the current controller action.
+     *
+     * @return string|boolean The flash message or FALSE if no flash message should be set
+     * @api
+     */
+    protected function getErrorFlashMessage()
+    {
+        $translationKey = 'error.controller.cardOrder.action.' . $this->actionMethodName;
+        $errorMessage = LocalizationUtility::translate($translationKey, $this->extensionName);
+        if (!isset($errorMessage)) {
+            return $translationKey;
+        }
+        return $errorMessage;
     }
 }

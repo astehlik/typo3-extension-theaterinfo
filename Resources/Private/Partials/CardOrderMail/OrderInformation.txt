@@ -1,0 +1,25 @@
+{namespace ti=Sto\Theaterinfo\ViewHelpers}
+
+<f:section name="orderRowPrices">
+<f:if condition="{row.amountNormal}">{row.amountNormal}x normal ({f:render(partial: 'CardOrderMail/Price', arguments: '{price: row.priceNormal}') -> f:spaceless()}): {f:render(partial: 'CardOrderMail/Price', arguments: '{price: row.totalPriceNormal}') -> f:spaceless()}</f:if>
+<f:if condition="{row.amountReduced}">{row.amountReduced}x reduziert ({f:render(partial: 'CardOrderMail/Price', arguments: '{price: row.priceReduced}') -> f:spaceless()}): {f:render(partial: 'CardOrderMail/Price', arguments: '{price: row.totalPriceReduced}') -> f:spaceless()}</f:if>
+</f:section>
+
+<f:section name="orderRows">
+<f:for each="{cardOrder.rowsWithOrderedCards}" as="row">
+{row.playDateDateAndTime -> f:format.date(format: '%d. %B %Y')}
+{row.playDescriptionForEmail}
+{f:render(section: 'orderRowPrices', arguments: '{_all}') -> f:spaceless()}
+Gesamt: {f:render(partial: 'CardOrderMail/Price', arguments: '{price: row.totalPrice}') -> f:spaceless()}
+</f:for>
+</f:section>
+
+<f:section name="content">
+
+{f:render(section: 'orderRows', arguments: '{_all}') -> f:spaceless()}
+
+Lieferung und Bearbeitung: {f:render(partial: 'CardOrderMail/Price', arguments: '{price: settings.cardOrder.shippingCosts}') -> f:spaceless()}
+
+Gesamtpreis: {f:render(partial: 'CardOrderMail/Price', arguments: '{price: \'{ti:cardOrder.totalPrice(cardOrder: cardOrder, shippingCosts: settings.cardOrder.shippingCosts)}\'}') -> f:spaceless()}
+
+</f:section>

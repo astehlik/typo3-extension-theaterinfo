@@ -6,6 +6,17 @@ plugin.tx_theaterinfo {
     cardOrder {
       shippingCosts = 2.0
     }
+
+    cardOrderMail {
+      fromEmail =
+      fromName =
+
+      cardOrderTeam.subject = Neue Online-Kartenbestellung
+      cardOrderTeam.toName = Vorverkaufsteam
+      cardOrderTeam.toEmail =
+
+      user.subject = Ihre Kartenbestellung
+    }
   }
 }
 
