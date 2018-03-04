@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
-class CardOrderDate
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
+class CardOrderDate extends AbstractEntity
 {
     /**
      * @var \DateTime

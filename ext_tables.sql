@@ -1,7 +1,30 @@
 #
-# Table structure for table 'tx_theaterinfo_card_order_date'
+# Table structure for table 'tx_theaterinfo_domain_model_cardorder'
 #
-CREATE TABLE tx_theaterinfo_card_order_date (
+CREATE TABLE tx_theaterinfo_domain_model_cardorder (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+
+	address varchar(255) DEFAULT '' NOT NULL,
+	city varchar(255) DEFAULT '' NOT NULL,
+	email varchar(255) DEFAULT '' NOT NULL,
+	firstname varchar(255) DEFAULT '' NOT NULL,
+	notes text NOT NULL,
+	rows int(11) unsigned DEFAULT '0' NOT NULL,
+	zip varchar(255) DEFAULT '' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
+);
+
+#
+# Table structure for table 'tx_theaterinfo_domain_model_cardorderdate'
+#
+CREATE TABLE tx_theaterinfo_domain_model_cardorderdate (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 	tstamp int(11) DEFAULT '0' NOT NULL,
@@ -21,9 +44,9 @@ CREATE TABLE tx_theaterinfo_card_order_date (
 );
 
 #
-# Table structure for table 'tx_theaterinfo_card_order_play'
+# Table structure for table 'tx_theaterinfo_domain_model_cardorderplay'
 #
-CREATE TABLE tx_theaterinfo_card_order_play (
+CREATE TABLE tx_theaterinfo_domain_model_cardorderplay (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 	tstamp int(11) DEFAULT '0' NOT NULL,
@@ -39,13 +62,34 @@ CREATE TABLE tx_theaterinfo_card_order_play (
 	description mediumtext,
 	description_mail mediumtext,
 	label varchar(255) DEFAULT '' NOT NULL,
-	price_normal DOUBLE DEFAULT '0.0' NOT NULL,
+	price_normal double DEFAULT '0.0' NOT NULL,
 	price_normal_description mediumtext,
-	price_reduced DOUBLE DEFAULT '0.0' NOT NULL,
+	price_reduced double DEFAULT '0.0' NOT NULL,
 	price_reduced_description mediumtext,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)
+);
+
+#
+# Table structure for table 'tx_theaterinfo_domain_model_cardorderrow'
+#
+CREATE TABLE tx_theaterinfo_domain_model_cardorderrow (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+
+	amount_normal int(11) unsigned DEFAULT '0' NOT NULL,
+	amount_reduced int(11) unsigned DEFAULT '0' NOT NULL,
+	parent_order int(11) unsigned DEFAULT '0' NOT NULL,
+	play_date int(11) unsigned DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY parent_order (parent_order)
 );
 
 #
@@ -78,7 +122,6 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 	KEY parent (pid)
 );
 
-
 #
 # Table structure for table 'tx_theaterinfo_domain_model_managementmembership'
 #
@@ -100,7 +143,6 @@ CREATE TABLE tx_theaterinfo_domain_model_managementmembership (
 	KEY parent (pid)
 );
 
-
 #
 # Table structure for table 'tx_theaterinfo_domain_model_managementposition'
 #
@@ -120,7 +162,6 @@ CREATE TABLE tx_theaterinfo_domain_model_managementposition (
 	KEY parent (pid)
 );
 
-
 #
 # Table structure for table 'tx_theaterinfo_domain_model_helpertype'
 #
@@ -138,7 +179,6 @@ CREATE TABLE tx_theaterinfo_domain_model_helpertype (
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
-
 
 #
 # Table structure for table 'tx_theaterinfo_domain_model_role'
@@ -161,7 +201,6 @@ CREATE TABLE tx_theaterinfo_domain_model_role (
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
-
 
 #
 # Table structure for table 'tx_theaterinfo_domain_model_play'
@@ -192,7 +231,6 @@ CREATE TABLE tx_theaterinfo_domain_model_play (
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
-
 
 #
 # Table structure for table 'tx_theaterinfo_domain_model_helper'

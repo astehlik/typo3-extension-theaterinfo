@@ -68,8 +68,8 @@ if (TYPO3_MODE == 'BE') {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Theaterinfo',
     'CardOrderForm',
-    ['CardOrder' => 'orderForm'],
-    []
+    ['CardOrder' => 'orderForm,takeOrder,takeOrderConfirmation'],
+    ['CardOrder' => 'orderForm,takeOrder']
 );
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txTheaterinfoFal'] =

@@ -1,15 +1,19 @@
-
 plugin.tx_theaterinfo {
+  settings {
+    // Maximum number of posts to display at once
+    maxPlays = 10
 
-	settings {
+    cardOrder {
+      shippingCosts = 2.0
+    }
+  }
+}
 
-			// maximum number of posts to display at once
-		maxPlays = 10
-
-	}
-
-	_CSS_DEFAULT_STYLE (
-	)
+lib.tx_theaterinfo_hints =< styles.content.get
+lib.tx_theaterinfo_hints {
+  select {
+    pidInList = 2038
+  }
 }
 
 <INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.txt">

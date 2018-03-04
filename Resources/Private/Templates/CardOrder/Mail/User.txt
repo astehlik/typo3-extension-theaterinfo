@@ -1,0 +1,43 @@
+
+Hallo {user.firstname} {user.lastname},
+
+wir freuen uns sehr, dass Sie sich für Karten des Ensemble feel-X e.V.
+interessieren. Sie haben soeben in unserem Bestellformular folgende
+Karten bestellt:
+
+###value_order_processed###
+
+Bitte überweisen Sie den fälligen Gesamtbetrag innerhalb von 14 Tagen
+auf folgendes Konto:
+
+Inhaber: Ensemble feel-X e.V.
+IBAN: DE86506616390007528922
+BIC: GENODEF1LSR
+Bank: VR Bank Main-Kinzig-Büdingen eG
+Verwendungszweck: Ihr vollständiger Name
+
+Ihre Karten werden nach Eingang Ihrer Überweisung Post verschickt. Bei
+kurzfristigen Buchungen (bis sieben Tage vor dem entsprechenden
+Veranstaltungstermin) ist ein Versand nicht mehr möglich. In diesem Fall
+hinterlegen wir Ihre Karten an der Abendkasse.
+
+Sollten Sie ermäßigte Karten bestellt haben, denken Sie bitte am Abend
+der Vorstellung daran, den entsprechenden Ausweis mit sich zu führen.
+
+Mit der Bestellung von Karten erkennen Sie unsere AGB an. Die AGB finden
+Sie unter http://www.ensemble-feelx.de/agb
+
+Bitte antworten Sie nicht auf diese E-Mail. Bei Fragen oder Problemen
+schreiben Sie bitte an kartenbestellung@ensemble-feelx.de
+
+Wir bedanken uns für Ihre Bestellung, freuen uns auf Ihren Besuch und
+wünschen Ihnen gute Unterhaltung!
+Ihr Ensemble feel-X
+
+--
+Ensemble feel-X e.V.
+Felix Wiedergrün
+Rohrstr. 39
+63075 Offenbach/Main
+vorstand@ensemble-feelx.de
+http://www.ensemble-feelx.de

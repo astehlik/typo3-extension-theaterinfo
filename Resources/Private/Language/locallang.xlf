@@ -34,6 +34,27 @@
 			<trans-unit id="actor_name" xml:space="preserve">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="error.property.cardOrder.address.1221560718" xml:space="preserve">
+				<source>Please provide your street address.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.city.1221560718" xml:space="preserve">
+				<source>Please provide your city.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.email.1221559976" xml:space="preserve">
+				<source>Please provide a valid email address.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.email.1221560718" xml:space="preserve">
+				<source>Please provide your email address.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.firstname.1221560718" xml:space="preserve">
+				<source>Please provide your fistname.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.lastname.1221560718" xml:space="preserve">
+				<source>Please provide your lastname.</source>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.zip.1221560718" xml:space="preserve">
+				<source>Please provide your zip code.</source>
+			</trans-unit>
 			<trans-unit id="play_state_0" xml:space="preserve">
 				<source>Planned</source>
 			</trans-unit>

@@ -1,10 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:sl="http://typo3.org/ns/Tx/Swhlib/ViewHelpers"
+	data-namespace-typo3-fluid="true">
 
+<f:section name="price">
+<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator="."
+	prependCurrency="false" separateCurrency="true" decimals="2">
+	{price}
+</f:format.currency>
+</f:section>
 
-<div id="tx_formhandler_card_order_form">
+<f:section name="priceDescription">
+<f:if condition="{priceDescription}">
+	<br>
+	<f:format.nl2br>{priceDescription}</f:format.nl2br>
+</f:if>
+</f:section>
+
+<f:form name="cardOrder" object="{cardOrder}" class="form-horizontal" action="takeOrder">
 
 	<h2>Ihre Kartenbestellung</h2>
 
-	<div class="card-order-table">
+	<div class="tx-theaterinfo-card-order-table" data-card-order-shipping-costs="{settings.cardOrder.shippingCosts}">
 
 		<div class="form-group header hidden-xs">
 			<div class="col-sm-6"><h4>Aufführung</h4></div>
@@ -13,161 +29,80 @@
 			<div class="col-sm-2 text-right"><h4>Gesamtpreis</h4></div>
 		</div>
 
-		<div class="form-group play-header hidden-xs">
-			<div class="col-sm-6">
-				<b>Gretchen 89ff</b> im
-				<a href="https://www.google.de/maps/place/Spessart+Forum/@50.2892507,9.3611378,15z/data=!4m5!3m4!1s0x0:0x6e427b8dee354170!8m2!3d50.2892507!4d9.3611378" target="_blank" rel="noopener noreferrer">Spessart Forum - Kultur</a>
-			</div>
-			<div class="col-sm-2"><b>12,00 €</b></div>
-			<div class="col-sm-2"><b>10,00 €</b></div>
-		</div>
+		<f:for each="{cardOrderPlays}" as="play" iteration="playIterator">
 
-		<div class="form-group card-order-row">
-			<div class="col-sm-6">
-				<p class="form-control-static">
-					<span class="visible-xs-inline">
-						<b>Gretchen 89ff</b><br>
-						<span class="text-nowrap"><a href="https://www.google.de/maps/place/Spessart+Forum/@50.2892507,9.3611378,15z/data=!4m5!3m4!1s0x0:0x6e427b8dee354170!8m2!3d50.2892507!4d9.3611378" target="_blank" rel="noopener noreferrer">Spessart Forum - Kultur</a></span>
-						<br>
-					</span>
-					<span class="text-nowrap">Samstag, den 04.11.2017</span> <span class="text-nowrap">um 20:00 Uhr</span>
-				</p>
-			</div>
-
-			<div class="col-sm-4">
-				<div class="row">
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711042000][normal_price]" value="12" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711042000][normal_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
-					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">12,00 € (Normalpreis)</p>
-					</div>
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711042000][reduced_price]" value="10" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711042000][reduced_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
-					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">10,00 € (Ermäßigt)</p>
-					</div>
+			<div class="form-group play-header {f:if(condition: play.Dates, then: 'hidden-xs')}">
+				<div class="col-sm-6">
+					<f:format.html>{play.description}</f:format.html>
+				</div>
+				<div class="col-sm-2">
+					<b><f:render section="price" arguments="{price: play.priceNormal}"/></b>
+					<f:if condition="{play.Dates}" then=""><f:else><span class="visible-xs-inline">(Normalpreis)</span></f:else></f:if>
+					<f:render section="priceDescription" arguments="{priceDescription: play.priceNormalDescription}"/>
+				</div>
+				<div class="col-sm-2">
+					<b><f:render section="price" arguments="{price: play.priceReduced}"/></b>
+					<f:if condition="{play.Dates}" then=""><f:else><span class="visible-xs-inline">(Ermäßigt)</span></f:else></f:if>
+					<f:render section="priceDescription" arguments="{priceDescription: play.priceReducedDescription}"/>
 				</div>
 			</div>
-			<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
-				<p class="form-control-static" data-total-price="0">
-					<span class="total-price">0,00 €</span>
-					<span class="visible-xs-inline">gesamt</span>
-				</p>
-			</div>
-		</div>
 
-		<div class="form-group card-order-row">
-			<div class="col-sm-6">
-				<p class="form-control-static">
-					<span class="visible-xs-inline">
-						<b>Gretchen 89ff</b><br>
-						<span class="text-nowrap"><a href="https://www.google.de/maps/place/Spessart+Forum/@50.2892507,9.3611378,15z/data=!4m5!3m4!1s0x0:0x6e427b8dee354170!8m2!3d50.2892507!4d9.3611378" target="_blank" rel="noopener noreferrer">Spessart Forum - Kultur</a></span>
-						<br>
-					</span>
-					<span class="text-nowrap">Freitag, den 17.11.2017</span> <span class="text-nowrap">um 20:00 Uhr</span>
-				</p>
-			</div>
+			<f:for each="{play.dates}" as="playDate" iteration="playDateIterator">
+				<f:variable name="playOrderIndex">{playIterator.index -> sl:math.add(summand: playDateIterator.index)}</f:variable>
 
-			<div class="col-sm-4">
-				<div class="row">
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711172000][normal_price]" value="12" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711172000][normal_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
+				<f:form.hidden property="rows.{playOrderIndex}.playDate" value="{playDate}"/>
+
+				<div class="form-group card-order-row">
+					<div class="col-sm-6">
+						<div class="form-control-static">
+							<div class="visible-xs-inline">
+								<f:format.html>{play.description}</f:format.html>
+							</div>
+							<span class="text-nowrap">{playDate.dateAndTime -> f:format.date(format: '%A, den %d.%m.%Y')}</span>
+							<span class="text-nowrap"> um {playDate.dateAndTime -> f:format.date(format: '%H:%M')} Uhr</span>
+						</div>
 					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">12,00 € (Normalpreis)</p>
+
+					<div class="col-sm-4">
+						<div class="row">
+							<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceNormal}">
+								<f:form.textfield property="rows.{playOrderIndex}.amountNormal"
+									class="amount-input form-control" placeholder="Anzahl" type="number"/>
+							</div>
+							<div class="col-xs-8 visible-xs-block">
+								<p class="form-control-static">
+									<f:render section="price" arguments="{price: play.priceNormal}"/> (Normalpreis)
+									<f:render section="priceDescription" arguments="{priceDescription: play.priceNormalDescription}"/>
+								</p>
+							</div>
+							<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceReduced}">
+								<f:form.textfield property="rows.{playOrderIndex}.amountReduced"
+									class="amount-input form-control" placeholder="Anzahl" type="number"/>
+							</div>
+							<div class="col-xs-8 visible-xs-block">
+								<p class="form-control-static">
+									<f:render section="price" arguments="{price: play.priceReduced}"/> (Ermäßigt)
+									<f:render section="priceDescription" arguments="{priceDescription: play.priceReducedDescription}"/>
+								</p>
+							</div>
+						</div>
 					</div>
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711172000][reduced_price]" value="10" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711172000][reduced_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
-					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">10,00 € (Ermäßigt)</p>
+					<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
+						<p class="form-control-static" data-total-price="0">
+							<span class="total-price">0,00 €</span>
+							<span class="visible-xs-inline">gesamt</span>
+						</p>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
-				<p class="form-control-static" data-total-price="0">
-					<span class="total-price">0,00 €</span>
-					<span class="visible-xs-inline">gesamt</span>
-				</p>
-			</div>
-		</div>
-
-		<div class="form-group card-order-row">
-			<div class="col-sm-6">
-				<p class="form-control-static">
-					<span class="visible-xs-inline">
-						<b>Gretchen 89ff</b><br>
-						<span class="text-nowrap"><a href="https://www.google.de/maps/place/Spessart+Forum/@50.2892507,9.3611378,15z/data=!4m5!3m4!1s0x0:0x6e427b8dee354170!8m2!3d50.2892507!4d9.3611378" target="_blank" rel="noopener noreferrer">Spessart Forum - Kultur</a></span>
-						<br>
-					</span>
-					<span class="text-nowrap">Samstag, den 18.11.2017</span> <span class="text-nowrap">um 20:00 Uhr</span>
-				</p>
-			</div>
-
-			<div class="col-sm-4">
-				<div class="row">
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711182000][normal_price]" value="12" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711182000][normal_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
-					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">12,00 € (Normalpreis)</p>
-					</div>
-					<div class="col-sm-6 col-xs-4 amount-column">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711182000][reduced_price]" value="10" class="hidden-price" type="hidden">
-						<input name="tx_formhandler_card_order[order][gretchen2017][201711182000][reduced_amount]" value="" class="amount-input form-control" placeholder="Anzahl" type="number">
-					</div>
-					<div class="col-xs-8 visible-xs-block">
-						<p class="form-control-static">10,00 € (Ermäßigt)</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
-				<p class="form-control-static" data-total-price="0">
-					<span class="total-price">0,00 €</span>
-					<span class="visible-xs-inline">gesamt</span>
-				</p>
-			</div>
-		</div>
-
-		<div class="form-group play-header">
-			<div class="col-sm-6">
-				<b>Gretchen 89ff</b>
-				<br><em>Freitag, den 10.11.2017 ab 20:00 Uhr</em>
-				<br>im
-				<a href="https://www.google.de/maps/place/B%C3%BCrgerhaus/@50.1940734,8.9501513,17z/data=!3m1!4b1!4m5!3m4!1s0x47bd19b6ae195a6d:0xb4574ac6e8ea0d6f!8m2!3d50.19407!4d8.95234" target="_blank" rel="noopener noreferrer">Bürgerhaus Oberissigheim</a>
-				<br>Karten nur erhältlich bei
-				<a href="http://www.kulturverein-wundertuete.de" target="_blank" rel="noopener noreferrer">http://www.kulturverein-wundertuete.de</a>
-			</div>
-			<div class="col-sm-2"><b>12,60 €</b></div>
-			<div class="col-sm-2 hidden-xs"><b>12,60 €</b></div>
-		</div>
-
-		<div class="form-group play-header">
-			<div class="col-sm-6">
-				<b>Gretchen 89ff</b> - Theater und Buffet
-				<br><em>Samstag, den 11.11.2017 ab 18:30 Uhr</em>
-				<br>im
-				<a href="https://www.buergerhaus-restaurantniederdorfelden.de/veranstaltungen/" target="_blank" rel="noopener noreferrer">Bürgerhaus Niederdorfelden</a>
-				<br>Karten nur erhältlich im
-				<a href="https://www.buergerhaus-restaurantniederdorfelden.de/kontakt-1/" target="_blank" rel="noopener noreferrer">Bürgerhausrestaurant</a>
-			</div>
-			<div class="col-sm-2"><b>28,00 €</b><br>inkl. Essen<br>exkl. Getränke</div>
-			<div class="col-sm-2 hidden-xs"><b>28,00 €</b><br>inkl. Essen<br>exkl. Getränke</div>
-		</div>
+			</f:for>
+		</f:for>
 
 		<div class="row text-right-sm">
 			<div class="col-sm-10 col-xs-8">
 				<p class="form-control-static">Lieferung und Bearbeitung</p>
 			</div>
 			<div class="col-sm-2 col-xs-4">
-				<p class="form-control-static"><span id="tx_formhandler_card_order_shippingcosts">2,00 €</span></p>
+				<p class="form-control-static"><f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></p>
 			</div>
 		</div>
 
@@ -176,11 +111,11 @@
 				<p class="form-control-static"><strong>Gesamtpreis</strong></p>
 			</div>
 			<div class="col-sm-2 col-xs-4">
-				<p class="form-control-static"><strong id="tx_formhandler_card_order_total">2,00 €</strong></p>
+				<p class="form-control-static card-order-table-total"><f:render section="price" arguments="{price: '{settings.cardOrder.shippingCosts}'}"/></strong></p>
 			</div>
 		</div>
 
-		<div class="row" id="tx_formhandler_card_order_no_javascript" style="display: none;">
+		<div class="row tx-theaterinfo-no-javascript-hint">
 			<div class="col-sm-12">
 				<strong>Hinweis!</strong><br>
 				Die automatische Berechnung des Gesamtpreises funktioniert nur, <br>
@@ -190,4 +125,78 @@
 
 	</div>
 
-</div>
+	<f:cObject typoscriptObjectPath="lib.tx_theaterinfo_hints"/>
+
+	<h2>Persönliche Daten</h2>
+
+	<sl:form.validatedControlGroup for="cardOrder.firstname">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-firstname">Vorname *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="firstname" class="form-control" id="tx-theaterinfor-card-order-firstname"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.lastname">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-lastname">Nachname *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="lastname" class="form-control" id="tx-theaterinfor-card-order-lastname"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.address">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-address">Straße *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="address" class="form-control" id="tx-theaterinfor-card-order-address"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.zip">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-zip">Postleitzahl *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="zip" class="form-control" id="tx-theaterinfor-card-order-zip"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.city">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-city">Ort *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="city" class="form-control" id="tx-theaterinfor-card-order-city"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.email">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-email">E-Mail *</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textfield property="email" class="form-control" id="tx-theaterinfor-card-order-email"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<sl:form.validatedControlGroup for="cardOrder.notes">
+		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-notes">Bemerkungen</label>
+		<div class="col-sm-10">
+			<sl:form.inlineHelpOrErrors/>
+			<f:form.textarea property="notes" class="form-control" id="tx-theaterinfor-card-order-notes"/>
+		</div>
+	</sl:form.validatedControlGroup>
+
+	<div class="form-group">
+		<div class="col-sm-10 col-sm-push-2">
+			<p class="form-control-static">Alle mit * markierten Felder sind Pflichtfelder.</p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-10 col-sm-push-2">
+			<f:form.submit value="Absenden" class="btn btn-primary"/>
+		</div>
+	</div>
+
+</f:form>
+
+</html>

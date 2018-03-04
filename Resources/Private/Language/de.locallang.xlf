@@ -44,6 +44,34 @@
 				<source>Name</source>
 				<target>Name</target>
 			</trans-unit>
+			<trans-unit id="error.property.cardOrder.address.1221560718" xml:space="preserve">
+				<source>Please provide your street address.</source>
+				<target>Bitte geben Sie Ihre Straße und Hausnummer an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.city.1221560718" xml:space="preserve">
+				<source>Please provide your city.</source>
+				<target>Bitt geben Sie Ihren Wohnort an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.email.1221559976" xml:space="preserve">
+				<source>Please provide a valid email address.</source>
+				<target>Bitte geben Sie eine gültige E-Mail-Adresse an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.email.1221560718" xml:space="preserve">
+				<source>Please provide your email address.</source>
+				<target>Bitte geben Sie Ihre E-Mail-Adresse an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.firstname.1221560718" xml:space="preserve">
+				<source>Please provide your fistname.</source>
+				<target>Bitte geben Sie Ihren Vornamen an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.lastname.1221560718" xml:space="preserve">
+				<source>Please provide your lastname.</source>
+				<target>Bitte geben Sie Ihren Nachname an.</target>
+			</trans-unit>
+			<trans-unit id="error.property.cardOrder.zip.1221560718" xml:space="preserve">
+				<source>Please provide your zip code.</source>
+				<target>Bitte geben Sie Ihre Postleitzahl an.</target>
+			</trans-unit>
 			<trans-unit id="play_state_0" xml:space="preserve" approved="yes">
 				<source>Planned</source>
 				<target>In Planung</target>
