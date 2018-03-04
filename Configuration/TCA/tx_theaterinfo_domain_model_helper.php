@@ -14,7 +14,7 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
     ],
     'interface' => [
-        'showRecordFieldList' => 'hidden,helpertype,actors,insert_spacer,playuid'
+        'showRecordFieldList' => 'hidden,helpertype,actors,insert_spacer,playuid',
     ],
     'columns' => [
         'hidden' => [
@@ -22,8 +22,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'default' => '0'
-            ]
+                'default' => '0',
+            ],
         ],
         'helpertype' => [
             'exclude' => 0,
@@ -46,10 +46,10 @@ return [
                         ],
                         'popup_onlyOpenIfSelected' => 1,
                         'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1',
                     ],
                 ],
-            ]
+            ],
         ],
         'actors' => [
             'exclude' => 0,
@@ -72,25 +72,25 @@ return [
                         ],
                         'popup_onlyOpenIfSelected' => 1,
                         'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1',
                     ],
                 ],
-            ]
+            ],
         ],
         'insert_spacer' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helper.insert_spacer',
             'config' => [
                 'type' => 'check',
-            ]
+            ],
         ],
         'playuid' => [
             'config' => [
                 'type' => 'passthrough',
-            ]
+            ],
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'helpertype, hidden, actors, insert_spacer, playuid']
+        '0' => ['showitem' => 'helpertype, hidden, actors, insert_spacer, playuid'],
     ],
 ];

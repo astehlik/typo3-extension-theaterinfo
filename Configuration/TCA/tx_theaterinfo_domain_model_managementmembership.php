@@ -15,7 +15,7 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
     ],
     'interface' => [
-        'showRecordFieldList' => 'position,actor,startdate,enddate'
+        'showRecordFieldList' => 'position,actor,startdate,enddate',
     ],
     'columns' => [
         'position' => [
@@ -55,7 +55,7 @@ return [
                 'size' => 1,
                 'maxitems' => 1,
                 'readOnly' => 1,
-            ]
+            ],
         ],
     ],
     'types' => [

@@ -12,7 +12,7 @@ return [
         'searchFields' => 'name',
     ],
     'interface' => [
-        'showRecordFieldList' => 'name,showInOverview,memberships'
+        'showRecordFieldList' => 'name,showInOverview,memberships',
     ],
     'columns' => [
         'name' => [
