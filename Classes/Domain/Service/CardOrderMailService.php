@@ -30,8 +30,8 @@ class CardOrderMailService implements SingletonInterface
     {
         $view = new StandaloneView();
 
-        $view->setPartialRootPaths(['EXT:theaterinfo/Resources/Private/Partials']);
-        $view->setTemplateRootPaths(['EXT:theaterinfo/Resources/Private/Templates/CardOrder/Mail']);
+        $view->setPartialRootPaths($this->settings['cardOrderMail']['partialRootPaths']);
+        $view->setTemplateRootPaths($this->settings['cardOrderMail']['templateRootPaths']);
         $view->setTemplate($templateName);
         $view->setFormat('txt');
 

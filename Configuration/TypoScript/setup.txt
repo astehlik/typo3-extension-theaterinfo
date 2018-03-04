@@ -8,6 +8,9 @@ plugin.tx_theaterinfo {
     }
 
     cardOrderMail {
+      templateRootPaths.0 = EXT:theaterinfo/Resources/Private/Templates/CardOrder/Mail
+      partialRootPaths.0 = EXT:theaterinfo/Resources/Private/Partials
+
       fromEmail =
       fromName =
 
