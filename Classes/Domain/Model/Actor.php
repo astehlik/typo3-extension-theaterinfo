@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Domain\Model;
 
 /*                                                                        *

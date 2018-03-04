@@ -1,23 +1,27 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
+if (!defined('TYPO3_MODE')) {
+    die ('Access denied.');
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Theater info');
 
-	// These dividers are a little trick to group these items in the plugin selector
-$GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = array('Theater info', '--div--', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif');
+// These dividers are a little trick to group these items in the plugin selector
+$GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = [
+    'Theater info',
+    '--div--',
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif',
+];
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Sto.Theaterinfo',
-	'PlaysList',
-	'Show plays (Theater info)'
+    'Sto.Theaterinfo',
+    'PlaysList',
+    'Show plays (Theater info)'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Sto.Theaterinfo',
-	'ShowManagement',
-	'Show management (Theater info)'
+    'Sto.Theaterinfo',
+    'ShowManagement',
+    'Show management (Theater info)'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
@@ -26,7 +30,7 @@ $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = arr
     'Card order (Theater info)'
 );
 
-$TCA['tt_content']['columns']['list_type']['config']['items'][] = array('', '--div--');
+$TCA['tt_content']['columns']['list_type']['config']['items'][] = ['', '--div--'];
 
 //$extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY);
 //$pluginSignature = strtolower($extensionName) . '_pi1';

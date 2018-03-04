@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Hooks;
 
 /*                                                                        *
@@ -63,5 +64,4 @@ class RecordListHooks implements RecordListGetTableHookInterface
         $xSubQuery = sprintf($xSelectString, $_query, $_subTable, $this->table, $_field, $_subTable, $_field);
         $this->replaceField($_field, $xSubQuery);
     }
-
 }

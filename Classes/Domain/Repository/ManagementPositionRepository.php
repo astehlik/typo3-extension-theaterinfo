@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -16,7 +17,8 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * Repository for management positions
  *
- * @method \TYPO3\CMS\Extbase\Persistence\QueryResultInterface findByShowInOverview($showInOverview) Returns all positions where showInOverview is true.
+ * @method \TYPO3\CMS\Extbase\Persistence\QueryResultInterface findByShowInOverview($showInOverview) Returns all
+ *     positions where showInOverview is true.
  */
 class ManagementPositionRepository extends Repository
 {
@@ -25,9 +27,11 @@ class ManagementPositionRepository extends Repository
      */
     public function initializeObject()
     {
-        $this->setDefaultOrderings([
-            'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
-        ]);
+        $this->setDefaultOrderings(
+            [
+                'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+            ]
+        );
     }
 
     /**

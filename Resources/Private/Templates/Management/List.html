@@ -1,38 +1,38 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:layout name="default" />
+<f:layout name="default"/>
 
 <f:section name="content">
-	<div class="tx-theaterinfo-managementlist-container">
-		<f:if condition="{managementPositions}">
-			<f:then>
-				<f:for each="{managementPositions}" as="managementPosition">
+<div class="tx-theaterinfo-managementlist-container">
+	<f:if condition="{managementPositions}">
+		<f:then>
+			<f:for each="{managementPositions}" as="managementPosition">
 
-					<div class="csc-default">
+				<div class="csc-default">
 
-						<div class="csc-header">
-							<h2>{managementPosition.name}</h2>
-						</div>
-
-						<f:if condition="{managementPosition.currentMembership}">
-							<f:then>
-								<f:render partial="Actor/Overview.html" arguments="{actor: managementPosition.currentMembership.actor, useSubHeadingForName: 'true', hideBorder: 'ture'}"/>
-							</f:then>
-							<f:else>
-								<p>Dieser Vorstandsposten ist zur Zeit nicht besetzt.</p>
-							</f:else>
-						</f:if>
+					<div class="csc-header">
+						<h2>{managementPosition.name}</h2>
 					</div>
 
-				</f:for>
-			</f:then>
-			<f:else>
-				<div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
-					<p class="important">Es sind keine Vorstandsposten vorhanden.</p>
+					<f:if condition="{managementPosition.currentMembership}">
+						<f:then>
+							<f:render partial="Actor/Overview.html" arguments="{actor: managementPosition.currentMembership.actor, useSubHeadingForName: 'true', hideBorder: 'ture'}"/>
+						</f:then>
+						<f:else>
+							<p>Dieser Vorstandsposten ist zur Zeit nicht besetzt.</p>
+						</f:else>
+					</f:if>
 				</div>
-			</f:else>
-		</f:if>
-	</div>
+
+			</f:for>
+		</f:then>
+		<f:else>
+			<div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
+				<p class="important">Es sind keine Vorstandsposten vorhanden.</p>
+			</div>
+		</f:else>
+	</f:if>
+</div>
 </f:section>
 
 </html>

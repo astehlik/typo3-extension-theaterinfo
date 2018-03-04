@@ -25,22 +25,22 @@
 		<div class="col-md-9">
 
 			<dl class="tx-theaterinfo-actor-properties">
-				<dt><f:translate key="actor_age" /></dt>
+				<dt><f:translate key="actor_age"/></dt>
 				<dd>{actor.age} Jahre</dd>
 
-				<dt><f:translate key="actor_job" /></dt>
+				<dt><f:translate key="actor_job"/></dt>
 				<dd>{actor.job}</dd>
 
-				<dt><f:translate key="actor_management_reasons" /></dt>
+				<dt><f:translate key="actor_management_reasons"/></dt>
 				<dd>{actor.managementReasons}</dd>
 
 				<f:if condition="0">
-				<dt><f:translate key="actor_more_information" /></dt>
-				<dd>
-					<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
-						Hier erfährst du noch mehr über {actor.fullName}
-					</f:link.action>
-				</dd>
+					<dt><f:translate key="actor_more_information"/></dt>
+					<dd>
+						<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
+							Hier erfährst du noch mehr über {actor.fullName}
+						</f:link.action>
+					</dd>
 				</f:if>
 			</dl>
 		</div>

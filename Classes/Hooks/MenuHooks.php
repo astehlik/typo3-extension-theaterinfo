@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Hooks;
 
 /*                                                                        *
@@ -39,7 +40,7 @@ class MenuHooks
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
                 'actions' => [
-                    'breadcrumbMenuArray'
+                    'breadcrumbMenuArray',
                 ],
             ],
         ];
@@ -68,7 +69,7 @@ class MenuHooks
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
                 'actions' => [
-                    'breadcrumbMenu'
+                    'breadcrumbMenu',
                 ],
             ],
         ];

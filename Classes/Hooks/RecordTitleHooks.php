@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Hooks;
 
 /*                                                                        *
@@ -34,5 +35,4 @@ class RecordTitleHooks
             $params['title'] = $data['company'];
         }
     }
-
 }

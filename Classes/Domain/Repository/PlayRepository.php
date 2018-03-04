@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -23,8 +24,10 @@ class PlayRepository extends Repository
      */
     public function initializeObject()
     {
-        $this->setDefaultOrderings([
-            'timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
-        ]);
+        $this->setDefaultOrderings(
+            [
+                'timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+            ]
+        );
     }
 }

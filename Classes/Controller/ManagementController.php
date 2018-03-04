@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Controller;
 
 /*                                                                        *
@@ -65,7 +66,9 @@ class ManagementController extends ActionController
      */
     public function breadcrumbMenuArrayAction()
     {
-        $frameworkConfig = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $frameworkConfig = $this->configurationManager->getConfiguration(
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+        );
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
         if ($this->requestIsActorDetailView()) {

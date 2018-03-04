@@ -1,64 +1,64 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:layout name="default" />
+<f:layout name="default"/>
 
 <f:section name="content">
-	<div class="tx-theaterinfo-playlist-container">
+<div class="tx-theaterinfo-playlist-container">
 
-		<div class="innercontent csc-default tx-theaterinfo-playlist-header">
-			<h1>
-				<f:if condition="{header}">
-					<f:then>{header}</f:then>
-					<f:else>Unser Repertoire</f:else>
-				</f:if>
-			</h1>
-		</div>
-
-		<f:if condition="{plays}">
-			<f:then>
-				<f:for each="{plays}" as="play">
-					<div class="tx-theaterinfo-playlist-play">
-						<f:if condition="{play.logo}">
-							<f:then>
-								<div class="row">
-									<div class="col-md-3">
-										<div class="tx-theaterinfo-playlist-play-logo">
-											<f:link.action action="show" controller="Play" arguments="{play: play}">
-												<f:image image="{play.logo}" treatIdAsReference="1" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo" />
-											</f:link.action>
-										</div>
-									</div>
-									<div class="col-md-9">
-										<f:render section="playProperties" arguments="{_all}" />
-									</div>
-								</div>
-							</f:then>
-							<f:else>
-								<div class="row">
-									<div class="col-md-12">
-										<f:render section="playProperties" arguments="{_all}" />
-									</div>
-								</div>
-							</f:else>
-						</f:if>
-					</div>
-				</f:for>
-			</f:then>
-			<f:else>
-				<div class="innercontent csc-default tx-theaterinfo-playlist-play">
-					<p>Zur Zeit sind keine Stücke im Repertoire.</p>
-				</div>
-			</f:else>
-		</f:if>
+	<div class="innercontent csc-default tx-theaterinfo-playlist-header">
+		<h1>
+			<f:if condition="{header}">
+				<f:then>{header}</f:then>
+				<f:else>Unser Repertoire</f:else>
+			</f:if>
+		</h1>
 	</div>
+
+	<f:if condition="{plays}">
+		<f:then>
+			<f:for each="{plays}" as="play">
+				<div class="tx-theaterinfo-playlist-play">
+					<f:if condition="{play.logo}">
+						<f:then>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="tx-theaterinfo-playlist-play-logo">
+										<f:link.action action="show" controller="Play" arguments="{play: play}">
+											<f:image image="{play.logo}" treatIdAsReference="1" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
+										</f:link.action>
+									</div>
+								</div>
+								<div class="col-md-9">
+									<f:render section="playProperties" arguments="{_all}"/>
+								</div>
+							</div>
+						</f:then>
+						<f:else>
+							<div class="row">
+								<div class="col-md-12">
+									<f:render section="playProperties" arguments="{_all}"/>
+								</div>
+							</div>
+						</f:else>
+					</f:if>
+				</div>
+			</f:for>
+		</f:then>
+		<f:else>
+			<div class="innercontent csc-default tx-theaterinfo-playlist-play">
+				<p>Zur Zeit sind keine Stücke im Repertoire.</p>
+			</div>
+		</f:else>
+	</f:if>
+</div>
 </f:section>
 
 <f:section name="playProperties">
-	<h2>{play.title}</h2>
-	<f:if condition="{play.author}"><p><em>von {play.author}</em></p></f:if>
-	<f:if condition="{play.timeDisplay}"><p><strong>{play.timeDisplay}</strong></p></f:if>
-	<f:if condition="{play.teaser}"><p>{play.teaser}</p></f:if>
-	<p><f:link.action action="show" controller="Play" arguments="{play: play}">Details...</f:link.action></p>
+<h2>{play.title}</h2>
+<f:if condition="{play.author}"><p><em>von {play.author}</em></p></f:if>
+<f:if condition="{play.timeDisplay}"><p><strong>{play.timeDisplay}</strong></p></f:if>
+<f:if condition="{play.teaser}"><p>{play.teaser}</p></f:if>
+<p><f:link.action action="show" controller="Play" arguments="{play: play}">Details...</f:link.action></p>
 </f:section>
 
 </html>

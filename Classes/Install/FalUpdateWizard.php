@@ -1,4 +1,5 @@
 <?php
+
 namespace Sto\Theaterinfo\Install;
 
 /**
@@ -33,14 +34,9 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     const RECORDS_PER_QUERY = 1000;
 
     /**
-     * @var string
+     * @var DatabaseConnection
      */
-    protected $title = 'Migrate all file relations of the theaterinfo Extension';
-
-    /**
-     * @var \TYPO3\CMS\Core\Resource\ResourceStorage
-     */
-    protected $storage;
+    protected $database;
 
     /**
      * @var \TYPO3\CMS\Core\Log\Logger
@@ -48,45 +44,9 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     protected $logger;
 
     /**
-     * @var DatabaseConnection
-     */
-    protected $database;
-
-    /**
-     * Table fields to migrate
-     *
      * @var array
      */
-    protected $tables = [
-        'tx_theaterinfo_domain_model_actor' => [
-            'picture' => [
-                'sourcePath' => 'uploads/tx_theaterinfo/',
-                'targetPath' => '_migrated/theaterinfo/',
-            ]
-        ],
-        'tx_theaterinfo_domain_model_helpertype' => [
-            'icon' => [
-                'sourcePath' => 'uploads/tx_theaterinfo/',
-                'targetPath' => '_migrated/theaterinfo/'
-            ]
-        ],
-        'tx_theaterinfo_domain_model_play' => [
-            'logo' => [
-                'sourcePath' => 'uploads/tx_theaterinfo/',
-                'targetPath' => '_migrated/theaterinfo/'
-            ],
-            'pictures' => [
-                'sourcePath' => 'uploads/tx_theaterinfo/',
-                'targetPath' => '_migrated/theaterinfo/'
-            ]
-        ],
-        'tx_theaterinfo_domain_model_role' => [
-            'picture' => [
-                'sourcePath' => 'uploads/tx_theaterinfo/',
-                'targetPath' => '_migrated/theaterinfo/'
-            ]
-        ],
-    ];
+    protected $recordOffset = [];
 
     /**
      * @var \TYPO3\CMS\Core\Registry
@@ -99,9 +59,50 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
     protected $registryNamespace = 'tx_theaterinfo_falupdate';
 
     /**
+     * @var \TYPO3\CMS\Core\Resource\ResourceStorage
+     */
+    protected $storage;
+
+    /**
+     * Table fields to migrate
+     *
      * @var array
      */
-    protected $recordOffset = [];
+    protected $tables = [
+        'tx_theaterinfo_domain_model_actor' => [
+            'picture' => [
+                'sourcePath' => 'uploads/tx_theaterinfo/',
+                'targetPath' => '_migrated/theaterinfo/',
+            ],
+        ],
+        'tx_theaterinfo_domain_model_helpertype' => [
+            'icon' => [
+                'sourcePath' => 'uploads/tx_theaterinfo/',
+                'targetPath' => '_migrated/theaterinfo/',
+            ],
+        ],
+        'tx_theaterinfo_domain_model_play' => [
+            'logo' => [
+                'sourcePath' => 'uploads/tx_theaterinfo/',
+                'targetPath' => '_migrated/theaterinfo/',
+            ],
+            'pictures' => [
+                'sourcePath' => 'uploads/tx_theaterinfo/',
+                'targetPath' => '_migrated/theaterinfo/',
+            ],
+        ],
+        'tx_theaterinfo_domain_model_role' => [
+            'picture' => [
+                'sourcePath' => 'uploads/tx_theaterinfo/',
+                'targetPath' => '_migrated/theaterinfo/',
+            ],
+        ],
+    ];
+
+    /**
+     * @var string
+     */
+    protected $title = 'Migrate all file relations of the theaterinfo Extension';
 
     /**
      * Constructor
@@ -112,19 +113,6 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
         $logManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager');
         $this->logger = $logManager->getLogger(__CLASS__);
         $this->database = $GLOBALS['TYPO3_DB'];
-    }
-
-    /**
-     * Initialize the storage repository.
-     */
-    public function init()
-    {
-        /** @var $storageRepository \TYPO3\CMS\Core\Resource\StorageRepository */
-        $storageRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
-        $storages = $storageRepository->findAll();
-        $this->storage = $storages[0];
-        $this->registry = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Registry');
-        $this->recordOffset = $this->registry->get($this->registryNamespace, 'recordOffset', []);
     }
 
     /**
@@ -139,7 +127,6 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
             . 'by the theaterinfo Extension and adds the files to the new File Index.<br />'
             . 'It also moves the files from uploads/theaterinfo to fileadmin/_migrated/theaterinfo/.<br /><br />'
             . 'This update wizard can be called multiple times in case it didn\'t finish after running once.';
-
 
         $versionNumber = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
         if ($versionNumber < 6000000) {
@@ -164,6 +151,19 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
             }
         }
         return $numberOfFieldsToMigrate > 0;
+    }
+
+    /**
+     * Initialize the storage repository.
+     */
+    public function init()
+    {
+        /** @var $storageRepository \TYPO3\CMS\Core\Resource\StorageRepository */
+        $storageRepository = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
+        $storages = $storageRepository->findAll();
+        $this->storage = $storages[0];
+        $this->registry = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Registry');
+        $this->recordOffset = $this->registry->get($this->registryNamespace, 'recordOffset', []);
     }
 
     /**
@@ -360,7 +360,6 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
                     /** @var File $file */
                     $file = $this->storage->getFile($fieldConfiguration['targetPath'] . $item);
                     $fileUid = $file->getUid();
-
                 } catch (\InvalidArgumentException $e) {
 
                     // no file found, no reference can be set
@@ -370,8 +369,13 @@ class FalUpdateWizard extends \TYPO3\CMS\Install\Updates\AbstractUpdate
                     );
 
                     $format = 'File \'%s\' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.';
-                    $message = sprintf($format, $fieldConfiguration['sourcePath'] . $item, $table, $row['uid'],
-                        $fieldname);
+                    $message = sprintf(
+                        $format,
+                        $fieldConfiguration['sourcePath'] . $item,
+                        $table,
+                        $row['uid'],
+                        $fieldname
+                    );
                     $customMessages .= PHP_EOL . $message;
 
                     continue;
