@@ -49,7 +49,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.time_sort',
             'config' => [
                 'type' => 'input',
-                'max' => '20',
+                'renderType' => 'inputDateTime',
                 'size' => 12,
                 'eval' => 'datetime',
                 'checkbox' => '0',
