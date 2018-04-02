@@ -31,7 +31,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helpertype.jobtitle',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'icon' => [

@@ -32,7 +32,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.title',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'author' => [
@@ -40,8 +40,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.author',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'time_sort' => [
@@ -49,8 +49,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.time_sort',
             'config' => [
                 'type' => 'input',
-                'size' => '12',
                 'max' => '20',
+                'size' => 12,
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
@@ -61,7 +61,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.time_display',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'teaser' => [
@@ -69,8 +69,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.teaser',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'action' => [
@@ -78,8 +78,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.action',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'logo' => [
@@ -207,8 +207,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.advance_sale',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
     ],

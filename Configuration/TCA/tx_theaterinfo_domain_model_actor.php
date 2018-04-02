@@ -74,7 +74,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.firstname',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'lastname' => [
@@ -82,7 +82,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.lastname',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'company' => [
@@ -90,7 +90,7 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.company',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
+                'size' => 30,
             ],
         ],
         'picture' => [
@@ -135,8 +135,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.management_reasons',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'favorite_role' => [
@@ -171,8 +171,8 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.hobbys',
             'config' => [
                 'type' => 'text',
-                'cols' => '30',
-                'rows' => '5',
+                'cols' => 30,
+                'rows' => 5,
             ],
         ],
         'job' => [
