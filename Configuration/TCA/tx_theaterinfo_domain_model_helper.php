@@ -37,18 +37,6 @@ return [
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
-                'wizards' => [
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'Edit',
-                        'module' => [
-                            'name' => 'wizard_edit',
-                        ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1',
-                    ],
-                ],
             ],
         ],
         'actors' => [
@@ -63,16 +51,13 @@ return [
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
-                'wizards' => [
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'Edit',
-                        'module' => [
-                            'name' => 'wizard_edit',
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'Edit',
+                            'windowOpenParameters' => 'height=768,width=1024,status=0,menubar=0,scrollbars=1',
                         ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1',
                     ],
                 ],
             ],
