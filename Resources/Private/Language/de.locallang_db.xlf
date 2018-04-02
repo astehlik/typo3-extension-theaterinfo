@@ -236,6 +236,10 @@
 				<source>Role</source>
 				<target>Rolle</target>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role.actors" xml:space="preserve">
+				<source>Actors</source>
+				<target>Schauspieler</target>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_role.insert_spacer" xml:space="preserve" approved="yes">
 				<source>Insert spacer (afterwards)</source>
 				<target>Trenner einfügen (danach)</target>

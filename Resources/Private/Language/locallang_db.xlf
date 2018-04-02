@@ -220,6 +220,9 @@
 			<trans-unit id="tx_theaterinfo_domain_model_role" xml:space="preserve">
 				<source>Role</source>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_role.actors" xml:space="preserve">
+				<source>Actors</source>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_role.insert_spacer" xml:space="preserve">
 				<source>Insert spacer (afterwards)</source>
 			</trans-unit>
