@@ -80,6 +80,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'enableRichtext' => true,
             ],
         ],
         'logo' => [
@@ -213,6 +214,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'enableRichtext' => true,
             ],
         ],
     ],
@@ -226,14 +228,6 @@ return [
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.helpers, hide_helpers, helpers,
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.advance_sale, advance_sale
 			',
-            'columnsOverrides' => [
-                'action' => [
-                    'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
-                ],
-                'advance_sale' => [
-                    'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
-                ],
-            ],
         ],
     ],
 ];
