@@ -51,6 +51,7 @@ return [
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
+                'enableMultiSelectFilterTextfield' => true,
                 'fieldControl' => [
                     'editPopup' => [
                         'disabled' => false,
