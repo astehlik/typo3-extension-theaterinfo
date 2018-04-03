@@ -25,14 +25,20 @@
 		<div class="col-md-9">
 
 			<dl class="tx-theaterinfo-actor-properties">
-				<dt><f:translate key="actor_age"/></dt>
-				<dd>{actor.age} Jahre</dd>
+				<f:if condition="{actor.birthday}">
+					<dt><f:translate key="actor_age"/></dt>
+					<dd>{actor.age} Jahre</dd>
+				</f:if>
 
-				<dt><f:translate key="actor_job"/></dt>
-				<dd>{actor.job}</dd>
+				<f:if condition="{actor.job}">
+					<dt><f:translate key="actor_job"/></dt>
+					<dd>{actor.job}</dd>
+				</f:if>
 
-				<dt><f:translate key="actor_management_reasons"/></dt>
-				<dd>{actor.managementReasons}</dd>
+				<f:if condition="{actor.managementReasons}">
+					<dt><f:translate key="actor_management_reasons"/></dt>
+					<dd>{actor.managementReasons}</dd>
+				</f:if>
 
 				<f:if condition="0">
 					<dt><f:translate key="actor_more_information"/></dt>
