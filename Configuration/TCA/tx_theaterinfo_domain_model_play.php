@@ -221,7 +221,11 @@ return [
     'types' => [
         '0' => [
             'showitem' => '
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.properties, title, hidden, author, time_sort, time_display, state, teaser,
+				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.properties,
+				    --palette--;;title,
+				    author,
+				     --palette--;;times,
+				    state, teaser,
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.action, action,
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.pictures, logo, pictures,
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.roles, hide_roles, roles,
@@ -230,4 +234,12 @@ return [
 			',
         ],
     ],
+    'palettes' => [
+        'title' => [
+            'showitem' => 'title, hidden'
+        ],
+        'times' => [
+            'showitem' => 'time_sort, time_display'
+        ]
+    ]
 ];

@@ -97,6 +97,12 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name, hidden, actors, picture, insert_spacer, playuid'],
+        '0' => ['showitem' => 'name, actors, picture, insert_spacer, playuid, --palette--;;inline'],
+    ],
+    'palettes' => [
+        'inline' => [
+            'showitem' => 'hidden',
+            'isHiddenPalette' => true,
+        ],
     ],
 ];
