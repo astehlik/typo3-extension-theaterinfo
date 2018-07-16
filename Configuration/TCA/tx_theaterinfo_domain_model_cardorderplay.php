@@ -29,6 +29,7 @@ return [
                 'type' => 'inline',
                 'foreign_table' => 'tx_theaterinfo_domain_model_cardorderdate',
                 'foreign_field' => 'parent_play',
+                'foreign_default_sortby' => 'date_and_time',
                 'appearance' => [
                     'enabledControls' => [
                         'info' => true,

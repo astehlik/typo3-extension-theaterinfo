@@ -84,7 +84,7 @@
 				</div>
 			</div>
 
-			<f:for each="{play.dates}" as="playDate" iteration="playDateIterator">
+			<f:for each="{play.datesOrdered}" as="playDate" iteration="playDateIterator">
 				<f:variable name="playOrderIndex">{playIterator.index -> sl:math.add(summand: playDateIterator.index)}</f:variable>
 
 				<f:form.hidden property="rows.{playOrderIndex}.playDate" value="{playDate}"/>
