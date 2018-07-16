@@ -39,6 +39,15 @@ return [
             ],
         ],
 
+        'description_mail' => [
+            'label' => $languagePrefixColumn . 'description_mail',
+            'config' => [
+                'type' => 'text',
+                'rows' => 5,
+                'cols' => 30,
+            ],
+        ],
+
         'hidden' => [
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
@@ -58,15 +67,6 @@ return [
             ],
         ],
 
-        'location' => [
-            'label' => $languagePrefixColumn . 'location',
-            'config' => [
-                'type' => 'input',
-                'size' => 50,
-                'max' => 255,
-            ],
-        ],
-
         'parent_play' => [
             'config' => ['type' => 'passthrough'],
         ],
@@ -75,7 +75,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => '
-                date_and_time, hidden, is_sold_out, location, description
+                date_and_time, hidden, is_sold_out, description, description_mail
 		    ',
         ],
     ],

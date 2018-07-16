@@ -18,14 +18,14 @@ class CardOrderDate extends AbstractEntity
     protected $description;
 
     /**
+     * @var string
+     */
+    protected $descriptionMail;
+
+    /**
      * @var bool
      */
     protected $isSoldOut;
-
-    /**
-     * @var string
-     */
-    protected $location;
 
     /**
      * @var \Sto\Theaterinfo\Domain\Model\CardOrderPlay
@@ -42,14 +42,14 @@ class CardOrderDate extends AbstractEntity
         return $this->description;
     }
 
+    public function getDescriptionMail(): string
+    {
+        return $this->descriptionMail;
+    }
+
     public function getIsSoldOut(): bool
     {
         return $this->isSoldOut;
-    }
-
-    public function getLocation(): string
-    {
-        return $this->location;
     }
 
     public function getPlayDescriptionForEmail(): string

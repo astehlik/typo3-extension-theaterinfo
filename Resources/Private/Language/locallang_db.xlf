@@ -76,11 +76,11 @@
 			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.description" xml:space="preserve">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.description_mail" xml:space="preserve">
+				<source>Description for email</source>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.is_sold_out" xml:space="preserve">
 				<source>Is sold out</source>
-			</trans-unit>
-			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.location" xml:space="preserve">
-				<source>Location</source>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_cardorderplay" xml:space="preserve">
 				<source>Card order play</source>

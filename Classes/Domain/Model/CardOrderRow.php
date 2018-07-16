@@ -38,6 +38,11 @@ class CardOrderRow extends AbstractEntity
         return $this->playDate->getDateAndTime();
     }
 
+    public function getPlayDateDescriptionForEmail(): string
+    {
+        return $this->playDate->getDescriptionMail();
+    }
+
     public function getPlayDescriptionForEmail(): string
     {
         return $this->playDate->getPlayDescriptionForEmail();
