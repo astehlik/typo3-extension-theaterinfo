@@ -74,12 +74,12 @@
 				</div>
 				<div class="col-sm-2">
 					<b><f:render section="price" arguments="{price: play.priceNormal}"/></b>
-					<f:if condition="{play.Dates}" then=""><f:else><span class="visible-xs-inline">(Normalpreis)</span></f:else></f:if>
+					<f:if condition="{play.dates}" then=""><f:else><span class="visible-xs-inline">(Normalpreis)</span></f:else></f:if>
 					<f:render section="priceDescription" arguments="{priceDescription: play.priceNormalDescription}"/>
 				</div>
 				<div class="col-sm-2">
 					<b><f:render section="price" arguments="{price: play.priceReduced}"/></b>
-					<f:if condition="{play.Dates}" then=""><f:else><span class="visible-xs-inline">(Ermäßigt)</span></f:else></f:if>
+					<f:if condition="{play.dates}" then=""><f:else><span class="visible-xs-inline">(Ermäßigt)</span></f:else></f:if>
 					<f:render section="priceDescription" arguments="{priceDescription: play.priceReducedDescription}"/>
 				</div>
 			</div>
