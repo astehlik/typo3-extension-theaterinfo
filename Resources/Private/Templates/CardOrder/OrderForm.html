@@ -72,8 +72,13 @@
 							<div class="visible-xs-inline">
 								<f:format.html>{play.description}</f:format.html>
 							</div>
-							<span class="text-nowrap">{playDate.dateAndTime -> f:format.date(format: '%A, den %d.%m.%Y')}</span>
-							<span class="text-nowrap"> um {playDate.dateAndTime -> f:format.date(format: '%H:%M')} Uhr</span>
+							<f:if condition="{playDate.description}">
+								<f:then><f:format.html>{playDate.description}</f:format.html></f:then>
+								<f:else>
+									<span class="text-nowrap">{playDate.dateAndTime -> f:format.date(format: '%A, den %d.%m.%Y')}</span>
+									<span class="text-nowrap"> um {playDate.dateAndTime -> f:format.date(format: '%H:%M')} Uhr</span>
+								</f:else>
+							</f:if>
 						</div>
 					</div>
 
