@@ -88,6 +88,10 @@
 				<source>Company</source>
 				<target>Firma</target>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.is_sold_out" xml:space="preserve">
+				<source>Is sold out</source>
+				<target>Ist ausverkauft</target>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_helper" xml:space="preserve" approved="yes">
 				<source>Helper</source>
 				<target>Helfer</target>

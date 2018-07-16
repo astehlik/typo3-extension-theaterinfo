@@ -18,6 +18,11 @@ class CardOrderDate extends AbstractEntity
     protected $description;
 
     /**
+     * @var bool
+     */
+    protected $isSoldOut;
+
+    /**
      * @var string
      */
     protected $location;
@@ -37,6 +42,11 @@ class CardOrderDate extends AbstractEntity
         return $this->description;
     }
 
+    public function getIsSoldOut(): bool
+    {
+        return $this->isSoldOut;
+    }
+
     public function getLocation(): string
     {
         return $this->location;
@@ -52,7 +62,6 @@ class CardOrderDate extends AbstractEntity
         return $this->parentPlay->getPriceNormal();
     }
 
-    #
     public function getPriceReduced(): float
     {
         return $this->parentPlay->getPriceReduced();

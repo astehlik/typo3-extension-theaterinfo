@@ -51,6 +51,13 @@ return [
             ],
         ],
 
+        'is_sold_out' => [
+            'label' => $languagePrefixColumn . 'is_sold_out',
+            'config' => [
+                'type' => 'check',
+            ],
+        ],
+
         'location' => [
             'label' => $languagePrefixColumn . 'location',
             'config' => [
@@ -68,7 +75,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => '
-                date_and_time, hidden, location, description
+                date_and_time, hidden, is_sold_out, location, description
 		    ',
         ],
     ],

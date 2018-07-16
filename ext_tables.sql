@@ -36,6 +36,7 @@ CREATE TABLE tx_theaterinfo_domain_model_cardorderdate (
 
 	date_and_time datetime NOT NULL,
 	description text,
+	is_sold_out tinyint(3) DEFAULT '0' NOT NULL,
 	location varchar(255) DEFAULT '' NOT NULL,
 	parent_play int(11) unsigned DEFAULT '0' NOT NULL,
 
