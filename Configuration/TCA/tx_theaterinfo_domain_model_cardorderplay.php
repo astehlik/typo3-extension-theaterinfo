@@ -1,6 +1,6 @@
 <?php
 $languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
-$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_card_order_play.';
+$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay.';
 
 return [
     'ctrl' => [
@@ -9,7 +9,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'title' => $languagePrefix . 'tx_theaterinfo_card_order_play',
+        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'enable_hidden',
