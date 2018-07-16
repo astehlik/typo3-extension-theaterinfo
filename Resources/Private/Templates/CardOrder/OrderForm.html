@@ -18,6 +18,29 @@
 </f:if>
 </f:section>
 
+<f:section name="amountInputs">
+<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceNormal}">
+	<f:form.textfield property="rows.{playOrderIndex}.amountNormal"
+		class="amount-input form-control" placeholder="Anzahl" type="number"/>
+</div>
+<div class="col-xs-8 visible-xs-block">
+	<p class="form-control-static">
+		<f:render section="price" arguments="{price: play.priceNormal}"/> (Normalpreis)
+		<f:render section="priceDescription" arguments="{priceDescription: play.priceNormalDescription}"/>
+	</p>
+</div>
+<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceReduced}">
+	<f:form.textfield property="rows.{playOrderIndex}.amountReduced"
+		class="amount-input form-control" placeholder="Anzahl" type="number"/>
+</div>
+<div class="col-xs-8 visible-xs-block">
+	<p class="form-control-static">
+		<f:render section="price" arguments="{price: play.priceReduced}"/> (Ermäßigt)
+		<f:render section="priceDescription" arguments="{priceDescription: play.priceReducedDescription}"/>
+	</p>
+</div>
+</f:section>
+
 <f:section name="content">
 
 <f:form name="cardOrder" object="{cardOrder}" class="form-horizontal" action="takeOrder">
@@ -82,36 +105,26 @@
 						</div>
 					</div>
 
-					<div class="col-sm-4">
-						<div class="row">
-							<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceNormal}">
-								<f:form.textfield property="rows.{playOrderIndex}.amountNormal"
-									class="amount-input form-control" placeholder="Anzahl" type="number"/>
+					<f:if condition="{playDate.isSoldOut}">
+						<f:then>
+							<div class="col-sm-6">
+								<p class="form-control-static"><i>Bereits ausverkauft</i></p>
 							</div>
-							<div class="col-xs-8 visible-xs-block">
-								<p class="form-control-static">
-									<f:render section="price" arguments="{price: play.priceNormal}"/> (Normalpreis)
-									<f:render section="priceDescription" arguments="{priceDescription: play.priceNormalDescription}"/>
+						</f:then>
+						<f:else>
+							<div class="col-sm-4">
+								<div class="row">
+									<f:render section="amountInputs" arguments="{_all}"/>
+								</div>
+							</div>
+							<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
+								<p class="form-control-static" data-total-price="0">
+									<span class="total-price">0,00 €</span>
+									<span class="visible-xs-inline">gesamt</span>
 								</p>
 							</div>
-							<div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceReduced}">
-								<f:form.textfield property="rows.{playOrderIndex}.amountReduced"
-									class="amount-input form-control" placeholder="Anzahl" type="number"/>
-							</div>
-							<div class="col-xs-8 visible-xs-block">
-								<p class="form-control-static">
-									<f:render section="price" arguments="{price: play.priceReduced}"/> (Ermäßigt)
-									<f:render section="priceDescription" arguments="{priceDescription: play.priceReducedDescription}"/>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-2 col-xs-push-4 col-sm-push-0 row-total-column text-right-sm">
-						<p class="form-control-static" data-total-price="0">
-							<span class="total-price">0,00 €</span>
-							<span class="visible-xs-inline">gesamt</span>
-						</p>
-					</div>
+						</f:else>
+					</f:if>
 				</div>
 			</f:for>
 		</f:for>
