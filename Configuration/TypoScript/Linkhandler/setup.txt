@@ -4,6 +4,7 @@ config.recordLinks.tx_theaterinfo_play {
 
   typolink {
     parameter = {$plugin.tx_theaterinfo.singlePlayPid}
+    title.field = title
     additionalParams = &tx_theaterinfo_playslist[controller]=Play&tx_theaterinfo_playslist[action]=show&tx_theaterinfo_playslist[play]={field:uid}
     additionalParams.insertData = 1
     useCacheHash = 1
