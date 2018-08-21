@@ -13,6 +13,7 @@ return [
         ],
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_role.gif',
         'searchFields' => 'name',
+        'hideTable' => true,
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden,name,actors,picture,insert_spacer,playuid',

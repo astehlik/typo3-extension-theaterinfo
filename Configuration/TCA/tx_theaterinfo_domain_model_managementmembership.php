@@ -13,6 +13,7 @@ return [
             'endtime' => 'enddate',
         ],
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
+        'hideTable' => true,
     ],
     'interface' => [
         'showRecordFieldList' => 'position,actor,startdate,enddate',

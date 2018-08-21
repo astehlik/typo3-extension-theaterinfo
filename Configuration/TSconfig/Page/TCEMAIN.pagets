@@ -1,0 +1,8 @@
+TCEMAIN.linkHandler.tx_theaterinfo_play {
+    handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+    label = Theaterstück
+    configuration {
+        table = tx_theaterinfo_domain_model_play
+    }
+    scanBefore = page
+}
