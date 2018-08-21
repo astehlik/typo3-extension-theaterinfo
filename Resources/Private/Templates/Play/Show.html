@@ -1,4 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:ti="http://typo3.org/ns/Sto/Theaterinfo/ViewHelpers"
+	data-namespace-typo3-fluid="true">
 
 <f:layout name="default"/>
 
@@ -15,6 +17,8 @@
 			<div class=" csc-textpic csc-textpic-intext-right">
 
 				<h1>{play.title}</h1>
+
+				<ti:pageTitle>{play.title}</ti:pageTitle>
 
 				<div class="csc-textpic-imagewrap csc-textpic-single-image">
 					<f:if condition="{play.logo}">
