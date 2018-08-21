@@ -1,5 +1,5 @@
-plugin.tx_linkhandler.tx_theaterinfo_play {
-  // Do not force link generation when the news records are hidden or deleted.
+config.recordLinks.tx_theaterinfo_play {
+  // Do not force link generation when the record is hidden
   forceLink = 0
 
   typolink {
