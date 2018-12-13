@@ -12,6 +12,7 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Repository\PlayRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -20,10 +21,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class PlayController extends ActionController
 {
     /**
-     * @var \Sto\Theaterinfo\Domain\Repository\PlayRepository
-     * @inject
+     * @var PlayRepository
      */
     protected $playRepository;
+
+    public function injectPlayRepository(PlayRepository $playRepository)
+    {
+        $this->playRepository = $playRepository;
+    }
 
     /**
      * List action for this controller. Displays all plays

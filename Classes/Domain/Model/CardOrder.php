@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -10,32 +11,32 @@ class CardOrder extends AbstractEntity
 {
     /**
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $address = '';
 
     /**
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $city = '';
 
     /**
      * @var string
-     * @validate NotEmpty
-     * @validate EmailAddress
+     * @Extbase\Validate("NotEmpty")
+     * @Extbase\Validate("EmailAddress")
      */
     protected $email = '';
 
     /**
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $firstname = '';
 
     /**
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $lastname = '';
 
@@ -51,7 +52,7 @@ class CardOrder extends AbstractEntity
 
     /**
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $zip = '';
 

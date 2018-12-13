@@ -18,6 +18,7 @@ use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
 use Sto\Theaterinfo\Domain\Repository\CardOrderRepository;
 use Sto\Theaterinfo\Domain\Service\CardOrderMailService;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
@@ -71,7 +72,7 @@ class CardOrderController extends ActionController
 
     /**
      * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
-     * @ignorevalidation $cardOrder
+     * @Extbase\IgnoreValidation("cardOrder")
      */
     public function orderFormAction(CardOrder $cardOrder = null)
     {
@@ -88,7 +89,7 @@ class CardOrderController extends ActionController
 
     /**
      * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
-     * @ignorevalidation $cardOrder
+     * @Extbase\IgnoreValidation("cardOrder")
      */
     public function takeOrderConfirmationAction(CardOrder $cardOrder)
     {

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderRow extends AbstractEntity
@@ -19,7 +20,7 @@ class CardOrderRow extends AbstractEntity
 
     /**
      * @var \Sto\Theaterinfo\Domain\Model\CardOrderDate
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $playDate;
 

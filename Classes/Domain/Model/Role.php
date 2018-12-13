@@ -12,6 +12,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -25,9 +26,8 @@ class Role extends AbstractEntity
     protected $actors;
 
     /**
-     *
      * @var string
-     * @validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $name;
 

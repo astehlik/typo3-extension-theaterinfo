@@ -12,8 +12,11 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Repository\ActorRepository;
+use Sto\Theaterinfo\Domain\Repository\ManagementPositionRepository;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject;
 
 /**
  * Controller for displaying information about the management
@@ -21,16 +24,24 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class ManagementController extends ActionController
 {
     /**
-     * @var \Sto\Theaterinfo\Domain\Repository\ActorRepository
-     * @inject
+     * @var ActorRepository
      */
     protected $actorRepository;
 
     /**
-     * @var \Sto\Theaterinfo\Domain\Repository\ManagementPositionRepository
-     * @inject
+     * @var ManagementPositionRepository
      */
     protected $managementPositionRepository;
+
+    public function injectActorRepository(ActorRepository $actorRepository)
+    {
+        $this->actorRepository = $actorRepository;
+    }
+
+    public function injectManagementPositionRepository(ManagementPositionRepository $managementPositionRepository)
+    {
+        $this->managementPositionRepository = $managementPositionRepository;
+    }
 
     /**
      * Returns a string that will be appended to the breadcrumb menu
@@ -69,6 +80,7 @@ class ManagementController extends ActionController
         $frameworkConfig = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
         );
+        /** @var AbstractMenuContentObject $parentMenuObject */
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
         if ($this->requestIsActorDetailView()) {
@@ -80,8 +92,6 @@ class ManagementController extends ActionController
 
     /**
      * List action for this controller. Displays all plays
-     *
-     * @return string
      */
     public function listAction()
     {

@@ -12,6 +12,7 @@ namespace Sto\Theaterinfo\Hooks;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Controller\ManagementController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Core\Bootstrap;
 
@@ -37,6 +38,7 @@ class MenuHooks
 
         $currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
 
+        /** @uses ManagementController::breadcrumbMenuArrayAction() */
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
                 'actions' => [
@@ -46,7 +48,7 @@ class MenuHooks
         ];
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
-        $result = $extbaseBootrap->run('', $configuration);
+        $extbaseBootrap->run('', $configuration);
 
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 
