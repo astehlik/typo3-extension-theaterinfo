@@ -32,8 +32,6 @@ class PlayController extends ActionController
 
     /**
      * List action for this controller. Displays all plays
-     *
-     * @return string
      */
     public function listAction()
     {
@@ -48,7 +46,6 @@ class PlayController extends ActionController
      * Action that displays one single play
      *
      * @param \Sto\Theaterinfo\Domain\Model\Play $play The play to display
-     * @return string The rendered view
      */
     public function showAction(\Sto\Theaterinfo\Domain\Model\Play $play)
     {
