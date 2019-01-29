@@ -122,6 +122,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 
 	PRIMARY KEY (uid),
 	KEY parent (pid)
+	slug varchar(2048),
 );
 
 #
@@ -216,6 +217,7 @@ CREATE TABLE tx_theaterinfo_domain_model_play (
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
 	title tinytext,
+	slug varchar(2048),
 	author text,
 	time_sort int(11) DEFAULT '0' NOT NULL,
 	time_display tinytext,

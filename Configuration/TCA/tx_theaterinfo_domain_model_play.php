@@ -217,12 +217,27 @@ return [
                 'enableRichtext' => true,
             ],
         ],
+        'slug' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:pages.slug',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    'fieldSeparator' => '/',
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => '',
+            ],
+        ],
     ],
     'types' => [
         '0' => [
             'showitem' => '
 				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.properties,
-				    --palette--;;title,
+				    --palette--;;title, slug,
 				    author,
 				     --palette--;;times,
 				    state, teaser,
@@ -236,10 +251,10 @@ return [
     ],
     'palettes' => [
         'title' => [
-            'showitem' => 'title, hidden'
+            'showitem' => 'title, hidden',
         ],
         'times' => [
-            'showitem' => 'time_sort, time_display'
-        ]
-    ]
+            'showitem' => 'time_sort, time_display',
+        ],
+    ],
 ];

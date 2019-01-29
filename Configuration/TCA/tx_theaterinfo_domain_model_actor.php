@@ -195,14 +195,33 @@ return [
                 'eval' => 'date',
             ],
         ],
+        'slug' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:pages.slug',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => [
+                        'lastname',
+                        'firstname',
+                        'company',
+                    ],
+                    'fieldSeparator' => '-',
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => '',
+            ],
+        ],
     ],
     'types' => [
         '0' => [
             'showitem' => '
-			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.properties,type, hidden, gender, firstname, lastname, favorite_role, birthday, hobbys, job, member_since, picture,
+			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.properties,type, hidden, gender, firstname, lastname, slug, favorite_role, birthday, hobbys, job, member_since, picture,
 			--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.management,management_memberships, management_reasons
 		',
         ],
-        '1' => ['showitem' => 'type, hidden, company, picture'],
+        '1' => ['showitem' => 'type, hidden, company, slug, picture'],
     ],
 ];
