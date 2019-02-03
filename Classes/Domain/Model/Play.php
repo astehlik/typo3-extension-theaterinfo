@@ -142,7 +142,6 @@ class Play extends AbstractEntity
      */
     public function getPictures()
     {
-
         return $this->pictures;
     }
 
