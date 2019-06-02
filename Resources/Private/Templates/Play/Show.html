@@ -37,13 +37,11 @@
 						<p>{play.timeDisplay}</p>
 					</div>
 
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-4 text-center tx-theaterinfo-play-logo-container">
 						<f:if condition="{play.logo}">
-							<p>
-								<a class="lightbox" href="{f:uri.image(image: play.logo, maxWidth: 500, maxHeight: 600)}">
-									<f:image alt="Logo {play.title}" class="theaterinfo-play-show-logo" image="{play.logo}" treatIdAsReference="1" width="150"/>
-								</a>
-							</p>
+							<a class="lightbox" href="{f:uri.image(image: play.logo, maxWidth: 500, maxHeight: 600)}">
+								<f:image alt="Logo {play.title}" class="theaterinfo-play-show-logo" image="{play.logo}" treatIdAsReference="1" width="150"/>
+							</a>
 						</f:if>
 					</div>
 				</div>
