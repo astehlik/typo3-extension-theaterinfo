@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
 <f:layout name="default"/>
 
@@ -20,8 +20,8 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="tx-theaterinfo-playlist-play-logo">
-										<f:link.action action="show" controller="Play" arguments="{play: play}">
-											<f:image image="{play.logo}" treatIdAsReference="1" alt="Logo {play.title}" width="150" class="theaterinfo-play-show-logo"/>
+										<f:link.action action="show" arguments="{play: play}" controller="Play">
+											<f:image alt="Logo {play.title}" class="theaterinfo-play-show-logo" image="{play.logo}" treatIdAsReference="1" width="150"/>
 										</f:link.action>
 									</div>
 								</div>
@@ -55,7 +55,7 @@
 <f:if condition="{play.author}"><p><em>von {play.author}</em></p></f:if>
 <f:if condition="{play.timeDisplay}"><p><strong>{play.timeDisplay}</strong></p></f:if>
 <f:if condition="{play.teaser}"><p>{play.teaser}</p></f:if>
-<p><f:link.action action="show" controller="Play" arguments="{play: play}">Details...</f:link.action></p>
+<p><f:link.action action="show" arguments="{play: play}" controller="Play">Details...</f:link.action></p>
 </f:section>
 
 </html>

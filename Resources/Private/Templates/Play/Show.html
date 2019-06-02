@@ -109,7 +109,7 @@
 								id="theaterinfo-play-show-pictures" role="tabpanel">
 								<h2>Bilder</h2>
 								<div class="row">
-									<f:for as="picture" each="{play.pictures}" iteration="iteration">
+									<f:for each="{play.pictures}" as="picture" iteration="iteration">
 										<div class="col-xs-6 col-md-3">
 											<div class="thumbnail">
 												<a class="lightbox thumbnail" href="{f:uri.image(image: picture, treatIdAsReference: '1', maxWidth: '1024', maxHeight: '786')}">
@@ -127,13 +127,13 @@
 								id="theaterinfo-play-show-roles" role="tabpanel">
 								<h2>Besetzung</h2>
 								<table class="table table-hover full">
-									<f:for as="role" each="{play.roles}">
+									<f:for each="{play.roles}" as="role">
 										<tr>
 											<td style="width: 70%;">
 												{role.name}
 											</td>
 											<td>
-												<f:for as="actor" each="{role.actors}">
+												<f:for each="{role.actors}" as="actor">
 													<f:if condition="{actor.type}">
 														<f:then>
 															{actor.company}
@@ -156,13 +156,13 @@
 								id="theaterinfo-play-show-helpers" role="tabpanel">
 								<h2>Hinter den Kulissen</h2>
 								<table class="table table-hover full">
-									<f:for as="helper" each="{play.helpers}">
+									<f:for each="{play.helpers}" as="helper">
 										<tr>
 											<td style="width: 70%;">
 												{helper.helpertype.jobtitle}
 											</td>
 											<td>
-												<f:for as="actor" each="{helper.actors}">
+												<f:for each="{helper.actors}" as="actor">
 													<f:if condition="{actor.type}">
 														<f:then>
 															{actor.company}
