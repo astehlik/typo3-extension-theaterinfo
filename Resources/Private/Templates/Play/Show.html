@@ -4,6 +4,10 @@
 
 <f:layout name="default"/>
 
+<f:section name="header">
+{play.title}
+</f:section>
+
 <f:section name="hasinfostext">{play.action}{f:if(condition: '{play.pictures}', then: '1')}{f:if(condition:
 '{play.showRoles}', then: '1')}{f:if(condition: '{play.showHelpers}', then: '1')}</f:section>
 
@@ -16,8 +20,6 @@
 		<div class="floatbox">
 
 			<div class=" csc-textpic csc-textpic-intext-right">
-
-				<h1>{play.title}</h1>
 
 				<ti:pageTitle>{play.title}</ti:pageTitle>
 

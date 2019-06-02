@@ -2,18 +2,15 @@
 
 <f:layout name="default"/>
 
+<f:section name="header">
+<f:if condition="{header}">
+	<f:then>{header}</f:then>
+	<f:else>Unser Repertoire</f:else>
+</f:if>
+</f:section>
+
 <f:section name="content">
 <div class="tx-theaterinfo-playlist-container">
-
-	<div class="innercontent csc-default tx-theaterinfo-playlist-header">
-		<h1>
-			<f:if condition="{header}">
-				<f:then>{header}</f:then>
-				<f:else>Unser Repertoire</f:else>
-			</f:if>
-		</h1>
-	</div>
-
 	<f:if condition="{plays}">
 		<f:then>
 			<f:for each="{plays}" as="play">
