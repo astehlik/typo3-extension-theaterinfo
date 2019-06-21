@@ -10,7 +10,6 @@
 				<h2><f:render section="positionName" arguments="{_all}"/></h2>
 				<f:if condition="{managementPosition.currentMembership}">
 					<f:then>
-						<f:debug>{managementPosition.currentMembership.actor}</f:debug>
 						<f:render partial="Actor/Overview"
 							arguments="{actor: managementPosition.currentMembership.actor}"/>
 					</f:then>
