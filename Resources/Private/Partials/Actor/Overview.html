@@ -1,56 +1,48 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-<div class="tx-theaterinfo-actor-overview">
-
-	<f:if condition="{useSubHeadingForName}">
-		<f:then><h3>{actor.fullName}</h3></f:then>
-		<f:else><h2>{actor.fullName}</h2></f:else>
-	</f:if>
-
-	<div class="row">
-
-		<div class="col-md-3">
-			<div class="tx-theaterinfo-actor-overview-image">
-				<f:if condition="{actor.picture}">
-					<f:then>
-						<f:image image="{actor.picture}" treatIdAsReference="1" alt="Bild von {actor.fullName}" width="160"/>
-					</f:then>
-					<f:else>
-						<f:image src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" alt="Kein Bild von {actor.fullName} vorhanden" width="160"/>
-					</f:else>
-				</f:if>
-			</div>
+<div class="row tx-theaterinfo-actor-overview">
+	<div class="col-md-3 order-md-2">
+		<div class="tx-theaterinfo-actor-overview-image h2">
+			<f:if condition="{actor.picture}">
+				<f:then>
+					<f:image alt="Bild von {actor.fullName}" class="img-fluid" image="{actor.picture}" treatIdAsReference="1" width="160"/>
+				</f:then>
+				<f:else>
+					<f:image alt="Kein Bild von {actor.fullName} vorhanden" class="img-fluid" src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" width="160"/>
+				</f:else>
+			</f:if>
 		</div>
+	</div>
 
-		<div class="col-md-9">
+	<div class="col-md-9 order-md-1">
 
-			<dl class="tx-theaterinfo-actor-properties">
-				<f:if condition="{actor.birthday}">
-					<dt><f:translate key="actor_age"/></dt>
-					<dd>{actor.age} Jahre</dd>
-				</f:if>
+		<h3>{actor.fullName}</h3>
 
-				<f:if condition="{actor.job}">
-					<dt><f:translate key="actor_job"/></dt>
-					<dd>{actor.job}</dd>
-				</f:if>
+		<dl class="tx-theaterinfo-actor-properties">
+			<f:if condition="{actor.birthday}">
+				<dt><f:translate key="actor_age"/></dt>
+				<dd>{actor.age} Jahre</dd>
+			</f:if>
 
-				<f:if condition="{actor.managementReasons}">
-					<dt><f:translate key="actor_management_reasons"/></dt>
-					<dd>{actor.managementReasons}</dd>
-				</f:if>
+			<f:if condition="{actor.job}">
+				<dt><f:translate key="actor_job"/></dt>
+				<dd>{actor.job}</dd>
+			</f:if>
 
-				<f:if condition="0">
-					<dt><f:translate key="actor_more_information"/></dt>
-					<dd>
-						<f:link.action action="show" controller="Actor" arguments="{actor: managementMembership.actor}">
-							Hier erfährst du noch mehr über {actor.fullName}
-						</f:link.action>
-					</dd>
-				</f:if>
-			</dl>
-		</div>
+			<f:if condition="{actor.managementReasons}">
+				<dt><f:translate key="actor_management_reasons"/></dt>
+				<dd>{actor.managementReasons}</dd>
+			</f:if>
 
+			<f:if condition="0">
+				<dt><f:translate key="actor_more_information"/></dt>
+				<dd>
+					<f:link.action action="show" arguments="{actor: managementMembership.actor}" controller="Actor">
+						Hier erfährst du noch mehr über {actor.fullName}
+					</f:link.action>
+				</dd>
+			</f:if>
+		</dl>
 	</div>
 </div>
 </html>
