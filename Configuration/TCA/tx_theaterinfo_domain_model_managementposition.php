@@ -20,6 +20,15 @@ return [
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementposition.name',
             'config' => [
                 'type' => 'input',
+                'eval' => 'trim,required',
+            ],
+        ],
+        'name_female' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementposition.name_female',
+            'config' => [
+                'type' => 'input',
+                'eval' => 'trim,required',
             ],
         ],
         'show_in_overview' => [
@@ -40,6 +49,6 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'name, show_in_overview, memberships'],
+        '0' => ['showitem' => 'name, name_female, show_in_overview, memberships'],
     ],
 ];

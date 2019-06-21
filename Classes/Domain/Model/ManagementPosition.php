@@ -1,4 +1,7 @@
 <?php
+/** @noinspection PhpUndefinedClassInspection */
+
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -13,6 +16,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  *                                                                        */
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * A management position
@@ -47,10 +51,7 @@ class ManagementPosition extends AbstractEntity
      */
     protected $sorting;
 
-    /**
-     * @return \Sto\Theaterinfo\Domain\Model\ManagementMembership
-     */
-    public function getCurrentMembership()
+    public function getCurrentMembership(): ?ManagementMembership
     {
         $currentMembership = null;
 
@@ -61,38 +62,28 @@ class ManagementPosition extends AbstractEntity
             $currentMembership = $memberships->current();
         }
 
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $currentMembership;
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return ObjectStorage|ManagementMembership[]
      */
-    public function getMemberships()
+    public function getMemberships(): ObjectStorage
     {
+        if (!$this->memberships) {
+            $this->memberships = new ObjectStorage();
+        }
         return $this->memberships;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $memberships
-     */
-    public function setMemberships($memberships)
+    public function getNameFemale(): string
     {
-        $this->memberships = $memberships;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+        return $this->nameFemale;
     }
 }

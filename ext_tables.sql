@@ -87,6 +87,7 @@ CREATE TABLE tx_theaterinfo_domain_model_managementmembership (
 #
 CREATE TABLE tx_theaterinfo_domain_model_managementposition (
 	name varchar(255) DEFAULT '' NOT NULL,
+	name_female varchar(255) DEFAULT '' NOT NULL,
 	memberships int(11) unsigned DEFAULT '0' NOT NULL,
 	show_in_overview tinyint(3) DEFAULT '0' NOT NULL
 );

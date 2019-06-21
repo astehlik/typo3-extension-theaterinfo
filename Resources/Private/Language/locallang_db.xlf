@@ -157,6 +157,9 @@
 			<trans-unit id="tx_theaterinfo_domain_model_managementposition.name" xml:space="preserve">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementposition.name_female" xml:space="preserve">
+				<source>Female name</source>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_managementposition.show_in_overview" xml:space="preserve">
 				<source>Show in overview</source>
 			</trans-unit>
