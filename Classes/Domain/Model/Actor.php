@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -12,7 +13,11 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use DateTime;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * An actor / helper / sponsor
@@ -81,7 +86,7 @@ class Actor extends AbstractEntity
      *
      * @return int
      */
-    public function getAge()
+    public function getAge(): ?int
     {
         $birthday = $this->getBirthday();
 
@@ -89,37 +94,22 @@ class Actor extends AbstractEntity
             return null;
         }
 
-        $now = new \DateTime();
+        $now = new DateTime();
         $age = $birthday->diff($now);
         return $age->y;
     }
 
-    /**
-     * Getter for birthday
-     *
-     * @return \DateTime
-     */
-    public function getBirthday()
+    public function getBirthday(): ?DateTime
     {
         return $this->birthday;
     }
 
-    /**
-     * Getter for favoriteRole
-     *
-     * @return \Sto\Theaterinfo\Domain\Model\Role
-     */
-    public function getFavoriteRole()
+    public function getFavoriteRole(): ?Role
     {
         return $this->favoriteRole;
     }
 
-    /**
-     * Getter for firstname
-     *
-     * @return string
-     */
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
@@ -129,7 +119,7 @@ class Actor extends AbstractEntity
      *
      * @return string
      */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->firstname . ' ' . $this->lastname;
     }
@@ -144,82 +134,53 @@ class Actor extends AbstractEntity
         return (int)$this->gender->__toString();
     }
 
-    /**
-     * Getter for hobbys
-     *
-     * @return string
-     */
-    public function getHobbys()
+    public function getHobbys(): string
     {
         return $this->hobbys;
     }
 
-    /**
-     * Returns the hobbys as an array
-     *
-     * @return array
-     */
-    public function getHobbysAsArray()
+    public function getHobbysAsArray(): array
     {
         return explode(LF, $this->hobbys);
     }
 
-    /**
-     * Getter for job
-     *
-     * @return string
-     */
-    public function getJob()
+    public function getIsGenderFemale(): bool
+    {
+        return $this->gender->equals(Gender::FEMALE);
+    }
+
+    public function getJob(): string
     {
         return $this->job;
     }
 
-    /**
-     * Getter for lastname
-     *
-     * @return string
-     */
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
 
     /**
-     * Getter for managementPositions
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return ObjectStorage|ManagementPosition[]
      */
-    public function getManagementPositions()
+    public function getManagementPositions(): ObjectStorage
     {
+        if ($this->managementPositions) {
+            $this->managementPositions = new ObjectStorage();
+        }
         return $this->managementPositions;
     }
 
-    /**
-     * Getter for managementReasons
-     *
-     * @return string
-     */
-    public function getManagementReasons()
+    public function getManagementReasons(): string
     {
-        return $this->managementReasons;
+        return (string)$this->managementReasons;
     }
 
-    /**
-     * Getter for memberSince
-     *
-     * @return string
-     */
-    public function getMemberSince()
+    public function getMemberSince(): string
     {
         return $this->memberSince;
     }
 
-    /**
-     * Getter for picture
-     *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     */
-    public function getPicture()
+    public function getPicture(): ?FileReference
     {
         return $this->picture;
     }
