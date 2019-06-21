@@ -1,4 +1,8 @@
 <?php
+
+use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor',
@@ -58,11 +62,11 @@ return [
                 'items' => [
                     [
                         'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.gender.I.0',
-                        '0',
+                        Gender::MALE,
                     ],
                     [
                         'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.gender.I.1',
-                        '1',
+                        Gender::FEMALE,
                     ],
                 ],
                 'size' => 1,
@@ -96,7 +100,7 @@ return [
         'picture' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_actor.picture',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'picture',
                 [
                     'maxitems' => 1,

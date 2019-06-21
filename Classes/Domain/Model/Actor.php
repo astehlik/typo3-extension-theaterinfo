@@ -37,7 +37,7 @@ class Actor extends AbstractEntity
     /**
      * The gender of the actor, can me 0 (male) or 1 (female)
      *
-     * @var string
+     * @var \Sto\Theaterinfo\Domain\Model\Enumeration\Gender
      */
     protected $gender;
 
@@ -135,13 +135,13 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * Returns the gender of this actor, can me 0 (male) or 1 (female)
+     * Returns the gender of this actor, can be 0 (male) or 1 (female)
      *
      * @return int
      */
-    public function getGender()
+    public function getGender(): int
     {
-        return $this->gender;
+        return (int)$this->gender->__toString();
     }
 
     /**
