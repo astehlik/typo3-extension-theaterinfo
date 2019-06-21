@@ -164,7 +164,7 @@ class Actor extends AbstractEntity
      */
     public function getManagementPositions(): ObjectStorage
     {
-        if ($this->managementPositions) {
+        if (!$this->managementPositions) {
             $this->managementPositions = new ObjectStorage();
         }
         return $this->managementPositions;
@@ -175,7 +175,7 @@ class Actor extends AbstractEntity
         return (string)$this->managementReasons;
     }
 
-    public function getMemberSince(): string
+    public function getMemberSince(): ?DateTime
     {
         return $this->memberSince;
     }
