@@ -1,6 +1,8 @@
 <?php
-defined('TYPO3_MODE') or die();
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
+/** @noinspection PhpMissingStrictTypesDeclarationInspection */
 
+defined('TYPO3_MODE') or die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Theater info');
 
 // These dividers are a little trick to group these items in the plugin selector

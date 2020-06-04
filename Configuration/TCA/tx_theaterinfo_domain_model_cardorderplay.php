@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 $languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay.';
 

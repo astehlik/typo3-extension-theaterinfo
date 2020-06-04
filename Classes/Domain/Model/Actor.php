@@ -1,5 +1,5 @@
 <?php
-/** @noinspection PhpFullyQualifiedNameUsageInspection */
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -30,7 +30,7 @@ class Actor extends AbstractEntity
     protected $birthday;
 
     /**
-     * @var \Sto\Theaterinfo\Domain\Model\Role
+     * @var Role
      */
     protected $favoriteRole;
 
@@ -42,7 +42,7 @@ class Actor extends AbstractEntity
     /**
      * The gender of the actor, can me 0 (male) or 1 (female)
      *
-     * @var \Sto\Theaterinfo\Domain\Model\Enumeration\Gender
+     * @var Gender
      */
     protected $gender;
 

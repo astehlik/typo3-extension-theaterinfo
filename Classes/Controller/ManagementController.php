@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Controller;
 
@@ -84,7 +85,8 @@ class ManagementController extends ActionController
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
         if ($this->requestIsActorDetailView()) {
-            unset($parentMenuObject->mconf['CUR']);
+            // TODO: we need a different solution here for TYPO3 10!
+            // unset($parentMenuObject->mconf['CUR']);
         }
 
         return '';

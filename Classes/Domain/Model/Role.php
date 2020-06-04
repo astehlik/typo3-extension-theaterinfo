@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -14,6 +15,7 @@ namespace Sto\Theaterinfo\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * A role in a play
@@ -21,7 +23,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Role extends AbstractEntity
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Actor>
+     * @var ObjectStorage<Actor>
      */
     protected $actors;
 
@@ -31,25 +33,20 @@ class Role extends AbstractEntity
      */
     protected $name;
 
-    /**
-     * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
-     */
     public function __construct()
     {
-        $this->actors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->actors = new ObjectStorage();
     }
 
-    public function getActors()
+    /**
+     * @return ObjectStorage|Actor[]
+     */
+    public function getActors(): ObjectStorage
     {
         return $this->actors;
     }
 
-    /**
-     * Getter for name
-     *
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Hooks;
 
@@ -11,6 +12,7 @@ namespace Sto\Theaterinfo\Hooks;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**

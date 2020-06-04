@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -13,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  *                                                                        */
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Relation between helper an helpertype
@@ -21,27 +23,24 @@ class Helper extends AbstractEntity
 {
     /**
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\Actor>
+     * @var ObjectStorage<Actor>
      */
     protected $actors;
 
     /**
      *
-     * @var \Sto\Theaterinfo\Domain\Model\Helpertype
+     * @var Helpertype
      */
     protected $helpertype;
 
     /**
-     * @var \Sto\Theaterinfo\Domain\Model\Play
+     * @var Play
      */
     protected $play;
 
-    /**
-     * Constructor. Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
-     */
     public function __construct()
     {
-        $this->actors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->actors = new ObjectStorage();
     }
 
     public function getActors()

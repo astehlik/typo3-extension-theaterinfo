@@ -46,7 +46,7 @@ class CardOrder extends AbstractEntity
     protected $notes = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\CardOrderRow>
+     * @var ObjectStorage<CardOrderRow>
      */
     protected $rows;
 
@@ -92,7 +92,7 @@ class CardOrder extends AbstractEntity
     }
 
     /**
-     * @return CardOrderRow[]|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return CardOrderRow[]|ObjectStorage
      */
     public function getRows(): ObjectStorage
     {
@@ -100,7 +100,7 @@ class CardOrder extends AbstractEntity
     }
 
     /**
-     * @return CardOrderRow[]|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return CardOrderRow[]|ObjectStorage
      */
     public function getRowsWithOrderedCards(): ObjectStorage
     {
@@ -139,17 +139,11 @@ class CardOrder extends AbstractEntity
         return false;
     }
 
-    /**
-     * @param string $address
-     */
     public function setAddress(string $address)
     {
         $this->address = $address;
     }
 
-    /**
-     * @param string $city
-     */
     public function setCity(string $city)
     {
         $this->city = $city;
@@ -163,41 +157,29 @@ class CardOrder extends AbstractEntity
         $this->email = $email;
     }
 
-    /**
-     * @param string $firstname
-     */
     public function setFirstname(string $firstname)
     {
         $this->firstname = $firstname;
     }
 
-    /**
-     * @param string $lastname
-     */
     public function setLastname(string $lastname)
     {
         $this->lastname = $lastname;
     }
 
-    /**
-     * @param string $notes
-     */
     public function setNotes(string $notes)
     {
         $this->notes = $notes;
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\CardOrderRow> $rows
+     * @param ObjectStorage|CardOrderRow[] $rows
      */
     public function setRows(ObjectStorage $rows)
     {
         $this->rows = $rows;
     }
 
-    /**
-     * @param string $zip
-     */
     public function setZip(string $zip)
     {
         $this->zip = $zip;

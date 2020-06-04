@@ -9,7 +9,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class CardOrderPlay extends AbstractEntity
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\CardOrderDate>
+     * @var ObjectStorage<CardOrderDate>
      */
     protected $dates;
 
@@ -49,7 +49,7 @@ class CardOrderPlay extends AbstractEntity
     protected $priceReducedDescription;
 
     /**
-     * @return CardOrderDate[]|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return CardOrderDate[]|ObjectStorage
      */
     public function getDates(): ObjectStorage
     {

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Controller;
 
@@ -12,7 +13,9 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\Play;
 use Sto\Theaterinfo\Domain\Repository\PlayRepository;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -45,9 +48,10 @@ class PlayController extends ActionController
     /**
      * Action that displays one single play
      *
-     * @param \Sto\Theaterinfo\Domain\Model\Play $play The play to display
+     * @param Play $play The play to display
+     * @Extbase\IgnoreValidation("play")
      */
-    public function showAction(\Sto\Theaterinfo\Domain\Model\Play $play)
+    public function showAction(Play $play)
     {
         $this->view->assign('play', $play);
     }

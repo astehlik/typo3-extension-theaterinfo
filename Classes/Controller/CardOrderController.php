@@ -105,7 +105,7 @@ class CardOrderController extends ActionController
     protected function getErrorFlashMessage()
     {
         $translationKey = 'error.controller.cardOrder.action.' . $this->actionMethodName;
-        $errorMessage = LocalizationUtility::translate($translationKey, $this->extensionName);
+        $errorMessage = LocalizationUtility::translate($translationKey, $this->request->getControllerExtensionName());
         if (!isset($errorMessage)) {
             return $translationKey;
         }

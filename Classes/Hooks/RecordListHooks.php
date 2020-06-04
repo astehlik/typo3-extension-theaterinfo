@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Hooks;
 
@@ -44,7 +45,7 @@ class RecordListHooks implements RecordListGetTableHookInterface
 
     function init($_table, $_selFieldList)
     {
-        $this->fieldArray = split(',', $_selFieldList);
+        $this->fieldArray = explode(',', $_selFieldList);
         $this->table = $_table;
     }
 

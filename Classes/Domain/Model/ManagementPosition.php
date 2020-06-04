@@ -1,7 +1,5 @@
 <?php
-/** @noinspection PhpUndefinedClassInspection */
-
-/** @noinspection PhpFullyQualifiedNameUsageInspection */
+declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
@@ -26,7 +24,7 @@ class ManagementPosition extends AbstractEntity
     /**
      * All memberships of this posision
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
+     * @var ObjectStorage<ManagementMembership>
      */
     protected $memberships;
 
