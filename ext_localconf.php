@@ -35,6 +35,3 @@ if (TYPO3_MODE == 'BE') {
     ['CardOrder' => 'orderForm,takeOrder,takeOrderConfirmation'],
     ['CardOrder' => 'orderForm,takeOrder']
 );
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['txTheaterinfoFal'] =
-    \Sto\Theaterinfo\Install\FalUpdateWizard::class;
