@@ -3,35 +3,64 @@
 <f:layout name="WithoutHeader"/>
 
 <f:section name="content">
-<div class="tx-theaterinfo-managementlist-container">
-	<f:if condition="{managementPositions}">
-		<f:then>
-			<f:for each="{managementPositions}" as="managementPosition">
-				<h2><f:render section="positionName" arguments="{_all}"/></h2>
-				<f:if condition="{managementPosition.currentMembership}">
-					<f:then>
-						<f:render partial="Actor/Overview"
-							arguments="{actor: managementPosition.currentMembership.actor}"/>
-					</f:then>
-					<f:else>
-						<p>Dieser Vorstandsposten ist zur Zeit nicht besetzt.</p>
-					</f:else>
-				</f:if>
-			</f:for>
-		</f:then>
-		<f:else>
-			<div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
-				<p class="important">Es sind keine Vorstandsposten vorhanden.</p>
-			</div>
-		</f:else>
-	</f:if>
+<div class="tx-theaterinfo-managementlist-container mt-4">
+    <f:if condition="{managementPositions}">
+        <f:then>
+            <div class="row">
+                <f:for each="{managementPositions}" as="managementPosition">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <f:render section="positionName" arguments="{_all}"/>
+                                </h5>
+                            </div>
+
+                            <f:render section="actorPicture"
+                                arguments="{actor: managementPosition.currentMembership.actor}"/>
+
+                            <div class="card-footer">
+                                <f:if condition="{managementPosition.currentMembership}">
+                                    <f:then>
+                                        {managementPosition.currentMembership.actor.fullName}
+                                    </f:then>
+
+                                    <f:else>
+                                        Dieser Vorstandsposten ist zur Zeit nicht besetzt.
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="innercontent csc-default tx-theaterinfo-managementlist-nomembers">
+                <p class="important">Es sind keine Vorstandsposten vorhanden.</p>
+            </div>
+        </f:else>
+    </f:if>
 </div>
 </f:section>
 
 <f:section name="positionName">
 <f:if condition="{managementPosition.currentMembership.actor.isGenderFemale} && {managementPosition.nameFemale}">
-	<f:then>{managementPosition.nameFemale}</f:then>
-	<f:else>{managementPosition.name}</f:else>
+    <f:then>{managementPosition.nameFemale}</f:then>
+    <f:else>{managementPosition.name}</f:else>
+</f:if>
+</f:section>
+
+<f:section name="actorPicture">
+<f:if condition="{actor.picture}">
+    <f:then>
+        <f:image alt="Bild von {actor.fullName}" class="card-img-bottom h-auto" image="{actor.picture}"
+            treatIdAsReference="1" width="528c" height="396"/>
+    </f:then>
+    <f:else>
+        <f:image alt="Kein Bild von {actor.fullName} vorhanden" class="card-img-bottom h-auto"
+            src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" width="528c" height="396"/>
+    </f:else>
 </f:if>
 </f:section>
 
