@@ -10,7 +10,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'default_sortby' => 'ORDER BY time_sort',
+        'default_sortby' => 'ORDER BY time_sort DESC',
         'delete' => 'deleted',
         'enablecolumns' => [
             'disabled' => 'hidden',
