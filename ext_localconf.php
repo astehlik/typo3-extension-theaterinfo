@@ -17,21 +17,21 @@ if (TYPO3_MODE == 'BE') {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Theaterinfo',
     'PlaysList',
-    ['Play' => 'list, show',],
+    [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show',],
     []
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Theaterinfo',
     'ShowManagement',
     [
-        'Management' => 'list',
-        'Actor' => 'show',
+        \Sto\Theaterinfo\Controller\ManagementController::class => 'list',
+        \Sto\Theaterinfo\Controller\ActorController::class => 'show',
     ],
     []
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Sto.Theaterinfo',
     'CardOrderForm',
-    ['CardOrder' => 'orderForm,takeOrder,takeOrderConfirmation'],
-    ['CardOrder' => 'orderForm,takeOrder']
+    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder,takeOrderConfirmation'],
+    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder']
 );
