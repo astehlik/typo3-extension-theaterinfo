@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Controller;
@@ -25,9 +26,8 @@ class ActorController extends ActionController
      * Shows the details of a single actor
      *
      * @param Actor $actor
-     * @return string
      */
-    public function showAction($actor)
+    public function showAction(Actor $actor)
     {
         $this->view->assign('actor', $actor);
     }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Controller;
@@ -24,15 +25,9 @@ use TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject;
  */
 class ManagementController extends ActionController
 {
-    /**
-     * @var ActorRepository
-     */
-    protected $actorRepository;
+    protected ActorRepository $actorRepository;
 
-    /**
-     * @var ManagementPositionRepository
-     */
-    protected $managementPositionRepository;
+    protected ManagementPositionRepository $managementPositionRepository;
 
     public function injectActorRepository(ActorRepository $actorRepository)
     {
@@ -46,10 +41,8 @@ class ManagementController extends ActionController
 
     /**
      * Returns a string that will be appended to the breadcrumb menu
-     *
-     * @return string
      */
-    public function breadcrumbMenuAction()
+    public function breadcrumbMenuAction(): string
     {
         $breadcrumbMenu = '';
 
@@ -73,10 +66,8 @@ class ManagementController extends ActionController
 
     /**
      * Returns an updated version for the breadcrumb Menu array
-     *
-     * @return string
      */
-    public function breadcrumbMenuArrayAction()
+    public function breadcrumbMenuArrayAction(): string
     {
         $frameworkConfig = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
@@ -102,10 +93,8 @@ class ManagementController extends ActionController
 
     /**
      * Returns true if the current action is an actor detail view
-     *
-     * @return boolean
      */
-    protected function requestIsActorDetailView()
+    protected function requestIsActorDetailView(): bool
     {
         $action = '';
         $controller = '';

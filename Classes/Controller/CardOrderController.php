@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Controller;
@@ -18,7 +19,6 @@ use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
 use Sto\Theaterinfo\Domain\Repository\CardOrderRepository;
 use Sto\Theaterinfo\Domain\Service\CardOrderMailService;
-use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
@@ -29,20 +29,11 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class CardOrderController extends ActionController
 {
-    /**
-     * @var \Sto\Theaterinfo\Domain\Service\CardOrderMailService
-     */
-    private $cardOrderMailService;
+    private CardOrderMailService $cardOrderMailService;
 
-    /**
-     * @var \Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository
-     */
-    private $cardOrderPlayRepository;
+    private CardOrderPlayRepository $cardOrderPlayRepository;
 
-    /**
-     * @var \Sto\Theaterinfo\Domain\Repository\CardOrderRepository
-     * */
-    private $cardOrderRepository;
+    private CardOrderRepository $cardOrderRepository;
 
     public function initializeAction()
     {
@@ -74,13 +65,13 @@ class CardOrderController extends ActionController
      * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function orderFormAction(CardOrder $cardOrder = null)
+    public function orderFormAction(?CardOrder $cardOrder = null)
     {
         $this->view->assign('cardOrder', $cardOrder);
         $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
     }
 
-    public function takeOrderAction(CardOrder $cardOrder)
+    public function takeOrderAction(?CardOrder $cardOrder)
     {
         $this->cardOrderRepository->addAndPersist($cardOrder);
         $this->cardOrderMailService->sendCardOrderMails($cardOrder);
@@ -91,7 +82,7 @@ class CardOrderController extends ActionController
      * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function takeOrderConfirmationAction(CardOrder $cardOrder)
+    public function takeOrderConfirmationAction(?CardOrder $cardOrder)
     {
         $this->view->assign('cardOrder', $cardOrder);
     }
@@ -99,10 +90,9 @@ class CardOrderController extends ActionController
     /**
      * Returns a translated error message for the current controller action.
      *
-     * @return string|boolean The flash message or FALSE if no flash message should be set
-     * @api
+     * @return string The flash message or FALSE if no flash message should be set
      */
-    protected function getErrorFlashMessage()
+    protected function getErrorFlashMessage(): string
     {
         $translationKey = 'error.controller.cardOrder.action.' . $this->actionMethodName;
         $errorMessage = LocalizationUtility::translate($translationKey, $this->request->getControllerExtensionName());
