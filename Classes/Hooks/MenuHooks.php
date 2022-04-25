@@ -22,12 +22,7 @@ use TYPO3\CMS\Extbase\Core\Bootstrap;
  */
 class MenuHooks
 {
-    /**
-     * @param array $currentMenuArray
-     * @param array $additionalParameters
-     * @return array
-     */
-    public function getBreadcrumbMenuArrayManagement($currentMenuArray, $additionalParameters)
+    public function getBreadcrumbMenuArrayManagement(array $currentMenuArray, array $additionalParameters): array
     {
         $parentMenuObject = $additionalParameters['parentObj'];
 
@@ -40,6 +35,7 @@ class MenuHooks
         $currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
 
         /** @uses ManagementController::breadcrumbMenuArrayAction() */
+        /** @noinspection PhpArrayIndexImmediatelyRewrittenInspection */
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
                 'actions' => [
@@ -69,6 +65,7 @@ class MenuHooks
 
         $currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
 
+        /** @noinspection PhpArrayIndexImmediatelyRewrittenInspection */
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
                 'actions' => [

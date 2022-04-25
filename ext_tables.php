@@ -2,7 +2,7 @@
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
 /** @noinspection PhpMissingStrictTypesDeclarationInspection */
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 // These dividers are a little trick to group these items in the plugin selector
 $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = [
