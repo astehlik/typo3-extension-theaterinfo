@@ -4,11 +4,6 @@
 
 defined('TYPO3') or die();
 
-if (TYPO3_MODE == 'BE') {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable'][] =
-        \Sto\Theaterinfo\Hooks\RecordListHooks::class;
-}
-
 /**
  * Configure the Plugin to call the
  * right combination of Controller and Action according to
