@@ -57,53 +57,58 @@
 
 					<ul class="nav nav-tabs" role="tablist">
 						<f:if condition="{play.action}">
-							<li class="nav-item">
-								<a aria-controls="theaterinfo-play-show-action" aria-selected="false"
-									class="nav-link" data-toggle="tab"
-									href="#theaterinfo-play-show-action" id="theaterinfo-play-show-action-tab"
-									role="true">Handlung</a>
+							<li class="nav-item" role="presentation">
+								<button aria-controls="home-tab-pane" aria-selected="false" class="nav-link"
+									data-bs-target="#theaterinfo-play-show-action" data-bs-toggle="tab"
+									id="theaterinfo-play-show-action-tab"
+									role="tab" type="button">Handlung
+								</button>
 							</li>
 						</f:if>
 
 						<f:if condition="{play.pictures}">
-							<li class="nav-item">
-								<a aria-controls="theaterinfo-play-show-action" aria-selected="false"
-									class="nav-link" data-toggle="tab"
-									href="#theaterinfo-play-show-pictures" id="theaterinfo-play-show-pictures-tab"
-									role="tab">Bilder</a>
+							<li class="nav-item" role="presentation">
+								<button aria-controls="home-tab-pane" aria-selected="false" class="nav-link"
+									data-bs-target="#theaterinfo-play-show-pictures" data-bs-toggle="tab"
+									id="theaterinfo-play-show-pictures-tab"
+									role="tab" type="button">Bilder
+								</button>
 							</li>
 						</f:if>
 
 						<f:if condition="{play.showRoles}">
-							<li class="nav-item">
-								<a aria-controls="theaterinfo-play-show-roles" aria-selected="false"
-									class="nav-link" data-toggle="tab"
-									href="#theaterinfo-play-show-roles" id="theaterinfo-play-show-roles-tab"
-									role="tab">Besetzung</a>
+							<li class="nav-item" role="presentation">
+								<button aria-controls="home-tab-pane" aria-selected="false" class="nav-link"
+									data-bs-target="#theaterinfo-play-show-roles" data-bs-toggle="tab"
+									id="theaterinfo-play-show-roles-tab"
+									role="tab" type="button">Besetzung
+								</button>
 							</li>
 						</f:if>
 
 						<f:if condition="{play.showHelpers}">
-							<li class="nav-item">
-								<a aria-controls="theaterinfo-play-show-helpers" aria-selected="false"
-									class="nav-link" data-toggle="tab"
-									href="#theaterinfo-play-show-helpers" id="theaterinfo-play-show-helpers-tab"
-									role="tab">Hinter den Kulissen</a>
+							<li class="nav-item" role="presentation">
+								<button aria-controls="home-tab-pane" aria-selected="false" class="nav-link"
+									data-bs-target="#theaterinfo-play-show-helpers" data-bs-toggle="tab"
+									id="theaterinfo-play-show-helpers-tab"
+									role="tab" type="button">Hinter den Kulissen
+								</button>
 							</li>
 						</f:if>
 					</ul>
 
 					<div class="tab-content">
 						<f:if condition="{play.action}">
-							<div class="tab-pane active" id="theaterinfo-play-show-action">
+							<div class="tab-pane fade" id="theaterinfo-play-show-action"
+								role="tabpanel" aria-labelledby="theaterinfo-play-show-action-tab" tabindex="0">
 								<h2>Handlung</h2>
 								<f:format.html>{play.action}</f:format.html>
 							</div>
 						</f:if>
 
 						<f:if condition="{play.pictures}">
-							<div aria-labelledby="theaterinfo-play-show-pictures-tab" class="tab-pane active"
-								id="theaterinfo-play-show-pictures" role="tabpanel">
+							<div class="tab-pane fade" id="theaterinfo-play-show-pictures"
+								role="tabpanel" aria-labelledby="theaterinfo-play-show-pictures-tab" tabindex="0">
 								<h2>Bilder</h2>
 								<div class="row">
 									<f:for each="{play.pictures}" as="picture" iteration="iteration">
@@ -120,8 +125,8 @@
 						</f:if>
 
 						<f:if condition="{play.showRoles}">
-							<div aria-labelledby="theaterinfo-play-show-roles-tab" class="tab-pane active"
-								id="theaterinfo-play-show-roles" role="tabpanel">
+							<div class="tab-pane fade" id="theaterinfo-play-show-roles"
+								role="tabpanel" aria-labelledby="theaterinfo-play-show-roles-tab" tabindex="0">
 								<h2>Besetzung</h2>
 								<table class="table table-hover full">
 									<f:for each="{play.roles}" as="role">
@@ -149,8 +154,8 @@
 						</f:if>
 
 						<f:if condition="{play.showHelpers}">
-							<div aria-labelledby="theaterinfo-play-show-helpers-tab" class="tab-pane active"
-								id="theaterinfo-play-show-helpers" role="tabpanel">
+							<div class="tab-pane fade" id="theaterinfo-play-show-helpers"
+								role="tabpanel" aria-labelledby="theaterinfo-play-show-helpers-tab" tabindex="0">
 								<h2>Hinter den Kulissen</h2>
 								<table class="table table-hover full">
 									<f:for each="{play.helpers}" as="helper">
