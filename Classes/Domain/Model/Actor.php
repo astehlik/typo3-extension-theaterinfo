@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -28,6 +29,8 @@ class Actor extends AbstractEntity
      * @var \DateTime
      */
     protected $birthday;
+
+    protected string $company;
 
     /**
      * @var Role
@@ -81,6 +84,8 @@ class Actor extends AbstractEntity
      */
     protected $picture;
 
+    protected ActorType $type;
+
     /**
      * Returns the current age in years of the actor.
      *
@@ -102,6 +107,11 @@ class Actor extends AbstractEntity
     public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
+    }
+
+    public function getCompany(): string
+    {
+        return $this->company;
     }
 
     public function getFavoriteRole(): ?Role
@@ -174,6 +184,19 @@ class Actor extends AbstractEntity
     public function getMemberSince(): ?\DateTime
     {
         return $this->memberSince;
+    }
+
+    public function getName(): string
+    {
+        if ($this->type->equals(ActorType::COMPANY)) {
+            return $this->getCompany();
+        }
+
+        $nameParts = [
+            $this->getLastname(),
+            $this->getFirstname(),
+        ];
+        return implode(', ', array_filter($nameParts));
     }
 
     public function getPicture(): ?FileReference

@@ -61,7 +61,6 @@ class ManagementPosition extends AbstractEntity
             $currentMembership = $memberships->current();
         }
 
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $currentMembership;
     }
 

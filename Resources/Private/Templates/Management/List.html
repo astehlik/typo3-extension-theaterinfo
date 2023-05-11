@@ -1,4 +1,6 @@
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ti="http://typo3.org/ns/Sto/Theaterinfo/ViewHelpers">
 
 <f:layout name="WithoutHeader"/>
 
@@ -8,30 +10,19 @@
         <f:then>
             <div class="row">
                 <f:for each="{managementPositions}" as="managementPosition">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <f:render section="positionName" arguments="{_all}"/>
-                                </h5>
-                            </div>
+                    <f:if condition="{managementPosition.memberships}">
+                        <f:then>
+                            <f:for each="{managementPosition.memberships -> ti:sortMemberships()}" as="membership">
+                                <f:variable name="cardLabel">{membership.actor.fullName}</f:variable>
+                                <f:render section="positionCard" arguments="{_all}"/>
+                            </f:for>
+                        </f:then>
 
-                            <f:render section="actorPicture"
-                                arguments="{actor: managementPosition.currentMembership.actor}"/>
-
-                            <div class="card-footer">
-                                <f:if condition="{managementPosition.currentMembership}">
-                                    <f:then>
-                                        {managementPosition.currentMembership.actor.fullName}
-                                    </f:then>
-
-                                    <f:else>
-                                        Dieser Vorstandsposten ist zur Zeit nicht besetzt.
-                                    </f:else>
-                                </f:if>
-                            </div>
-                        </div>
-                    </div>
+                        <f:else>
+                            <f:variable name="cardLabel">Dieser Vorstandsposten ist zur Zeit nicht besetzt.</f:variable>
+                            <f:render section="positionCard" arguments="{_all}"/>
+                        </f:else>
+                    </f:if>
                 </f:for>
             </div>
         </f:then>
@@ -44,8 +35,27 @@
 </div>
 </f:section>
 
+<f:section name="positionCard">
+<div class="col-lg-4 col-sm-6 mb-4">
+    <div class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title">
+                <f:render section="positionName" arguments="{_all}"/>
+            </h5>
+        </div>
+
+        <f:render section="actorPicture"
+                  arguments="{actor: membership.actor}"/>
+
+        <div class="card-footer">
+            {cardLabel}
+        </div>
+    </div>
+</div>
+</f:section>
+
 <f:section name="positionName">
-<f:if condition="{managementPosition.currentMembership.actor.isGenderFemale} && {managementPosition.nameFemale}">
+<f:if condition="{membership.actor.isGenderFemale} && {managementPosition.nameFemale}">
     <f:then>{managementPosition.nameFemale}</f:then>
     <f:else>{managementPosition.name}</f:else>
 </f:if>
@@ -54,12 +64,13 @@
 <f:section name="actorPicture">
 <f:if condition="{actor.picture}">
     <f:then>
-        <f:image alt="Bild von {actor.fullName}" class="card-img-bottom h-auto" image="{actor.picture}"
-            treatIdAsReference="1" width="528c" height="396"/>
+        <f:image alt="Bild von {actor.name}" class="card-img-bottom h-auto" image="{actor.picture}"
+                 treatIdAsReference="1" width="528c" height="396"/>
     </f:then>
     <f:else>
-        <f:image alt="Kein Bild von {actor.fullName} vorhanden" class="card-img-bottom h-auto"
-            src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png" width="528c" height="396"/>
+        <f:image alt="Platzhalterbild{f:if(condition: '{actor.name}', then: ' für {actor.name}')}"
+                 class="card-img-bottom h-auto" src="EXT:theaterinfo/Resources/Public/Images/UnknownActor.png"
+                 width="528c" height="396"/>
     </f:else>
 </f:if>
 </f:section>
