@@ -11,7 +11,6 @@ return [
         'label' => 'helpertype',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'sortby' => 'sorting',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
@@ -60,7 +59,6 @@ return [
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
-                'enableMultiSelectFilterTextfield' => true,
                 'fieldControl' => [
                     'editPopup' => [
                         'disabled' => false,

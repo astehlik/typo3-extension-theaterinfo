@@ -14,7 +14,6 @@ return [
         'label' => 'jobtitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY jobtitle',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],

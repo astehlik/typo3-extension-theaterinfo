@@ -11,7 +11,6 @@ return [
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay',
         'delete' => 'deleted',
         'enablecolumns' => [
@@ -64,9 +63,7 @@ return [
         'enable_endtime' => [
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038),
@@ -92,9 +89,7 @@ return [
         'enable_starttime' => [
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
             ],
         ],
@@ -111,9 +106,8 @@ return [
         'price_normal' => [
             'label' => $languagePrefixColumn . 'price_normal',
             'config' => [
-                'type' => 'input',
-                'size' => 10,
-                'eval' => 'double2',
+                'type' => 'number',
+                'format' => 'decimal',
             ],
         ],
 
@@ -129,9 +123,8 @@ return [
         'price_reduced' => [
             'label' => $languagePrefixColumn . 'price_reduced',
             'config' => [
-                'type' => 'input',
-                'size' => 10,
-                'eval' => 'double2',
+                'type' => 'number',
+                'format' => 'decimal',
             ],
         ],
 

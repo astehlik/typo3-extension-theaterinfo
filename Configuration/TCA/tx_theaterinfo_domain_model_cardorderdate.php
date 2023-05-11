@@ -10,8 +10,6 @@ return [
         'label' => 'date_and_time',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
-        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderdate',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'hideTable' => true,
@@ -20,10 +18,10 @@ return [
         'date_and_time' => [
             'label' => $languagePrefixColumn . 'date_and_time',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
+                'type' => 'datetime',
+                'format' => 'datetime',
                 'dbType' => 'datetime',
-                'eval' => 'datetime,required',
+                'required' => true,
             ],
         ],
 

@@ -14,7 +14,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY time_sort DESC',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
@@ -58,12 +57,9 @@ return [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'time_sort',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 12,
-                'eval' => 'datetime',
-                'checkbox' => '0',
-                'default' => '0',
+                'type' => 'datetime',
+                'format' => 'datetime',
+                'eval' => 'int',
             ],
         ],
         'time_display' => [

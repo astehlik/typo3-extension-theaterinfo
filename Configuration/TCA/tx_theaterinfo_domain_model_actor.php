@@ -15,7 +15,6 @@ return [
         'label_userFunc' => 'Sto\\Theaterinfo\\Hooks\\RecordTitleHooks->getActorTitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY lastname, firstname',
         'delete' => 'deleted',
         'type' => 'type',
@@ -173,9 +172,9 @@ return [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'birthday',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'hobbys' => [
@@ -199,9 +198,9 @@ return [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'member_since',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'slug' => [

@@ -11,7 +11,6 @@ return [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'sortby' => 'sorting',
         'delete' => 'deleted',
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
@@ -23,7 +22,8 @@ return [
             'label' => $languagePrefixColumn . 'name',
             'config' => [
                 'type' => 'input',
-                'eval' => 'trim,required',
+                'required' => true,
+                'eval' => 'trim',
             ],
         ],
         'name_female' => [
@@ -31,7 +31,8 @@ return [
             'label' => $languagePrefixColumn . 'name_female',
             'config' => [
                 'type' => 'input',
-                'eval' => 'trim,required',
+                'required' => true,
+                'eval' => 'trim',
             ],
         ],
         'show_in_overview' => [

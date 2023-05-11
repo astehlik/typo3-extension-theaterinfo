@@ -12,7 +12,6 @@ return [
         'label' => 'position',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY startdate',
         'delete' => 'deleted',
         'enablecolumns' => [
@@ -39,18 +38,18 @@ return [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'startdate',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'enddate' => [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'enddate',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'actor' => [

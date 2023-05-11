@@ -10,7 +10,6 @@ return [
         'label' => 'play_date',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderrow',
         'delete' => 'deleted',
         'hideTable' => true,

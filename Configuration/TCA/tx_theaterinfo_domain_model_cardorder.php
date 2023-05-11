@@ -10,7 +10,6 @@ return [
         'label' => 'email',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorder',
         'delete' => 'deleted',
     ],
