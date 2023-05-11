@@ -52,7 +52,7 @@
 
 <f:section name="playProperties">
 <h2>{play.title}</h2>
-<f:if condition="{play.author}"><p><em>von {play.author}</em></p></f:if>
+<f:if condition="{play.author}"><p><em><f:format.nl2br>von {play.author}</f:format.nl2br></em></p></f:if>
 <f:if condition="{play.timeDisplay}"><p><strong>{play.timeDisplay}</strong></p></f:if>
 <f:if condition="{play.teaser}"><p>{play.teaser}</p></f:if>
 <p><f:link.action action="show" arguments="{play: play}" controller="Play">Details...</f:link.action></p>
