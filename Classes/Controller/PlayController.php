@@ -14,10 +14,12 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\Play;
 use Sto\Theaterinfo\Domain\Repository\PlayRepository;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * Controller for displaying play information.
@@ -34,13 +36,15 @@ class PlayController extends ActionController
     /**
      * List action for this controller. Displays all plays.
      */
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $this->getCurrentContentObject();
         $header = $contentObject->data['header'];
 
         $this->view->assign('header', $header);
         $this->view->assign('plays', $this->playRepository->findAll());
+
+        return $this->htmlResponse();
     }
 
     /**
@@ -50,8 +54,15 @@ class PlayController extends ActionController
      *
      * @Extbase\IgnoreValidation("play")
      */
-    public function showAction(Play $play): void
+    public function showAction(Play $play): ResponseInterface
     {
         $this->view->assign('play', $play);
+
+        return $this->htmlResponse();
+    }
+
+    private function getCurrentContentObject(): ContentObjectRenderer
+    {
+        return $this->request->getAttribute('currentContentObject');
     }
 }

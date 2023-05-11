@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Repository\ActorRepository;
 use Sto\Theaterinfo\Domain\Repository\ManagementPositionRepository;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
@@ -32,32 +33,32 @@ class ManagementController extends ActionController
     /**
      * Returns a string that will be appended to the breadcrumb menu.
      */
-    public function breadcrumbMenuAction(): string
+    public function breadcrumbMenuAction(): ResponseInterface
     {
-        $breadcrumbMenu = '';
+        $response = $this->htmlResponse();
 
         if (!$this->requestIsActorDetailView()) {
-            return $breadcrumbMenu;
+            return $response;
         }
 
         if (!$this->request->hasArgument('actor')) {
-            return $breadcrumbMenu;
+            return $response;
         }
 
         $actorUid = $this->request->getArgument('actor');
         $actor = $this->actorRepository->findByUid($actorUid);
 
-        if (isset($actor)) {
-            $breadcrumbMenu = '<li><strong>' . $actor->getFullName() . '</strong></li>';
+        if (!isset($actor)) {
+            return $response;
         }
 
-        return $breadcrumbMenu;
+        return $this->htmlResponse('<li><strong>' . $actor->getFullName() . '</strong></li>');
     }
 
     /**
      * Returns an updated version for the breadcrumb Menu array.
      */
-    public function breadcrumbMenuArrayAction(): string
+    public function breadcrumbMenuArrayAction(): ResponseInterface
     {
         $frameworkConfig = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
@@ -71,7 +72,7 @@ class ManagementController extends ActionController
             // unset($parentMenuObject->mconf['CUR']);
         }
 
-        return '';
+        return $this->htmlResponse('');
     }
 
     public function injectActorRepository(ActorRepository $actorRepository): void
@@ -87,9 +88,11 @@ class ManagementController extends ActionController
     /**
      * List action for this controller. Displays all plays.
      */
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $this->view->assign('managementPositions', $this->managementPositionRepository->findForList());
+
+        return $this->htmlResponse();
     }
 
     /**

@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\CardOrder;
 use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
@@ -64,25 +65,29 @@ class CardOrderController extends ActionController
     /**
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function orderFormAction(?CardOrder $cardOrder = null): void
+    public function orderFormAction(?CardOrder $cardOrder = null): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
         $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
+
+        return $this->htmlResponse();
     }
 
-    public function takeOrderAction(?CardOrder $cardOrder): void
+    public function takeOrderAction(?CardOrder $cardOrder): ResponseInterface
     {
         $this->cardOrderRepository->addAndPersist($cardOrder);
         $this->cardOrderMailService->sendCardOrderMails($cardOrder);
-        $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
+        return $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
     }
 
     /**
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function takeOrderConfirmationAction(?CardOrder $cardOrder): void
+    public function takeOrderConfirmationAction(?CardOrder $cardOrder): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
+
+        return $this->htmlResponse();
     }
 
     /**

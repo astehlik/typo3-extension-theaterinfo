@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\Actor;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -25,8 +26,10 @@ class ActorController extends ActionController
     /**
      * Shows the details of a single actor.
      */
-    public function showAction(Actor $actor): void
+    public function showAction(Actor $actor): ResponseInterface
     {
         $this->view->assign('actor', $actor);
+
+        return $this->htmlResponse();
     }
 }
