@@ -48,6 +48,7 @@ class MenuHooks
         ];
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
+        // @extensionScannerIgnoreLine Code is currently unused.
         $extbaseBootrap->run('', $configuration);
 
         $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
@@ -79,6 +80,8 @@ class MenuHooks
         ];
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
+
+        /** @extensionScannerIgnoreLine Code is currently unused. */
         $result = $extbaseBootrap->run('', $configuration);
 
         $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
