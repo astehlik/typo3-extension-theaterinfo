@@ -13,7 +13,7 @@ return [
     'ctrl' => [
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_actor',
         'label' => 'lastname',
-        'label_alt' => 'company,firstname',
+        'label_alt' => 'company,firstname,type',
         /** @uses RecordTitleHooks::getActorTitle(); */
         'label_userFunc' => RecordTitleHooks::class . '->getActorTitle',
         'tstamp' => 'tstamp',
