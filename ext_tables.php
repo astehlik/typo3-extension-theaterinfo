@@ -12,19 +12,19 @@ $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = [
 ];
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'PlaysList',
     'Show plays (Theater info)'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'ShowManagement',
     'Show management (Theater info)'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'CardOrderForm',
     'Card order (Theater info)'
 );
