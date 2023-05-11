@@ -3,11 +3,10 @@
 declare(strict_types=1);
 
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Resource\AbstractFile;
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_actor.';
-$lllImageOverlayPalette = 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette';
 
 return [
     'ctrl' => [
@@ -101,27 +100,25 @@ return [
         'picture' => [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'picture',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'picture',
-                [
-                    'maxitems' => 1,
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
-								--palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
-								--palette--;;filePalette',
-                            ],
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+                'overrideChildTca' => [
+                    'types' => [
+                        '0' => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_cropimage,
+                                --palette--;;filePalette',
+                        ],
+                        AbstractFile::FILETYPE_TEXT => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_cropimage,
+                                --palette--;;filePalette',
                         ],
                     ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            ],
         ],
         'management_memberships' => [
             'exclude' => 0,

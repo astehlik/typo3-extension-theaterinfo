@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Resource\AbstractFile;
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_play.';
@@ -90,52 +90,48 @@ return [
         'logo' => [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'logo',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'logo',
-                [
-                    'maxitems' => 1,
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
-								--palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
-								--palette--;;filePalette',
-                            ],
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+                'overrideChildTca' => [
+                    'types' => [
+                        '0' => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_cropimage,
+                                --palette--;;filePalette',
+                        ],
+                        AbstractFile::FILETYPE_TEXT => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_cropimage,
+                                --palette--;;filePalette',
                         ],
                     ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            ],
         ],
         'pictures' => [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'pictures',
-            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
-                'pictures',
-                [
-                    'maxitems' => 20,
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_playpicture,
-								--palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '
-								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_playpicture,
-								--palette--;;filePalette',
-                            ],
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 20,
+                'allowed' => 'common-image-types',
+                'overrideChildTca' => [
+                    'types' => [
+                        '0' => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_playpicture,
+                                --palette--;;filePalette',
+                        ],
+                        AbstractFile::FILETYPE_TEXT => [
+                            'showitem' => '
+                                --palette--;;tx_theaterinfo_playpicture,
+                                --palette--;;filePalette',
                         ],
                     ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            ],
         ],
         'state' => [
             'exclude' => 0,
