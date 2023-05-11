@@ -16,9 +16,6 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
         'hideTable' => true,
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,helpertype,actors,insert_spacer,playuid',
-    ],
     'columns' => [
         'hidden' => [
             'exclude' => 1,

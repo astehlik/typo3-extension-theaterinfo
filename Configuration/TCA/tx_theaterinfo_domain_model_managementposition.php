@@ -13,9 +13,6 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
         'searchFields' => 'name',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'name,showInOverview,memberships',
-    ],
     'columns' => [
         'name' => [
             'exclude' => 0,

@@ -19,10 +19,6 @@ return [
             'endtime' => 'enable_endtime',
         ],
     ],
-    'interface' => [
-        'showRecordFieldList' => 'label, description, description_mail, enable_endtime, enable_starttime,
-            enable_hidden, price_normal, price_normal_description, price_reduced, price_reduced_description',
-    ],
     'columns' => [
 
         'dates' => [

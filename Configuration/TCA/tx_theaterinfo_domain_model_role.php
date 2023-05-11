@@ -19,9 +19,6 @@ return [
         'searchFields' => 'name',
         'hideTable' => true,
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,name,actors,picture,insert_spacer,playuid',
-    ],
     'columns' => [
         'hidden' => [
             'exclude' => 1,

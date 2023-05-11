@@ -16,9 +16,6 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
         'searchFields' => 'jobtitle',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,jobtitle,icon',
-    ],
     'columns' => [
         'hidden' => [
             'exclude' => 1,

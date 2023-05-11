@@ -14,9 +14,6 @@ return [
         'delete' => 'deleted',
         'hideTable' => true,
     ],
-    'interface' => [
-        'showRecordFieldList' => 'admount',
-    ],
     'columns' => [
 
         'amount_normal' => [

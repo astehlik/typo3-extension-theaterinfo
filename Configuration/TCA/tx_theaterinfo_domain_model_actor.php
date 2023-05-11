@@ -22,9 +22,6 @@ return [
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
         'searchFields' => 'firstname,lastname,company',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,gender,firstname,lastname,picture,management_positions,management_reasons,favorite_role,birthday,hobbys,job,member_since',
-    ],
     'columns' => [
         'hidden' => [
             'exclude' => 1,

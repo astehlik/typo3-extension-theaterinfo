@@ -13,9 +13,6 @@ return [
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorder',
         'delete' => 'deleted',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'firstname, lastname, email, address, zip, city, notes',
-    ],
     'columns' => [
 
         'address' => [

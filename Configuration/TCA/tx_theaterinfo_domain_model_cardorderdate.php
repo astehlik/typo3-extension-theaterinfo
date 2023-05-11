@@ -15,9 +15,6 @@ return [
         'enablecolumns' => ['disabled' => 'hidden'],
         'hideTable' => true,
     ],
-    'interface' => [
-        'showRecordFieldList' => 'date_and_time, hidden, location, description',
-    ],
     'columns' => [
 
         'date_and_time' => [
