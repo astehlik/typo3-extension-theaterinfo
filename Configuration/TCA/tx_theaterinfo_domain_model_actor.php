@@ -47,12 +47,12 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        $languagePrefixColumn . 'type.I.0',
-                        '0',
+                        'label' => $languagePrefixColumn . 'type.I.0',
+                        'value' => '0',
                     ],
                     [
-                        $languagePrefixColumn . 'type.I.1',
-                        '1',
+                        'label' => $languagePrefixColumn . 'type.I.1',
+                        'value' => '1',
                     ],
                 ],
                 'size' => 1,
@@ -67,12 +67,12 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        $languagePrefixColumn . 'gender.I.0',
-                        Gender::MALE,
+                        'label' => $languagePrefixColumn . 'gender.I.0',
+                        'value' => Gender::MALE,
                     ],
                     [
-                        $languagePrefixColumn . 'gender.I.1',
-                        Gender::FEMALE,
+                        'label' => $languagePrefixColumn . 'gender.I.1',
+                        'value' => Gender::FEMALE,
                     ],
                 ],
                 'size' => 1,
@@ -160,8 +160,8 @@ return [
                     . ' ORDER BY name',
                 'items' => [
                     [
-                        $languagePrefixColumn . 'favorite_role.I.none',
-                        '0',
+                        'label' => $languagePrefixColumn . 'favorite_role.I.none',
+                        'value' => '0',
                     ],
                 ],
                 'size' => 5,

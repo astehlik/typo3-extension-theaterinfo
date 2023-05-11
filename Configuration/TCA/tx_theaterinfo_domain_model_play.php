@@ -147,20 +147,20 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        $languagePrefixColumn . 'state.I.0',
-                        '0',
+                        'label' => $languagePrefixColumn . 'state.I.0',
+                        'value' => '0',
                     ],
                     [
-                        $languagePrefixColumn . 'state.I.1',
-                        '1',
+                        'label' => $languagePrefixColumn . 'state.I.1',
+                        'value' => '1',
                     ],
                     [
-                        $languagePrefixColumn . 'state.I.2',
-                        '2',
+                        'label' => $languagePrefixColumn . 'state.I.2',
+                        'value' => '2',
                     ],
                     [
-                        $languagePrefixColumn . 'state.I.3',
-                        '3',
+                        'label' => $languagePrefixColumn . 'state.I.3',
+                        'value' => '3',
                     ],
                 ],
                 'size' => 1,
