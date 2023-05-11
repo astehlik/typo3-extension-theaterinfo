@@ -31,11 +31,12 @@ class RecordTitleHooks
 
         $row = $params['row'];
 
-        $type = (int)$row['type'];
+        $type = (int)($row['type'] ?? -1);
 
         $title = match ($type) {
             ActorType::PERSON => $this->buildPersonName($row),
             ActorType::COMPANY => (string)$row['company'],
+            default => '',
         };
 
         if ($title === '') {
