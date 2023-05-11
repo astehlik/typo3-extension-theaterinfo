@@ -14,27 +14,44 @@ namespace Sto\Theaterinfo\Hooks;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Backend\Utility\BackendUtility;
+use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 
 /**
  * Hooks for record title display in the Backend.
  */
 class RecordTitleHooks
 {
-    /**
-     * @param array $params
-     * @param object $pObj
-     */
-    public function getActorTitle(&$params, $pObj): void
+    public function getActorTitle(array &$params): void
     {
-        $data = BackendUtility::getRecord($params['table'], $params['row']['uid']);
+        $table = $params['table'];
 
-        if ($data['type'] === '0') {
-            // Person
-            $params['title'] = $data['lastname'] . ', ' . $data['firstname'];
-        } else {
-            // Company
-            $params['title'] = $data['company'];
+        if ($table !== 'tx_theaterinfo_domain_model_actor') {
+            return;
         }
+
+        $row = $params['row'];
+
+        $type = (int)$row['type'];
+
+        $title = match ($type) {
+            ActorType::PERSON => $this->buildPersonName($row),
+            ActorType::COMPANY => (string)$row['company'],
+        };
+
+        if ($title === '') {
+            return;
+        }
+
+        $params['title'] = $title;
+    }
+
+    private function buildPersonName(array $row): string
+    {
+        $nameParts = [
+            $row['lastname'],
+            $row['firstname'],
+        ];
+
+        return implode(', ', array_filter($nameParts));
     }
 }

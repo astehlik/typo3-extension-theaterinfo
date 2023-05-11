@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
+use Sto\Theaterinfo\Hooks\RecordTitleHooks;
 use TYPO3\CMS\Core\Resource\AbstractFile;
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
@@ -12,7 +13,9 @@ return [
     'ctrl' => [
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_actor',
         'label' => 'lastname',
-        'label_userFunc' => 'Sto\\Theaterinfo\\Hooks\\RecordTitleHooks->getActorTitle',
+        'label_alt' => 'company,firstname',
+        /** @uses RecordTitleHooks::getActorTitle(); */
+        'label_userFunc' => RecordTitleHooks::class . '->getActorTitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'default_sortby' => 'ORDER BY lastname, firstname',
