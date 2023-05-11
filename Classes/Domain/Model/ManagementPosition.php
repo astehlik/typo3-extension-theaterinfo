@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -17,33 +18,33 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * A management position
+ * A management position.
  */
 class ManagementPosition extends AbstractEntity
 {
     /**
-     * All memberships of this posision
+     * All memberships of this posision.
      *
      * @var ObjectStorage<ManagementMembership>
      */
     protected $memberships;
 
     /**
-     * The name of the position
+     * The name of the position.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * The name of the position for female members
+     * The name of the position for female members.
      *
      * @var string
      */
     protected $nameFemale;
 
     /**
-     * The sorting for this position
+     * The sorting for this position.
      *
      * @var int
      */
@@ -65,7 +66,7 @@ class ManagementPosition extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage|ManagementMembership[]
+     * @return ManagementMembership[]|ObjectStorage
      */
     public function getMemberships(): ObjectStorage
     {

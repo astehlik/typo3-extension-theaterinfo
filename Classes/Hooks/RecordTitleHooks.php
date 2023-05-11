@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Hooks;
@@ -16,7 +17,7 @@ namespace Sto\Theaterinfo\Hooks;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
- * Hooks for record title display in the Backend
+ * Hooks for record title display in the Backend.
  */
 class RecordTitleHooks
 {
@@ -24,16 +25,15 @@ class RecordTitleHooks
      * @param array $params
      * @param object $pObj
      */
-    function getActorTitle(&$params, $pObj)
+    public function getActorTitle(&$params, $pObj): void
     {
-
         $data = BackendUtility::getRecord($params['table'], $params['row']['uid']);
 
-        // Person
-        if ($data['type'] == '0') {
+        if ($data['type'] === '0') {
+            // Person
             $params['title'] = $data['lastname'] . ', ' . $data['firstname'];
-        } // Company
-        else {
+        } else {
+            // Company
             $params['title'] = $data['company'];
         }
     }

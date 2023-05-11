@@ -20,21 +20,21 @@ use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for displaying play information
+ * Controller for displaying play information.
  */
 class PlayController extends ActionController
 {
     protected PlayRepository $playRepository;
 
-    public function injectPlayRepository(PlayRepository $playRepository)
+    public function injectPlayRepository(PlayRepository $playRepository): void
     {
         $this->playRepository = $playRepository;
     }
 
     /**
-     * List action for this controller. Displays all plays
+     * List action for this controller. Displays all plays.
      */
-    public function listAction()
+    public function listAction(): void
     {
         $contentObject = $this->configurationManager->getContentObject();
         $header = $contentObject->data['header'];
@@ -44,12 +44,13 @@ class PlayController extends ActionController
     }
 
     /**
-     * Action that displays one single play
+     * Action that displays one single play.
      *
      * @param Play $play The play to display
+     *
      * @Extbase\IgnoreValidation("play")
      */
-    public function showAction(Play $play)
+    public function showAction(Play $play): void
     {
         $this->view->assign('play', $play);
     }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Repository;
@@ -8,7 +9,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 class CardOrderRepository extends Repository
 {
-    public function addAndPersist(CardOrder $cardOrder)
+    public function addAndPersist(CardOrder $cardOrder): void
     {
         $this->add($cardOrder);
         $this->persistenceManager->persistAll();

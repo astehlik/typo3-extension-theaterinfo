@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -13,13 +14,12 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use DateTime;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * A play performed by the theater group
+ * A play performed by the theater group.
  */
 class Play extends AbstractEntity
 {
@@ -39,12 +39,12 @@ class Play extends AbstractEntity
     protected $helpers;
 
     /**
-     * @var boolean TRUE if helpers should not be shown
+     * @var bool TRUE if helpers should not be shown
      */
     protected $hideHelpers;
 
     /**
-     * @var boolean TRUE if helpers should not be shown
+     * @var bool TRUE if helpers should not be shown
      */
     protected $hideRoles;
 
@@ -79,7 +79,7 @@ class Play extends AbstractEntity
     protected $timeDisplay;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     protected $timeSort;
 
@@ -105,9 +105,9 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Returns all helpers of this play
+     * Returns all helpers of this play.
      *
-     * @return ObjectStorage|Helper[]
+     * @return Helper[]|ObjectStorage
      */
     public function getHelpers(): ObjectStorage
     {
@@ -115,7 +115,7 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Getter for the logo file
+     * Getter for the logo file.
      *
      * @return FileReference
      */
@@ -125,9 +125,9 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Getter for the pictures of this play
+     * Getter for the pictures of this play.
      *
-     * @return ObjectStorage|FileReference[]
+     * @return FileReference[]|ObjectStorage
      */
     public function getPictures(): ObjectStorage
     {
@@ -135,7 +135,7 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Returns all roles in this play
+     * Returns all roles in this play.
      *
      * @return ObjectStorage|Role[]
      */
@@ -145,9 +145,7 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Returns TRUE if the helpers should be displayed
-     *
-     * @return boolean
+     * Returns TRUE if the helpers should be displayed.
      */
     public function getShowHelpers(): bool
     {
@@ -159,9 +157,7 @@ class Play extends AbstractEntity
     }
 
     /**
-     * Returns TRUE if the roles should be displayed
-     *
-     * @return boolean
+     * Returns TRUE if the roles should be displayed.
      */
     public function getShowRoles(): bool
     {
@@ -187,7 +183,7 @@ class Play extends AbstractEntity
         return $this->timeDisplay;
     }
 
-    public function getTimeSort(): DateTime
+    public function getTimeSort(): \DateTime
     {
         return $this->timeSort;
     }

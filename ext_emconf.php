@@ -1,5 +1,7 @@
 <?php
+
 /** @noinspection PhpMissingStrictTypesDeclarationInspection */
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Theater info',
     'description' => 'Displays information about theater plays, actors and their roles and tasks',

@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-$languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderrow.';
 
 return [
@@ -15,25 +16,18 @@ return [
         'hideTable' => true,
     ],
     'columns' => [
-
         'amount_normal' => [
             'label' => $languagePrefixColumn . 'amount_normal',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'amount_reduced' => [
             'label' => $languagePrefixColumn . 'amount_reduced',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'play_date' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
+            'config' => ['type' => 'passthrough'],
         ],
     ],
 

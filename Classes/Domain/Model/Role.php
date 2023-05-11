@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -18,7 +19,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * A role in a play
+ * A role in a play.
  */
 class Role extends AbstractEntity
 {
@@ -29,6 +30,7 @@ class Role extends AbstractEntity
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $name;
@@ -39,7 +41,7 @@ class Role extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage|Actor[]
+     * @return Actor[]|ObjectStorage
      */
     public function getActors(): ObjectStorage
     {

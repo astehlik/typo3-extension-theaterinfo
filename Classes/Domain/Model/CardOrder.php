@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -11,18 +12,21 @@ class CardOrder extends AbstractEntity
 {
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $address = '';
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $city = '';
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      * @Extbase\Validate("EmailAddress")
      */
@@ -30,12 +34,14 @@ class CardOrder extends AbstractEntity
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $firstname = '';
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $lastname = '';
@@ -52,6 +58,7 @@ class CardOrder extends AbstractEntity
 
     /**
      * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $zip = '';
@@ -139,48 +146,45 @@ class CardOrder extends AbstractEntity
         return false;
     }
 
-    public function setAddress(string $address)
+    public function setAddress(string $address): void
     {
         $this->address = $address;
     }
 
-    public function setCity(string $city)
+    public function setCity(string $city): void
     {
         $this->city = $city;
     }
 
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    public function setFirstname(string $firstname)
+    public function setFirstname(string $firstname): void
     {
         $this->firstname = $firstname;
     }
 
-    public function setLastname(string $lastname)
+    public function setLastname(string $lastname): void
     {
         $this->lastname = $lastname;
     }
 
-    public function setNotes(string $notes)
+    public function setNotes(string $notes): void
     {
         $this->notes = $notes;
     }
 
     /**
-     * @param ObjectStorage|CardOrderRow[] $rows
+     * @param CardOrderRow[]|ObjectStorage $rows
      */
-    public function setRows(ObjectStorage $rows)
+    public function setRows(ObjectStorage $rows): void
     {
         $this->rows = $rows;
     }
 
-    public function setZip(string $zip)
+    public function setZip(string $zip): void
     {
         $this->zip = $zip;
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -15,14 +17,14 @@ namespace Sto\Theaterinfo\Domain\Repository;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for plays
+ * Repository for plays.
  */
 class PlayRepository extends Repository
 {
     /**
      * Initializes the default orderings.
      */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $this->setDefaultOrderings(
             [

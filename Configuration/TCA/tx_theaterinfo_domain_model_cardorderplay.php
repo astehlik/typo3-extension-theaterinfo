@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-$languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay.';
 
 return [
@@ -20,7 +21,6 @@ return [
         ],
     ],
     'columns' => [
-
         'dates' => [
             'label' => $languagePrefixColumn . 'dates',
             'config' => [
@@ -79,9 +79,7 @@ return [
             'config' => [
                 'type' => 'check',
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0',
-                    ],
+                    '1' => ['0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'],
                 ],
             ],
         ],
@@ -140,7 +138,6 @@ return [
                 'cols' => 30,
             ],
         ],
-
     ],
     'types' => [
         '0' => [

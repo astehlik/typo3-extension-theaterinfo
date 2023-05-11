@@ -18,16 +18,14 @@ use Sto\Theaterinfo\Domain\Model\Actor;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for displaying actor information
+ * Controller for displaying actor information.
  */
 class ActorController extends ActionController
 {
     /**
-     * Shows the details of a single actor
-     *
-     * @param Actor $actor
+     * Shows the details of a single actor.
      */
-    public function showAction(Actor $actor)
+    public function showAction(Actor $actor): void
     {
         $this->view->assign('actor', $actor);
     }

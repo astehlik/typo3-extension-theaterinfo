@@ -25,7 +25,7 @@ use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * Controller for displaying play information
+ * Controller for displaying play information.
  */
 class CardOrderController extends ActionController
 {
@@ -35,7 +35,7 @@ class CardOrderController extends ActionController
 
     private CardOrderRepository $cardOrderRepository;
 
-    public function initializeAction()
+    public function initializeAction(): void
     {
         $cardOrderArgument = $this->arguments->getArgument('cardOrder');
         $cardOrderMappingConfig = $cardOrderArgument->getPropertyMappingConfiguration();
@@ -46,32 +46,31 @@ class CardOrderController extends ActionController
         );
     }
 
-    public function injectCardOrderMailService(CardOrderMailService $cardOrderMailService)
+    public function injectCardOrderMailService(CardOrderMailService $cardOrderMailService): void
     {
         $this->cardOrderMailService = $cardOrderMailService;
     }
 
-    public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository)
+    public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository): void
     {
         $this->cardOrderPlayRepository = $cardOrderPlayRepository;
     }
 
-    public function injectCardOrderRepository(CardOrderRepository $cardOrderRepository)
+    public function injectCardOrderRepository(CardOrderRepository $cardOrderRepository): void
     {
         $this->cardOrderRepository = $cardOrderRepository;
     }
 
     /**
-     * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function orderFormAction(?CardOrder $cardOrder = null)
+    public function orderFormAction(?CardOrder $cardOrder = null): void
     {
         $this->view->assign('cardOrder', $cardOrder);
         $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
     }
 
-    public function takeOrderAction(?CardOrder $cardOrder)
+    public function takeOrderAction(?CardOrder $cardOrder): void
     {
         $this->cardOrderRepository->addAndPersist($cardOrder);
         $this->cardOrderMailService->sendCardOrderMails($cardOrder);
@@ -79,10 +78,9 @@ class CardOrderController extends ActionController
     }
 
     /**
-     * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function takeOrderConfirmationAction(?CardOrder $cardOrder)
+    public function takeOrderConfirmationAction(?CardOrder $cardOrder): void
     {
         $this->view->assign('cardOrder', $cardOrder);
     }

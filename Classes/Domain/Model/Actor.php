@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -16,11 +17,10 @@ namespace Sto\Theaterinfo\Domain\Model;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use DateTime;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * An actor / helper / sponsor
+ * An actor / helper / sponsor.
  */
 class Actor extends AbstractEntity
 {
@@ -40,7 +40,7 @@ class Actor extends AbstractEntity
     protected $firstname;
 
     /**
-     * The gender of the actor, can me 0 (male) or 1 (female)
+     * The gender of the actor, can me 0 (male) or 1 (female).
      *
      * @var Gender
      */
@@ -82,7 +82,7 @@ class Actor extends AbstractEntity
     protected $picture;
 
     /**
-     * Returns the current age in years of the actor
+     * Returns the current age in years of the actor.
      *
      * @return int
      */
@@ -94,12 +94,12 @@ class Actor extends AbstractEntity
             return null;
         }
 
-        $now = new DateTime();
+        $now = new \DateTime();
         $age = $birthday->diff($now);
         return $age->y;
     }
 
-    public function getBirthday(): ?DateTime
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
@@ -115,9 +115,7 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * Builds the full name for the actor
-     *
-     * @return string
+     * Builds the full name for the actor.
      */
     public function getFullName(): string
     {
@@ -125,9 +123,7 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * Returns the gender of this actor, can be 0 (male) or 1 (female)
-     *
-     * @return int
+     * Returns the gender of this actor, can be 0 (male) or 1 (female).
      */
     public function getGender(): int
     {
@@ -160,7 +156,7 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage|ManagementPosition[]
+     * @return ManagementPosition[]|ObjectStorage
      */
     public function getManagementPositions(): ObjectStorage
     {
@@ -175,7 +171,7 @@ class Actor extends AbstractEntity
         return (string)$this->managementReasons;
     }
 
-    public function getMemberSince(): ?DateTime
+    public function getMemberSince(): ?\DateTime
     {
         return $this->memberSince;
     }

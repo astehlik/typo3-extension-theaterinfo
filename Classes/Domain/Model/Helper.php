@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -17,18 +18,16 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Relation between helper an helpertype
+ * Relation between helper an helpertype.
  */
 class Helper extends AbstractEntity
 {
     /**
-     *
      * @var ObjectStorage<Actor>
      */
     protected $actors;
 
     /**
-     *
      * @var Helpertype
      */
     protected $helpertype;

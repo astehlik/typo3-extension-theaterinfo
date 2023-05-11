@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -29,7 +30,7 @@ class CardOrderPlay extends AbstractEntity
     protected $label;
 
     /**
-     * @var double
+     * @var float
      */
     protected $priceNormal;
 
@@ -39,7 +40,7 @@ class CardOrderPlay extends AbstractEntity
     protected $priceNormalDescription;
 
     /**
-     * @var double
+     * @var float
      */
     protected $priceReduced;
 

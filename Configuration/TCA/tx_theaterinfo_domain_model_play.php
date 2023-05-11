@@ -1,20 +1,23 @@
 <?php
+
 declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_play.';
+$lllImageOverlayPalette = 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play',
+        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_play',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY time_sort DESC',
         'delete' => 'deleted',
-        'enablecolumns' => [
-            'disabled' => 'hidden',
-        ],
+        'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
         'searchFields' => 'title',
@@ -30,7 +33,7 @@ return [
         ],
         'title' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.title',
+            'label' => $languagePrefixColumn . 'title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -38,7 +41,7 @@ return [
         ],
         'author' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.author',
+            'label' => $languagePrefixColumn . 'author',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
@@ -47,7 +50,7 @@ return [
         ],
         'time_sort' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.time_sort',
+            'label' => $languagePrefixColumn . 'time_sort',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -59,7 +62,7 @@ return [
         ],
         'time_display' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.time_display',
+            'label' => $languagePrefixColumn . 'time_display',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -67,7 +70,7 @@ return [
         ],
         'teaser' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.teaser',
+            'label' => $languagePrefixColumn . 'teaser',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
@@ -76,7 +79,7 @@ return [
         ],
         'action' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.action',
+            'label' => $languagePrefixColumn . 'action',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
@@ -86,7 +89,7 @@ return [
         ],
         'logo' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.logo',
+            'label' => $languagePrefixColumn . 'logo',
             'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'logo',
                 [
@@ -95,12 +98,12 @@ return [
                         'types' => [
                             '0' => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
 								--palette--;;filePalette',
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
 								--palette--;;filePalette',
                             ],
                         ],
@@ -111,7 +114,7 @@ return [
         ],
         'pictures' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.pictures',
+            'label' => $languagePrefixColumn . 'pictures',
             'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'pictures',
                 [
@@ -120,12 +123,12 @@ return [
                         'types' => [
                             '0' => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_playpicture,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_playpicture,
 								--palette--;;filePalette',
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_playpicture,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_playpicture,
 								--palette--;;filePalette',
                             ],
                         ],
@@ -136,25 +139,25 @@ return [
         ],
         'state' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.state',
+            'label' => $languagePrefixColumn . 'state',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.state.I.0',
+                        $languagePrefixColumn . 'state.I.0',
                         '0',
                     ],
                     [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.state.I.1',
+                        $languagePrefixColumn . 'state.I.1',
                         '1',
                     ],
                     [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.state.I.2',
+                        $languagePrefixColumn . 'state.I.2',
                         '2',
                     ],
                     [
-                        'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.state.I.3',
+                        $languagePrefixColumn . 'state.I.3',
                         '3',
                     ],
                 ],
@@ -164,7 +167,7 @@ return [
         ],
         'roles' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.roles',
+            'label' => $languagePrefixColumn . 'roles',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_theaterinfo_domain_model_role',
@@ -179,7 +182,7 @@ return [
         ],
         'hide_roles' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.hide_roles',
+            'label' => $languagePrefixColumn . 'hide_roles',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -187,7 +190,7 @@ return [
         ],
         'helpers' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.helpers',
+            'label' => $languagePrefixColumn . 'helpers',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_theaterinfo_domain_model_helper',
@@ -202,7 +205,7 @@ return [
         ],
         'hide_helpers' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.hide_helpers',
+            'label' => $languagePrefixColumn . 'hide_helpers',
             'config' => [
                 'type' => 'check',
                 'default' => '0',
@@ -210,7 +213,7 @@ return [
         ],
         'advance_sale' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.advance_sale',
+            'label' => $languagePrefixColumn . 'advance_sale',
             'config' => [
                 'type' => 'text',
                 'cols' => 30,
@@ -237,25 +240,21 @@ return [
     'types' => [
         '0' => [
             'showitem' => '
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.properties,
+				--div--;' . $languagePrefixColumn . 'properties,
 				    --palette--;;title, slug,
 				    author,
 				     --palette--;;times,
 				    state, teaser,
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.action, action,
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.pictures, logo, pictures,
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.roles, hide_roles, roles,
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.helpers, hide_helpers, helpers,
-				--div--;LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_play.advance_sale, advance_sale
+				--div--;' . $languagePrefixColumn . 'action, action,
+				--div--;' . $languagePrefixColumn . 'pictures, logo, pictures,
+				--div--;' . $languagePrefixColumn . 'roles, hide_roles, roles,
+				--div--;' . $languagePrefixColumn . 'helpers, hide_helpers, helpers,
+				--div--;' . $languagePrefixColumn . 'advance_sale, advance_sale
 			',
         ],
     ],
     'palettes' => [
-        'title' => [
-            'showitem' => 'title, hidden',
-        ],
-        'times' => [
-            'showitem' => 'time_sort, time_display',
-        ],
+        'title' => ['showitem' => 'title, hidden'],
+        'times' => ['showitem' => 'time_sort, time_display'],
     ],
 ];

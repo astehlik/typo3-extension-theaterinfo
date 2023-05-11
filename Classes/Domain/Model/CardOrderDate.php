@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
-use DateTime;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderDate extends AbstractEntity
 {
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     protected $dateAndTime;
 
@@ -33,7 +33,7 @@ class CardOrderDate extends AbstractEntity
      */
     protected $parentPlay;
 
-    public function getDateAndTime(): DateTime
+    public function getDateAndTime(): \DateTime
     {
         return $this->dateAndTime;
     }

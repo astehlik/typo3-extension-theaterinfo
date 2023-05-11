@@ -1,20 +1,23 @@
 <?php
+
 declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_role.';
+$lllImageOverlayPalette = 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_role',
+        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_role',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'sortby' => 'sorting',
         'delete' => 'deleted',
-        'enablecolumns' => [
-            'disabled' => 'hidden',
-        ],
+        'enablecolumns' => ['disabled' => 'hidden'],
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_role.gif',
         'searchFields' => 'name',
         'hideTable' => true,
@@ -30,7 +33,7 @@ return [
         ],
         'name' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_role.name',
+            'label' => $languagePrefixColumn . 'name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -38,7 +41,7 @@ return [
         ],
         'picture' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_role.picture',
+            'label' => $languagePrefixColumn . 'picture',
             'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'picture',
                 [
@@ -47,12 +50,12 @@ return [
                         'types' => [
                             '0' => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
 								--palette--;;filePalette',
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;tx_theaterinfo_cropimage,
+								--palette--;' . $lllImageOverlayPalette . ';tx_theaterinfo_cropimage,
 								--palette--;;filePalette',
                             ],
                         ],
@@ -63,24 +66,21 @@ return [
         ],
         'insert_spacer' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_role.insert_spacer',
-            'config' => [
-                'type' => 'check',
-            ],
+            'label' => $languagePrefixColumn . 'insert_spacer',
+            'config' => ['type' => 'check'],
         ],
         'playuid' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
+            'config' => ['type' => 'passthrough'],
         ],
         'actors' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_role.actors',
+            'label' => $languagePrefixColumn . 'actors',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-                'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
+                'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname,'
+                    . ' tx_theaterinfo_domain_model_actor.firstname',
                 'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
                 'size' => 10,
                 'minitems' => 0,

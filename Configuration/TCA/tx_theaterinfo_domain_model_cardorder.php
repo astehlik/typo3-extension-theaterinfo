@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-$languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorder.';
 
 return [
@@ -14,40 +15,29 @@ return [
         'delete' => 'deleted',
     ],
     'columns' => [
-
         'address' => [
             'label' => $languagePrefixColumn . 'address',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'city' => [
             'label' => $languagePrefixColumn . 'city',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'email' => [
             'label' => $languagePrefixColumn . 'email',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'firstname' => [
             'label' => $languagePrefixColumn . 'firstname',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'lastname' => [
             'label' => $languagePrefixColumn . 'lastname',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
 
         'notes' => [
@@ -80,9 +70,7 @@ return [
 
         'zip' => [
             'label' => $languagePrefixColumn . 'zip',
-            'config' => [
-                'type' => 'input',
-            ],
+            'config' => ['type' => 'input'],
         ],
     ],
 

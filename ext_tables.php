@@ -1,5 +1,7 @@
 <?php
+
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
+
 /** @noinspection PhpMissingStrictTypesDeclarationInspection */
 
 defined('TYPO3') or die();
@@ -29,4 +31,7 @@ $GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = [
     'Card order (Theater info)'
 );
 
-$TCA['tt_content']['columns']['list_type']['config']['items'][] = ['', '--div--'];
+$GLOBALS['TCA']['tt_content']['columns']['list_type']['config']['items'][] = [
+    '',
+    '--div--',
+];

@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject;
 
 /**
- * Controller for displaying information about the management
+ * Controller for displaying information about the management.
  */
 class ManagementController extends ActionController
 {
@@ -29,18 +29,8 @@ class ManagementController extends ActionController
 
     protected ManagementPositionRepository $managementPositionRepository;
 
-    public function injectActorRepository(ActorRepository $actorRepository)
-    {
-        $this->actorRepository = $actorRepository;
-    }
-
-    public function injectManagementPositionRepository(ManagementPositionRepository $managementPositionRepository)
-    {
-        $this->managementPositionRepository = $managementPositionRepository;
-    }
-
     /**
-     * Returns a string that will be appended to the breadcrumb menu
+     * Returns a string that will be appended to the breadcrumb menu.
      */
     public function breadcrumbMenuAction(): string
     {
@@ -65,13 +55,14 @@ class ManagementController extends ActionController
     }
 
     /**
-     * Returns an updated version for the breadcrumb Menu array
+     * Returns an updated version for the breadcrumb Menu array.
      */
     public function breadcrumbMenuArrayAction(): string
     {
         $frameworkConfig = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
         );
+
         /** @var AbstractMenuContentObject $parentMenuObject */
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
@@ -83,16 +74,26 @@ class ManagementController extends ActionController
         return '';
     }
 
+    public function injectActorRepository(ActorRepository $actorRepository): void
+    {
+        $this->actorRepository = $actorRepository;
+    }
+
+    public function injectManagementPositionRepository(ManagementPositionRepository $managementPositionRepository): void
+    {
+        $this->managementPositionRepository = $managementPositionRepository;
+    }
+
     /**
-     * List action for this controller. Displays all plays
+     * List action for this controller. Displays all plays.
      */
-    public function listAction()
+    public function listAction(): void
     {
         $this->view->assign('managementPositions', $this->managementPositionRepository->findForList());
     }
 
     /**
-     * Returns true if the current action is an actor detail view
+     * Returns true if the current action is an actor detail view.
      */
     protected function requestIsActorDetailView(): bool
     {
@@ -106,10 +107,9 @@ class ManagementController extends ActionController
             $controller = $this->request->getArgument('controller');
         }
 
-        if (($controller == 'Actor') && ($action == 'show')) {
+        if (($controller === 'Actor') && ($action === 'show')) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

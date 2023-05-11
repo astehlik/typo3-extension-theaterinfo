@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Service;
@@ -13,14 +14,14 @@ class CardOrderMailService implements SingletonInterface
 {
     private $settings;
 
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
     {
         $this->settings = $configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS
         );
     }
 
-    public function sendCardOrderMails(CardOrder $cardOrder)
+    public function sendCardOrderMails(CardOrder $cardOrder): void
     {
         $this->sendCardOrderTeamMail($cardOrder);
         $this->sendUserMail($cardOrder);
@@ -38,7 +39,7 @@ class CardOrderMailService implements SingletonInterface
         $view->assign('cardOrder', $cardOrder);
         $view->assign('settings', $this->settings);
 
-        returN $view;
+        return $view;
     }
 
     private function getMailMessage(): MailMessage

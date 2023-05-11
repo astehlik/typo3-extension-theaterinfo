@@ -1,5 +1,7 @@
 <?php
+
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
+
 /** @noinspection PhpMissingStrictTypesDeclarationInspection */
 
 defined('TYPO3') or die();
@@ -12,7 +14,7 @@ defined('TYPO3') or die();
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Theaterinfo',
     'PlaysList',
-    [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show',],
+    [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show'],
     []
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(

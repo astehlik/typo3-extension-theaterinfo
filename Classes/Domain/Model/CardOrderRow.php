@@ -1,26 +1,27 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
-use DateTime;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderRow extends AbstractEntity
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $amountNormal = 0;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $amountReduced = 0;
 
     /**
      * @var CardOrderDate
+     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $playDate;
@@ -35,7 +36,7 @@ class CardOrderRow extends AbstractEntity
         return $this->amountReduced;
     }
 
-    public function getPlayDateDateAndTime(): DateTime
+    public function getPlayDateDateAndTime(): \DateTime
     {
         return $this->playDate->getDateAndTime();
     }

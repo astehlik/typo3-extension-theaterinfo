@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -13,11 +14,10 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use DateTime;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Membership in the management
+ * Membership in the management.
  */
 class ManagementMembership extends AbstractEntity
 {
@@ -27,12 +27,12 @@ class ManagementMembership extends AbstractEntity
     protected $actor;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     protected $enddate;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     protected $startdate;
 
@@ -41,12 +41,12 @@ class ManagementMembership extends AbstractEntity
         return $this->actor;
     }
 
-    public function getEnddate(): ?DateTime
+    public function getEnddate(): ?\DateTime
     {
         return $this->enddate;
     }
 
-    public function getStartdate(): DateTime
+    public function getStartdate(): \DateTime
     {
         return $this->startdate;
     }
