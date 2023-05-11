@@ -136,14 +136,7 @@
 											</td>
 											<td>
 												<f:for each="{role.actors}" as="actor">
-													<f:if condition="{actor.type}">
-														<f:then>
-															{actor.company}
-														</f:then>
-														<f:else>
-															{actor.firstname} {actor.lastname}
-														</f:else>
-													</f:if>
+                                                    {actor.name}
 													<br/>
 												</f:for>
 											</td>
@@ -165,14 +158,7 @@
 											</td>
 											<td>
 												<f:for each="{helper.actors}" as="actor">
-													<f:if condition="{actor.type}">
-														<f:then>
-															{actor.company}
-														</f:then>
-														<f:else>
-															{actor.firstname} {actor.lastname}
-														</f:else>
-													</f:if>
+                                                    {actor.name}
 													<br/>
 												</f:for>
 											</td>
