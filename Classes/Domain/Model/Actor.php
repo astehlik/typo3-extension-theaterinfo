@@ -203,4 +203,9 @@ class Actor extends AbstractEntity
     {
         return $this->picture;
     }
+
+    public function getType(): ActorType
+    {
+        return $this->type;
+    }
 }
