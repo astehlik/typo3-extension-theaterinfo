@@ -42,6 +42,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'eval' => 'trim',
             ],
         ],
         'author' => [
@@ -51,6 +52,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'eval' => 'trim',
             ],
         ],
         'time_sort' => [

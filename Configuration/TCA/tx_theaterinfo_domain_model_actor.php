@@ -87,6 +87,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'eval' => 'trim',
             ],
         ],
         'lastname' => [
@@ -95,6 +96,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'eval' => 'trim',
             ],
         ],
         'company' => [
@@ -103,6 +105,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'eval' => 'trim',
             ],
         ],
         'picture' => [

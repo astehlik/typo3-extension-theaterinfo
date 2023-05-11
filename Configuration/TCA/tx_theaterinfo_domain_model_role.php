@@ -42,6 +42,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'eval' => 'trim',
             ],
         ],
         'picture' => [
