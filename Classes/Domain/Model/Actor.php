@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use DateTime;
 use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -25,71 +26,50 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Actor extends AbstractEntity
 {
-    /**
-     * @var \DateTime
-     */
-    protected $birthday;
+    protected ?DateTime $birthday = null;
 
-    protected string $company;
+    protected ?string $company = null;
 
-    /**
-     * @var Role
-     */
-    protected $favoriteRole;
+    protected ?Role $favoriteRole = null;
 
-    /**
-     * @var string
-     */
-    protected $firstname;
+    protected ?string $firstname = null;
 
     /**
      * The gender of the actor, can me 0 (male) or 1 (female).
      *
      * @var Gender
      */
-    protected $gender;
+    protected Gender $gender;
+
+    protected ?string $hobbys;
+
+    protected string $job;
+
+    protected ?string $lastname = null;
 
     /**
-     * @var string
+     * @var ObjectStorage<ManagementMembership>
      */
-    protected $hobbys;
+    protected ObjectStorage $managementPositions;
+
+    protected ?string $managementReasons = null;
+
+    protected ?DateTime $memberSince = null;
+
+    protected ?FileReference $picture = null;
 
     /**
-     * @var string
+     * @var ActorType
      */
-    protected $job;
-
-    /**
-     * @var string
-     */
-    protected $lastname;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
-     */
-    protected $managementPositions;
-
-    /**
-     * @var string
-     */
-    protected $managementReasons;
-
-    /**
-     * @var \DateTime
-     */
-    protected $memberSince;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     */
-    protected $picture;
-
     protected ActorType $type;
+
+    public function __construct()
+    {
+        $this->managementPositions = new ObjectStorage();
+    }
 
     /**
      * Returns the current age in years of the actor.
-     *
-     * @return int
      */
     public function getAge(): ?int
     {
@@ -99,19 +79,19 @@ class Actor extends AbstractEntity
             return null;
         }
 
-        $now = new \DateTime();
+        $now = new DateTime();
         $age = $birthday->diff($now);
         return $age->y;
     }
 
-    public function getBirthday(): ?\DateTime
+    public function getBirthday(): ?DateTime
     {
         return $this->birthday;
     }
 
     public function getCompany(): string
     {
-        return $this->company;
+        return (string)$this->company;
     }
 
     public function getFavoriteRole(): ?Role
@@ -121,7 +101,7 @@ class Actor extends AbstractEntity
 
     public function getFirstname(): string
     {
-        return $this->firstname;
+        return (string)$this->firstname;
     }
 
     /**
@@ -129,7 +109,7 @@ class Actor extends AbstractEntity
      */
     public function getFullName(): string
     {
-        return $this->firstname . ' ' . $this->lastname;
+        return trim($this->getFirstname() . ' ' . $this->getLastname());
     }
 
     /**
@@ -142,12 +122,12 @@ class Actor extends AbstractEntity
 
     public function getHobbys(): string
     {
-        return $this->hobbys;
+        return (string)$this->hobbys;
     }
 
     public function getHobbysAsArray(): array
     {
-        return explode(LF, $this->hobbys);
+        return explode(LF, $this->getHobbys());
     }
 
     public function getIsGenderFemale(): bool
@@ -157,7 +137,7 @@ class Actor extends AbstractEntity
 
     public function getJob(): string
     {
-        return $this->job;
+        return (string)$this->job;
     }
 
     public function getLastname(): string
@@ -166,13 +146,10 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * @return ManagementPosition[]|ObjectStorage
+     * @return ObjectStorage<ManagementMembership>
      */
     public function getManagementPositions(): ObjectStorage
     {
-        if (!$this->managementPositions) {
-            $this->managementPositions = new ObjectStorage();
-        }
         return $this->managementPositions;
     }
 
@@ -181,7 +158,7 @@ class Actor extends AbstractEntity
         return (string)$this->managementReasons;
     }
 
-    public function getMemberSince(): ?\DateTime
+    public function getMemberSince(): ?DateTime
     {
         return $this->memberSince;
     }

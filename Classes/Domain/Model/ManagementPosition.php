@@ -27,28 +27,33 @@ class ManagementPosition extends AbstractEntity
      *
      * @var ObjectStorage<ManagementMembership>
      */
-    protected $memberships;
+    protected ObjectStorage $memberships;
 
     /**
      * The name of the position.
      *
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * The name of the position for female members.
      *
      * @var string
      */
-    protected $nameFemale;
+    protected string $nameFemale;
 
     /**
      * The sorting for this position.
      *
      * @var int
      */
-    protected $sorting;
+    protected int $sorting;
+
+    public function __construct()
+    {
+        $this->memberships = new ObjectStorage();
+    }
 
     public function getCurrentMembership(): ?ManagementMembership
     {
@@ -65,13 +70,10 @@ class ManagementPosition extends AbstractEntity
     }
 
     /**
-     * @return ManagementMembership[]|ObjectStorage
+     * @return ObjectStorage<ManagementMembership>
      */
     public function getMemberships(): ObjectStorage
     {
-        if (!$this->memberships) {
-            $this->memberships = new ObjectStorage();
-        }
         return $this->memberships;
     }
 

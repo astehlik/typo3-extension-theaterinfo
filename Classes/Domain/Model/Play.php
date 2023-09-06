@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use DateTime;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -23,70 +24,46 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Play extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $action;
+    protected ?string $action = null;
 
-    /**
-     * @var string
-     */
-    protected $author;
+    protected ?string $author = null;
 
     /**
      * @var ObjectStorage<Helper>
      */
-    protected $helpers;
+    protected ObjectStorage $helpers;
 
     /**
      * @var bool TRUE if helpers should not be shown
      */
-    protected $hideHelpers;
+    protected bool $hideHelpers;
 
     /**
      * @var bool TRUE if helpers should not be shown
      */
-    protected $hideRoles;
+    protected bool $hideRoles;
 
-    /**
-     * @var FileReference
-     */
-    protected $logo;
+    protected ?FileReference $logo = null;
 
     /**
      * @var ObjectStorage<FileReference>
      */
-    protected $pictures;
+    protected ObjectStorage $pictures;
 
     /**
      * @var ObjectStorage<Role>
      */
-    protected $roles;
+    protected ObjectStorage $roles;
 
-    /**
-     * @var string
-     */
-    protected $state;
+    protected string $state;
 
-    /**
-     * @var string
-     */
-    protected $teaser;
+    protected ?string $teaser = null;
 
-    /**
-     * @var string
-     */
-    protected $timeDisplay;
+    protected ?string $timeDisplay = null;
 
-    /**
-     * @var \DateTime
-     */
-    protected $timeSort;
+    protected ?DateTime $timeSort = null;
 
-    /**
-     * @var string
-     */
-    protected $title;
+    protected ?string $title = null;
 
     public function __construct()
     {
@@ -96,18 +73,18 @@ class Play extends AbstractEntity
 
     public function getAction(): string
     {
-        return $this->action;
+        return (string)$this->action;
     }
 
     public function getAuthor(): string
     {
-        return $this->author;
+        return (string)$this->author;
     }
 
     /**
      * Returns all helpers of this play.
      *
-     * @return Helper[]|ObjectStorage
+     * @return ObjectStorage<Helper
      */
     public function getHelpers(): ObjectStorage
     {
@@ -116,10 +93,8 @@ class Play extends AbstractEntity
 
     /**
      * Getter for the logo file.
-     *
-     * @return FileReference
      */
-    public function getLogo()
+    public function getLogo(): ?FileReference
     {
         return $this->logo;
     }
@@ -127,7 +102,7 @@ class Play extends AbstractEntity
     /**
      * Getter for the pictures of this play.
      *
-     * @return FileReference[]|ObjectStorage
+     * @return ObjectStorage<FileReference>
      */
     public function getPictures(): ObjectStorage
     {
@@ -137,7 +112,7 @@ class Play extends AbstractEntity
     /**
      * Returns all roles in this play.
      *
-     * @return ObjectStorage|Role[]
+     * @return ObjectStorage<Role>
      */
     public function getRoles(): ObjectStorage
     {
@@ -180,16 +155,16 @@ class Play extends AbstractEntity
 
     public function getTimeDisplay(): string
     {
-        return $this->timeDisplay;
+        return (string)$this->timeDisplay;
     }
 
-    public function getTimeSort(): \DateTime
+    public function getTimeSort(): ?DateTime
     {
         return $this->timeSort;
     }
 
     public function getTitle(): string
     {
-        return $this->title;
+        return (string)$this->title;
     }
 }

@@ -23,23 +23,12 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Helpertype extends AbstractEntity
 {
-    /**
-     * @var FileReference
-     */
-    protected $icon;
+    protected ?FileReference $icon = null;
 
-    /**
-     * @var string
-     *
-     * @Extbase\Validate("NotEmpty")
-     */
-    protected $jobtitle;
+    protected ?string $jobtitle = null;
 
-    /**
-     * @return string
-     */
-    public function getJobtitle()
+    public function getJobtitle(): string
     {
-        return $this->jobtitle;
+        return (string)$this->jobtitle;
     }
 }
