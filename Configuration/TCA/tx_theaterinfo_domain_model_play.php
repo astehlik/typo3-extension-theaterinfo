@@ -172,7 +172,7 @@ return [
                 'type' => 'inline',
                 'foreign_table' => 'tx_theaterinfo_domain_model_role',
                 'foreign_field' => 'playuid',
-                'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Role',
+                'foreign_sortby' => 'sorting',
                 'maxitems' => 100,
                 'appearance' => [
                     'collapseAll' => 1,
@@ -195,7 +195,7 @@ return [
                 'type' => 'inline',
                 'foreign_table' => 'tx_theaterinfo_domain_model_helper',
                 'foreign_field' => 'playuid',
-                'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helper',
+                'foreign_sortby' => 'sorting',
                 'maxitems' => 100,
                 'appearance' => [
                     'collapseAll' => 1,

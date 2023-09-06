@@ -14,7 +14,6 @@ return [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'sortby' => 'sorting',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_role.gif',
@@ -85,7 +84,6 @@ return [
                 'foreign_table' => 'tx_theaterinfo_domain_model_actor',
                 'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname,'
                     . ' tx_theaterinfo_domain_model_actor.firstname',
-                'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
