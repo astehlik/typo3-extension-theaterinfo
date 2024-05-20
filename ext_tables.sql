@@ -109,7 +109,8 @@ CREATE TABLE tx_theaterinfo_domain_model_role (
 	picture int(11) DEFAULT '0' NOT NULL,
 	insert_spacer tinyint(3) DEFAULT '0' NOT NULL,
 	playuid int(11) DEFAULT '0' NOT NULL,
-	actors text
+	actors text,
+	sorting int(11) DEFAULT '0' NOT NULL
 );
 
 #
@@ -140,5 +141,6 @@ CREATE TABLE tx_theaterinfo_domain_model_helper (
 	helpertype text,
 	actors text,
 	insert_spacer tinyint(3) DEFAULT '0' NOT NULL,
-	playuid int(11) DEFAULT '0' NOT NULL
+	playuid int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL
 );
