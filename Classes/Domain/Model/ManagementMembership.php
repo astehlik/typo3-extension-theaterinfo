@@ -24,6 +24,8 @@ class ManagementMembership extends AbstractEntity
 {
     protected ?Actor $actor = null;
 
+    protected string $actorNameSuffix = '';
+
     protected ?DateTime $enddate = null;
 
     protected ?DateTime $startdate = null;
@@ -31,6 +33,11 @@ class ManagementMembership extends AbstractEntity
     public function getActor(): ?Actor
     {
         return $this->actor;
+    }
+
+    public function getActorNameSuffix(): string
+    {
+        return $this->actorNameSuffix;
     }
 
     public function getEnddate(): ?DateTime

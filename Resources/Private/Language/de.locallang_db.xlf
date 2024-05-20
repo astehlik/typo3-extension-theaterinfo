@@ -128,6 +128,10 @@
 				<source>Actor</source>
 				<target>Schauspieler</target>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor_name_sufffix" xml:space="preserve" approved="yes">
+				<source>Actor name suffix</source>
+				<target>Suffix für Namen des Schauspielers</target>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.enddate" xml:space="preserve" approved="yes">
 				<source>Member until</source>
 				<target>Vorstandsmitglied auf diesem Posten bis</target>

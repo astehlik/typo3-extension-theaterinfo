@@ -139,6 +139,9 @@
 			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor" xml:space="preserve">
 				<source>Actor</source>
 			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor_name_suffix" xml:space="preserve">
+				<source>Actor name suffix</source>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.enddate" xml:space="preserve">
 				<source>Member until</source>
 			</trans-unit>

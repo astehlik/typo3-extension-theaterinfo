@@ -75,6 +75,7 @@ CREATE TABLE tx_theaterinfo_domain_model_actor (
 # Table structure for table 'tx_theaterinfo_domain_model_managementmembership'
 #
 CREATE TABLE tx_theaterinfo_domain_model_managementmembership (
+	actor_name_suffix varchar(255) DEFAULT '' NOT NULL,
 	position int(11) unsigned DEFAULT '0' NOT NULL,
 	actor int(11) unsigned DEFAULT '0' NOT NULL,
 	enddate int(11) unsigned DEFAULT '0' NOT NULL,

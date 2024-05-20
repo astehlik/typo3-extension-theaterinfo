@@ -22,6 +22,16 @@ return [
         'hideTable' => true,
     ],
     'columns' => [
+        'actor_name_suffix' => [
+            'exclude' => 0,
+            'label' => $languagePrefixColumn . 'actor_name_suffix',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'max' => 255,
+                'eval' => 'trim',
+            ],
+        ],
         'position' => [
             'exclude' => 0,
             'label' => $languagePrefixColumn . 'position',
@@ -65,6 +75,6 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'position, actor, startdate, enddate'],
+        '0' => ['showitem' => 'position, actor, actor_name_suffix, startdate, enddate'],
     ],
 ];
