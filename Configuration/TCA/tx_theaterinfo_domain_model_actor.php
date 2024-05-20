@@ -70,6 +70,10 @@ return [
                 'items' => [
                     [
                         'label' => $languagePrefixColumn . 'gender.I.0',
+                        'value' => Gender::UNSPECIFIED,
+                    ],
+                    [
+                        'label' => $languagePrefixColumn . 'gender.I.3',
                         'value' => Gender::MALE,
                     ],
                     [
