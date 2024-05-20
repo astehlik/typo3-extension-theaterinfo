@@ -109,9 +109,13 @@ class Actor extends AbstractEntity
     /**
      * Returns the gender of this actor, can be 0 (male) or 1 (female).
      */
-    public function getGender(): int
+    public function getGender(): Gender
     {
-        return (int)$this->gender->__toString();
+        if ($this->getType()->equals(ActorType::COMPANY)) {
+            return new Gender(Gender::UNSPECIFIED);
+        }
+
+        return $this->gender;
     }
 
     public function getHobbys(): string
@@ -126,7 +130,17 @@ class Actor extends AbstractEntity
 
     public function getIsGenderFemale(): bool
     {
-        return $this->gender->equals(Gender::FEMALE);
+        return $this->getGender()->equals(Gender::FEMALE);
+    }
+
+    public function getIsGenderMale(): bool
+    {
+        return $this->getGender()->equals(Gender::MALE);
+    }
+
+    public function getIsGenderUnspecified(): bool
+    {
+        return $this->getGender()->equals(Gender::UNSPECIFIED);
     }
 
     public function getJob(): string

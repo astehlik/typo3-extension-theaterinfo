@@ -26,10 +26,13 @@
 				<source>Gender</source>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.0" xml:space="preserve">
-				<source>Male</source>
+				<source>Unspecified</source>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.1" xml:space="preserve">
 				<source>Female</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.3" xml:space="preserve">
+				<source>Male</source>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.hobbys" xml:space="preserve">
 				<source>Hobbys (one per line)</source>

@@ -10,5 +10,7 @@ class Gender extends Enumeration
 {
     public const FEMALE = 1;
 
-    public const MALE = 0;
+    public const MALE = 3;
+
+    public const UNSPECIFIED = 0;
 }

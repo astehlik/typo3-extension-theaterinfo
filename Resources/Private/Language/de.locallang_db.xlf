@@ -33,12 +33,16 @@
 				<target>Geschlecht</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.0" xml:space="preserve" approved="yes">
-				<source>Male</source>
-				<target>Männlich</target>
+				<source>Unspecified</source>
+				<target>Nicht spezifiziert</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.1" xml:space="preserve" approved="yes">
 				<source>Female</source>
 				<target>Weiblich</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.3" xml:space="preserve" approved="yes">
+				<source>Male</source>
+				<target>Männlich</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.hobbys" xml:space="preserve" approved="yes">
 				<source>Hobbys (one per line)</source>
