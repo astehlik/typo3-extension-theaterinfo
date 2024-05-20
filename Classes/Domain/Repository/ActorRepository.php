@@ -21,6 +21,4 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  *
  * @method \Sto\Theaterinfo\Domain\Model\Actor findByUid($uid)
  */
-class ActorRepository extends Repository
-{
-}
+class ActorRepository extends Repository {}

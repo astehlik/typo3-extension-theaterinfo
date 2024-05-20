@@ -15,6 +15,7 @@ namespace Sto\Theaterinfo\Domain\Repository;
  *                                                                        */
 
 use TYPO3\CMS\Extbase\Persistence\Repository;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Repository for plays.
@@ -28,7 +29,7 @@ class PlayRepository extends Repository
     {
         $this->setDefaultOrderings(
             [
-                'timeSort' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                'timeSort' => QueryInterface::ORDER_DESCENDING,
             ]
         );
     }

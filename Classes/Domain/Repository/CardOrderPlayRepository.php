@@ -11,6 +11,4 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * @method CardOrderPlay[]|QueryResultInterface findAll()
  */
-class CardOrderPlayRepository extends Repository
-{
-}
+class CardOrderPlayRepository extends Repository {}

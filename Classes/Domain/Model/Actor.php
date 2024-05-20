@@ -14,7 +14,6 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use DateTime;
 use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -26,7 +25,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Actor extends AbstractEntity
 {
-    protected ?DateTime $birthday = null;
+    protected ?\DateTime $birthday = null;
 
     protected ?string $company = null;
 
@@ -36,8 +35,6 @@ class Actor extends AbstractEntity
 
     /**
      * The gender of the actor, can me 0 (male) or 1 (female).
-     *
-     * @var Gender
      */
     protected Gender $gender;
 
@@ -54,13 +51,10 @@ class Actor extends AbstractEntity
 
     protected ?string $managementReasons = null;
 
-    protected ?DateTime $memberSince = null;
+    protected ?\DateTime $memberSince = null;
 
     protected ?FileReference $picture = null;
 
-    /**
-     * @var ActorType
-     */
     protected ActorType $type;
 
     public function __construct()
@@ -79,12 +73,12 @@ class Actor extends AbstractEntity
             return null;
         }
 
-        $now = new DateTime();
+        $now = new \DateTime();
         $age = $birthday->diff($now);
         return $age->y;
     }
 
-    public function getBirthday(): ?DateTime
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
@@ -158,7 +152,7 @@ class Actor extends AbstractEntity
         return (string)$this->managementReasons;
     }
 
-    public function getMemberSince(): ?DateTime
+    public function getMemberSince(): ?\DateTime
     {
         return $this->memberSince;
     }

@@ -16,6 +16,7 @@ namespace Sto\Theaterinfo\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Repository for management positions.
@@ -40,7 +41,7 @@ class ManagementPositionRepository extends Repository
     {
         $this->setDefaultOrderings(
             [
-                'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                'sorting' => QueryInterface::ORDER_ASCENDING,
             ]
         );
     }

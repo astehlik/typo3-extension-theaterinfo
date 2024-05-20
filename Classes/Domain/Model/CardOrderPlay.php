@@ -62,7 +62,7 @@ class CardOrderPlay extends AbstractEntity
         $dates = $this->getDates()->toArray();
         usort(
             $dates,
-            function (CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) {
+            static function (CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) {
                 return $cardOrderDate1->getDateAndTime()->diff($cardOrderDate2->getDateAndTime())->invert === 1;
             }
         );

@@ -31,22 +31,16 @@ class ManagementPosition extends AbstractEntity
 
     /**
      * The name of the position.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
      * The name of the position for female members.
-     *
-     * @var string
      */
     protected string $nameFemale;
 
     /**
      * The sorting for this position.
-     *
-     * @var int
      */
     protected int $sorting;
 

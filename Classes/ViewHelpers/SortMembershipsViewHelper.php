@@ -34,17 +34,21 @@ class SortMembershipsViewHelper extends AbstractViewHelper
 
         $memberships = $storage->toArray();
 
-        usort($memberships, function (ManagementMembership $a, ManagementMembership $b) {
-            $aSorting = $a->getActor()->getName();
-            $bSorting = $b->getActor()->getName();
+        usort(
+            $memberships,
+            static function (ManagementMembership $a, ManagementMembership $b) {
+                $aSorting = $a->getActor()->getName();
+                $bSorting = $b->getActor()->getName();
 
-            return strnatcmp($aSorting, $bSorting);
-        });
+                return strnatcmp($aSorting, $bSorting);
+            }
+        );
 
         return $memberships;
     }
 
     public function initializeArguments(): void
     {
+        // No arguments needed for this view helper.
     }
 }

@@ -19,6 +19,4 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * Repository for management memberships.
  */
-class ManagementMembershipRepository extends Repository
-{
-}
+class ManagementMembershipRepository extends Repository {}
