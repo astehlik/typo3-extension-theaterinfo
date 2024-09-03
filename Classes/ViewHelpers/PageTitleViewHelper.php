@@ -20,7 +20,7 @@ class PageTitleViewHelper extends AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
+        RenderingContextInterface $renderingContext,
     ) {
         $content = trim($renderChildrenClosure());
         if ($content === '') {

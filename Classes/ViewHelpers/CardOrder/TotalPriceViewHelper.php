@@ -14,7 +14,7 @@ class TotalPriceViewHelper extends AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
+        RenderingContextInterface $renderingContext,
     ) {
         $cardOrder = static::getCardOrderFromArguments($arguments);
         $shippingCosts = $arguments['shippingCosts'];

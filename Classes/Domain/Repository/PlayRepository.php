@@ -30,7 +30,7 @@ class PlayRepository extends Repository
         $this->setDefaultOrderings(
             [
                 'timeSort' => QueryInterface::ORDER_DESCENDING,
-            ]
+            ],
         );
     }
 }

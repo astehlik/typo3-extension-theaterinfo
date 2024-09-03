@@ -43,7 +43,7 @@ class CardOrderController extends ActionController
         $cardOrderMappingConfig->forProperty('rows')->setTypeConverterOption(
             ObjectConverter::class,
             ObjectConverter::CONFIGURATION_TARGET_TYPE,
-            ObjectStorage::class . '<' . CardOrderRow::class . '>'
+            ObjectStorage::class . '<' . CardOrderRow::class . '>',
         );
     }
 

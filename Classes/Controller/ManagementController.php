@@ -61,7 +61,7 @@ class ManagementController extends ActionController
     public function breadcrumbMenuArrayAction(): ResponseInterface
     {
         $frameworkConfig = $this->configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
         );
 
         /** @var AbstractMenuContentObject $parentMenuObject */

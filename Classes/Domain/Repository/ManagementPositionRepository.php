@@ -42,7 +42,7 @@ class ManagementPositionRepository extends Repository
         $this->setDefaultOrderings(
             [
                 'sorting' => QueryInterface::ORDER_ASCENDING,
-            ]
+            ],
         );
     }
 }

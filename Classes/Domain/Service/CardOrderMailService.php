@@ -17,7 +17,7 @@ class CardOrderMailService implements SingletonInterface
     public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
     {
         $this->settings = $configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
         );
     }
 
@@ -46,7 +46,7 @@ class CardOrderMailService implements SingletonInterface
     {
         $mailMessage = new MailMessage();
         $mailMessage->setFrom(
-            [$this->settings['cardOrderMail']['fromEmail'] => $this->settings['cardOrderMail']['Name']]
+            [$this->settings['cardOrderMail']['fromEmail'] => $this->settings['cardOrderMail']['Name']],
         );
         return $mailMessage;
     }

@@ -25,7 +25,7 @@ class MenuHooks
 {
     public function getBreadcrumbMenuArrayManagement(
         array $currentMenuArray,
-        array $additionalParameters
+        array $additionalParameters,
     ): array {
         $parentMenuObject = $additionalParameters['parentObj'];
 
