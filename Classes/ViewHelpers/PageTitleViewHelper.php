@@ -8,6 +8,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
+use Closure;
 
 class PageTitleViewHelper extends AbstractViewHelper
 {
@@ -18,7 +19,7 @@ class PageTitleViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(
         array $arguments,
-        \Closure $renderChildrenClosure,
+        Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
         $content = trim($renderChildrenClosure());

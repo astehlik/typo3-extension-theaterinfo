@@ -6,6 +6,7 @@ namespace Sto\Theaterinfo\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use DateTime;
 
 class CardOrderRow extends AbstractEntity
 {
@@ -36,7 +37,7 @@ class CardOrderRow extends AbstractEntity
         return $this->amountReduced;
     }
 
-    public function getPlayDateDateAndTime(): \DateTime
+    public function getPlayDateDateAndTime(): DateTime
     {
         return $this->playDate->getDateAndTime();
     }

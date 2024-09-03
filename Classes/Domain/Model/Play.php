@@ -17,6 +17,7 @@ namespace Sto\Theaterinfo\Domain\Model;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use DateTime;
 
 /**
  * A play performed by the theater group.
@@ -60,7 +61,7 @@ class Play extends AbstractEntity
 
     protected ?string $timeDisplay = null;
 
-    protected ?\DateTime $timeSort = null;
+    protected ?DateTime $timeSort = null;
 
     protected ?string $title = null;
 
@@ -157,7 +158,7 @@ class Play extends AbstractEntity
         return (string)$this->timeDisplay;
     }
 
-    public function getTimeSort(): ?\DateTime
+    public function getTimeSort(): ?DateTime
     {
         return $this->timeSort;
     }
