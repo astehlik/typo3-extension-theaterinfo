@@ -31,7 +31,7 @@ class RecordTitleHooks
 
         $row = $params['row'];
 
-        $type = (int)($row['type'] ?? -1);
+        $type = ActorType::tryFrom($row['type'] ?? -1);
 
         $title = match ($type) {
             ActorType::PERSON => $this->buildPersonName($row),

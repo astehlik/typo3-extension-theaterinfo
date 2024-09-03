@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model\Enumeration;
 
-use TYPO3\CMS\Core\Type\Enumeration;
-
-class ActorType extends Enumeration
+enum ActorType: int
 {
-    public const COMPANY = 1;
+    case COMPANY = 1;
 
-    public const PERSON = 0;
+    case PERSON = 0;
 }

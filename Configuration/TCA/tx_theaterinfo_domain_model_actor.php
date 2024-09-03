@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use Sto\Theaterinfo\Hooks\RecordTitleHooks;
-use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Resource\FileType;
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_actor.';
@@ -70,15 +70,15 @@ return [
                 'items' => [
                     [
                         'label' => $languagePrefixColumn . 'gender.I.0',
-                        'value' => Gender::UNSPECIFIED,
+                        'value' => Gender::UNSPECIFIED->value,
                     ],
                     [
                         'label' => $languagePrefixColumn . 'gender.I.3',
-                        'value' => Gender::MALE,
+                        'value' => Gender::MALE->value,
                     ],
                     [
                         'label' => $languagePrefixColumn . 'gender.I.1',
-                        'value' => Gender::FEMALE,
+                        'value' => Gender::FEMALE->value,
                     ],
                 ],
                 'size' => 1,
@@ -126,7 +126,7 @@ return [
                                 --palette--;;tx_theaterinfo_cropimage,
                                 --palette--;;filePalette',
                         ],
-                        AbstractFile::FILETYPE_TEXT => [
+                        FileType::TEXT->value => [
                             'showitem' => '
                                 --palette--;;tx_theaterinfo_cropimage,
                                 --palette--;;filePalette',

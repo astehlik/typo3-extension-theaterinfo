@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpUnused */
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -112,8 +114,8 @@ class Actor extends AbstractEntity
      */
     public function getGender(): Gender
     {
-        if ($this->getType()->equals(ActorType::COMPANY)) {
-            return new Gender(Gender::UNSPECIFIED);
+        if ($this->getType() === ActorType::COMPANY) {
+            return Gender::UNSPECIFIED;
         }
 
         return $this->gender;
@@ -131,22 +133,22 @@ class Actor extends AbstractEntity
 
     public function getIsGenderFemale(): bool
     {
-        return $this->getGender()->equals(Gender::FEMALE);
+        return $this->getGender() === Gender::FEMALE;
     }
 
     public function getIsGenderMale(): bool
     {
-        return $this->getGender()->equals(Gender::MALE);
+        return $this->getGender() === Gender::MALE;
     }
 
     public function getIsGenderUnspecified(): bool
     {
-        return $this->getGender()->equals(Gender::UNSPECIFIED);
+        return $this->getGender() === Gender::UNSPECIFIED;
     }
 
     public function getJob(): string
     {
-        return (string)$this->job;
+        return $this->job;
     }
 
     public function getLastname(): string
@@ -174,7 +176,7 @@ class Actor extends AbstractEntity
 
     public function getName(): string
     {
-        if ($this->type->equals(ActorType::COMPANY)) {
+        if ($this->type === ActorType::COMPANY) {
             return $this->getCompany();
         }
 
