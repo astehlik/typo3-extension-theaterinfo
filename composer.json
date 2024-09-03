@@ -43,6 +43,12 @@
             "Sto\\Theaterinfo\\": "Classes/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "TYPO3\\JsonResponse\\": ".Build/vendor/typo3/testing-framework/Resources/Core/Functional/Extensions/json_response/Classes",
+            "Tx\\Tinyurls\\Tests\\": "Tests/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
