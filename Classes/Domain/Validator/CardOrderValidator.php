@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Validator;
 
+use InvalidArgumentException;
 use Sto\Theaterinfo\Domain\Model\CardOrder;
 use TYPO3\CMS\Extbase\Validation\Error;
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
-use InvalidArgumentException;
 
 class CardOrderValidator extends AbstractValidator
 {

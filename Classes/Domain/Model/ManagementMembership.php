@@ -14,8 +14,8 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use DateTime;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Membership in the management.
