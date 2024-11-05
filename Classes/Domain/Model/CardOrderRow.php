@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
+use DateTime;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use DateTime;
 
 class CardOrderRow extends AbstractEntity
 {
@@ -27,6 +27,11 @@ class CardOrderRow extends AbstractEntity
     public function getAmountReduced(): int
     {
         return $this->amountReduced;
+    }
+
+    public function getPlayDate(): CardOrderDate
+    {
+        return $this->playDate;
     }
 
     public function getPlayDateDateAndTime(): DateTime
@@ -83,18 +88,12 @@ class CardOrderRow extends AbstractEntity
         return false;
     }
 
-    /**
-     * @param int $amountNormal
-     */
-    public function setAmountNormal($amountNormal): void
+    public function setAmountNormal(?int $amountNormal): void
     {
         $this->amountNormal = (int)$amountNormal;
     }
 
-    /**
-     * @param int $amountReduced
-     */
-    public function setAmountReduced($amountReduced): void
+    public function setAmountReduced(?int $amountReduced): void
     {
         $this->amountReduced = (int)$amountReduced;
     }

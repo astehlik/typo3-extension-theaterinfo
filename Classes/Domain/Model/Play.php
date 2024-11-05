@@ -14,10 +14,10 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use DateTime;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use DateTime;
 
 /**
  * A play performed by the theater group.
@@ -29,9 +29,9 @@ class Play extends AbstractEntity
     protected ?string $author = null;
 
     /**
-     * @var ObjectStorage<Helper>
+     * @var ObjectStorage<Helper>|null
      */
-    protected ObjectStorage $helpers;
+    protected ?ObjectStorage $helpers = null;
 
     /**
      * @var bool TRUE if helpers should not be shown
@@ -51,9 +51,9 @@ class Play extends AbstractEntity
     protected ObjectStorage $pictures;
 
     /**
-     * @var ObjectStorage<Role>
+     * @var ObjectStorage<Role>|null
      */
-    protected ObjectStorage $roles;
+    protected ?ObjectStorage $roles = null;
 
     protected string $state;
 
@@ -84,11 +84,11 @@ class Play extends AbstractEntity
     /**
      * Returns all helpers of this play.
      *
-     * @return ObjectStorage<Helper
+     * @return ObjectStorage<Helper>
      */
     public function getHelpers(): ObjectStorage
     {
-        return $this->helpers;
+        return $this->helpers ?? new ObjectStorage();
     }
 
     /**
@@ -116,7 +116,7 @@ class Play extends AbstractEntity
      */
     public function getRoles(): ObjectStorage
     {
-        return $this->roles;
+        return $this->roles ?? new ObjectStorage();
     }
 
     /**

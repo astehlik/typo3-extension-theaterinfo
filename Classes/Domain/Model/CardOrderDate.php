@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use DateTime;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderDate extends AbstractEntity
 {
@@ -37,6 +37,11 @@ class CardOrderDate extends AbstractEntity
     public function getIsSoldOut(): bool
     {
         return $this->isSoldOut;
+    }
+
+    public function getParentPlay(): CardOrderPlay
+    {
+        return $this->parentPlay;
     }
 
     public function getPlayDescriptionForEmail(): string
