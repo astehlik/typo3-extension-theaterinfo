@@ -4,6 +4,27 @@
 		  product-name="theaterinfo">
 		<header/>
 		<body>
+			<trans-unit id="tt_content.CType.group.theaterinfo" xml:space="preserve">
+				<source>Theater</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_cardorderform" xml:space="preserve">
+				<source>Card order form</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_cardorderform.description" xml:space="preserve">
+				<source>Displays a form for ordering tickets to plays</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_playslist" xml:space="preserve">
+				<source>Plays list</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_playslist.description" xml:space="preserve">
+				<source>Shows a list of plays ordered by time</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_showmanagement" xml:space="preserve">
+				<source>Management list</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_showmanagement.description" xml:space="preserve">
+				<source>Shows all management positions with the person that is currently occupying them</source>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor" xml:space="preserve">
 				<source>Actor</source>
 			</trans-unit>
@@ -69,6 +90,33 @@
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.type.I.1" xml:space="preserve">
 				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder" xml:space="preserve">
+				<source>Card order</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.address" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.city" xml:space="preserve">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.email" xml:space="preserve">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.firstname" xml:space="preserve">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.lastname" xml:space="preserve">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.notes" xml:space="preserve">
+				<source>Notes</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.rows" xml:space="preserve">
+				<source>Rows</source>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.zip" xml:space="preserve">
+				<source>ZIP Code</source>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate" xml:space="preserve">
 				<source>Card order date</source>
