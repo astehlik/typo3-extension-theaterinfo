@@ -29,13 +29,17 @@ class RecordTitleHooks
             return;
         }
 
+        if (!isset($params['row']['type'])) {
+            return;
+        }
+
         $row = $params['row'];
 
-        $type = ActorType::tryFrom($row['type'] ?? -1);
+        $type = $this->getType($row['type']);
 
         $title = match ($type) {
             ActorType::PERSON => $this->buildPersonName($row),
-            ActorType::COMPANY => (string)$row['company'],
+            ActorType::COMPANY => $row['company'],
             default => '',
         };
 
@@ -46,7 +50,7 @@ class RecordTitleHooks
         $params['title'] = $title;
     }
 
-    private function buildPersonName(array $row): string
+    protected function buildPersonName(array $row): string
     {
         $nameParts = [
             $row['lastname'],
@@ -54,5 +58,16 @@ class RecordTitleHooks
         ];
 
         return implode(', ', array_filter($nameParts));
+    }
+
+    protected function getType(mixed $type): ?ActorType
+    {
+        $type = is_array($type) ? array_pop($type) : $type;
+
+        if ($type === null) {
+            return null;
+        }
+
+        return ActorType::tryFrom((int)$type);
     }
 }
