@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	xmlns:sl="http://typo3.org/ns/Tx/Swhlib/ViewHelpers"
+	xmlns:ti="http://typo3.org/ns/Sto/Theaterinfo/ViewHelpers"
 	data-namespace-typo3-fluid="true">
 
 <f:layout name="WithoutHeader"/>
@@ -85,7 +85,7 @@
 			</div>
 
 			<f:for each="{play.datesOrdered}" as="playDate" iteration="playDateIterator">
-				<f:variable name="playOrderIndex">{playIterator.index -> sl:math.add(summand: playDateIterator.index)}</f:variable>
+				<f:variable name="playOrderIndex">{playIterator.index -> ti:math.add(summand: playDateIterator.index)}</f:variable>
 
 				<f:form.hidden property="rows.{playOrderIndex}.playDate" value="{playDate}"/>
 
@@ -163,61 +163,61 @@
 
 	<h2>Persönliche Daten</h2>
 
-	<sl:form.validatedControlGroup for="cardOrder.firstname">
+	<ti:form.validatedControlGroup for="cardOrder.firstname">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-firstname">Vorname *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="firstname" class="form-control" id="tx-theaterinfor-card-order-firstname"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.lastname">
+	<ti:form.validatedControlGroup for="cardOrder.lastname">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-lastname">Nachname *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="lastname" class="form-control" id="tx-theaterinfor-card-order-lastname"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.address">
+	<ti:form.validatedControlGroup for="cardOrder.address">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-address">Straße *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="address" class="form-control" id="tx-theaterinfor-card-order-address"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.zip">
+	<ti:form.validatedControlGroup for="cardOrder.zip">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-zip">Postleitzahl *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="zip" class="form-control" id="tx-theaterinfor-card-order-zip"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.city">
+	<ti:form.validatedControlGroup for="cardOrder.city">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-city">Ort *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="city" class="form-control" id="tx-theaterinfor-card-order-city"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.email">
+	<ti:form.validatedControlGroup for="cardOrder.email">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-email">E-Mail *</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textfield property="email" class="form-control" id="tx-theaterinfor-card-order-email"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
-	<sl:form.validatedControlGroup for="cardOrder.notes">
+	<ti:form.validatedControlGroup for="cardOrder.notes">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-notes">Bemerkungen</label>
 		<div class="col-sm-10">
-			<sl:form.inlineHelpOrErrors/>
+			<ti:form.inlineHelpOrErrors/>
 			<f:form.textarea property="notes" class="form-control" id="tx-theaterinfor-card-order-notes"/>
 		</div>
-	</sl:form.validatedControlGroup>
+	</ti:form.validatedControlGroup>
 
 	<div class="form-group">
 		<div class="col-sm-10 col-sm-push-2">
