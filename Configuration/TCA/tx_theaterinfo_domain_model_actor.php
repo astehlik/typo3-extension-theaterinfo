@@ -184,7 +184,6 @@ return [
             'config' => [
                 'type' => 'datetime',
                 'format' => 'date',
-                'eval' => 'int',
             ],
         ],
         'hobbys' => [

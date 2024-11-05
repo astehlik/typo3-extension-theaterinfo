@@ -18,12 +18,18 @@ return [
     'columns' => [
         'amount_normal' => [
             'label' => $languagePrefixColumn . 'amount_normal',
-            'config' => ['type' => 'input'],
+            'config' => [
+                'type' => 'number',
+                'range' => ['lower' => 0],
+            ],
         ],
 
         'amount_reduced' => [
             'label' => $languagePrefixColumn . 'amount_reduced',
-            'config' => ['type' => 'input'],
+            'config' => [
+                'type' => 'number',
+                'range' => ['lower' => 0],
+            ],
         ],
 
         'play_date' => [
