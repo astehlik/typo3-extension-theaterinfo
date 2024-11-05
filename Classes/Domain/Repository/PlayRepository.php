@@ -14,11 +14,14 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Extbase\Persistence\Repository;
+use Sto\Theaterinfo\Domain\Model\Play;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Repository for plays.
+ *
+ * @extends Repository<Play>
  */
 class PlayRepository extends Repository
 {

@@ -14,20 +14,26 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\ManagementPosition;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
-use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Repository for management positions.
  *
- * @method QueryResultInterface findByShowInOverview($showInOverview) Returns all positions where showInOverview
- *                                                                    is true.
+ * @extends Repository<ManagementPosition>
+ *
+ * @method QueryResultInterface<string, ManagementPosition> findByShowInOverview($showInOverview) Returns all positions
+ *                                                                                                where showInOverview
+ *                                                                                                is true.
  */
 class ManagementPositionRepository extends Repository
 {
     /**
      * Finds all management positions that should be displayed in the list.
+     *
+     * @return QueryResultInterface<string, ManagementPosition>
      */
     public function findForList(): QueryResultInterface
     {
