@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -8,30 +9,15 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderDate extends AbstractEntity
 {
-    /**
-     * @var DateTime
-     */
-    protected $dateAndTime;
+    protected DateTime $dateAndTime;
 
-    /**
-     * @var string
-     */
-    protected $description;
+    protected string $description;
 
-    /**
-     * @var string
-     */
-    protected $descriptionMail;
+    protected string $descriptionMail;
 
-    /**
-     * @var bool
-     */
-    protected $isSoldOut;
+    protected bool $isSoldOut;
 
-    /**
-     * @var CardOrderPlay
-     */
-    protected $parentPlay;
+    protected CardOrderPlay $parentPlay;
 
     public function getDateAndTime(): DateTime
     {
@@ -51,6 +37,11 @@ class CardOrderDate extends AbstractEntity
     public function getIsSoldOut(): bool
     {
         return $this->isSoldOut;
+    }
+
+    public function getParentPlay(): CardOrderPlay
+    {
+        return $this->parentPlay;
     }
 
     public function getPlayDescriptionForEmail(): string

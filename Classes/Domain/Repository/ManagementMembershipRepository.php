@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -12,11 +14,12 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\ManagementMembership;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for management memberships
+ * Repository for management memberships.
+ *
+ * @extends Repository<ManagementMembership>
  */
-class ManagementMembershipRepository extends Repository
-{
-}
+class ManagementMembershipRepository extends Repository {}

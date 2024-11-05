@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -9,21 +10,14 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderRow extends AbstractEntity
 {
-    /**
-     * @var integer
-     */
-    protected $amountNormal = 0;
+    protected int $amountNormal = 0;
+
+    protected int $amountReduced = 0;
 
     /**
-     * @var integer
-     */
-    protected $amountReduced = 0;
-
-    /**
-     * @var CardOrderDate
      * @Extbase\Validate("NotEmpty")
      */
-    protected $playDate;
+    protected CardOrderDate $playDate;
 
     public function getAmountNormal(): int
     {
@@ -33,6 +27,11 @@ class CardOrderRow extends AbstractEntity
     public function getAmountReduced(): int
     {
         return $this->amountReduced;
+    }
+
+    public function getPlayDate(): CardOrderDate
+    {
+        return $this->playDate;
     }
 
     public function getPlayDateDateAndTime(): DateTime
@@ -89,18 +88,12 @@ class CardOrderRow extends AbstractEntity
         return false;
     }
 
-    /**
-     * @param int $amountNormal
-     */
-    public function setAmountNormal($amountNormal): void
+    public function setAmountNormal(?int $amountNormal): void
     {
         $this->amountNormal = (int)$amountNormal;
     }
 
-    /**
-     * @param int $amountReduced
-     */
-    public function setAmountReduced($amountReduced): void
+    public function setAmountReduced(?int $amountReduced): void
     {
         $this->amountReduced = (int)$amountReduced;
     }

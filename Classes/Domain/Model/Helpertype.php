@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -13,31 +14,20 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * A job an actor / sponsor can do for a play
+ * A job an actor / sponsor can do for a play.
  */
 class Helpertype extends AbstractEntity
 {
-    /**
-     * @var FileReference
-     */
-    protected $icon;
+    protected ?FileReference $icon = null;
 
-    /**
-     * @var string
-     * @Extbase\Validate("NotEmpty")
-     */
-    protected $jobtitle;
+    protected ?string $jobtitle = null;
 
-    /**
-     * @return string
-     */
-    public function getJobtitle()
+    public function getJobtitle(): string
     {
-        return $this->jobtitle;
+        return (string)$this->jobtitle;
     }
 }

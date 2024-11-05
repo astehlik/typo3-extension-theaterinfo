@@ -1,4 +1,7 @@
 <?php
+
+/** @noinspection PhpUnused */
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -13,78 +16,57 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use DateTime;
+use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use DateTime;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * An actor / helper / sponsor
+ * An actor / helper / sponsor.
  */
 class Actor extends AbstractEntity
 {
-    /**
-     * @var \DateTime
-     */
-    protected $birthday;
+    protected ?DateTime $birthday = null;
+
+    protected ?string $company = null;
+
+    protected ?Role $favoriteRole = null;
+
+    protected ?string $firstname = null;
 
     /**
-     * @var Role
+     * The gender of the actor, can me 0 (male) or 1 (female).
      */
-    protected $favoriteRole;
+    protected Gender $gender;
+
+    protected ?string $hobbys;
+
+    protected string $job;
+
+    protected ?string $lastname = null;
 
     /**
-     * @var string
+     * @var ObjectStorage<ManagementMembership>
      */
-    protected $firstname;
+    protected ObjectStorage $managementPositions;
+
+    protected ?string $managementReasons = null;
+
+    protected ?DateTime $memberSince = null;
+
+    protected ?FileReference $picture = null;
+
+    protected ActorType $type;
+
+    public function __construct()
+    {
+        $this->managementPositions = new ObjectStorage();
+    }
 
     /**
-     * The gender of the actor, can me 0 (male) or 1 (female)
-     *
-     * @var Gender
-     */
-    protected $gender;
-
-    /**
-     * @var string
-     */
-    protected $hobbys;
-
-    /**
-     * @var string
-     */
-    protected $job;
-
-    /**
-     * @var string
-     */
-    protected $lastname;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Sto\Theaterinfo\Domain\Model\ManagementMembership>
-     */
-    protected $managementPositions;
-
-    /**
-     * @var string
-     */
-    protected $managementReasons;
-
-    /**
-     * @var \DateTime
-     */
-    protected $memberSince;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     */
-    protected $picture;
-
-    /**
-     * Returns the current age in years of the actor
-     *
-     * @return int
+     * Returns the current age in years of the actor.
      */
     public function getAge(): ?int
     {
@@ -104,6 +86,11 @@ class Actor extends AbstractEntity
         return $this->birthday;
     }
 
+    public function getCompany(): string
+    {
+        return (string)$this->company;
+    }
+
     public function getFavoriteRole(): ?Role
     {
         return $this->favoriteRole;
@@ -111,42 +98,52 @@ class Actor extends AbstractEntity
 
     public function getFirstname(): string
     {
-        return $this->firstname;
+        return (string)$this->firstname;
     }
 
     /**
-     * Builds the full name for the actor
-     *
-     * @return string
+     * Builds the full name for the actor.
      */
     public function getFullName(): string
     {
-        return $this->firstname . ' ' . $this->lastname;
+        return trim($this->getFirstname() . ' ' . $this->getLastname());
     }
 
     /**
-     * Returns the gender of this actor, can be 0 (male) or 1 (female)
-     *
-     * @return int
+     * Returns the gender of this actor, can be 0 (male) or 1 (female).
      */
-    public function getGender(): int
+    public function getGender(): Gender
     {
-        return (int)$this->gender->__toString();
+        if ($this->getType() === ActorType::COMPANY) {
+            return Gender::UNSPECIFIED;
+        }
+
+        return $this->gender;
     }
 
     public function getHobbys(): string
     {
-        return $this->hobbys;
+        return (string)$this->hobbys;
     }
 
     public function getHobbysAsArray(): array
     {
-        return explode(LF, $this->hobbys);
+        return explode(LF, $this->getHobbys());
     }
 
     public function getIsGenderFemale(): bool
     {
-        return $this->gender->equals(Gender::FEMALE);
+        return $this->getGender() === Gender::FEMALE;
+    }
+
+    public function getIsGenderMale(): bool
+    {
+        return $this->getGender() === Gender::MALE;
+    }
+
+    public function getIsGenderUnspecified(): bool
+    {
+        return $this->getGender() === Gender::UNSPECIFIED;
     }
 
     public function getJob(): string
@@ -160,13 +157,10 @@ class Actor extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage|ManagementPosition[]
+     * @return ObjectStorage<ManagementMembership>
      */
     public function getManagementPositions(): ObjectStorage
     {
-        if (!$this->managementPositions) {
-            $this->managementPositions = new ObjectStorage();
-        }
         return $this->managementPositions;
     }
 
@@ -180,8 +174,26 @@ class Actor extends AbstractEntity
         return $this->memberSince;
     }
 
+    public function getName(): string
+    {
+        if ($this->type === ActorType::COMPANY) {
+            return $this->getCompany();
+        }
+
+        $nameParts = [
+            $this->getLastname(),
+            $this->getFirstname(),
+        ];
+        return implode(', ', array_filter($nameParts));
+    }
+
     public function getPicture(): ?FileReference
     {
         return $this->picture;
+    }
+
+    public function getType(): ActorType
+    {
+        return $this->type;
     }
 }

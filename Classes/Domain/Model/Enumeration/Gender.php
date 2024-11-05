@@ -1,13 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model\Enumeration;
 
-use TYPO3\CMS\Core\Type\Enumeration;
-
-class Gender extends Enumeration
+enum Gender: int
 {
-    const FEMALE = 1;
+    case FEMALE = 1;
 
-    const MALE = 0;
+    case MALE = 3;
+
+    case UNSPECIFIED = 0;
 }

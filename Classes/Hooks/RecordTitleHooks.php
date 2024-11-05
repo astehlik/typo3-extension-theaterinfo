@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Hooks;
@@ -13,28 +14,60 @@ namespace Sto\Theaterinfo\Hooks;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Backend\Utility\BackendUtility;
+use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 
 /**
- * Hooks for record title display in the Backend
+ * Hooks for record title display in the Backend.
  */
 class RecordTitleHooks
 {
-    /**
-     * @param array $params
-     * @param object $pObj
-     */
-    function getActorTitle(&$params, $pObj)
+    public function getActorTitle(array &$params): void
     {
+        $table = $params['table'];
 
-        $data = BackendUtility::getRecord($params['table'], $params['row']['uid']);
-
-        // Person
-        if ($data['type'] == '0') {
-            $params['title'] = $data['lastname'] . ', ' . $data['firstname'];
-        } // Company
-        else {
-            $params['title'] = $data['company'];
+        if ($table !== 'tx_theaterinfo_domain_model_actor') {
+            return;
         }
+
+        if (!isset($params['row']['type'])) {
+            return;
+        }
+
+        $row = $params['row'];
+
+        $type = $this->getType($row['type']);
+
+        $title = match ($type) {
+            ActorType::PERSON => $this->buildPersonName($row),
+            ActorType::COMPANY => $row['company'],
+            default => '',
+        };
+
+        if ($title === '') {
+            return;
+        }
+
+        $params['title'] = $title;
+    }
+
+    protected function buildPersonName(array $row): string
+    {
+        $nameParts = [
+            $row['lastname'],
+            $row['firstname'],
+        ];
+
+        return implode(', ', array_filter($nameParts));
+    }
+
+    protected function getType(mixed $type): ?ActorType
+    {
+        $type = is_array($type) ? array_pop($type) : $type;
+
+        if ($type === null) {
+            return null;
+        }
+
+        return ActorType::tryFrom((int)$type);
     }
 }

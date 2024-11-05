@@ -1,42 +1,44 @@
 <?php
+
 declare(strict_types=1);
+
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_helper.';
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helper',
+        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_helper',
         'label' => 'helpertype',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
-        'sortby' => 'sorting',
         'delete' => 'deleted',
-        'enablecolumns' => [
-            'disabled' => 'hidden',
-        ],
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
+        'enablecolumns' => ['disabled' => 'hidden'],
+        'typeicon_classes' => ['default' => 'status-user-group-frontend'],
         'hideTable' => true,
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,helpertype,actors,insert_spacer,playuid',
     ],
     'columns' => [
         'hidden' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
-                'default' => '0',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ],
+                ],
             ],
         ],
         'helpertype' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helper.helpertype',
+            'label' => $languagePrefixColumn . 'helpertype',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_theaterinfo_domain_model_helpertype',
                 'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_helpertype.jobtitle',
-                'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Helpertype',
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
@@ -44,17 +46,16 @@ return [
         ],
         'actors' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helper.actors',
+            'label' => $languagePrefixColumn . 'actors',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_theaterinfo_domain_model_actor',
-                'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname, tx_theaterinfo_domain_model_actor.firstname',
-                'foreign_class' => 'Tx_Theaterinfo_Domain_Model_Actor',
+                'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname,'
+                    . ' tx_theaterinfo_domain_model_actor.firstname',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
-                'enableMultiSelectFilterTextfield' => true,
                 'fieldControl' => [
                     'editPopup' => [
                         'disabled' => false,
@@ -68,15 +69,11 @@ return [
         ],
         'insert_spacer' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_helper.insert_spacer',
-            'config' => [
-                'type' => 'check',
-            ],
+            'label' => $languagePrefixColumn . 'insert_spacer',
+            'config' => ['type' => 'check'],
         ],
         'playuid' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
+            'config' => ['type' => 'passthrough'],
         ],
     ],
     'types' => [

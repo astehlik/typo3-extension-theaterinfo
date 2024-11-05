@@ -1,5 +1,7 @@
 <?php
+
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
+
 /** @noinspection PhpMissingStrictTypesDeclarationInspection */
 
 defined('TYPO3') or die();
@@ -10,23 +12,24 @@ defined('TYPO3') or die();
  * the user input (default settings, FlexForm, URL etc.)
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'PlaysList',
-    [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show',],
-    []
+    [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show'],
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'ShowManagement',
     [
         \Sto\Theaterinfo\Controller\ManagementController::class => 'list',
         \Sto\Theaterinfo\Controller\ActorController::class => 'show',
     ],
-    []
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Sto.Theaterinfo',
+    'Theaterinfo',
     'CardOrderForm',
     [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder,takeOrderConfirmation'],
-    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder']
+    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder'],
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

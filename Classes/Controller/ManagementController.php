@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Repository\ActorRepository;
 use Sto\Theaterinfo\Domain\Repository\ManagementPositionRepository;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
@@ -21,78 +22,74 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject;
 
 /**
- * Controller for displaying information about the management
+ * Controller for displaying information about the management.
  */
 class ManagementController extends ActionController
 {
-    protected ActorRepository $actorRepository;
-
-    protected ManagementPositionRepository $managementPositionRepository;
-
-    public function injectActorRepository(ActorRepository $actorRepository)
-    {
-        $this->actorRepository = $actorRepository;
-    }
-
-    public function injectManagementPositionRepository(ManagementPositionRepository $managementPositionRepository)
-    {
-        $this->managementPositionRepository = $managementPositionRepository;
-    }
+    public function __construct(
+        protected readonly ActorRepository $actorRepository,
+        protected readonly ManagementPositionRepository $managementPositionRepository,
+    ) {}
 
     /**
-     * Returns a string that will be appended to the breadcrumb menu
+     * Returns a string that will be appended to the breadcrumb menu.
      */
-    public function breadcrumbMenuAction(): string
+    public function breadcrumbMenuAction(): ResponseInterface
     {
-        $breadcrumbMenu = '';
+        $response = $this->htmlResponse();
 
         if (!$this->requestIsActorDetailView()) {
-            return $breadcrumbMenu;
+            return $response;
         }
 
         if (!$this->request->hasArgument('actor')) {
-            return $breadcrumbMenu;
+            return $response;
         }
 
         $actorUid = $this->request->getArgument('actor');
         $actor = $this->actorRepository->findByUid($actorUid);
 
-        if (isset($actor)) {
-            $breadcrumbMenu = '<li><strong>' . $actor->getFullName() . '</strong></li>';
+        if (!isset($actor)) {
+            return $response;
         }
 
-        return $breadcrumbMenu;
+        return $this->htmlResponse('<li><strong>' . $actor->getFullName() . '</strong></li>');
     }
 
     /**
-     * Returns an updated version for the breadcrumb Menu array
+     * Returns an updated version for the breadcrumb Menu array.
      */
-    public function breadcrumbMenuArrayAction(): string
+    public function breadcrumbMenuArrayAction(): ResponseInterface
     {
+        // TODO: we need a different solution here for TYPO3 10!
+        /*
         $frameworkConfig = $this->configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
         );
-        /** @var AbstractMenuContentObject $parentMenuObject */
+
+        // @var AbstractMenuContentObject $parentMenuObject
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
         if ($this->requestIsActorDetailView()) {
-            // TODO: we need a different solution here for TYPO3 10!
-            // unset($parentMenuObject->mconf['CUR']);
+            unset($parentMenuObject->mconf['CUR']);
         }
+        */
 
-        return '';
+        return $this->htmlResponse('');
     }
 
     /**
-     * List action for this controller. Displays all plays
+     * List action for this controller. Displays all plays.
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
     {
         $this->view->assign('managementPositions', $this->managementPositionRepository->findForList());
+
+        return $this->htmlResponse();
     }
 
     /**
-     * Returns true if the current action is an actor detail view
+     * Returns true if the current action is an actor detail view.
      */
     protected function requestIsActorDetailView(): bool
     {
@@ -106,10 +103,9 @@ class ManagementController extends ActionController
             $controller = $this->request->getArgument('controller');
         }
 
-        if (($controller == 'Actor') && ($action == 'show')) {
+        if (($controller === 'Actor') && ($action === 'show')) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

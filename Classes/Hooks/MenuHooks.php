@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Hooks;
@@ -18,12 +19,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Core\Bootstrap;
 
 /**
- * Class containing methods for menu related hooks
+ * Class containing methods for menu related hooks.
  */
 class MenuHooks
 {
-    public function getBreadcrumbMenuArrayManagement(array $currentMenuArray, array $additionalParameters): array
-    {
+    public function getBreadcrumbMenuArrayManagement(
+        array $currentMenuArray,
+        array $additionalParameters,
+    ): array {
         $parentMenuObject = $additionalParameters['parentObj'];
 
         $configuration = [
@@ -32,52 +35,51 @@ class MenuHooks
             'parentMenuObject' => $parentMenuObject,
         ];
 
-        $currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
+        $theaterinfoConfig = &$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo'];
+
+        $currentControllerConfiguration = $theaterinfoConfig['plugins']['ShowManagement']['controllers'];
 
         /** @uses ManagementController::breadcrumbMenuArrayAction() */
         /** @noinspection PhpArrayIndexImmediatelyRewrittenInspection */
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
+        $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
-                'actions' => [
-                    'breadcrumbMenuArray',
-                ],
+                'actions' => ['breadcrumbMenuArray'],
             ],
         ];
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
-        $extbaseBootrap->run('', $configuration);
+        // @extensionScannerIgnoreLine Code is currently unused.
+        $extbaseBootrap->run('', $configuration, $GLOBALS['TYPO3_REQUEST']);
 
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
+        $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 
         return $currentMenuArray;
     }
 
-    /**
-     * @param array $configuration
-     * @return string
-     */
-    public function getBreadcrumbMenuManagement($configuration)
+    public function getBreadcrumbMenuManagement(array $configuration): string
     {
         $configuration = [
             'extensionName' => 'Theaterinfo',
             'pluginName' => 'ShowManagement',
         ];
 
-        $currentControllerConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'];
+        $theaterinfoConfig = &$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo'];
+
+        $currentControllerConfiguration = $theaterinfoConfig['plugins']['ShowManagement']['controllers'];
 
         /** @noinspection PhpArrayIndexImmediatelyRewrittenInspection */
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = [
+        $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = [
             'Management' => [
-                'actions' => [
-                    'breadcrumbMenu',
-                ],
+                'actions' => ['breadcrumbMenu'],
             ],
         ];
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
-        $result = $extbaseBootrap->run('', $configuration);
 
-        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']['Theaterinfo']['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
+        /** @extensionScannerIgnoreLine Code is currently unused. */
+        $result = $extbaseBootrap->run('', $configuration, $GLOBALS['TYPO3_REQUEST']);
+
+        $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 
         return $result;
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -12,35 +14,41 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\ManagementPosition;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for management positions
+ * Repository for management positions.
  *
- * @method \TYPO3\CMS\Extbase\Persistence\QueryResultInterface findByShowInOverview($showInOverview) Returns all
- *     positions where showInOverview is true.
+ * @extends Repository<ManagementPosition>
+ *
+ * @method QueryResultInterface<string, ManagementPosition> findByShowInOverview($showInOverview) Returns all positions
+ *                                                                                                where showInOverview
+ *                                                                                                is true.
  */
 class ManagementPositionRepository extends Repository
 {
     /**
-     * Initializes the default orderings.
+     * Finds all management positions that should be displayed in the list.
+     *
+     * @return QueryResultInterface<string, ManagementPosition>
      */
-    public function initializeObject()
+    public function findForList(): QueryResultInterface
     {
-        $this->setDefaultOrderings(
-            [
-                'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
-            ]
-        );
+        return $this->findByShowInOverview(true);
     }
 
     /**
-     * Finds all management positions that should be displayed in the list.
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     * Initializes the default orderings.
      */
-    public function findForList()
+    public function initializeObject(): void
     {
-        return $this->findByShowInOverview(true);
+        $this->setDefaultOrderings(
+            [
+                'sorting' => QueryInterface::ORDER_ASCENDING,
+            ],
+        );
     }
 }

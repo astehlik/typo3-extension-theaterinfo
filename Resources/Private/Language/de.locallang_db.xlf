@@ -4,6 +4,34 @@
 		  product-name="theaterinfo">
 		<header/>
 		<body>
+			<trans-unit id="tt_content.CType.group.theaterinfo" xml:space="preserve" approved="yes">
+				<source>Theater</source>
+				<target>Theater</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_cardorderform" xml:space="preserve" approved="yes">
+				<source>Card order form</source>
+				<target>Kartenbestellformular</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_cardorderform.description" xml:space="preserve" approved="yes">
+				<source>Displays a form for ordering tickets to plays</source>
+				<target>Zeigt ein Formular zum Bestellen von Karten für Theaterstücke an</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_playslist" xml:space="preserve" approved="yes">
+				<source>Plays list</source>
+				<target>Theaterstück-Liste</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_playslist.description" xml:space="preserve" approved="yes">
+				<source>Shows a list of plays ordered by time</source>
+				<target>Zeigt eine Liste von Theaterstücken sortiert nach Zeit an</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_showmanagement" xml:space="preserve" approved="yes">
+				<source>Management list</source>
+				<target>Vorstandsliste</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.theaterinfo_showmanagement.description" xml:space="preserve" approved="yes">
+				<source>Shows all management positions with the person that is currently occupying them</source>
+				<target>Zeigt alle Vorstandsposten mit deren aktueller Besetzung an</target>
+			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor" xml:space="preserve" approved="yes">
 				<source>Actor</source>
 				<target>Schauspieler</target>
@@ -33,12 +61,16 @@
 				<target>Geschlecht</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.0" xml:space="preserve" approved="yes">
-				<source>Male</source>
-				<target>Männlich</target>
+				<source>Unspecified</source>
+				<target>Nicht spezifiziert</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.1" xml:space="preserve" approved="yes">
 				<source>Female</source>
 				<target>Weiblich</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_actor.gender.I.3" xml:space="preserve" approved="yes">
+				<source>Male</source>
+				<target>Männlich</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_actor.hobbys" xml:space="preserve" approved="yes">
 				<source>Hobbys (one per line)</source>
@@ -88,7 +120,43 @@
 				<source>Company</source>
 				<target>Firma</target>
 			</trans-unit>
-			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.is_sold_out" xml:space="preserve">
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder" xml:space="preserve" approved="yes">
+				<source>Card order</source>
+				<target>Kartenbestellung</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.address" xml:space="preserve" approved="yes">
+				<source>Address</source>
+				<target>Anschift</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.city" xml:space="preserve" approved="yes">
+				<source>City</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.email" xml:space="preserve" approved="yes">
+				<source>Email</source>
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.firstname" xml:space="preserve" approved="yes">
+				<source>Firstname</source>
+				<target>Vorname</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.lastname" xml:space="preserve" approved="yes">
+				<source>Lastname</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.notes" xml:space="preserve" approved="yes">
+				<source>Notes</source>
+				<target>Hinweise</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.rows" xml:space="preserve" approved="yes">
+				<source>Rows</source>
+				<target>Positionen</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorder.zip" xml:space="preserve" approved="yes">
+				<source>ZIP Code</source>
+				<target>Postleitzahl</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_cardorderdate.is_sold_out" xml:space="preserve" approved="yes">
 				<source>Is sold out</source>
 				<target>Ist ausverkauft</target>
 			</trans-unit>
@@ -127,6 +195,10 @@
 			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor" xml:space="preserve" approved="yes">
 				<source>Actor</source>
 				<target>Schauspieler</target>
+			</trans-unit>
+			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.actor_name_suffix" xml:space="preserve" approved="yes">
+				<source>Actor name suffix</source>
+				<target>Suffix für Namen des Schauspielers</target>
 			</trans-unit>
 			<trans-unit id="tx_theaterinfo_domain_model_managementmembership.enddate" xml:space="preserve" approved="yes">
 				<source>Member until</source>

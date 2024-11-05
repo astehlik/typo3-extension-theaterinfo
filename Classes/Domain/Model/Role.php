@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -13,25 +14,20 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * A role in a play
+ * A role in a play.
  */
 class Role extends AbstractEntity
 {
     /**
      * @var ObjectStorage<Actor>
      */
-    protected $actors;
+    protected ObjectStorage $actors;
 
-    /**
-     * @var string
-     * @Extbase\Validate("NotEmpty")
-     */
-    protected $name;
+    protected ?string $name = null;
 
     public function __construct()
     {
@@ -39,7 +35,7 @@ class Role extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage|Actor[]
+     * @return ObjectStorage<Actor>
      */
     public function getActors(): ObjectStorage
     {
@@ -48,6 +44,6 @@ class Role extends AbstractEntity
 
     public function getName(): string
     {
-        return $this->name;
+        return (string)$this->name;
     }
 }

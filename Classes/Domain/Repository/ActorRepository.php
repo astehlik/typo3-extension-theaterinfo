@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sto\Theaterinfo\Domain\Repository;
 
 /*                                                                        *
@@ -12,13 +14,12 @@ namespace Sto\Theaterinfo\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Sto\Theaterinfo\Domain\Model\Actor;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for actors
+ * Repository for actors.
  *
- * @method \Sto\Theaterinfo\Domain\Model\Actor findByUid($uid)
+ * @extends Repository<Actor>
  */
-class ActorRepository extends Repository
-{
-}
+class ActorRepository extends Repository {}

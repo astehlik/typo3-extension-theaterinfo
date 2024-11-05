@@ -14,43 +14,58 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\Play;
 use Sto\Theaterinfo\Domain\Repository\PlayRepository;
+use Sto\Theaterinfo\TheaterinfoPageTitleProvider;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * Controller for displaying play information
+ * Controller for displaying play information.
  */
 class PlayController extends ActionController
 {
-    protected PlayRepository $playRepository;
-
-    public function injectPlayRepository(PlayRepository $playRepository)
-    {
-        $this->playRepository = $playRepository;
-    }
+    public function __construct(
+        protected readonly PlayRepository $playRepository,
+        protected readonly TheaterinfoPageTitleProvider $titleProvider,
+    ) {}
 
     /**
-     * List action for this controller. Displays all plays
+     * List action for this controller. Displays all plays.
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
     {
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $this->getCurrentContentObject();
+
+        /** @extensionScannerIgnoreLine */
         $header = $contentObject->data['header'];
 
         $this->view->assign('header', $header);
         $this->view->assign('plays', $this->playRepository->findAll());
+
+        return $this->htmlResponse();
     }
 
     /**
-     * Action that displays one single play
+     * Action that displays one single play.
      *
      * @param Play $play The play to display
+     *
      * @Extbase\IgnoreValidation("play")
      */
-    public function showAction(Play $play)
+    public function showAction(Play $play): ResponseInterface
     {
+        $this->titleProvider->setTitle($play->getTitle());
+
         $this->view->assign('play', $play);
+
+        return $this->htmlResponse();
+    }
+
+    protected function getCurrentContentObject(): ContentObjectRenderer
+    {
+        return $this->request->getAttribute('currentContentObject');
     }
 }

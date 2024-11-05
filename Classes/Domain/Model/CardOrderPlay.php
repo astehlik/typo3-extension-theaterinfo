@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
@@ -11,45 +12,24 @@ class CardOrderPlay extends AbstractEntity
     /**
      * @var ObjectStorage<CardOrderDate>
      */
-    protected $dates;
+    protected ObjectStorage $dates;
+
+    protected string $description;
+
+    protected string $descriptionMail;
+
+    protected string $label;
+
+    protected float $priceNormal;
+
+    protected string $priceNormalDescription;
+
+    protected float $priceReduced;
+
+    protected string $priceReducedDescription;
 
     /**
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * @var string
-     */
-    protected $descriptionMail;
-
-    /**
-     * @var string
-     */
-    protected $label;
-
-    /**
-     * @var double
-     */
-    protected $priceNormal;
-
-    /**
-     * @var string
-     */
-    protected $priceNormalDescription;
-
-    /**
-     * @var double
-     */
-    protected $priceReduced;
-
-    /**
-     * @var string
-     */
-    protected $priceReducedDescription;
-
-    /**
-     * @return CardOrderDate[]|ObjectStorage
+     * @return ObjectStorage<CardOrderDate>
      */
     public function getDates(): ObjectStorage
     {
@@ -61,9 +41,9 @@ class CardOrderPlay extends AbstractEntity
         $dates = $this->getDates()->toArray();
         usort(
             $dates,
-            function (CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) {
-                return $cardOrderDate1->getDateAndTime()->diff($cardOrderDate2->getDateAndTime())->invert === 1;
-            }
+            static function (CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) {
+                return $cardOrderDate1->getDateAndTime() <=> $cardOrderDate2->getDateAndTime();
+            },
         );
         return $dates;
     }

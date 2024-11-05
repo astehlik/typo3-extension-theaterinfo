@@ -1,7 +1,8 @@
 {
     "name": "de-swebhosting-typo3-extension/theaterinfo",
-    "type": "typo3-cms-extension",
     "description": "TYPO3 Extension for displaying information about theater plays, actors and their roles and tasks",
+    "license": "GPL-3.0-or-later",
+    "type": "typo3-cms-extension",
     "keywords": [
         "TYPO3",
         "theater",
@@ -9,10 +10,6 @@
         "actors",
         "roles"
     ],
-    "homepage": "https://github.com/astehlik/typo3-extension-theaterinfo",
-    "support": {
-        "issues": "https://github.com/astehlik/typo3-extension-theaterinfo/issues"
-    },
     "authors": [
         {
             "name": "Alexander Stehlik",
@@ -20,34 +17,49 @@
             "role": "Developer"
         }
     ],
-    "license": "GPL-3.0-or-later",
+    "homepage": "https://github.com/astehlik/typo3-extension-theaterinfo",
+    "support": {
+        "issues": "https://github.com/astehlik/typo3-extension-theaterinfo/issues"
+    },
     "require": {
-        "php": "^8.0",
-        "typo3/cms-core": "^11.0"
+        "php": "^8.2",
+        "typo3/cms-core": "~13.4.0"
+    },
+    "require-dev": {
+        "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_13",
+        "michielroos/typo3scan": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "Sto\\Theaterinfo\\": "Classes/"
         }
     },
-    "replace": {
-        "typo3-ter/theaterinfo": "self.version"
+    "autoload-dev": {
+        "psr-4": {
+            "Sto\\Theaterinfo\\Tests\\": "Tests/"
+        }
     },
     "config": {
-        "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin"
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "bin-dir": "bin",
+        "vendor-dir": ".Build/vendor"
+    },
+    "extra": {
+        "typo3/class-alias-loader": {
+            "always-add-alias-loader": true
+        },
+        "typo3/cms": {
+            "extension-key": "theaterinfo",
+            "web-dir": ".Build/Web"
+        }
     },
     "scripts": {
         "post-autoload-dump": [
-            "mkdir -p .Build/Web/typo3conf/ext/",
-            "[ -L .Build/Web/typo3conf/ext/theaterinfo ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/theaterinfo"
+            "De\\SWebhosting\\Buildtools\\ExtensionTestEnvironment::prepare"
         ]
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "theaterinfo",
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": ".Build/Web"
-        }
     }
 }

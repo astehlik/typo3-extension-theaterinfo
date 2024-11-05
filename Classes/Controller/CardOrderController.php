@@ -14,77 +14,66 @@ namespace Sto\Theaterinfo\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\CardOrder;
 use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
 use Sto\Theaterinfo\Domain\Repository\CardOrderRepository;
 use Sto\Theaterinfo\Domain\Service\CardOrderMailService;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * Controller for displaying play information
+ * Controller for displaying play information.
  */
 class CardOrderController extends ActionController
 {
-    private CardOrderMailService $cardOrderMailService;
+    public function __construct(
+        protected readonly CardOrderMailService $cardOrderMailService,
+        protected readonly CardOrderPlayRepository $cardOrderPlayRepository,
+        protected readonly CardOrderRepository $cardOrderRepository,
+    ) {}
 
-    private CardOrderPlayRepository $cardOrderPlayRepository;
-
-    private CardOrderRepository $cardOrderRepository;
-
-    public function initializeAction()
+    public function initializeAction(): void
     {
         $cardOrderArgument = $this->arguments->getArgument('cardOrder');
         $cardOrderMappingConfig = $cardOrderArgument->getPropertyMappingConfiguration();
         $cardOrderMappingConfig->forProperty('rows')->setTypeConverterOption(
             ObjectConverter::class,
-            ObjectConverter::CONFIGURATION_TARGET_TYPE,
-            ObjectStorage::class . '<' . CardOrderRow::class . '>'
+            (string)ObjectConverter::CONFIGURATION_TARGET_TYPE,
+            ObjectStorage::class . '<' . CardOrderRow::class . '>',
         );
     }
 
-    public function injectCardOrderMailService(CardOrderMailService $cardOrderMailService)
-    {
-        $this->cardOrderMailService = $cardOrderMailService;
-    }
-
-    public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository)
-    {
-        $this->cardOrderPlayRepository = $cardOrderPlayRepository;
-    }
-
-    public function injectCardOrderRepository(CardOrderRepository $cardOrderRepository)
-    {
-        $this->cardOrderRepository = $cardOrderRepository;
-    }
-
     /**
-     * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function orderFormAction(?CardOrder $cardOrder = null)
+    public function orderFormAction(?CardOrder $cardOrder = null): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
         $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
+
+        return $this->htmlResponse();
     }
 
-    public function takeOrderAction(?CardOrder $cardOrder)
+    public function takeOrderAction(?CardOrder $cardOrder): ResponseInterface
     {
         $this->cardOrderRepository->addAndPersist($cardOrder);
         $this->cardOrderMailService->sendCardOrderMails($cardOrder);
-        $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
+        return $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
     }
 
     /**
-     * @param \Sto\Theaterinfo\Domain\Model\CardOrder|null $cardOrder
      * @Extbase\IgnoreValidation("cardOrder")
      */
-    public function takeOrderConfirmationAction(?CardOrder $cardOrder)
+    public function takeOrderConfirmationAction(?CardOrder $cardOrder): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
+
+        return $this->htmlResponse();
     }
 
     /**
@@ -94,11 +83,16 @@ class CardOrderController extends ActionController
      */
     protected function getErrorFlashMessage(): string
     {
-        $translationKey = 'error.controller.cardOrder.action.' . $this->actionMethodName;
+        $actionMethodName = $this->request->getControllerActionName() . 'Action';
+
+        $translationKey = 'error.controller.cardOrder.action.' . $actionMethodName;
+
         $errorMessage = LocalizationUtility::translate($translationKey, $this->request->getControllerExtensionName());
+
         if (!isset($errorMessage)) {
             return $translationKey;
         }
+
         return $errorMessage;
     }
 }

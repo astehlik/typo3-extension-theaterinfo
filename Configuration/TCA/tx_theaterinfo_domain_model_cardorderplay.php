@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-$languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay.';
 
 return [
@@ -10,7 +11,6 @@ return [
         'sortby' => 'sorting',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderplay',
         'delete' => 'deleted',
         'enablecolumns' => [
@@ -18,13 +18,9 @@ return [
             'starttime' => 'enable_starttime',
             'endtime' => 'enable_endtime',
         ],
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'label, description, description_mail, enable_endtime, enable_starttime,
-            enable_hidden, price_normal, price_normal_description, price_reduced, price_reduced_description',
+        'typeicon_classes' => ['default' => 'content-package'],
     ],
     'columns' => [
-
         'dates' => [
             'label' => $languagePrefixColumn . 'dates',
             'config' => [
@@ -68,9 +64,7 @@ return [
         'enable_endtime' => [
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038),
@@ -79,12 +73,15 @@ return [
         ],
 
         'enable_hidden' => [
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0',
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
                     ],
                 ],
             ],
@@ -93,9 +90,7 @@ return [
         'enable_starttime' => [
             'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
                 'default' => 0,
             ],
         ],
@@ -112,9 +107,8 @@ return [
         'price_normal' => [
             'label' => $languagePrefixColumn . 'price_normal',
             'config' => [
-                'type' => 'input',
-                'size' => 10,
-                'eval' => 'double2',
+                'type' => 'number',
+                'format' => 'decimal',
             ],
         ],
 
@@ -130,9 +124,8 @@ return [
         'price_reduced' => [
             'label' => $languagePrefixColumn . 'price_reduced',
             'config' => [
-                'type' => 'input',
-                'size' => 10,
-                'eval' => 'double2',
+                'type' => 'number',
+                'format' => 'decimal',
             ],
         ],
 
@@ -144,7 +137,6 @@ return [
                 'cols' => 30,
             ],
         ],
-
     ],
     'types' => [
         '0' => [

@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-$languagePrefix = 'LLL:' . 'EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_cardorderrow.';
 
 return [
@@ -9,34 +10,30 @@ return [
         'label' => 'play_date',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderrow',
         'delete' => 'deleted',
         'hideTable' => true,
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'admount',
+        'typeicon_classes' => ['default' => 'content-package'],
     ],
     'columns' => [
-
         'amount_normal' => [
             'label' => $languagePrefixColumn . 'amount_normal',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
+                'range' => ['lower' => 0],
             ],
         ],
 
         'amount_reduced' => [
             'label' => $languagePrefixColumn . 'amount_reduced',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
+                'range' => ['lower' => 0],
             ],
         ],
 
         'play_date' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
+            'config' => ['type' => 'passthrough'],
         ],
     ],
 

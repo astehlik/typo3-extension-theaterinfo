@@ -1,29 +1,39 @@
 <?php
+
 declare(strict_types=1);
+
+$languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
+$languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_managementmembership.';
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementmembership',
+        'title' => $languagePrefix . 'tx_theaterinfo_domain_model_managementmembership',
         'label' => 'position',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'default_sortby' => 'ORDER BY startdate',
         'delete' => 'deleted',
         'enablecolumns' => [
             'starttime' => 'startdate',
             'endtime' => 'enddate',
         ],
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif',
+        'typeicon_classes' => ['default' => 'content-briefcase'],
         'hideTable' => true,
     ],
-    'interface' => [
-        'showRecordFieldList' => 'position,actor,startdate,enddate',
-    ],
     'columns' => [
+        'actor_name_suffix' => [
+            'exclude' => 0,
+            'label' => $languagePrefixColumn . 'actor_name_suffix',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'max' => 255,
+                'eval' => 'trim',
+            ],
+        ],
         'position' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementmembership.position',
+            'label' => $languagePrefixColumn . 'position',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -35,24 +45,24 @@ return [
         ],
         'startdate' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementmembership.startdate',
+            'label' => $languagePrefixColumn . 'startdate',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'enddate' => [
             'exclude' => 0,
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementmembership.enddate',
+            'label' => $languagePrefixColumn . 'enddate',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'date',
+                'type' => 'datetime',
+                'format' => 'date',
+                'eval' => 'int',
             ],
         ],
         'actor' => [
-            'label' => 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:tx_theaterinfo_domain_model_managementmembership.actor',
+            'label' => $languagePrefixColumn . 'actor',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -64,6 +74,6 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'position, actor, startdate, enddate'],
+        '0' => ['showitem' => 'position, actor, actor_name_suffix, startdate, enddate'],
     ],
 ];
