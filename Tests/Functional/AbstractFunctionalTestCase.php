@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tx\Tinyurls\Tests\Functional;
+namespace Sto\Theaterinfo\Tests\Functional;
 
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tx\Tinyurls\Tests\Unit\Hooks;
+namespace Sto\Theaterinfo\Tests\Unit\Hooks;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;

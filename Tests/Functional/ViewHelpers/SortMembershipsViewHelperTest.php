@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tx\Tinyurls\Tests\Functional\ViewHelpers;
+namespace Sto\Theaterinfo\Tests\Functional\ViewHelpers;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Sto\Theaterinfo\Domain\Model\Actor;
 use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\ManagementMembership;
 use Sto\Theaterinfo\ViewHelpers\SortMembershipsViewHelper;
-use Tx\Tinyurls\Tests\Functional\AbstractFunctionalTestCase;
+use Sto\Theaterinfo\Tests\Functional\AbstractFunctionalTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
 use TYPO3Fluid\Fluid\View\TemplateView;
