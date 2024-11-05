@@ -30,4 +30,4 @@ lib.tx_theaterinfo_hints {
   }
 }
 
-<INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.typoscript">
