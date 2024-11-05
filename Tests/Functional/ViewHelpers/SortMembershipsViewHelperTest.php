@@ -39,6 +39,7 @@ class SortMembershipsViewHelperTest extends AbstractFunctionalTestCase
 
         $context = $this->get(RenderingContextFactory::class)->create();
         $context->getVariableProvider()->add('memberships', $memberships);
+
         /** @noinspection XmlUnusedNamespaceDeclaration */
         $context->getTemplatePaths()->setTemplateSource('
             <html data-namespace-typo3-fluid="true" xmlns:ti="http://typo3.org/ns/Sto/Theaterinfo/ViewHelpers">
