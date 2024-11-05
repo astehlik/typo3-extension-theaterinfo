@@ -26,9 +26,10 @@ use TYPO3\CMS\Frontend\ContentObject\Menu\AbstractMenuContentObject;
  */
 class ManagementController extends ActionController
 {
-    protected ActorRepository $actorRepository;
-
-    protected ManagementPositionRepository $managementPositionRepository;
+    public function __construct(
+        protected readonly ActorRepository $actorRepository,
+        protected readonly ManagementPositionRepository $managementPositionRepository,
+    ) {}
 
     /**
      * Returns a string that will be appended to the breadcrumb menu.
@@ -73,16 +74,6 @@ class ManagementController extends ActionController
         }
 
         return $this->htmlResponse('');
-    }
-
-    public function injectActorRepository(ActorRepository $actorRepository): void
-    {
-        $this->actorRepository = $actorRepository;
-    }
-
-    public function injectManagementPositionRepository(ManagementPositionRepository $managementPositionRepository): void
-    {
-        $this->managementPositionRepository = $managementPositionRepository;
     }
 
     /**

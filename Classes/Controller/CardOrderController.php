@@ -30,11 +30,11 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class CardOrderController extends ActionController
 {
-    private CardOrderMailService $cardOrderMailService;
-
-    private CardOrderPlayRepository $cardOrderPlayRepository;
-
-    private CardOrderRepository $cardOrderRepository;
+    public function __construct(
+        protected readonly CardOrderMailService $cardOrderMailService,
+        protected readonly CardOrderPlayRepository $cardOrderPlayRepository,
+        protected readonly CardOrderRepository $cardOrderRepository,
+    ) {}
 
     public function initializeAction(): void
     {
@@ -45,21 +45,6 @@ class CardOrderController extends ActionController
             ObjectConverter::CONFIGURATION_TARGET_TYPE,
             ObjectStorage::class . '<' . CardOrderRow::class . '>',
         );
-    }
-
-    public function injectCardOrderMailService(CardOrderMailService $cardOrderMailService): void
-    {
-        $this->cardOrderMailService = $cardOrderMailService;
-    }
-
-    public function injectCardOrderPlayRepository(CardOrderPlayRepository $cardOrderPlayRepository): void
-    {
-        $this->cardOrderPlayRepository = $cardOrderPlayRepository;
-    }
-
-    public function injectCardOrderRepository(CardOrderRepository $cardOrderRepository): void
-    {
-        $this->cardOrderRepository = $cardOrderRepository;
     }
 
     /**

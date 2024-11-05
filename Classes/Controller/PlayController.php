@@ -26,12 +26,9 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class PlayController extends ActionController
 {
-    protected PlayRepository $playRepository;
-
-    public function injectPlayRepository(PlayRepository $playRepository): void
-    {
-        $this->playRepository = $playRepository;
-    }
+    public function __construct(
+        protected readonly PlayRepository $playRepository,
+    ) {}
 
     /**
      * List action for this controller. Displays all plays.
