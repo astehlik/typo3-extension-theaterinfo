@@ -49,19 +49,14 @@ class MenuHooks
 
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
         // @extensionScannerIgnoreLine Code is currently unused.
-        $extbaseBootrap->run('', $configuration);
+        $extbaseBootrap->run('', $configuration, $GLOBALS['TYPO3_REQUEST']);
 
         $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 
         return $currentMenuArray;
     }
 
-    /**
-     * @param array $configuration
-     *
-     * @return string
-     */
-    public function getBreadcrumbMenuManagement($configuration)
+    public function getBreadcrumbMenuManagement(array $configuration): string
     {
         $configuration = [
             'extensionName' => 'Theaterinfo',
@@ -82,7 +77,7 @@ class MenuHooks
         $extbaseBootrap = GeneralUtility::makeInstance(Bootstrap::class);
 
         /** @extensionScannerIgnoreLine Code is currently unused. */
-        $result = $extbaseBootrap->run('', $configuration);
+        $result = $extbaseBootrap->run('', $configuration, $GLOBALS['TYPO3_REQUEST']);
 
         $theaterinfoConfig['plugins']['ShowManagement']['controllers'] = $currentControllerConfiguration;
 

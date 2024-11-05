@@ -61,17 +61,19 @@ class ManagementController extends ActionController
      */
     public function breadcrumbMenuArrayAction(): ResponseInterface
     {
+        // TODO: we need a different solution here for TYPO3 10!
+        /*
         $frameworkConfig = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
         );
 
-        /** @var AbstractMenuContentObject $parentMenuObject */
+        // @var AbstractMenuContentObject $parentMenuObject
         $parentMenuObject = $frameworkConfig['parentMenuObject'];
 
         if ($this->requestIsActorDetailView()) {
-            // TODO: we need a different solution here for TYPO3 10!
-            // unset($parentMenuObject->mconf['CUR']);
+            unset($parentMenuObject->mconf['CUR']);
         }
+        */
 
         return $this->htmlResponse('');
     }
