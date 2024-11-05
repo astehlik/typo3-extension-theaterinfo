@@ -21,7 +21,6 @@ class SortMembershipsViewHelperTest extends AbstractFunctionalTestCase
     public function testSortsBy(): void
     {
         $actor1 = new Actor();
-
         $actor1->_setProperty('company', 'Company2');
         $actor1->_setProperty('type', ActorType::COMPANY);
 
@@ -40,9 +39,9 @@ class SortMembershipsViewHelperTest extends AbstractFunctionalTestCase
 
         $context = $this->get(RenderingContextFactory::class)->create();
         $context->getVariableProvider()->add('memberships', $memberships);
+        /** @noinspection XmlUnusedNamespaceDeclaration */
         $context->getTemplatePaths()->setTemplateSource('
-            <!--suppress XmlUnusedNamespaceDeclaration, HtmlRequiredLangAttribute -->
-            <html data-namespace-typo3-fluid="true" xmlns:ti="https://typo3.org/ns/Sto/Theaterinfo/ViewHelpers">
+            <html data-namespace-typo3-fluid="true" xmlns:ti="http://typo3.org/ns/Sto/Theaterinfo/ViewHelpers">
             <f:for each="{memberships -> ti:sortMemberships()}" as="membership">{membership.actor.name}</f:for>
             </html>
         ');
