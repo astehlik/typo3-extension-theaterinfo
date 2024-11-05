@@ -6,4 +6,24 @@ services:
 
   Sto\Theaterinfo\:
     resource: '../Classes/*'
-    exclude: '../Classes/Domain/Model/*'
+    exclude:
+      - '../Classes/Domain/Model/*'
+
+  Sto\Theaterinfo\Controller\:
+    resource: '../Classes/Controller/*'
+    public: true
+
+  Sto\Theaterinfo\Domain\Validator\:
+    resource: '../Classes/Domain/Validator/*'
+    public: true
+
+  Sto\Theaterinfo\Hooks\:
+    resource: '../Classes/Hooks/*'
+    public: true
+
+  Sto\Theaterinfo\ViewHelpers\:
+    resource: '../Classes/ViewHelpers/*'
+    public: true
+
+  Sto\Theaterinfo\TheaterinfoPageTitleProvider:
+    public: true
