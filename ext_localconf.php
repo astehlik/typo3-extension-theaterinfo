@@ -15,7 +15,7 @@ defined('TYPO3') or die();
     'Theaterinfo',
     'PlaysList',
     [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show'],
-    []
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Theaterinfo',
@@ -24,11 +24,12 @@ defined('TYPO3') or die();
         \Sto\Theaterinfo\Controller\ManagementController::class => 'list',
         \Sto\Theaterinfo\Controller\ActorController::class => 'show',
     ],
-    []
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Theaterinfo',
     'CardOrderForm',
     [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder,takeOrderConfirmation'],
-    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder']
+    [\Sto\Theaterinfo\Controller\CardOrderController::class => 'orderForm,takeOrder'],
+    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
