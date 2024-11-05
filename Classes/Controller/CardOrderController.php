@@ -43,7 +43,7 @@ class CardOrderController extends ActionController
         $cardOrderMappingConfig = $cardOrderArgument->getPropertyMappingConfiguration();
         $cardOrderMappingConfig->forProperty('rows')->setTypeConverterOption(
             ObjectConverter::class,
-            ObjectConverter::CONFIGURATION_TARGET_TYPE,
+            (string)ObjectConverter::CONFIGURATION_TARGET_TYPE,
             ObjectStorage::class . '<' . CardOrderRow::class . '>',
         );
     }
@@ -83,11 +83,16 @@ class CardOrderController extends ActionController
      */
     protected function getErrorFlashMessage(): string
     {
-        $translationKey = 'error.controller.cardOrder.action.' . $this->actionMethodName;
+        $actionMethodName = $this->request->getControllerActionName() . 'Action';
+
+        $translationKey = 'error.controller.cardOrder.action.' . $actionMethodName;
+
         $errorMessage = LocalizationUtility::translate($translationKey, $this->request->getControllerExtensionName());
+
         if (!isset($errorMessage)) {
             return $translationKey;
         }
+
         return $errorMessage;
     }
 }
