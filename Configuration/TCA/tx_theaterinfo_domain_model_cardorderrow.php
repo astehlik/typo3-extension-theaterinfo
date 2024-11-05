@@ -13,6 +13,7 @@ return [
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorderrow',
         'delete' => 'deleted',
         'hideTable' => true,
+        'typeicon_classes' => ['default' => 'content-package'],
     ],
     'columns' => [
         'amount_normal' => [

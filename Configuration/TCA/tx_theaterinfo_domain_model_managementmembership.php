@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_managementmembership.';
-$iconfile = 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementmembership.gif';
 
 return [
     'ctrl' => [
@@ -18,7 +17,7 @@ return [
             'starttime' => 'startdate',
             'endtime' => 'enddate',
         ],
-        'iconfile' => $iconfile,
+        'typeicon_classes' => ['default' => 'content-briefcase'],
         'hideTable' => true,
     ],
     'columns' => [

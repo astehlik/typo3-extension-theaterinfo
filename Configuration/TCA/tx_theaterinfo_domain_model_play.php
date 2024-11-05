@@ -18,7 +18,7 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_play.gif',
+        'typeicon_classes' => ['default' => 'content-inside-text-img-right'],
         'searchFields' => 'title',
     ],
     'columns' => [

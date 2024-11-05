@@ -17,7 +17,7 @@ return [
         'default_sortby' => 'ORDER BY jobtitle',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helpertype.gif',
+        'typeicon_classes' => ['default' => 'apps-pagetree-folder-contains-fe_users'],
         'searchFields' => 'jobtitle',
     ],
     'columns' => [

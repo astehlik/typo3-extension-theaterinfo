@@ -12,6 +12,7 @@ return [
         'crdate' => 'crdate',
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorder',
         'delete' => 'deleted',
+        'typeicon_classes' => ['default' => 'content-book'],
     ],
     'columns' => [
         'address' => [

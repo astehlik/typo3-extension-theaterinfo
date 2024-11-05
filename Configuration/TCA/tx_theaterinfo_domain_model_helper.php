@@ -13,7 +13,7 @@ return [
         'crdate' => 'crdate',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_helper.gif',
+        'typeicon_classes' => ['default' => 'status-user-group-frontend'],
         'hideTable' => true,
     ],
     'columns' => [

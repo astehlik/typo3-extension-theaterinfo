@@ -13,7 +13,7 @@ return [
         'crdate' => 'crdate',
         'sortby' => 'sorting',
         'delete' => 'deleted',
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_managementposition.gif',
+        'typeicon_classes' => ['default' => 'content-briefcase'],
         'searchFields' => 'name',
     ],
     'columns' => [

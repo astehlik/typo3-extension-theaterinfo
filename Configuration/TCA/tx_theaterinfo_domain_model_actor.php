@@ -23,7 +23,7 @@ return [
         'type' => 'type',
         'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,
-        'iconfile' => 'EXT:theaterinfo/Resources/Public/Icons/icon_tx_theaterinfo_domain_model_actor.gif',
+        'typeicon_classes' => ['default' => 'status-user-frontend'],
         'searchFields' => 'firstname,lastname,company',
     ],
     'columns' => [

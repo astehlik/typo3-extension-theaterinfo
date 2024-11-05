@@ -13,6 +13,7 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'hideTable' => true,
+        'typeicon_classes' => ['default' => 'content-clock'],
     ],
     'columns' => [
         'date_and_time' => [

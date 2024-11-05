@@ -18,6 +18,7 @@ return [
             'starttime' => 'enable_starttime',
             'endtime' => 'enable_endtime',
         ],
+        'typeicon_classes' => ['default' => 'content-package'],
     ],
     'columns' => [
         'dates' => [
