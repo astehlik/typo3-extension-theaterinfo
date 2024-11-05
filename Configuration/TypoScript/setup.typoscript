@@ -11,12 +11,12 @@ plugin.tx_theaterinfo {
       templateRootPaths.0 = EXT:theaterinfo/Resources/Private/Templates/CardOrder/Mail
       partialRootPaths.0 = EXT:theaterinfo/Resources/Private/Partials
 
-      fromEmail =
-      fromName =
+      fromEmail = cardorder@swebhosting.de
+      fromName = TYPO3 Card Order
 
       cardOrderTeam.subject = Neue Online-Kartenbestellung
       cardOrderTeam.toName = Vorverkaufsteam
-      cardOrderTeam.toEmail =
+      cardOrderTeam.toEmail = cardorder@swebhosting.de
 
       user.subject = Ihre Kartenbestellung
     }
