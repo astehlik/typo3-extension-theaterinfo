@@ -12,45 +12,24 @@ class CardOrderPlay extends AbstractEntity
     /**
      * @var ObjectStorage<CardOrderDate>
      */
-    protected $dates;
+    protected ObjectStorage $dates;
+
+    protected string $description;
+
+    protected string $descriptionMail;
+
+    protected string $label;
+
+    protected float $priceNormal;
+
+    protected string $priceNormalDescription;
+
+    protected float $priceReduced;
+
+    protected string $priceReducedDescription;
 
     /**
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * @var string
-     */
-    protected $descriptionMail;
-
-    /**
-     * @var string
-     */
-    protected $label;
-
-    /**
-     * @var float
-     */
-    protected $priceNormal;
-
-    /**
-     * @var string
-     */
-    protected $priceNormalDescription;
-
-    /**
-     * @var float
-     */
-    protected $priceReduced;
-
-    /**
-     * @var string
-     */
-    protected $priceReducedDescription;
-
-    /**
-     * @return CardOrderDate[]|ObjectStorage
+     * @return ObjectStorage<CardOrderDate>
      */
     public function getDates(): ObjectStorage
     {

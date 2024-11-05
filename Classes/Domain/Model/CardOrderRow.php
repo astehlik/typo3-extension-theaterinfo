@@ -10,22 +10,14 @@ use DateTime;
 
 class CardOrderRow extends AbstractEntity
 {
-    /**
-     * @var int
-     */
-    protected $amountNormal = 0;
+    protected int $amountNormal = 0;
+
+    protected int $amountReduced = 0;
 
     /**
-     * @var int
-     */
-    protected $amountReduced = 0;
-
-    /**
-     * @var CardOrderDate
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $playDate;
+    protected CardOrderDate $playDate;
 
     public function getAmountNormal(): int
     {

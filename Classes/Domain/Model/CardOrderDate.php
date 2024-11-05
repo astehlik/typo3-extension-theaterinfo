@@ -9,30 +9,15 @@ use DateTime;
 
 class CardOrderDate extends AbstractEntity
 {
-    /**
-     * @var DateTime
-     */
-    protected $dateAndTime;
+    protected DateTime $dateAndTime;
 
-    /**
-     * @var string
-     */
-    protected $description;
+    protected string $description;
 
-    /**
-     * @var string
-     */
-    protected $descriptionMail;
+    protected string $descriptionMail;
 
-    /**
-     * @var bool
-     */
-    protected $isSoldOut;
+    protected bool $isSoldOut;
 
-    /**
-     * @var CardOrderPlay
-     */
-    protected $parentPlay;
+    protected CardOrderPlay $parentPlay;
 
     public function getDateAndTime(): DateTime
     {
