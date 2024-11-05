@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Resource\FileType;
 
 $languagePrefix = 'LLL:EXT:theaterinfo/Resources/Private/Language/locallang_db.xlf:';
 $languagePrefixColumn = $languagePrefix . 'tx_theaterinfo_domain_model_play.';
@@ -105,7 +105,7 @@ return [
                                 --palette--;;tx_theaterinfo_cropimage,
                                 --palette--;;filePalette',
                         ],
-                        AbstractFile::FILETYPE_TEXT => [
+                        FileType::TEXT->value => [
                             'showitem' => '
                                 --palette--;;tx_theaterinfo_cropimage,
                                 --palette--;;filePalette',
@@ -128,7 +128,7 @@ return [
                                 --palette--;;tx_theaterinfo_playpicture,
                                 --palette--;;filePalette',
                         ],
-                        AbstractFile::FILETYPE_TEXT => [
+                        FileType::TEXT->value => [
                             'showitem' => '
                                 --palette--;;tx_theaterinfo_playpicture,
                                 --palette--;;filePalette',
