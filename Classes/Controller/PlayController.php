@@ -17,6 +17,7 @@ namespace Sto\Theaterinfo\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\Play;
 use Sto\Theaterinfo\Domain\Repository\PlayRepository;
+use Sto\Theaterinfo\TheaterinfoPageTitleProvider;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -28,6 +29,7 @@ class PlayController extends ActionController
 {
     public function __construct(
         protected readonly PlayRepository $playRepository,
+        protected readonly TheaterinfoPageTitleProvider $titleProvider,
     ) {}
 
     /**
@@ -36,6 +38,8 @@ class PlayController extends ActionController
     public function listAction(): ResponseInterface
     {
         $contentObject = $this->getCurrentContentObject();
+
+        /** @extensionScannerIgnoreLine */
         $header = $contentObject->data['header'];
 
         $this->view->assign('header', $header);
@@ -53,12 +57,14 @@ class PlayController extends ActionController
      */
     public function showAction(Play $play): ResponseInterface
     {
+        $this->titleProvider->setTitle($play->getTitle());
+
         $this->view->assign('play', $play);
 
         return $this->htmlResponse();
     }
 
-    private function getCurrentContentObject(): ContentObjectRenderer
+    protected function getCurrentContentObject(): ContentObjectRenderer
     {
         return $this->request->getAttribute('currentContentObject');
     }

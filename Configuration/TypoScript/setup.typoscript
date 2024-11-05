@@ -30,4 +30,11 @@ lib.tx_theaterinfo_hints {
   }
 }
 
+config.pageTitleProviders {
+  theaterinfo {
+    provider = Sto\Theaterinfo\TheaterinfoPageTitleProvider
+    before = record, seo
+  }
+}
+
 <INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.typoscript">
