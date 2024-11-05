@@ -6,35 +6,39 @@ namespace Sto\Theaterinfo\Domain\Service;
 
 use Sto\Theaterinfo\Domain\Model\CardOrder;
 use TYPO3\CMS\Core\Mail\MailMessage;
-use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class CardOrderMailService implements SingletonInterface
+class CardOrderMailService
 {
-    private $settings;
+    private array $settings;
 
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
-    {
-        $this->settings = $configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-        );
-    }
+    public function __construct(
+        protected readonly ConfigurationManagerInterface $configurationManager,
+        protected readonly ViewFactoryInterface $viewFactory,
+    ) {}
 
     public function sendCardOrderMails(CardOrder $cardOrder): void
     {
+        $this->settings = $this->configurationManager->getConfiguration(
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+        );
+
         $this->sendCardOrderTeamMail($cardOrder);
         $this->sendUserMail($cardOrder);
     }
 
-    private function getMailBodyTemplate(string $templateName, CardOrder $cardOrder): StandaloneView
+    private function getMailBodyTemplate(CardOrder $cardOrder): ViewInterface
     {
-        $view = new StandaloneView();
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: $this->settings['cardOrderMail']['templateRootPaths'],
+            partialRootPaths: $this->settings['cardOrderMail']['partialRootPaths'],
+            format: 'txt',
+        );
 
-        $view->setPartialRootPaths($this->settings['cardOrderMail']['partialRootPaths']);
-        $view->setTemplateRootPaths($this->settings['cardOrderMail']['templateRootPaths']);
-        $view->setTemplate($templateName);
-        $view->setFormat('txt');
+        $view = $this->viewFactory->create($viewFactoryData);
 
         $view->assign('cardOrder', $cardOrder);
         $view->assign('settings', $this->settings);
@@ -46,7 +50,7 @@ class CardOrderMailService implements SingletonInterface
     {
         $mailMessage = new MailMessage();
         $mailMessage->setFrom(
-            [$this->settings['cardOrderMail']['fromEmail'] => $this->settings['cardOrderMail']['Name']],
+            [$this->settings['cardOrderMail']['fromEmail'] => $this->settings['cardOrderMail']['fromName']],
         );
         return $mailMessage;
     }
@@ -59,8 +63,8 @@ class CardOrderMailService implements SingletonInterface
         $cardOrderTeamMail->setTo([$cardOrderTeamToEmail => $cardOrderTeamToName]);
         $cardOrderTeamMail->setSubject($this->settings['cardOrderMail']['cardOrderTeam']['subject']);
 
-        $cardOrderTeamTemplate = $this->getMailBodyTemplate('CardOrderTeam', $cardOrder);
-        $cardOrderTeamMail->setBody($cardOrderTeamTemplate->render(), 'text/plain');
+        $cardOrderTeamTemplate = $this->getMailBodyTemplate($cardOrder);
+        $cardOrderTeamMail->text($cardOrderTeamTemplate->render('CardOrderTeam'));
         $cardOrderTeamMail->send();
     }
 
@@ -70,8 +74,8 @@ class CardOrderMailService implements SingletonInterface
         $userMail->setTo([$cardOrder->getEmail() => $cardOrder->getFullName()]);
         $userMail->setSubject($this->settings['cardOrderMail']['user']['subject']);
 
-        $userTemplate = $this->getMailBodyTemplate('User', $cardOrder);
-        $userMail->setBody($userTemplate->render(), 'text/plain');
+        $userTemplate = $this->getMailBodyTemplate($cardOrder);
+        $userMail->text($userTemplate->render('User'));
         $userMail->send();
     }
 }
