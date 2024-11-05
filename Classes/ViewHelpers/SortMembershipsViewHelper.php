@@ -6,10 +6,7 @@ namespace Sto\Theaterinfo\ViewHelpers;
 
 use Sto\Theaterinfo\Domain\Model\ManagementMembership;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use Closure;
-use RuntimeException;
 
 class SortMembershipsViewHelper extends AbstractViewHelper
 {
@@ -23,16 +20,14 @@ class SortMembershipsViewHelper extends AbstractViewHelper
      */
     protected $escapeOutput = false;
 
-    public static function renderStatic(
-        array $arguments,
-        Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext,
-    ) {
-        $storage = $renderChildrenClosure();
+    public function render()
+    {
+        $storage = $this->renderChildren();
 
-        if (!$storage instanceof ObjectStorage) {
-            throw new RuntimeException('Invalid usage of SortMembershipsViewHelper. Expected ObjectStorage.');
-        }
+        assert(
+            $storage instanceof ObjectStorage,
+            'Invalid usage of SortMembershipsViewHelper. Expected ObjectStorage.',
+        );
 
         $memberships = $storage->toArray();
 
@@ -47,10 +42,5 @@ class SortMembershipsViewHelper extends AbstractViewHelper
         );
 
         return $memberships;
-    }
-
-    public function initializeArguments(): void
-    {
-        // No arguments needed for this view helper.
     }
 }
