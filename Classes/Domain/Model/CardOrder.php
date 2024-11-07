@@ -11,57 +11,47 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class CardOrder extends AbstractEntity
 {
     /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $address = '';
+    protected string $address = '';
 
     /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $city = '';
+    protected string $city = '';
 
     /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      * @Extbase\Validate("EmailAddress")
      */
-    protected $email = '';
+    protected string $email = '';
 
     /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $firstname = '';
+    protected string $firstname = '';
 
     /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $lastname = '';
+    protected string $lastname = '';
+
+    protected string $notes = '';
 
     /**
-     * @var string
+     * @var ObjectStorage<CardOrderRow>|null
      */
-    protected $notes = '';
+    protected ?ObjectStorage $rows;
 
     /**
-     * @var ObjectStorage<CardOrderRow>
-     */
-    protected $rows;
-
-    /**
-     * @var string
-     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected $zip = '';
+    protected string $zip = '';
+
+    public function __construct()
+    {
+        $this->rows = new ObjectStorage();
+    }
 
     public function getAddress(): string
     {
@@ -83,7 +73,7 @@ class CardOrder extends AbstractEntity
         return $this->firstname;
     }
 
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->getFirstname() . ' ' . $this->getLastname();
     }
@@ -99,15 +89,15 @@ class CardOrder extends AbstractEntity
     }
 
     /**
-     * @return CardOrderRow[]|ObjectStorage
+     * @return ObjectStorage<CardOrderRow>
      */
     public function getRows(): ObjectStorage
     {
-        return $this->rows;
+        return $this->rows ?? new ObjectStorage();
     }
 
     /**
-     * @return CardOrderRow[]|ObjectStorage
+     * @return ObjectStorage<CardOrderRow>
      */
     public function getRowsWithOrderedCards(): ObjectStorage
     {
@@ -177,7 +167,7 @@ class CardOrder extends AbstractEntity
     }
 
     /**
-     * @param CardOrderRow[]|ObjectStorage $rows
+     * @param ObjectStorage<CardOrderRow> $rows
      */
     public function setRows(ObjectStorage $rows): void
     {
