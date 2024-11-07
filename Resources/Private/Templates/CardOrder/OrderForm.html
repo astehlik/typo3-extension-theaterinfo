@@ -21,7 +21,7 @@
 <f:section name="amountInputs">
 <div class="col-sm-6 col-xs-4 amount-column" data-amount-column-price="{play.priceNormal}">
 	<f:form.textfield property="rows.{playOrderIndex}.amountNormal"
-		class="amount-input form-control" placeholder="Anzahl" type="number"/>
+		class="amount-input form-control" errorClass="is-invalid" placeholder="Anzahl" type="number"/>
 </div>
 <div class="col-xs-8 visible-xs-block">
 	<p class="form-control-static">
@@ -166,56 +166,63 @@
 	<ti:form.validatedControlGroup for="cardOrder.firstname">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-firstname">Vorname *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="firstname" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-firstname"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="firstname" class="form-control" id="tx-theaterinfor-card-order-firstname"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.lastname">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-lastname">Nachname *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="lastname" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-lastname"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="lastname" class="form-control" id="tx-theaterinfor-card-order-lastname"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.address">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-address">Straße *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="address" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-address"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="address" class="form-control" id="tx-theaterinfor-card-order-address"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.zip">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-zip">Postleitzahl *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="zip" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-zip"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="zip" class="form-control" id="tx-theaterinfor-card-order-zip"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.city">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-city">Ort *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="city" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-city"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="city" class="form-control" id="tx-theaterinfor-card-order-city"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.email">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-email">E-Mail *</label>
 		<div class="col-sm-10">
+			<f:form.textfield property="email" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-email"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textfield property="email" class="form-control" id="tx-theaterinfor-card-order-email"/>
 		</div>
 	</ti:form.validatedControlGroup>
 
 	<ti:form.validatedControlGroup for="cardOrder.notes">
 		<label class="control-label col-sm-2" for="tx-theaterinfor-card-order-notes">Bemerkungen</label>
 		<div class="col-sm-10">
+			<f:form.textarea property="notes" class="form-control" errorClass="is-invalid"
+					id="tx-theaterinfor-card-order-notes"/>
 			<ti:form.inlineHelpOrErrors/>
-			<f:form.textarea property="notes" class="form-control" id="tx-theaterinfor-card-order-notes"/>
 		</div>
 	</ti:form.validatedControlGroup>
 

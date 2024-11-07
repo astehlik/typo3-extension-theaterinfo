@@ -63,17 +63,19 @@ class InlineHelpOrErrorsViewHelper extends AbstractViewHelper
      */
     public function render(): string
     {
-        $finalOutput = implode('<br />', $this->getErrorMessages());
+        $errorMessages = implode('<br />', $this->getErrorMessages());
 
-        if (empty($finalOutput)) {
-            $finalOutput = (string)$this->renderChildren();
+        if ($errorMessages !== '') {
+            return '<div class="invalid-feedback">' . $errorMessages . '</div>';
         }
 
-        if (!empty($finalOutput)) {
-            $finalOutput = '<span class="help-block">' . $finalOutput . '</span>';
+        $helpText = (string)$this->renderChildren();
+
+        if ($helpText === '') {
+            return '';
         }
 
-        return $finalOutput;
+        return '<div class="form-text">' . $helpText . '</div>';
     }
 
     /**
