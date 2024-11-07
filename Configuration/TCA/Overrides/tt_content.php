@@ -20,7 +20,9 @@ call_user_func(static function (): void {
     $enablePagesForContentType = static function (string $contentTypeName): void {
         ExtensionManagementUtility::addToAllTCAtypes(
             'tt_content',
-            '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:plugin, pages',
+            '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:plugin,
+            pages;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:pages.ALT.list_formlabel,
+            recursive',
             $contentTypeName,
             'after:palette:headers',
         );
