@@ -101,6 +101,7 @@ class CardOrder extends AbstractEntity
      */
     public function getRowsWithOrderedCards(): ObjectStorage
     {
+        /** @var ObjectStorage<CardOrderRow> $rowsWithOrderedCards */
         $rowsWithOrderedCards = new ObjectStorage();
         foreach ($this->getRows() as $row) {
             if (!$row->hasOrderedCards()) {
