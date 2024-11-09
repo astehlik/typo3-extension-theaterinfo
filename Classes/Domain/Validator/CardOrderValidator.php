@@ -19,7 +19,7 @@ class CardOrderValidator extends AbstractValidator
     {
         if (!$value instanceof CardOrder) {
             throw new InvalidArgumentException(
-                'The value must be an instance of \Sto\Theaterinfo\Domain\Model\CardOrder',
+                'The value must be an instance of \\Sto\\Theaterinfo\\Domain\\Model\\CardOrder',
             );
         }
 
