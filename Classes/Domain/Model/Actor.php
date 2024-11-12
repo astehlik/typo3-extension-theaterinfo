@@ -106,6 +106,10 @@ class Actor extends AbstractEntity
      */
     public function getFullName(): string
     {
+        if ($this->type === ActorType::COMPANY) {
+            return $this->getCompany();
+        }
+
         return trim($this->getFirstname() . ' ' . $this->getLastname());
     }
 
