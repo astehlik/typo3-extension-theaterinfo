@@ -45,7 +45,6 @@ CREATE TABLE tx_theaterinfo_domain_model_managementposition (
 #
 CREATE TABLE tx_theaterinfo_domain_model_role (
 	playuid int(11) DEFAULT '0' NOT NULL,
-	actors text,
 	sorting int(11) DEFAULT '0' NOT NULL
 );
 
@@ -60,6 +59,5 @@ CREATE TABLE tx_theaterinfo_domain_model_play (
 # Table structure for table 'tx_theaterinfo_domain_model_helper'
 #
 CREATE TABLE tx_theaterinfo_domain_model_helper (
-	actors text,
 	sorting int(11) DEFAULT '0' NOT NULL
 );

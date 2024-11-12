@@ -21,6 +21,10 @@ services:
     resource: '../Classes/Hooks/*'
     public: true
 
+  Sto\Theaterinfo\Updates\:
+    resource: '../Classes/Updates/*'
+    public: true
+
   Sto\Theaterinfo\ViewHelpers\:
     resource: '../Classes/ViewHelpers/*'
     public: true

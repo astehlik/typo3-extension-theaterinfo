@@ -84,6 +84,7 @@ return [
                 'foreign_table' => 'tx_theaterinfo_domain_model_actor',
                 'foreign_table_where' => 'ORDER BY tx_theaterinfo_domain_model_actor.lastname,'
                     . ' tx_theaterinfo_domain_model_actor.firstname',
+                'MM' => 'tx_theaterinfo_domain_model_role_actor_mm',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 100,
