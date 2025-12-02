@@ -1,6 +1,6 @@
 {
     "name": "de-swebhosting-typo3-extension/theaterinfo",
-    "description": "TYPO3 Extension for displaying information about theater plays, actors and their roles and tasks",
+    "description": "Theater info - Displays information about theater plays, actors and their roles and tasks",
     "license": "GPL-3.0-or-later",
     "type": "typo3-cms-extension",
     "keywords": [
@@ -23,12 +23,13 @@
     },
     "require": {
         "php": "^8.2",
-        "typo3/cms-core": "~13.4.0"
+        "typo3/cms-core": "^14.0.0"
     },
     "require-dev": {
-        "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_13",
+        "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_14",
         "michielroos/typo3scan": "dev-master",
-        "phpunit/phpunit": "^11.5.50"
+        "phpunit/phpunit": "^11.5.50",
+        "typo3/testing-framework": "dev-main"
     },
     "autoload": {
         "psr-4": {
