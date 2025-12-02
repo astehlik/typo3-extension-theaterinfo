@@ -17,7 +17,6 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'typeicon_classes' => ['default' => 'status-user-group-frontend'],
-        'searchFields' => 'name',
         'hideTable' => true,
         'origUid' => 't3_origuid',
         'versioningWS' => true,
@@ -44,6 +43,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'picture' => [

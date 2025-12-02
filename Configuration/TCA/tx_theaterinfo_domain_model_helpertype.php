@@ -18,7 +18,6 @@ return [
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'typeicon_classes' => ['default' => 'apps-pagetree-folder-contains-fe_users'],
-        'searchFields' => 'jobtitle',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
     ],
