@@ -27,7 +27,8 @@
     },
     "require-dev": {
         "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_13",
-        "michielroos/typo3scan": "dev-master"
+        "michielroos/typo3scan": "dev-master",
+        "phpunit/phpunit": "^11.5.33"
     },
     "autoload": {
         "psr-4": {
