@@ -41,9 +41,7 @@ class CardOrderPlay extends AbstractEntity
         $dates = $this->getDates()->toArray();
         usort(
             $dates,
-            static function (CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) {
-                return $cardOrderDate1->getDateAndTime() <=> $cardOrderDate2->getDateAndTime();
-            },
+            static fn(CardOrderDate $cardOrderDate1, CardOrderDate $cardOrderDate2) => $cardOrderDate1->getDateAndTime() <=> $cardOrderDate2->getDateAndTime(),
         );
         return $dates;
     }
