@@ -18,7 +18,7 @@ class ContentCreationCest
 
     public function playRecordCanBeCreated(BackendTester $I, PageTree $pageTree, ModalDialog $modalDialog): void
     {
-        $I->click('List');
+        $I->click('Records');
         $pageTree->openPath(['Theaterinfo', 'Data', 'Plays data']);
 
         $I->wait(0.2);
