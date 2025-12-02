@@ -1,10 +1,12 @@
 includes:
   - ../../.Build/vendor/bnf/phpstan-psr-container/extension.neon
-  - ../../.Build/vendor/friendsoftypo3/phpstan-typo3/extension.neon
   - ../../.Build/vendor/phpstan/phpstan-phpunit/extension.neon
   - ./phpstan-baseline.neon
 
 parameters:
+  bootstrapFiles:
+    - phpstan.bootstrap.php
+
   # Use local .cache dir instead of /tmp
   tmpDir: ../../.cache/phpstan
 
