@@ -37,7 +37,7 @@ final class RecordTitleHooksTest extends TestCase
 
         $this->hooks->getActorTitle($params);
 
-        self::assertSame($expectedParams, $params);
+        $this->assertSame($expectedParams, $params);
     }
 
     public function testGetActorTitleSetsTitleToLastnameFirstnameForPerson(): void
@@ -56,7 +56,7 @@ final class RecordTitleHooksTest extends TestCase
 
         $this->hooks->getActorTitle($params);
 
-        self::assertSame($expectedParams, $params);
+        $this->assertSame($expectedParams, $params);
     }
 
     public function testGetActorTitleSkipsIfTableNameDoesNotMatch(): void
@@ -66,7 +66,7 @@ final class RecordTitleHooksTest extends TestCase
 
         $this->hooks->getActorTitle($params);
 
-        self::assertSame($expectedParams, $params);
+        $this->assertSame($expectedParams, $params);
     }
 
     public function testGetActorTitleSkipsIfTypeCanNotBeDetected(): void
@@ -79,6 +79,6 @@ final class RecordTitleHooksTest extends TestCase
 
         $this->hooks->getActorTitle($params);
 
-        self::assertSame($expectedParams, $params);
+        $this->assertSame($expectedParams, $params);
     }
 }

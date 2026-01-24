@@ -47,6 +47,6 @@ class SortMembershipsViewHelperTest extends AbstractFunctionalTestCase
             </html>
         ');
 
-        self::assertSame('Company1Company2', trim((new TemplateView($context))->render()));
+        $this->assertSame('Company1Company2', trim((new TemplateView($context))->render()));
     }
 }
