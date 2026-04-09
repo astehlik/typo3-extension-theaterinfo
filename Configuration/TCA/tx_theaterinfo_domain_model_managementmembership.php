@@ -11,7 +11,7 @@ return [
         'label' => 'position',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'default_sortby' => 'ORDER BY startdate',
+        'default_sortby' => 'startdate',
         'delete' => 'deleted',
         'enablecolumns' => [
             'starttime' => 'startdate',

@@ -18,7 +18,7 @@ return [
         'label_userFunc' => RecordTitleHooks::class . '->getActorTitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'default_sortby' => 'ORDER BY lastname, firstname',
+        'default_sortby' => 'lastname, firstname',
         'delete' => 'deleted',
         'type' => 'type',
         'enablecolumns' => ['disabled' => 'hidden'],

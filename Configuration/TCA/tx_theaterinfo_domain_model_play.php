@@ -14,7 +14,7 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'default_sortby' => 'ORDER BY time_sort DESC',
+        'default_sortby' => 'time_sort DESC',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,

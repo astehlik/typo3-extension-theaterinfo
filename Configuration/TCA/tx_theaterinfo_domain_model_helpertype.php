@@ -14,7 +14,7 @@ return [
         'label' => 'jobtitle',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'default_sortby' => 'ORDER BY jobtitle',
+        'default_sortby' => 'jobtitle',
         'delete' => 'deleted',
         'enablecolumns' => ['disabled' => 'hidden'],
         'typeicon_classes' => ['default' => 'apps-pagetree-folder-contains-fe_users'],
