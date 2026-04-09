@@ -14,6 +14,8 @@ return [
         'delete' => 'deleted',
         'hideTable' => true,
         'typeicon_classes' => ['default' => 'content-package'],
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'amount_normal' => [

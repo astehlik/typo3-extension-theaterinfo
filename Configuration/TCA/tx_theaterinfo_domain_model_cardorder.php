@@ -13,6 +13,8 @@ return [
         'title' => $languagePrefix . 'tx_theaterinfo_domain_model_cardorder',
         'delete' => 'deleted',
         'typeicon_classes' => ['default' => 'content-book'],
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'address' => [

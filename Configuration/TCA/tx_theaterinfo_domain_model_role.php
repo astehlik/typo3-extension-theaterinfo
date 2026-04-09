@@ -19,6 +19,8 @@ return [
         'typeicon_classes' => ['default' => 'status-user-group-frontend'],
         'searchFields' => 'name',
         'hideTable' => true,
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'hidden' => [

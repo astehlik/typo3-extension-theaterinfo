@@ -20,6 +20,8 @@ return [
         'dividers2tabs' => 1,
         'typeicon_classes' => ['default' => 'content-inside-text-img-right'],
         'searchFields' => 'title',
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'hidden' => [

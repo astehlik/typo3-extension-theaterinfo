@@ -15,6 +15,8 @@ return [
         'enablecolumns' => ['disabled' => 'hidden'],
         'typeicon_classes' => ['default' => 'status-user-group-frontend'],
         'hideTable' => true,
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'hidden' => [

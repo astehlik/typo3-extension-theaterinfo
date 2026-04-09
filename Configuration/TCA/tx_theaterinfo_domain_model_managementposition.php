@@ -15,6 +15,8 @@ return [
         'delete' => 'deleted',
         'typeicon_classes' => ['default' => 'content-briefcase'],
         'searchFields' => 'name',
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'name' => [

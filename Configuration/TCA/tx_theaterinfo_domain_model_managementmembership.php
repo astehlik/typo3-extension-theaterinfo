@@ -19,6 +19,8 @@ return [
         ],
         'typeicon_classes' => ['default' => 'content-briefcase'],
         'hideTable' => true,
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'actor_name_suffix' => [

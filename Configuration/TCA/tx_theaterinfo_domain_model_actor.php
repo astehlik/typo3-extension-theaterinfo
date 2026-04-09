@@ -25,6 +25,8 @@ return [
         'dividers2tabs' => 1,
         'typeicon_classes' => ['default' => 'status-user-frontend'],
         'searchFields' => 'firstname,lastname,company',
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'hidden' => [

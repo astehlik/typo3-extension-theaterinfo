@@ -19,6 +19,8 @@ return [
             'endtime' => 'enable_endtime',
         ],
         'typeicon_classes' => ['default' => 'content-package'],
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'dates' => [

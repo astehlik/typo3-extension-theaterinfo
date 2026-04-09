@@ -14,6 +14,8 @@ return [
         'enablecolumns' => ['disabled' => 'hidden'],
         'hideTable' => true,
         'typeicon_classes' => ['default' => 'content-clock'],
+        'origUid' => 't3_origuid',
+        'versioningWS' => true,
     ],
     'columns' => [
         'date_and_time' => [
