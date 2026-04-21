@@ -48,11 +48,6 @@ class CardOrder extends AbstractEntity
      */
     protected string $zip = '';
 
-    public function __construct()
-    {
-        $this->rows = new ObjectStorage();
-    }
-
     public function getAddress(): string
     {
         return $this->address;
@@ -135,6 +130,11 @@ class CardOrder extends AbstractEntity
         }
 
         return false;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->rows = new ObjectStorage();
     }
 
     public function setAddress(string $address): void

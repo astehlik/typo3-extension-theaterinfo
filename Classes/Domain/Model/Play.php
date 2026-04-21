@@ -65,12 +65,6 @@ class Play extends AbstractEntity
 
     protected ?string $title = null;
 
-    public function __construct()
-    {
-        $this->roles = new ObjectStorage();
-        $this->helpers = new ObjectStorage();
-    }
-
     public function getAction(): string
     {
         return (string)$this->action;
@@ -166,5 +160,11 @@ class Play extends AbstractEntity
     public function getTitle(): string
     {
         return (string)$this->title;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->roles = new ObjectStorage();
+        $this->helpers = new ObjectStorage();
     }
 }

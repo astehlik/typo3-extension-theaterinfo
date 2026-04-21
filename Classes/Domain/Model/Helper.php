@@ -31,11 +31,6 @@ class Helper extends AbstractEntity
 
     protected ?Play $play = null;
 
-    public function __construct()
-    {
-        $this->actors = new ObjectStorage();
-    }
-
     /**
      * @return ObjectStorage<Actor>
      */
@@ -47,5 +42,10 @@ class Helper extends AbstractEntity
     public function getHelpertype(): ?Helpertype
     {
         return $this->helpertype;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->actors = new ObjectStorage();
     }
 }

@@ -60,11 +60,6 @@ class Actor extends AbstractEntity
 
     protected ActorType $type;
 
-    public function __construct()
-    {
-        $this->managementPositions = new ObjectStorage();
-    }
-
     /**
      * Returns the current age in years of the actor.
      */
@@ -199,5 +194,10 @@ class Actor extends AbstractEntity
     public function getType(): ActorType
     {
         return $this->type;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->managementPositions = new ObjectStorage();
     }
 }
