@@ -15,7 +15,8 @@ defined('TYPO3') or die();
     'Theaterinfo',
     'PlaysList',
     [\Sto\Theaterinfo\Controller\PlayController::class => 'list, show'],
-    pluginType: \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    [],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Theaterinfo',
