@@ -18,7 +18,7 @@ use Psr\Http\Message\ResponseInterface;
 use Sto\Theaterinfo\Domain\Model\Play;
 use Sto\Theaterinfo\Domain\Repository\PlayRepository;
 use Sto\Theaterinfo\TheaterinfoPageTitleProvider;
-use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
@@ -52,10 +52,8 @@ class PlayController extends ActionController
      * Action that displays one single play.
      *
      * @param Play $play The play to display
-     *
-     * @Extbase\IgnoreValidation("play")
      */
-    public function showAction(Play $play): ResponseInterface
+    public function showAction(#[IgnoreValidation] Play $play): ResponseInterface
     {
         $this->titleProvider->setTitle($play->getTitle());
 
