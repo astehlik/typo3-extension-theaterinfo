@@ -46,6 +46,11 @@ class Helper extends AbstractEntity
         return $this->helpertype;
     }
 
+    public function getPlay(): ?Play
+    {
+        return $this->play;
+    }
+
     public function initializeObject(): void
     {
         $this->actors = new ObjectStorage();
