@@ -15,6 +15,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  *                                                                        */
 
 use DateTime;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -31,6 +32,7 @@ class Play extends AbstractEntity
     /**
      * @var ObjectStorage<Helper>|null
      */
+    #[Lazy]
     protected ?ObjectStorage $helpers = null;
 
     /**
@@ -48,11 +50,13 @@ class Play extends AbstractEntity
     /**
      * @var ObjectStorage<FileReference>
      */
+    #[Lazy]
     protected ObjectStorage $pictures;
 
     /**
      * @var ObjectStorage<Role>|null
      */
+    #[Lazy]
     protected ?ObjectStorage $roles = null;
 
     protected string $state;

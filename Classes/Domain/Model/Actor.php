@@ -19,6 +19,7 @@ namespace Sto\Theaterinfo\Domain\Model;
 use DateTime;
 use Sto\Theaterinfo\Domain\Model\Enumeration\ActorType;
 use Sto\Theaterinfo\Domain\Model\Enumeration\Gender;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -50,6 +51,7 @@ class Actor extends AbstractEntity
     /**
      * @var ObjectStorage<ManagementMembership>
      */
+    #[Lazy]
     protected ObjectStorage $managementPositions;
 
     protected ?string $managementReasons = null;

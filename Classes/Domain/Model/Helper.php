@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -29,6 +30,7 @@ class Helper extends AbstractEntity
 
     protected ?Helpertype $helpertype = null;
 
+    #[Lazy]
     protected ?Play $play = null;
 
     /**
