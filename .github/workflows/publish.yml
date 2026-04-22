@@ -4,7 +4,8 @@ name: Publish to TER
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
+
 jobs:
   publish:
     name: Publish new version to TER
@@ -44,7 +45,6 @@ jobs:
         with:
           php-version: 8.3
           extensions: intl, mbstring, json, zip, curl
-          tools: composer:v2
 
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest
