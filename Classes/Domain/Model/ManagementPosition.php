@@ -44,11 +44,6 @@ class ManagementPosition extends AbstractEntity
      */
     protected int $sorting;
 
-    public function __construct()
-    {
-        $this->memberships = new ObjectStorage();
-    }
-
     public function getCurrentMembership(): ?ManagementMembership
     {
         $currentMembership = null;
@@ -79,5 +74,10 @@ class ManagementPosition extends AbstractEntity
     public function getNameFemale(): string
     {
         return $this->nameFemale;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->memberships = new ObjectStorage();
     }
 }

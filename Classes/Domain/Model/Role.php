@@ -29,11 +29,6 @@ class Role extends AbstractEntity
 
     protected ?string $name = null;
 
-    public function __construct()
-    {
-        $this->actors = new ObjectStorage();
-    }
-
     /**
      * @return ObjectStorage<Actor>
      */
@@ -45,5 +40,10 @@ class Role extends AbstractEntity
     public function getName(): string
     {
         return (string)$this->name;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->actors = new ObjectStorage();
     }
 }

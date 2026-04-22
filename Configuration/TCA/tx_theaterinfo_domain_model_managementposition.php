@@ -14,7 +14,6 @@ return [
         'sortby' => 'sorting',
         'delete' => 'deleted',
         'typeicon_classes' => ['default' => 'content-briefcase'],
-        'searchFields' => 'name',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
     ],
@@ -26,6 +25,7 @@ return [
                 'type' => 'input',
                 'required' => true,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'name_female' => [
@@ -35,6 +35,7 @@ return [
                 'type' => 'input',
                 'required' => true,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'show_in_overview' => [

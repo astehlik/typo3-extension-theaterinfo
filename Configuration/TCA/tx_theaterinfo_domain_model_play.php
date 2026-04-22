@@ -19,7 +19,6 @@ return [
         'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,
         'typeicon_classes' => ['default' => 'content-inside-text-img-right'],
-        'searchFields' => 'title',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
     ],
@@ -45,6 +44,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'author' => [
@@ -55,6 +55,7 @@ return [
                 'cols' => 30,
                 'rows' => 5,
                 'eval' => 'trim',
+                'searchable' => false,
             ],
         ],
         'time_sort' => [
@@ -64,6 +65,7 @@ return [
                 'type' => 'datetime',
                 'format' => 'datetime',
                 'eval' => 'int',
+                'searchable' => false,
             ],
         ],
         'time_display' => [
@@ -72,6 +74,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'searchable' => false,
             ],
         ],
         'teaser' => [
@@ -81,6 +84,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'searchable' => false,
             ],
         ],
         'action' => [
@@ -91,6 +95,7 @@ return [
                 'cols' => 30,
                 'rows' => 5,
                 'enableRichtext' => true,
+                'searchable' => false,
             ],
         ],
         'logo' => [
@@ -221,6 +226,7 @@ return [
                 'cols' => 30,
                 'rows' => 5,
                 'enableRichtext' => true,
+                'searchable' => false,
             ],
         ],
         'slug' => [
@@ -236,6 +242,7 @@ return [
                 'fallbackCharacter' => '-',
                 'eval' => 'uniqueInSite',
                 'default' => '',
+                'searchable' => false,
             ],
         ],
     ],

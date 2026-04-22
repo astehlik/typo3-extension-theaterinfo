@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sto\Theaterinfo\Domain\Service;
 
 use Sto\Theaterinfo\Domain\Model\CardOrder;
+use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
@@ -17,6 +18,7 @@ class CardOrderMailService
 
     public function __construct(
         protected readonly ConfigurationManagerInterface $configurationManager,
+        protected readonly MailerInterface $mailer,
         protected readonly ViewFactoryInterface $viewFactory,
     ) {}
 
@@ -65,7 +67,8 @@ class CardOrderMailService
 
         $cardOrderTeamTemplate = $this->getMailBodyTemplate($cardOrder);
         $cardOrderTeamMail->text($cardOrderTeamTemplate->render('CardOrderTeam'));
-        $cardOrderTeamMail->send();
+
+        $this->mailer->send($cardOrderTeamMail);
     }
 
     private function sendUserMail(CardOrder $cardOrder): void
@@ -76,6 +79,7 @@ class CardOrderMailService
 
         $userTemplate = $this->getMailBodyTemplate($cardOrder);
         $userMail->text($userTemplate->render('User'));
-        $userMail->send();
+
+        $this->mailer->send($userMail);
     }
 }

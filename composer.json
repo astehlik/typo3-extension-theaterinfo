@@ -1,6 +1,6 @@
 {
     "name": "de-swebhosting-typo3-extension/theaterinfo",
-    "description": "TYPO3 Extension for displaying information about theater plays, actors and their roles and tasks",
+    "description": "Theater info - Displays information about theater plays, actors and their roles and tasks",
     "license": "GPL-3.0-or-later",
     "type": "typo3-cms-extension",
     "keywords": [
@@ -23,13 +23,30 @@
     },
     "require": {
         "php": "^8.2",
-        "typo3/cms-core": "~13.4.0"
+        "typo3/cms-core": "^14.3.0"
     },
     "require-dev": {
-        "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_13",
-        "michielroos/typo3scan": "dev-master",
-        "phpunit/phpunit": "^11.5.50"
+        "de-swebhosting/typo3-extension-buildtools": "dev-TYPO3_14",
+        "michielroos/typo3scan": "dev-master as 1.7.99",
+        "phpunit/phpunit": "^11.5.50",
+        "typo3/testing-framework": "dev-main"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "michielroos/typo3scan",
+                "version": "dev-master",
+                "bin": [
+                    "typo3scan"
+                ],
+                "dist": {
+                    "type": "file",
+                    "url": "https://github.com/mschwemer/typo3scan-src/raw/refs/heads/master/typo3scan"
+                }
+            }
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Sto\\Theaterinfo\\": "Classes/"

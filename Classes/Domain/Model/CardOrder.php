@@ -4,36 +4,26 @@ declare(strict_types=1);
 
 namespace Sto\Theaterinfo\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class CardOrder extends AbstractEntity
 {
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected string $address = '';
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected string $city = '';
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     * @Extbase\Validate("EmailAddress")
-     */
+    #[Validate('NotEmpty')]
+    #[Validate('EmailAddress')]
     protected string $email = '';
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected string $firstname = '';
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected string $lastname = '';
 
     protected string $notes = '';
@@ -43,15 +33,8 @@ class CardOrder extends AbstractEntity
      */
     protected ?ObjectStorage $rows;
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected string $zip = '';
-
-    public function __construct()
-    {
-        $this->rows = new ObjectStorage();
-    }
 
     public function getAddress(): string
     {
@@ -135,6 +118,11 @@ class CardOrder extends AbstractEntity
         }
 
         return false;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->rows = new ObjectStorage();
     }
 
     public function setAddress(string $address): void

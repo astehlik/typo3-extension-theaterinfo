@@ -14,6 +14,7 @@ namespace Sto\Theaterinfo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -29,12 +30,8 @@ class Helper extends AbstractEntity
 
     protected ?Helpertype $helpertype = null;
 
+    #[Lazy]
     protected ?Play $play = null;
-
-    public function __construct()
-    {
-        $this->actors = new ObjectStorage();
-    }
 
     /**
      * @return ObjectStorage<Actor>
@@ -47,5 +44,15 @@ class Helper extends AbstractEntity
     public function getHelpertype(): ?Helpertype
     {
         return $this->helpertype;
+    }
+
+    public function getPlay(): ?Play
+    {
+        return $this->play;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->actors = new ObjectStorage();
     }
 }

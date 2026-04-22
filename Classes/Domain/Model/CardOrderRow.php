@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Sto\Theaterinfo\Domain\Model;
 
 use DateTime;
-use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class CardOrderRow extends AbstractEntity
@@ -14,9 +14,7 @@ class CardOrderRow extends AbstractEntity
 
     protected int $amountReduced = 0;
 
-    /**
-     * @Extbase\Validate("NotEmpty")
-     */
+    #[Validate('NotEmpty')]
     protected CardOrderDate $playDate;
 
     public function getAmountNormal(): int

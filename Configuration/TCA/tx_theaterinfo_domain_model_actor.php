@@ -24,7 +24,6 @@ return [
         'enablecolumns' => ['disabled' => 'hidden'],
         'dividers2tabs' => 1,
         'typeicon_classes' => ['default' => 'status-user-frontend'],
-        'searchFields' => 'firstname,lastname,company',
         'origUid' => 't3_origuid',
         'versioningWS' => true,
     ],
@@ -94,6 +93,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'lastname' => [
@@ -103,6 +103,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'company' => [
@@ -112,6 +113,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => true,
             ],
         ],
         'picture' => [
@@ -158,6 +160,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'searchable' => false,
             ],
         ],
         'favorite_role' => [
@@ -186,6 +189,7 @@ return [
             'config' => [
                 'type' => 'datetime',
                 'format' => 'date',
+                'searchable' => false,
             ],
         ],
         'hobbys' => [
@@ -195,6 +199,7 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 5,
+                'searchable' => false,
             ],
         ],
         'job' => [
@@ -203,6 +208,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'eval' => 'trim',
+                'searchable' => false,
             ],
         ],
         'member_since' => [
@@ -212,6 +218,7 @@ return [
                 'type' => 'datetime',
                 'format' => 'date',
                 'eval' => 'int',
+                'searchable' => false,
             ],
         ],
         'slug' => [
@@ -231,6 +238,7 @@ return [
                 'fallbackCharacter' => '-',
                 'eval' => 'uniqueInSite',
                 'default' => '',
+                'searchable' => false,
             ],
         ],
     ],

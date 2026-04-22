@@ -20,7 +20,7 @@ use Sto\Theaterinfo\Domain\Model\CardOrderRow;
 use Sto\Theaterinfo\Domain\Repository\CardOrderPlayRepository;
 use Sto\Theaterinfo\Domain\Repository\CardOrderRepository;
 use Sto\Theaterinfo\Domain\Service\CardOrderMailService;
-use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter;
@@ -48,10 +48,7 @@ class CardOrderController extends ActionController
         );
     }
 
-    /**
-     * @Extbase\IgnoreValidation("cardOrder")
-     */
-    public function orderFormAction(?CardOrder $cardOrder = null): ResponseInterface
+    public function orderFormAction(#[IgnoreValidation] ?CardOrder $cardOrder = null): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
         $this->view->assign('cardOrderPlays', $this->cardOrderPlayRepository->findAll());
@@ -59,17 +56,14 @@ class CardOrderController extends ActionController
         return $this->htmlResponse();
     }
 
-    public function takeOrderAction(?CardOrder $cardOrder): ResponseInterface
+    public function takeOrderAction(CardOrder $cardOrder): ResponseInterface
     {
         $this->cardOrderRepository->addAndPersist($cardOrder);
         $this->cardOrderMailService->sendCardOrderMails($cardOrder);
         return $this->redirect('takeOrderConfirmation', null, null, ['cardOrder' => $cardOrder]);
     }
 
-    /**
-     * @Extbase\IgnoreValidation("cardOrder")
-     */
-    public function takeOrderConfirmationAction(?CardOrder $cardOrder): ResponseInterface
+    public function takeOrderConfirmationAction(#[IgnoreValidation] ?CardOrder $cardOrder): ResponseInterface
     {
         $this->view->assign('cardOrder', $cardOrder);
 
