@@ -5,7 +5,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Theater info',
     'description' => 'Displays information about theater plays, actors and their roles and tasks',
-    'version' => '13.4.0-dev',
+    'version' => '13.0.0',
     'category' => 'plugin',
     'constraints' => [
         'depends' => ['typo3' => '13.4.0-13.4.99'],
