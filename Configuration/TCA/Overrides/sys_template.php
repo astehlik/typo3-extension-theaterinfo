@@ -12,6 +12,6 @@ ExtensionManagementUtility::addStaticFile(
 
 ExtensionManagementUtility::addStaticFile(
     'theaterinfo',
-    'Configuration/TypoScript',
+    'Configuration/TypoScript/Linkhandler',
     'Theater info - Linkhandler',
 );
