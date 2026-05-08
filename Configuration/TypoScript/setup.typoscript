@@ -36,5 +36,3 @@ config.pageTitleProviders {
     before = record, seo
   }
 }
-
-<INCLUDE_TYPOSCRIPT: source="FILE: EXT:theaterinfo/Configuration/TypoScript/Linkhandler/setup.typoscript">
