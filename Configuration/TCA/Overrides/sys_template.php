@@ -9,3 +9,9 @@ ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript',
     'Theater info',
 );
+
+ExtensionManagementUtility::addStaticFile(
+    'theaterinfo',
+    'Configuration/TypoScript',
+    'Theater info - Linkhandler',
+);
